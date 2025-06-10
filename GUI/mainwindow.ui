@@ -30,88 +30,45 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow {
-	background-image: url(:/img./WhatsApp Image 2025-06-10 at 06.11.47_364cc8ec.jpg);
-	background-image: url(:/img./WhatsApp Image 2025-06-10 at 06.11.42_7ba1ea58.jpg);
-	background-image: url(:/img./WhatsApp Image 2025-06-10 at 06.11.42_7ba1ea58.jpg);
-	background-image: url(:/img./WhatsApp Image 2025-06-10 at 06.11.42_7ba1ea58.jpg);
-    background-image: url(:/pictures/pictures/bg3.png);
-    background-repeat: no-repeat;
-    background-position: center;
+    background-color: rgb(34, 34, 34);
 }
 
 QPushButton {
-    background-color: rgb(92, 142, 146); /* Light gray background */
-    color: white; /* Dark text color */
-    padding: 10px;
-    border-radius: 5px; /* Rounded corners */
+    background-color: rgb(92, 142, 146);
+    color: white;
+    border-radius: 5px;
     font-size: 22px;
     font-weight: bold;
-    min-width: 100px;
-    min-height: 30px;
+    min-width: 400px;
+    min-height: 50px;
 }
 
 QPushButton:hover {
-    background-color: rgb(143, 111, 117); /* Green background on hover */
-    color: white; /* White text on hover */
+    background-color: rgb(112, 162, 166);
 }
 
 QPushButton:disabled {
-    background-color: #cccccc; /* Gray background when disabled */
-    border-color: #aaaaaa; /* Gray border when disabled */
-    color: #666666; /* Gray text when disabled */
-}
-
-QLineEdit {
-    padding: 8px; /* Padding inside the QLineEdit */
-    border: 1px solid #CCCCCC; /* Border and color */
-    border-radius: 5px; /* Rounded corners */
-    font-size: 18px; /* Font size */
-        font-weight:bold;
-}
-
-QLineEdit:focus {
-    border-color: #4CAF50; /* Border color when QLineEdit is focused */
-}
-
-QLineEdit::hover {
-    border-color: #999999; /* Border color on hover */
-}
-
-QLineEdit::disabled {
-    background-color: #F0F0F0; /* Background color when disabled */
-    color: #808080; /* Text color when disabled */
-    border-color: #CCCCCC; /* Border color when disabled */
-}
-
-QMessageBox {
-    background-image: url(:/pictures/pictures/mesbg.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    font-family: sans-serif;
-    font-size:12px;
-    font-Weight:bold;
-    color:white;
-}
-
-QMessageBox QPushButton {
-    background-color: rgb(92, 142, 146);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 3px;
-    font-size: 14px;
-    font-weight: bold;
-    min-width: 30px;
-    min-height: 10px;
-    border: none;
-}
-
-QMessageBox QPushButton:hover {
-    background-color: rgb(204, 177, 161);
-}
-
-QMessageBox QPushButton:disabled {
     background-color: #cccccc;
     color: #666666;
+}
+
+QPushButton#pushButton_login, QPushButton#pushButton_exit {
+    min-width: 120px;
+}
+
+QLabel#label_guest {
+    border-top: 2px solid rgb(92, 142, 146);
+    border-bottom: 2px solid rgb(92, 142, 146);
+    padding: 10px;
+}
+
+QLabel#label_profile_photo {
+    background-image: url(:/icons/user.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgb(92, 142, 146);
+    border: none;
+    border-radius: 5px;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -137,7 +94,7 @@ QMessageBox QPushButton:disabled {
        <string notr="true">background-image: url(:/pictures/pictures/WhatsApp Image 2025-04-26 at 00.05.13_eb15804b.jpg);</string>
       </property>
       <property name="currentIndex">
-       <number>8</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="main">
        <property name="sizePolicy">
@@ -152,24 +109,426 @@ QMessageBox QPushButton:disabled {
          <height>531</height>
         </size>
        </property>
+       <layout class="QGridLayout" name="gridLayout_main">
+        <item row="0" column="1">
+         <layout class="QVBoxLayout" name="verticalLayout_main_center">
+          <item>
+           <spacer name="verticalSpacer_main_top">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item alignment="Qt::AlignmentFlag::AlignHCenter">
+           <widget class="QLabel" name="label_title">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);
+font: 900 48pt &quot;Segoe UI Black&quot;;</string>
+            </property>
+            <property name="text">
+             <string>TIC TAC TOE</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_main_2">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_play_friend">
+            <property name="minimumSize">
+             <size>
+              <width>400</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Player Vs Player</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_play_ai">
+            <property name="minimumSize">
+             <size>
+              <width>400</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Player Vs AI</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_load_game">
+            <property name="minimumSize">
+             <size>
+              <width>400</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Load Game</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_main_bottom">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item row="0" column="2">
+         <layout class="QVBoxLayout" name="verticalLayout_main_right">
+          <item>
+           <spacer name="verticalSpacer_main_right_top">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>100</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_login">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Login</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_main_right_bottom">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item row="0" column="0">
+         <layout class="QVBoxLayout" name="verticalLayout_main_left">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_profile">
+            <property name="spacing">
+             <number>10</number>
+            </property>
+            <item>
+             <spacer name="verticalSpacer_profile_top">
+              <property name="orientation">
+               <enum>Qt::Orientation::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Policy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_profile_photo">
+              <item>
+               <spacer name="horizontalSpacer_profile_left">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Policy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_profile_photo">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>100</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>100</width>
+                  <height>100</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: 2px solid rgb(92, 142, 146);
+background-color: rgb(92, 142, 146);</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_profile_right">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Policy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_guest">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+font: 700 14pt &quot;Segoe UI&quot;;</string>
+              </property>
+              <property name="text">
+               <string>Guest</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_main_1">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_exit">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Exit</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="profile">
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <layout class="QVBoxLayout" name="verticalLayout_profile_main">
+        <item alignment="Qt::AlignmentFlag::AlignHCenter">
+         <widget class="QLabel" name="label_profile">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);
+font: 900 48pt &quot;Segoe UI Black&quot;;</string>
+          </property>
+          <property name="text">
+           <string>Profile</string>
+          </property>
+         </widget>
+        </item>
         <item>
-         <layout class="QGridLayout" name="gridLayout_5">
-          <property name="leftMargin">
-           <number>50</number>
+         <spacer name="verticalSpacer_profile_1">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
           </property>
-          <property name="topMargin">
-           <number>50</number>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
           </property>
-          <property name="rightMargin">
-           <number>50</number>
+         </spacer>
+        </item>
+        <item alignment="Qt::AlignmentFlag::AlignHCenter">
+         <widget class="QLabel" name="label_profile_photo">
+          <property name="minimumSize">
+           <size>
+            <width>250</width>
+            <height>250</height>
+           </size>
           </property>
-          <property name="bottomMargin">
-           <number>50</number>
+          <property name="maximumSize">
+           <size>
+            <width>250</width>
+            <height>250</height>
+           </size>
           </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(92, 142, 146);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item alignment="Qt::AlignmentFlag::AlignHCenter">
+         <widget class="QLabel" name="label_username">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);
+font: 700 24pt &quot;Segoe UI&quot;;</string>
+          </property>
+          <property name="text">
+           <string>Username : name</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_profile_2">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_profile_buttons">
+          <property name="spacing">
+           <number>20</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="pushButton_change_photo">
+            <property name="minimumSize">
+             <size>
+              <width>400</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Change photo</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_change_username">
+            <property name="minimumSize">
+             <size>
+              <width>400</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Change username</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_change_password">
+            <property name="minimumSize">
+             <size>
+              <width>400</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Change password</string>
+            </property>
+           </widget>
+          </item>
          </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_profile_3">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item alignment="Qt::AlignmentFlag::AlignLeft">
+         <widget class="QPushButton" name="pushButton_back">
+          <property name="minimumSize">
+           <size>
+            <width>400</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>60</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Back</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -402,7 +761,7 @@ font: 900 24pt &quot;Segoe UI Black&quot;;</string>
               </property>
               <property name="minimumSize">
                <size>
-                <width>200</width>
+                <width>180</width>
                 <height>50</height>
                </size>
               </property>
@@ -565,23 +924,375 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="login"/>
-      <widget class="QWidget" name="signup">
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <widget class="QWidget" name="login">
+       <layout class="QHBoxLayout" name="horizontalLayout_login">
         <item>
-         <layout class="QGridLayout" name="gridLayout_4">
-          <property name="leftMargin">
-           <number>5</number>
-          </property>
-          <property name="topMargin">
-           <number>30</number>
-          </property>
-          <property name="rightMargin">
-           <number>50</number>
-          </property>
-          <property name="bottomMargin">
-           <number>20</number>
-          </property>
+         <layout class="QGridLayout" name="gridLayout_login">
+          <item row="0" column="1">
+           <spacer name="verticalSpacer_login_top">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
+           <widget class="QLabel" name="label_login">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);
+font: 900 36pt &quot;Segoe UI Black&quot;;</string>
+            </property>
+            <property name="text">
+             <string>Login</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <spacer name="verticalSpacer_login_1">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Maximum</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="3" column="1">
+           <layout class="QVBoxLayout" name="verticalLayout_login">
+            <property name="spacing">
+             <number>15</number>
+            </property>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_username">
+              <property name="minimumSize">
+               <size>
+                <width>400</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="placeholderText">
+               <string>Username</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_password">
+              <property name="minimumSize">
+               <size>
+                <width>400</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="echoMode">
+               <enum>QLineEdit::EchoMode::Password</enum>
+              </property>
+              <property name="placeholderText">
+               <string>Password</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_show_password">
+              <property name="text">
+               <string>Show Password</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_login_2">
+              <property name="orientation">
+               <enum>Qt::Orientation::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Policy::Maximum</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_login">
+              <property name="minimumSize">
+               <size>
+                <width>120</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Login</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_goto_signup">
+              <property name="minimumSize">
+               <size>
+                <width>400</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Don't have an account? Sign up</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="3" column="0">
+           <spacer name="horizontalSpacer_login_left">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="3" column="2">
+           <spacer name="horizontalSpacer_login_right">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="4" column="1">
+           <spacer name="verticalSpacer_login_bottom">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="signup">
+       <layout class="QHBoxLayout" name="horizontalLayout_signup">
+        <item>
+         <layout class="QGridLayout" name="gridLayout_signup">
+          <item row="0" column="1">
+           <spacer name="verticalSpacer_signup_top">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
+           <widget class="QLabel" name="label_signup">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);
+font: 900 36pt &quot;Segoe UI Black&quot;;</string>
+            </property>
+            <property name="text">
+             <string>Sign Up</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <spacer name="verticalSpacer_signup_1">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Maximum</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="3" column="1">
+           <layout class="QVBoxLayout" name="verticalLayout_signup">
+            <property name="spacing">
+             <number>15</number>
+            </property>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_signup_username">
+              <property name="minimumSize">
+               <size>
+                <width>400</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="placeholderText">
+               <string>Username</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_signup_email">
+              <property name="minimumSize">
+               <size>
+                <width>400</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="placeholderText">
+               <string>Email</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_signup_password">
+              <property name="minimumSize">
+               <size>
+                <width>400</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="echoMode">
+               <enum>QLineEdit::EchoMode::Password</enum>
+              </property>
+              <property name="placeholderText">
+               <string>Password</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_signup_confirm_password">
+              <property name="minimumSize">
+               <size>
+                <width>400</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="echoMode">
+               <enum>QLineEdit::EchoMode::Password</enum>
+              </property>
+              <property name="placeholderText">
+               <string>Confirm Password</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_signup_show_password">
+              <property name="text">
+               <string>Show Password</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_signup_2">
+              <property name="orientation">
+               <enum>Qt::Orientation::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Policy::Maximum</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_signup">
+              <property name="minimumSize">
+               <size>
+                <width>400</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Sign Up</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_goto_login">
+              <property name="minimumSize">
+               <size>
+                <width>400</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Already have an account? Login</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="3" column="0">
+           <spacer name="horizontalSpacer_signup_left">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="3" column="2">
+           <spacer name="horizontalSpacer_signup_right">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="4" column="1">
+           <spacer name="verticalSpacer_signup_bottom">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
          </layout>
         </item>
        </layout>
@@ -689,8 +1400,8 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
               </property>
               <property name="minimumSize">
                <size>
-                <width>420</width>
-                <height>70</height>
+                <width>400</width>
+                <height>50</height>
                </size>
               </property>
               <property name="styleSheet">
@@ -712,8 +1423,8 @@ min-height:50px;</string>
               </property>
               <property name="minimumSize">
                <size>
-                <width>120</width>
-                <height>70</height>
+                <width>400</width>
+                <height>50</height>
                </size>
               </property>
               <property name="styleSheet">
@@ -734,8 +1445,8 @@ min-height:50px;</string>
               </property>
               <property name="minimumSize">
                <size>
-                <width>120</width>
-                <height>70</height>
+                <width>400</width>
+                <height>50</height>
                </size>
               </property>
               <property name="styleSheet">
@@ -787,7 +1498,7 @@ min-height:50px;</string>
             </property>
             <property name="minimumSize">
              <size>
-              <width>120</width>
+              <width>400</width>
               <height>50</height>
              </size>
             </property>
@@ -847,24 +1558,296 @@ font: 900 24pt &quot;Segoe UI Black&quot;;</string>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_7">
+       <layout class="QHBoxLayout" name="horizontalLayout_board">
         <item>
-         <layout class="QGridLayout" name="gridLayout_10">
-          <property name="sizeConstraint">
-           <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
-          </property>
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>30</number>
-          </property>
+         <layout class="QGridLayout" name="gridLayout_board">
+          <item row="0" column="1">
+           <spacer name="verticalSpacer_board_top">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
+           <widget class="QLabel" name="label_turn">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);
+font: 900 24pt &quot;Segoe UI Black&quot;;</string>
+            </property>
+            <property name="text">
+             <string>Player's Turn</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <layout class="QGridLayout" name="gridLayout_game_board">
+            <property name="spacing">
+             <number>10</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QPushButton" name="pushButton_cell_0">
+              <property name="minimumSize">
+               <size>
+                <width>400</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QPushButton" name="pushButton_cell_1">
+              <property name="minimumSize">
+               <size>
+                <width>400</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QPushButton" name="pushButton_cell_2">
+              <property name="minimumSize">
+               <size>
+                <width>400</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QPushButton" name="pushButton_cell_3">
+              <property name="minimumSize">
+               <size>
+                <width>400</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QPushButton" name="pushButton_cell_4">
+              <property name="minimumSize">
+               <size>
+                <width>400</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QPushButton" name="pushButton_cell_5">
+              <property name="minimumSize">
+               <size>
+                <width>400</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QPushButton" name="pushButton_cell_6">
+              <property name="minimumSize">
+               <size>
+                <width>400</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QPushButton" name="pushButton_cell_7">
+              <property name="minimumSize">
+               <size>
+                <width>400</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="2">
+             <widget class="QPushButton" name="pushButton_cell_8">
+              <property name="minimumSize">
+               <size>
+                <width>400</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="2" column="0">
+           <spacer name="horizontalSpacer_board_left">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="2">
+           <spacer name="horizontalSpacer_board_right">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="3" column="1">
+           <spacer name="verticalSpacer_board_1">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Maximum</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="4" column="1">
+           <layout class="QHBoxLayout" name="horizontalLayout_board_buttons">
+            <item>
+             <widget class="QPushButton" name="pushButton_restart">
+              <property name="minimumSize">
+               <size>
+                <width>400</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Restart</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_quit">
+              <property name="minimumSize">
+               <size>
+                <width>400</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Quit</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="5" column="1">
+           <spacer name="verticalSpacer_board_bottom">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
          </layout>
         </item>
        </layout>
