@@ -78,14 +78,18 @@ using namespace std;
         for (int i = 0; i < 3; i++) {
             if ((megaGrid[i][0][subGrid] == playerSymbol && megaGrid[i][1][subGrid] == playerSymbol && megaGrid[i][2][subGrid] == playerSymbol) ||
                 (megaGrid[0][i][subGrid] == playerSymbol && megaGrid[1][i][subGrid] == playerSymbol && megaGrid[2][i][subGrid] == playerSymbol)) {
-                    winningGrids[subGrid/3][(subGrid%3)-3]=playerSymbol;
+                    if(winningGrids[subGrid/3][subGrid%3] != ' '){
+                        winningGrids[subGrid/3][subGrid%3]=playerSymbol;
+                    }
                     return true;
             }
         }
         // Check diagonals for a win
         if ((megaGrid[0][0][subGrid] == playerSymbol && megaGrid[1][1][subGrid] == playerSymbol && megaGrid[2][2][subGrid] == playerSymbol) ||
             (megaGrid[0][2][subGrid] == playerSymbol && megaGrid[1][1][subGrid] == playerSymbol && megaGrid[2][0][subGrid] == playerSymbol)) {
-                winningGrids[subGrid/3][(subGrid%3)-3]=playerSymbol;
+               if(winningGrids[subGrid/3][subGrid%3] != ' '){
+                winningGrids[subGrid/3][subGrid%3]=playerSymbol;
+               }
                 return true;
         }
         return false;
@@ -114,7 +118,17 @@ using namespace std;
             }
         }
         return true; // All cells are filled
-    }    
+    }
+    
+    bool megaBoard::iswinningGridsFull(){
+        for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (winningGrids[i][j] == ' ') return false; // If any cell is empty, the board is not full
+                }
+        }  
+         return true; // All cells are filled
+    }
+    
 void megaBoard::megaDisplay() {
     for (int megaRow = 0; megaRow < 3; megaRow++) {
         for (int subRow = 0; subRow < 3; subRow++) {  
@@ -184,8 +198,13 @@ bool megaBoard::isSubgridFull(int subgrid) {
         while (true) {
             board.displayBoard(); // Display the board
             cout << "Player " << currentPlayerSymbol << ", enter your move (row and column): ";
-            cin >> row >> col; // Get the move from the player
-            cout<<"\n\n\n";
+            //!make function get move to merge with gui
+            while (!(cin >> row >> col )) {// Get the move from the playe
+            cin.clear();                  // Clear error flag
+            cin.ignore(1000, '\n');      // Ignore incorrect input to prevent infinite loop
+            cout << "Invalid input! Please enter numeric values for row, column, and subgrid: ";
+            }
+            cout<<"\n\n";
             if (board.makeMove(row, col, currentPlayerSymbol)) { // If the move is valid
                 if (board.checkWin(currentPlayerSymbol)) {      // Check for a win
                     board.displayBoard(); // Display the final board
@@ -212,43 +231,49 @@ bool megaBoard::isSubgridFull(int subgrid) {
         while(true){
             megaboard.megaDisplay(); // Display the board
             cout << "Player " << currentPlayerSymbol << ", enter your move (row and column and subgrid): ";
-            cin >> row >> col >>subgrid; // Get the move from the player
-        if ((megaboard.winningGrids[subgrid/3][subgrid%3 - 3] == ' ')){    
-            if(allowedSubgrid == -1 ||subgrid == allowedSubgrid  ||  
-                            (megaboard.isSubgridFull(allowedSubgrid) ) ||
-                                (megaboard.winningGrids[allowedSubgrid/3][allowedSubgrid%3 - 3] != ' ')){ //mega rules
-                if (megaboard.megaMakeMove(row, col, subgrid , currentPlayerSymbol) ){// If the move is valid
-                    if (megaboard.checkSubgridWin(subgrid,currentPlayerSymbol)){
-                        cout << " Player " << currentPlayerSymbol << " wins subgrid: " <<subgrid << endl;
-                    }
+            //!make function get move to merge with gui
+            while (!(cin >> row >> col >> subgrid)) {
+            cin.clear();             // Clear error flag
+            cin.ignore(1000, '\n'); // Ignore incorrect input to prevent infinite loop
+            cout << "Invalid input! Please enter numeric values for row, column, and subgrid: ";
+            }
+            cout<<"\n\n";
+            if ((megaboard.winningGrids[subgrid/3][subgrid%3] == ' ')){    
+                if(allowedSubgrid == -1 ||subgrid == allowedSubgrid  ||  
+                                (megaboard.isSubgridFull(allowedSubgrid) ) ||
+                                    (megaboard.winningGrids[allowedSubgrid/3][allowedSubgrid%3] != ' ')){ //mega rules
+                    if (megaboard.megaMakeMove(row, col, subgrid , currentPlayerSymbol) ){                   // If the move is valid
+                        if (megaboard.checkSubgridWin(subgrid,currentPlayerSymbol)){
+                            cout << "Player " << currentPlayerSymbol << " wins subgrid: " <<subgrid << endl;
+                        }
 
-                    if (megaboard.megaCheckWin(currentPlayerSymbol)) {      // Check for a win
-                        megaboard.megaDisplay();                           // Display the final board
-                        cout << "Player " << currentPlayerSymbol << " wins!" << endl;
-                        break;
-                    }
+                        if (megaboard.megaCheckWin(currentPlayerSymbol)) {      // Check for a win
+                            megaboard.megaDisplay();                           // Display the final board
+                            cout << "Player " << currentPlayerSymbol << " wins!" << endl;
+                            break;
+                        }
 
-                    if (megaboard.megaIsFull()) {  // Check for a tie
-                        megaboard.megaDisplay();  // Display the final board
-                        cout << "It's a tie!" << endl;
-                        break;
+                        if (megaboard.megaIsFull()||megaboard.iswinningGridsFull()) {  // Check for a tie
+                            megaboard.megaDisplay();  // Display the final board
+                            cout << "It's a tie!" << endl;
+                            break;
+                        }
+                        // Switch players
+                        currentPlayerSymbol = (currentPlayerSymbol == player1.symbol) ? player2.symbol : player1.symbol;
+                        allowedSubgrid = row * 3 + col; //next player allowed subgrid
+                        }
+                    else {
+                        cout << "That spot is already taken. Try again with an empty cell.\n"; //! need clear error message ,this handles out of scope index the same as already taken spot
                     }
-                    // Switch players
-                    currentPlayerSymbol = (currentPlayerSymbol == player1.symbol) ? player2.symbol : player1.symbol;
-                    allowedSubgrid = row * 3 + col; //next player allowed subgrid
                     }
                 else {
-                    cout << "That spot is already taken. Try again with an empty cell.\n";
+                    cout << "Invalid move. You must play in subgrid " << allowedSubgrid << ".\n";
                 }
-                }
-            else {
-                std::cout << "Invalid move. You must play in subgrid " << allowedSubgrid << ".\n";
             }
-        }
-        else {
-            cout << "Invalid move.player: " <<megaboard.winningGrids[subgrid/3][subgrid%3 - 3]<< " already won subgrid " << subgrid << ".\n";
-        }
+            else {
+                cout << "Invalid move.player: " <<megaboard.winningGrids[subgrid/3][subgrid%3]<< " already won subgrid " << subgrid << ".\n";
+            }
 
-        }
+            }
 
     }    

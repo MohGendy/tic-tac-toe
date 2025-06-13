@@ -22,13 +22,14 @@ class megaBoard{
     private:
     char megaGrid[3][3][9];
     public:
-    char winningGrids[3][3]; //maybe add function isGridwon 
+    char winningGrids[3][3]; //?maybe add function isGridwon  instead of making the matrix public
     megaBoard();
     void megaDisplay();
     bool megaMakeMove(int row, int col,int subgrid, char playerSymbol);
     bool checkSubgridWin(int subgrid, char playerSymbol);
     bool megaCheckWin(char playerSymbol);
     bool megaIsFull();
+    bool iswinningGridsFull();
     bool isSubgridFull(int subgrid); 
 };
 
