@@ -185,7 +185,7 @@ bool megaBoard::isSubgridFull(int subgrid) {
             board.displayBoard(); // Display the board
             cout << "Player " << currentPlayerSymbol << ", enter your move (row and column): ";
             cin >> row >> col; // Get the move from the player
-            cout<<"\n\n";
+            cout<<"\n\n\n";
             if (board.makeMove(row, col, currentPlayerSymbol)) { // If the move is valid
                 if (board.checkWin(currentPlayerSymbol)) {      // Check for a win
                     board.displayBoard(); // Display the final board
@@ -214,8 +214,9 @@ bool megaBoard::isSubgridFull(int subgrid) {
             cout << "Player " << currentPlayerSymbol << ", enter your move (row and column and subgrid): ";
             cin >> row >> col >>subgrid; // Get the move from the player
         if ((megaboard.winningGrids[subgrid/3][subgrid%3 - 3] == ' ')){    
-            if((allowedSubgrid == -1 ||subgrid == allowedSubgrid ) || 
-                            (megaboard.isSubgridFull(allowedSubgrid) ) ){ //mega rules
+            if(allowedSubgrid == -1 ||subgrid == allowedSubgrid  ||  
+                            (megaboard.isSubgridFull(allowedSubgrid) ) ||
+                                (megaboard.winningGrids[allowedSubgrid/3][allowedSubgrid%3 - 3] != ' ')){ //mega rules
                 if (megaboard.megaMakeMove(row, col, subgrid , currentPlayerSymbol) ){// If the move is valid
                     if (megaboard.checkSubgridWin(subgrid,currentPlayerSymbol)){
                         cout << " Player " << currentPlayerSymbol << " wins subgrid: " <<subgrid << endl;
@@ -236,14 +237,17 @@ bool megaBoard::isSubgridFull(int subgrid) {
                     currentPlayerSymbol = (currentPlayerSymbol == player1.symbol) ? player2.symbol : player1.symbol;
                     allowedSubgrid = row * 3 + col; //next player allowed subgrid
                     }
-            }
+                else {
+                    cout << "That spot is already taken. Try again with an empty cell.\n";
+                }
+                }
             else {
                 std::cout << "Invalid move. You must play in subgrid " << allowedSubgrid << ".\n";
             }
-    }
-    else {
-        cout << "Invalid move.player: " <<megaboard.winningGrids[subgrid/3][subgrid%3 - 3]<< " already won subgrid " << subgrid << ".\n";
-    }
+        }
+        else {
+            cout << "Invalid move.player: " <<megaboard.winningGrids[subgrid/3][subgrid%3 - 3]<< " already won subgrid " << subgrid << ".\n";
+        }
 
         }
 
