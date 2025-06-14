@@ -21,8 +21,8 @@ public:
 class megaBoard{
     private:
     char megaGrid[3][3][9];
+    char winningGrids[3][3]; 
     public:
-    char winningGrids[3][3]; //?maybe add function isGridwon  instead of making the matrix public
     megaBoard();
     void megaDisplay();
     bool megaMakeMove(int row, int col,int subgrid, char playerSymbol);
@@ -31,6 +31,7 @@ class megaBoard{
     bool megaIsFull();
     bool iswinningGridsFull();
     bool isSubgridFull(int subgrid); 
+    bool isGridwon(int subgrid);
 };
 
 class Game {
@@ -40,6 +41,8 @@ private:
     Player player1, player2;
 public:
     Game();
+    void getMove(int &row ,int &col);
+    void megaGetMove(int &row ,int &col ,int &subgrid);
     void play();
     void megaPlay();
 };
