@@ -9,14 +9,17 @@ cmake .. -G "MinGW Makefiles"
 make
 ```
 ## after building run the excutable
-```
+
+```sh
 my_program.exe
 ```
-# you need to clone google test to run the tests
+# Google Test Setup
+
 ```sh
 git clone https://github.com/google/googletest.git
 ```
-## to run tests
+## To Run Tests
+
 ```sh
 runTests.exe
 ```
