@@ -1,4 +1,3 @@
-```md
 # Build Instructions
 
 ## To Build Use Next Commands
