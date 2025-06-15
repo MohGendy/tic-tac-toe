@@ -133,26 +133,26 @@ using namespace std;
     }
     
     void megaBoard::megaDisplay() {
-    for (int megaRow = 0; megaRow < 3; megaRow++) {
-        for (int subRow = 0; subRow < 3; subRow++) {  
-            // Display each subgrid row
-            for (int megaCol = 0; megaCol < 3; megaCol++) {
-                for (int subCol = 0; subCol < 3; subCol++) {
-                    cout << megaGrid[subRow][subCol][megaRow * 3 + megaCol];
-                    if (subCol < 2) std::cout << " | ";  // Column separator inside subgrid
+        for (int megaRow = 0; megaRow < 3; megaRow++) {
+            for (int subRow = 0; subRow < 3; subRow++) {  
+                // Display each subgrid row
+                for (int megaCol = 0; megaCol < 3; megaCol++) {
+                    for (int subCol = 0; subCol < 3; subCol++) {
+                        cout << megaGrid[subRow][subCol][megaRow * 3 + megaCol];
+                        if (subCol < 2) std::cout << " | ";  // Column separator inside subgrid
+                    }
+                    if (megaCol < 2) std::cout << "\t || \t"; // Separator between subgrids
                 }
-                if (megaCol < 2) std::cout << "\t || \t"; // Separator between subgrids
+                std::cout << "\n";
+                
+                // **Add horizontal separators within each subgrid**
+                if (subRow < 2) std::cout << "---------\t\t---------\t\t---------\n";
             }
-            std::cout << "\n";
-            
-            // **Add horizontal separators within each subgrid**
-            if (subRow < 2) std::cout << "---------\t\t---------\t\t---------\n";
-        }
 
-        // **Major row separation between subgrid blocks**
-        if (megaRow < 2) std::cout << "==============================================================\n";
-    }
-    cout<<"\n\n";
+            // **Major row separation between subgrid blocks**
+            if (megaRow < 2) std::cout << "==============================================================\n";
+        }
+        cout<<"\n\n";
 }
 
     bool megaBoard::megaMakeMove(int row, int col,int subgrid, char playerSymbol){
