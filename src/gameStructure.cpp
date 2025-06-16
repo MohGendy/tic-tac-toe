@@ -56,6 +56,10 @@ using namespace std;
         return true; // All cells are filled
     }
 
+    char Board::getCell(int row, int col) const { //help in testing
+        if (row < 0 || row >= 3 || col < 0 || col >= 3) return 'N'; // Prevent invalid indices
+        return grid[row][col];
+    }
     //########################################struct megaBoard Functions########################################
     megaBoard::megaBoard(){
         // Initialize the grid with empty spaces
@@ -183,6 +187,10 @@ using namespace std;
         return true; //either X or O have won this subgrid already
     }
 
+    char megaBoard::megaGetCell(int row, int col, int subgrid) const { //help in testing
+        if (row < 0 || row >= 3 || col < 0 || col >= 3 || subgrid < 0 || subgrid >= 9) return 'N'; // Prevent invalid indices
+        return megaGrid[row][col][subgrid];
+    }
     //########################################struct Game Functions########################################
     Game::Game():player1('X'), player2('O') { // Temporary values for initialization
 

@@ -10,6 +10,7 @@ public:
     bool makeMove(int row, int col, char playerSymbol);
     bool checkWin(char playerSymbol);
     bool isFull();//detects a tie game
+    char getCell(int row, int col) const; //help in testing
 };
 
 class Player {
@@ -32,6 +33,7 @@ class megaBoard{
     bool iswinningGridsFull();
     bool isSubgridFull(int subgrid); 
     bool isGridwon(int subgrid);
+    char megaGetCell(int row, int col, int subgrid) const ;//help in testing
 };
 
 class Game {
