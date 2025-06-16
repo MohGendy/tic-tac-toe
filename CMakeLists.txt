@@ -10,7 +10,7 @@ include_directories(googletest/include)
 file(GLOB SOURCES "src/*.cpp")
 
 # Gather test sources and include game logic files
-file(GLOB TEST_SOURCES "tests/*.cpp" "src/gameStructure.cpp")
+file(GLOB TEST_SOURCES "tests/*.cpp" "src/gameStructure.cpp" "src/ai.cpp")
 
 # Add executables
 add_executable(my_program ${SOURCES})
