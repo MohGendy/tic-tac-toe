@@ -73,38 +73,51 @@ TEST(megaBoardTest, CorrectSubgridTargeting) {
     row = 0; col = 0; subgrid = allowedSubgrid;
     EXPECT_TRUE(megaboard.megaMakeMove(row, col, subgrid, 'O'));
 }
-// Test for winning condition across the mega board
-TEST(megaBoardTest, MegaBoardWinCondition) { //!this test failed need to review the megaCheckWin function
+
+    //Test for winning condition across the mega board
+TEST(megaBoardTest, MegaBoardWinCondition) { 
     megaBoard megaboard;
     // Fill the winning grids with a winning condition for 'X'
     megaboard.megaMakeMove(0, 0, 0, 'X');
     megaboard.megaMakeMove(0, 1, 0, 'X');
     megaboard.megaMakeMove(0, 2, 0, 'X'); // X wins in subgrid 0
+    EXPECT_TRUE(megaboard.checkSubgridWin(0, 'X')); // Check if subgrid 0 is won
     megaboard.megaMakeMove(1, 0, 1, 'X');
     megaboard.megaMakeMove(1, 1, 1, 'X');
     megaboard.megaMakeMove(1, 2, 1, 'X'); // X wins in subgrid 1
+    EXPECT_TRUE(megaboard.checkSubgridWin(1, 'X')); // Check if subgrid 1 is won
     megaboard.megaMakeMove(2, 0, 2, 'X');
     megaboard.megaMakeMove(2, 1, 2, 'X');
     megaboard.megaMakeMove(2, 2, 2, 'X'); // X wins in subgrid 2
+    EXPECT_TRUE(megaboard.checkSubgridWin(2, 'X')); // Check if subgrid 2 is won
+    
+    char a = megaboard.getWinningGrid(0); // Check the winning grid for subgrid 0
+    char b = megaboard.getWinningGrid(1); // Check the winning grid for subgrid 1
+    char c = megaboard.getWinningGrid(2); // Check the winning grid for subgrid 2
 
-    EXPECT_TRUE(megaboard.megaCheckWin('X'));
+
+    EXPECT_TRUE(megaboard.megaCheckWin('X'))<< "a: " << a << " b: " << b << " c: " << c << " X incorrectly detected as not winner!";
 }
+
 //Handling ties within sub grids
 TEST(megaBoardTest, MegaBoardTieCondition) {
     megaBoard megaboard;
     // Fill the mega board without a winner (alternating X and O)
     char moves[3][3][9] = {
         {
-            {'X', 'O', 'X', ' ', ' ', ' ', ' ', ' ', ' '},
-            {'X', 'X', 'O', ' ', ' ', ' ', ' ', ' ', ' '},
-            {'O', 'X', 'O', ' ', ' ', ' ', ' ', ' ', ' '}
+            {'X', 'O', 'X', 'O', 'X', 'O', 'O', 'X', 'O'},
+            {'O', 'X', 'O', 'X', 'O', 'X', 'X', 'O', 'X'},
+            {'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X'}
         },
         {
-            {'O', 'X', 'O', ' ', ' ', ' ', ' ', ' ', ' '},
-            {'X', 'O', 'X', ' ', ' ', ' ', ' ', ' ', ' '}
+            {'O', 'X', 'O', 'X', 'O', 'X', 'X', 'O', 'X'},
+            {'X', 'O', 'X', 'O', 'X', 'O', 'O', 'X', 'O'},
+            {'O', 'X', 'O', 'X', 'O', 'X', 'X', 'O', 'X'}
         },
         {
-            {'X', 'O', 'X', ' ', ' ', ' ', ' ', ' ', ' '}
+            {'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X'},
+            {'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O'},
+            {'X', 'O', 'X', 'O', 'X', 'O', 'O', 'X', 'O'}
         }
     };
 
@@ -116,9 +129,18 @@ TEST(megaBoardTest, MegaBoardTieCondition) {
         }
     }
 
+    for(int k = 0; k < 9; k++) {
+        megaboard.checkSubgridWin(k, 'X'); // Check for subgrid wins
+        megaboard.checkSubgridWin(k, 'O'); // Check for subgrid wins
+    }
+
+    //megaboard.displayWinningGrids(); // Display the winning grids
+
+    //megaboard.megaDisplay();
+
     // Mega board should be full AND checkMegaWin() should return false for both players
-    EXPECT_TRUE(megaboard.megaIsFull()) << "Mega board should be full!";//!no mega board will not be full
-    EXPECT_TRUE(megaboard.iswinningGridsFull()) << "Winning grids should be full!";//!winning grids will NOT be full
+    EXPECT_TRUE(megaboard.megaIsFull()) << "Mega board should be full!";
+    EXPECT_TRUE(megaboard.iswinningGridsFull()) << "Winning grids should be full!";
     EXPECT_FALSE(megaboard.megaCheckWin('X')) << "X incorrectly detected as winner!";
     EXPECT_FALSE(megaboard.megaCheckWin('O')) << "O incorrectly detected as winner!";
 }

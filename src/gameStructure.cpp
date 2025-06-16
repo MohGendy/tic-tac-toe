@@ -1,5 +1,3 @@
-#include <iostream>
-using namespace std;
 #include "gameStructure.h"
 #include "ai.h"
 //game functions 
@@ -85,7 +83,7 @@ using namespace std;
         for (int i = 0; i < 3; i++) {
             if ((megaGrid[i][0][subGrid] == playerSymbol && megaGrid[i][1][subGrid] == playerSymbol && megaGrid[i][2][subGrid] == playerSymbol) ||
                 (megaGrid[0][i][subGrid] == playerSymbol && megaGrid[1][i][subGrid] == playerSymbol && megaGrid[2][i][subGrid] == playerSymbol)) {
-                    if(winningGrids[subGrid/3][subGrid%3] = ' '){
+                    if(winningGrids[subGrid/3][subGrid%3] == ' '){
                         winningGrids[subGrid/3][subGrid%3]=playerSymbol;
                     }
                     return true;
@@ -94,7 +92,7 @@ using namespace std;
         // Check diagonals for a win
         if ((megaGrid[0][0][subGrid] == playerSymbol && megaGrid[1][1][subGrid] == playerSymbol && megaGrid[2][2][subGrid] == playerSymbol) ||
             (megaGrid[0][2][subGrid] == playerSymbol && megaGrid[1][1][subGrid] == playerSymbol && megaGrid[2][0][subGrid] == playerSymbol)) {
-               if(winningGrids[subGrid/3][subGrid%3] != ' '){
+               if(winningGrids[subGrid/3][subGrid%3] == ' '){
                 winningGrids[subGrid/3][subGrid%3]=playerSymbol;
                }
                 return true;
@@ -198,6 +196,15 @@ using namespace std;
         if (subgid < 0 || subgid >= 9) return 'N'; // Prevent invalid indices
         return winningGrids[subgid/3][subgid%3];
     }
+
+    void megaBoard::displayWinningGrids(){
+            for(int k = 0; k < 9; k++){
+            cout<< getWinningGrid(k)<<" |"; // Check the winning grid for each subgrid
+            if ((k + 1) % 3 == 0) cout << endl;
+        }
+        cout<<"\n\n";
+    }
+
     //########################################struct Game Functions########################################
     Game::Game():player1('X'), player2('O') { // Temporary values for initialization
 

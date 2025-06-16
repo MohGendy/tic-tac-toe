@@ -1,5 +1,7 @@
 #ifndef GAME_STRUCTURE_H
 #define GAME_STRUCTURE_H
+#include <iostream>
+using namespace std;
 
 class Board {
 private:
@@ -34,6 +36,8 @@ class megaBoard{
     bool isSubgridFull(int subgrid); 
     bool isGridwon(int subgrid);
     char megaGetCell(int row, int col, int subgrid) const ;//help in testing
+    char getWinningGrid(int subgid) const; //help in testing
+    void displayWinningGrids();//help in testing
 };
 
 class Game {
