@@ -71,11 +71,26 @@ include CMakeFiles/my_program.dir/flags.make
 CMakeFiles/my_program.dir/codegen:
 .PHONY : CMakeFiles/my_program.dir/codegen
 
+CMakeFiles/my_program.dir/src/ai.cpp.obj: CMakeFiles/my_program.dir/flags.make
+CMakeFiles/my_program.dir/src/ai.cpp.obj: CMakeFiles/my_program.dir/includes_CXX.rsp
+CMakeFiles/my_program.dir/src/ai.cpp.obj: E:/uni/sec/term2/Embedded/project/DrOmar/code/src/ai.cpp
+CMakeFiles/my_program.dir/src/ai.cpp.obj: CMakeFiles/my_program.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\uni\sec\term2\Embedded\project\DrOmar\code\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/my_program.dir/src/ai.cpp.obj"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_program.dir/src/ai.cpp.obj -MF CMakeFiles\my_program.dir\src\ai.cpp.obj.d -o CMakeFiles\my_program.dir\src\ai.cpp.obj -c E:\uni\sec\term2\Embedded\project\DrOmar\code\src\ai.cpp
+
+CMakeFiles/my_program.dir/src/ai.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my_program.dir/src/ai.cpp.i"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\uni\sec\term2\Embedded\project\DrOmar\code\src\ai.cpp > CMakeFiles\my_program.dir\src\ai.cpp.i
+
+CMakeFiles/my_program.dir/src/ai.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my_program.dir/src/ai.cpp.s"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\uni\sec\term2\Embedded\project\DrOmar\code\src\ai.cpp -o CMakeFiles\my_program.dir\src\ai.cpp.s
+
 CMakeFiles/my_program.dir/src/gameStructure.cpp.obj: CMakeFiles/my_program.dir/flags.make
 CMakeFiles/my_program.dir/src/gameStructure.cpp.obj: CMakeFiles/my_program.dir/includes_CXX.rsp
 CMakeFiles/my_program.dir/src/gameStructure.cpp.obj: E:/uni/sec/term2/Embedded/project/DrOmar/code/src/gameStructure.cpp
 CMakeFiles/my_program.dir/src/gameStructure.cpp.obj: CMakeFiles/my_program.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\uni\sec\term2\Embedded\project\DrOmar\code\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/my_program.dir/src/gameStructure.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\uni\sec\term2\Embedded\project\DrOmar\code\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/my_program.dir/src/gameStructure.cpp.obj"
 	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_program.dir/src/gameStructure.cpp.obj -MF CMakeFiles\my_program.dir\src\gameStructure.cpp.obj.d -o CMakeFiles\my_program.dir\src\gameStructure.cpp.obj -c E:\uni\sec\term2\Embedded\project\DrOmar\code\src\gameStructure.cpp
 
 CMakeFiles/my_program.dir/src/gameStructure.cpp.i: cmake_force
@@ -90,7 +105,7 @@ CMakeFiles/my_program.dir/src/main.cpp.obj: CMakeFiles/my_program.dir/flags.make
 CMakeFiles/my_program.dir/src/main.cpp.obj: CMakeFiles/my_program.dir/includes_CXX.rsp
 CMakeFiles/my_program.dir/src/main.cpp.obj: E:/uni/sec/term2/Embedded/project/DrOmar/code/src/main.cpp
 CMakeFiles/my_program.dir/src/main.cpp.obj: CMakeFiles/my_program.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\uni\sec\term2\Embedded\project\DrOmar\code\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/my_program.dir/src/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\uni\sec\term2\Embedded\project\DrOmar\code\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/my_program.dir/src/main.cpp.obj"
 	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_program.dir/src/main.cpp.obj -MF CMakeFiles\my_program.dir\src\main.cpp.obj.d -o CMakeFiles\my_program.dir\src\main.cpp.obj -c E:\uni\sec\term2\Embedded\project\DrOmar\code\src\main.cpp
 
 CMakeFiles/my_program.dir/src/main.cpp.i: cmake_force
@@ -103,19 +118,21 @@ CMakeFiles/my_program.dir/src/main.cpp.s: cmake_force
 
 # Object files for target my_program
 my_program_OBJECTS = \
+"CMakeFiles/my_program.dir/src/ai.cpp.obj" \
 "CMakeFiles/my_program.dir/src/gameStructure.cpp.obj" \
 "CMakeFiles/my_program.dir/src/main.cpp.obj"
 
 # External object files for target my_program
 my_program_EXTERNAL_OBJECTS =
 
+my_program.exe: CMakeFiles/my_program.dir/src/ai.cpp.obj
 my_program.exe: CMakeFiles/my_program.dir/src/gameStructure.cpp.obj
 my_program.exe: CMakeFiles/my_program.dir/src/main.cpp.obj
 my_program.exe: CMakeFiles/my_program.dir/build.make
 my_program.exe: CMakeFiles/my_program.dir/linkLibs.rsp
 my_program.exe: CMakeFiles/my_program.dir/objects1.rsp
 my_program.exe: CMakeFiles/my_program.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=E:\uni\sec\term2\Embedded\project\DrOmar\code\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable my_program.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=E:\uni\sec\term2\Embedded\project\DrOmar\code\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable my_program.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\my_program.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -25,6 +25,7 @@ private:
 public:
     Game();
     void play();
+    void playAi();
 };
 
 #endif // GAME_STRUCTURE_H

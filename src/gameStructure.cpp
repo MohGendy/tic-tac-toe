@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 #include "gameStructure.h"
+#include "ai.h"
 //game functions 
     Board::Board() {
         // Initialize the grid with empty spaces
@@ -94,6 +95,63 @@ using namespace std;
                 currentPlayerSymbol = (currentPlayerSymbol == player1.symbol) ? player2.symbol : player1.symbol;
             } else {
                 cout << "Invalid move. Try again." << endl; // Invalid move message
+            }
+        }
+    }
+
+    void Game::playAi() {
+        
+        int row, col;
+        bool start;
+        char sel;
+        int level;
+        cout << "select level (0 1 2)\n";
+        cin >> level;
+        cout << "will player start first? (y,n)\n";
+        cin >> sel;
+        start = (sel == 'y');
+        char currentPlayerSymbol = (start?player1.symbol:player2.symbol);
+        Ai ai = Ai(!start,level);
+        while (true) {
+            board.displayBoard(); // Display the board
+            if(currentPlayerSymbol == player2.symbol){
+                int move;
+                int x[9] = {0};
+                
+                if(ai.moveAi(&move)){
+                   row = move/3;
+                   col = move%3;
+                }else{
+                    cout << "some error happend";
+                    break;
+                }
+                cout << "Ai played at: " << row << " " << col << endl;
+            }else{
+                cout << "Player " << currentPlayerSymbol << ", enter your move (row and column): ";
+                cin >> row >> col; // Get the move from the player
+            }
+            if (board.makeMove(row, col, currentPlayerSymbol)) { // If the move is valid
+                if (board.checkWin(currentPlayerSymbol)) { // Check for a win
+                    board.displayBoard(); // Display the final board
+                    cout << "Player " << currentPlayerSymbol << " wins!" << endl;
+                    break;
+                }
+                if (board.isFull()) { // Check for a tie
+                    board.displayBoard(); // Display the final board
+                    cout << "It's a tie!" << endl;
+                    break;
+                }
+                // Switch players
+                if(currentPlayerSymbol == player1.symbol){
+                    if(!ai.movePlayer(row*3+col)){
+                        cout << "some error happend";
+                        break;
+                    }
+                }
+                currentPlayerSymbol = (currentPlayerSymbol == player1.symbol) ? player2.symbol : player1.symbol;
+            } else {
+                cout << "Invalid move. Try again." << endl; // Invalid move message
+                cin.ignore();
             }
         }
     }

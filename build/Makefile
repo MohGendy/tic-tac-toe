@@ -128,6 +128,30 @@ my_program/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/build
 .PHONY : my_program/fast
 
+src/ai.obj: src/ai.cpp.obj
+.PHONY : src/ai.obj
+
+# target to build an object file
+src/ai.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/ai.cpp.obj
+.PHONY : src/ai.cpp.obj
+
+src/ai.i: src/ai.cpp.i
+.PHONY : src/ai.i
+
+# target to preprocess a source file
+src/ai.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/ai.cpp.i
+.PHONY : src/ai.cpp.i
+
+src/ai.s: src/ai.cpp.s
+.PHONY : src/ai.s
+
+# target to generate assembly for a file
+src/ai.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/ai.cpp.s
+.PHONY : src/ai.cpp.s
+
 src/gameStructure.obj: src/gameStructure.cpp.obj
 .PHONY : src/gameStructure.obj
 
@@ -185,6 +209,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... my_program
+	@echo ... src/ai.obj
+	@echo ... src/ai.i
+	@echo ... src/ai.s
 	@echo ... src/gameStructure.obj
 	@echo ... src/gameStructure.i
 	@echo ... src/gameStructure.s
