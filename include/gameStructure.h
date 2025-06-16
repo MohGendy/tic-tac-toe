@@ -47,6 +47,7 @@ public:
     void megaGetMove(int &row ,int &col ,int &subgrid);
     void play();
     void megaPlay();
+    void playAi();
 };
 
 #endif // GAME_STRUCTURE_H

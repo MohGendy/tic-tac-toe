@@ -24,7 +24,7 @@ int main() {
     //     break;
     // case 2:
     //     cout << "starting AI vs Player Tic Tac Toe...\n";
-    //     //game.aiPlay(); //todo Start the AI vs Player game
+    //     game.playAi(); //todo Start the AI vs Player game
     //     break;
     
     // default:
@@ -32,6 +32,9 @@ int main() {
     //     game.play(); // Start the classic game
     //     break;
     // }
+
+
+    game.playAi(); // Start the game
 
     return 0;
 }
