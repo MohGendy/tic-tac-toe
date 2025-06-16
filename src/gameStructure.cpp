@@ -85,7 +85,7 @@ using namespace std;
         for (int i = 0; i < 3; i++) {
             if ((megaGrid[i][0][subGrid] == playerSymbol && megaGrid[i][1][subGrid] == playerSymbol && megaGrid[i][2][subGrid] == playerSymbol) ||
                 (megaGrid[0][i][subGrid] == playerSymbol && megaGrid[1][i][subGrid] == playerSymbol && megaGrid[2][i][subGrid] == playerSymbol)) {
-                    if(winningGrids[subGrid/3][subGrid%3] != ' '){
+                    if(winningGrids[subGrid/3][subGrid%3] = ' '){
                         winningGrids[subGrid/3][subGrid%3]=playerSymbol;
                     }
                     return true;
@@ -192,6 +192,11 @@ using namespace std;
     char megaBoard::megaGetCell(int row, int col, int subgrid) const { //help in testing
         if (row < 0 || row >= 3 || col < 0 || col >= 3 || subgrid < 0 || subgrid >= 9) return 'N'; // Prevent invalid indices
         return megaGrid[row][col][subgrid];
+    }
+
+    char megaBoard::getWinningGrid(int subgid) const { //help in testing
+        if (subgid < 0 || subgid >= 9) return 'N'; // Prevent invalid indices
+        return winningGrids[subgid/3][subgid%3];
     }
     //########################################struct Game Functions########################################
     Game::Game():player1('X'), player2('O') { // Temporary values for initialization
