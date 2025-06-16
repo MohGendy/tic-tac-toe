@@ -1,3 +1,0 @@
-E:/uni/sec/term2/Embedded/project/DrOmar/code/build/CMakeFiles/my_program.dir
-E:/uni/sec/term2/Embedded/project/DrOmar/code/build/CMakeFiles/edit_cache.dir
-E:/uni/sec/term2/Embedded/project/DrOmar/code/build/CMakeFiles/rebuild_cache.dir
