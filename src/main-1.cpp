@@ -5,15 +5,6 @@
 #include "bcrypt.h"
 using namespace std;
 
-// Add these declarations before main()
-bool authenticateUser(sqlite3* db, string &username);
-bool registerUser(sqlite3* db);
-
-// Database functions
-int getUserId(sqlite3* db, const string& username);
-bool showGameHistoryForPlayer(sqlite3* db, string username);
-bool insertGameHistory(sqlite3* db, int user1_id, int user2_id, const string& winner, const string& finalBoard);
-bool authenticateUser(sqlite3* db, string& username);
 // Structures
 struct Move {
     int row, col;
@@ -29,13 +20,11 @@ struct GameRecord {
 class ReplayManager {
 private:
     vector<Move> moveStack;
-    vector<GameRecord> gameHistory;
     char board[3][3];
-    int xWins, oWins, draws;
     int currentMoveIndex;
 
 public:
-    ReplayManager() : xWins(0), oWins(0), draws(0), currentMoveIndex(0) {
+    ReplayManager() : currentMoveIndex(0) {
         resetBoard();
     }
 
@@ -86,30 +75,6 @@ public:
         return moveStack.size() == 9;
     }
 
-    void endGame() {
-        GameRecord record;
-        for (const auto& move : moveStack) {
-            record.moves.push_back(move);
-        }
-
-        char winner = checkWinner();
-        if (winner == 'X') {
-            record.result = "X wins!";
-            xWins++;
-        } else if (winner == 'O') {
-            record.result = "O wins!";
-            oWins++;
-        } else if (isBoardFull()) {
-            record.result = "Draw";
-            draws++;
-        } else {
-            record.result = "Game not finished";
-        }
-
-        gameHistory.push_back(record);
-        resetBoard();
-    }
-
     void displayBoard() const {
         cout << "Current board:\n";
         for (int i = 0; i < 3; ++i) {
@@ -120,73 +85,25 @@ public:
         }
     }
 
-    void displayHistory() const {
-        cout << "\nGame History:\n";
-        for (size_t i = 0; i < gameHistory.size(); ++i) {
-            cout << "Game " << i + 1 << ": " << gameHistory[i].result << "\n";
-            for (const auto& move : gameHistory[i].moves) {
-                cout << "  Player " << move.player
-                     << " to (" << move.row << "," << move.col << ")\n";
-            }
-        }
-        cout << "\nStatistics:\n";
-        cout << "X Wins: " << xWins << "\n";
-        cout << "O Wins: " << oWins << "\n";
-        cout << "Draws: " << draws << "\n";
+    vector<Move> getMoves() const {
+        return moveStack;
     }
-     string getSerializedBoard() {
-        string result;
-        for (int i = 0; i < 3; ++i)
-            for (int j = 0; j < 3; ++j)
-                result += board[i][j];
-        return result;
-     }
-    void replayGame(int gameIndex) {
-        if (gameIndex < 0 || gameIndex >= (int)gameHistory.size()) {
-            cout << "Invalid game index.\n";
-            return;
-        }
-        const auto& record = gameHistory[gameIndex];
-        resetBoard();
-        currentMoveIndex = 0;
-
-        char command;
-        while (true) {
-            displayBoard();
-            cout << "Move " << currentMoveIndex << "/" << record.moves.size() << "\n";cout << "n: next move, p: previous move, q: quit replay\n";
-            cin >> command;
-            if (command == 'n') {
-                if (currentMoveIndex < (int)record.moves.size()) {
-                    Move move = record.moves[currentMoveIndex];
-                    board[move.row][move.col] = move.player;
-                    currentMoveIndex++;
-                } else {
-                    cout << "End of game.\n";
-                }
-            } else if (command == 'p') {
-                if (currentMoveIndex > 0) {
-                    currentMoveIndex--;
-                    Move move = record.moves[currentMoveIndex];
-                    board[move.row][move.col] = ' ';
-                } else {
-                    cout << "Start of game.\n";
-                }
-            } else if (command == 'q') {
-                break;
-            }
-        }
-    }
-     void loadSerializedBoard(const string& boardString) {
-        int index = 0;
-        for (int i = 0; i < 3; ++i)
-            for (int j = 0; j < 3; ++j)
-                board[i][j] = boardString[index++];
-    }
-    char getCell(int row, int col) const {
-    return board[row][col];
-    }
-
 };
+
+// Authentication and registration declarations
+bool authenticateUser(sqlite3* db, string &username);
+bool registerUser(sqlite3* db);
+
+// Database helpers
+int get2UserId(sqlite3* db, const string& username);
+int getUserId(sqlite3* db, const string& username);
+int insertGameHistory(sqlite3* db, int user1_id, int user2_id, const string& winner);
+bool insertGameMoves(sqlite3* db, int game_id, const vector<Move>& moves);
+vector<Move> loadMovesForGame(sqlite3* db, int game_id);
+bool showGameHistoryForPlayer(sqlite3* db);
+void replayStoredGame(sqlite3* db, int game_id);
+
+// Game playing function
 void playGame(sqlite3* db, const string& player1, const string& player2) {
     ReplayManager game;
     char currentPlayer = 'X';
@@ -195,53 +112,51 @@ void playGame(sqlite3* db, const string& player1, const string& player2) {
 
     while (gameRunning) {
         game.displayBoard();
-        cout << "Player " << currentPlayer << "'s turn:\n";
-        cout << "Enter row: ";
-        cin >> row;
-        cout << "Enter col: ";
-        cin >> col;
+        cout << "Player " << currentPlayer << "'s turn (row col): ";
+        cin >> row >> col;
 
         if (row < 0 || row > 2 || col < 0 || col > 2) {
             cout << "Invalid position. Try again.\n";
             continue;
         }
-        if (game.getCell(row, col) != ' ') {
-        cout << "That position is already taken. Try a different one.\n";
-        continue;
-        }
+
         game.pushMove(row, col, currentPlayer);
 
         char winner = game.checkWinner();
         if (winner != ' ') {
             game.displayBoard();
             cout << "Player " << winner << " wins!\n";
-            string finalBoardState = game.getSerializedBoard();
-            game.endGame();
-            gameRunning = false;
 
-            // Save to database
-            int player1_id = getUserId(db, player1);
-            int player2_id = getUserId(db, player2);
+            int player1_id = get2UserId(db, player1);
+            int player2_id = get2UserId(db, player2);
             string winnerName = (winner == 'X') ? player1 : player2;
-            insertGameHistory(db, player1_id, player2_id, winnerName, finalBoardState);
 
+            int game_id = insertGameHistory(db, player1_id, player2_id, winnerName);
+            if (game_id != -1) {
+                insertGameMoves(db, game_id, game.getMoves());
+            }
+
+            gameRunning = false;
         } else if (game.isBoardFull()) {
             game.displayBoard();
             cout << "It's a draw!\n";
-            string finalBoardState = game.getSerializedBoard();
 
-            game.endGame();
+            int player1_id = get2UserId(db, player1);
+            int player2_id = get2UserId(db, player2);
+
+            int game_id = insertGameHistory(db, player1_id, player2_id, "Draw");
+            if (game_id != -1) {
+                insertGameMoves(db, game_id, game.getMoves());
+            }
+
             gameRunning = false;
-
-            // Save to database
-            int player1_id = getUserId(db, player1);
-            int player2_id = getUserId(db, player2);
-            insertGameHistory(db, player1_id, player2_id, "Draw", finalBoardState);
         }
 
         currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
     }
 }
+
+// Authentication function (as before)
 bool authenticateUser(sqlite3* db, string& username) {
     string enteredUsername;
     cout << "Enter username: ";
@@ -284,12 +199,13 @@ bool authenticateUser(sqlite3* db, string& username) {
         return false;
     }
 }
+
+// Registration function (as before)
 bool registerUser(sqlite3* db) {
     string newuser;
     cout << "Enter new_username: ";
     cin >> newuser;
 
-    // Step 1: Check if username already exists
     string checkSql = "SELECT COUNT(*) FROM PLAYERS WHERE NAME = ?;";
     sqlite3_stmt* checkStmt;
     int rc = sqlite3_prepare_v2(db, checkSql.c_str(), -1, &checkStmt, NULL);
@@ -310,7 +226,6 @@ bool registerUser(sqlite3* db) {
     }
     sqlite3_finalize(checkStmt);
 
-    // Step 2: Ask for password and confirmation
     string newpassword, confirmPassword;
     cout << "Enter new_password: ";
     cin >> newpassword;
@@ -322,7 +237,6 @@ bool registerUser(sqlite3* db) {
         return false;
     }
 
-    // Step 3: Register the user
     string insertSql = "INSERT INTO PLAYERS (NAME, PASSWORD) VALUES (?, ?);";
     sqlite3_stmt* stmt;
     rc = sqlite3_prepare_v2(db, insertSql.c_str(), -1, &stmt, NULL);
@@ -346,7 +260,11 @@ bool registerUser(sqlite3* db) {
     sqlite3_finalize(stmt);
     return true;
 }
-// Database helper functions
+
+// Get user ID from username (duplicate for compatibility with game code)
+int get2UserId(sqlite3* db, const string& username) {
+    return getUserId(db, username);
+}
 int getUserId(sqlite3* db, const string& username) {
     string query = "SELECT ID FROM PLAYERS WHERE NAME = ?;";
     sqlite3_stmt* stmt;
@@ -363,45 +281,147 @@ int getUserId(sqlite3* db, const string& username) {
     sqlite3_finalize(stmt);
     return id;
 }
-bool insertGameHistory(sqlite3* db, int user1_id, int user2_id, const string& winner, const string& finalBoard) {
-    string insertGameSql = "INSERT INTO Game_history (user1_id, user2_id, winner, board_moves) VALUES (?, ?, ?, ?);";
+
+// Insert game history and return inserted game ID
+int insertGameHistory(sqlite3* db, int user1_id, int user2_id, const string& winner) {
+    string insertGameSql = "INSERT INTO Game_history (user1_id, user2_id, winner) VALUES (?, ?, ?);";
     sqlite3_stmt* stmt;
     int rc = sqlite3_prepare_v2(db, insertGameSql.c_str(), -1, &stmt, NULL);
 
-
     if (rc != SQLITE_OK) {
-        cerr << " Error preparing game history insert: " << sqlite3_errmsg(db) << endl;
-        return false;
+        cerr << "Error preparing game history insert: " << sqlite3_errmsg(db) << endl;
+        return -1;
     }
 
     sqlite3_bind_int(stmt, 1, user1_id);
     sqlite3_bind_int(stmt, 2, user2_id);
-    sqlite3_bind_text(stmt, 3, winner.c_str(), -1, SQLITE_TRANSIENT);
-    sqlite3_bind_text(stmt, 4, finalBoard.c_str(), -1, SQLITE_TRANSIENT);
+    sqlite3_bind_text(stmt, 3, winner.c_str(), -1, SQLITE_STATIC);
 
     rc = sqlite3_step(stmt);
     if (rc != SQLITE_DONE) {
-        cerr << " Error inserting game result: " << sqlite3_errmsg(db) << endl;
+        cerr << "Error inserting game result: " << sqlite3_errmsg(db) << endl;
         sqlite3_finalize(stmt);
+        return -1;
+    }
+
+    sqlite3_finalize(stmt);
+
+    int game_id = (int)sqlite3_last_insert_rowid(db);
+    cout << "Game history recorded with ID: " << game_id << endl;
+    return game_id;
+}
+
+// Insert all moves for a game
+bool insertGameMoves(sqlite3* db, int game_id, const vector<Move>& moves) {
+    string insertMoveSql = "INSERT INTO Game_moves (game_id, move_number, row, col, player) VALUES (?, ?, ?, ?, ?);";
+    sqlite3_stmt* stmt;
+    int rc = sqlite3_prepare_v2(db, insertMoveSql.c_str(), -1, &stmt, NULL);
+    if (rc != SQLITE_OK) {
+        cerr << "Error preparing move insert: " << sqlite3_errmsg(db) << endl;
         return false;
     }
 
-    cout << " Game history recorded." << endl;
+    for (size_t i = 0; i < moves.size(); ++i) {
+        sqlite3_reset(stmt);
+        sqlite3_clear_bindings(stmt);
+
+        sqlite3_bind_int(stmt, 1, game_id);
+        sqlite3_bind_int(stmt, 2, (int)i + 1);
+        sqlite3_bind_int(stmt, 3, moves[i].row);
+        sqlite3_bind_int(stmt, 4, moves[i].col);
+        sqlite3_bind_text(stmt, 5, string(1, moves[i].player).c_str(), 1, SQLITE_STATIC);
+
+        rc = sqlite3_step(stmt);
+        if (rc != SQLITE_DONE) {
+            cerr << "Error inserting move: " << sqlite3_errmsg(db) << endl;
+            sqlite3_finalize(stmt);
+            return false;
+        }
+    }
     sqlite3_finalize(stmt);
     return true;
 }
-bool showGameHistoryForPlayer(sqlite3* db, string username) {
-     int playerId=getUserId(db,username);
-     if (playerId == -1) {
-    cerr << "User not found.\n";
-    return false;
+
+// Load moves for a game from DB
+vector<Move> loadMovesForGame(sqlite3* db, int game_id) {
+    vector<Move> moves;
+    string query = "SELECT row, col, player FROM Game_moves WHERE game_id = ? ORDER BY move_number ASC;";
+    sqlite3_stmt* stmt;
+    int rc = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, NULL);
+    if (rc != SQLITE_OK) {
+        cerr << "Failed to prepare load moves statement: " << sqlite3_errmsg(db) << endl;
+        return moves;
     }
+
+    sqlite3_bind_int(stmt, 1, game_id);
+
+    while ((rc = sqlite3_step(stmt)) == SQLITE_ROW) {
+        int row = sqlite3_column_int(stmt, 0);
+        int col = sqlite3_column_int(stmt, 1);
+        const unsigned char* playerText = sqlite3_column_text(stmt, 2);
+        char player = playerText ? playerText[0] : ' ';
+        moves.push_back({row, col, player});
+    }
+    sqlite3_finalize(stmt);
+    return moves;
+}
+
+// Replay a stored game move-by-move
+void replayStoredGame(sqlite3* db, int game_id) {
+    vector<Move> moves = loadMovesForGame(db, game_id);
+    if (moves.empty()) {
+        cout << "No moves found for game ID " << game_id << endl;
+        return;
+    }
+
+    ReplayManager replay;
+    replay.resetBoard();
+
+    int currentMoveIndex = 0;
+    char command;
+    while (true) {
+        replay.displayBoard();
+        cout << "Move " << currentMoveIndex << "/" << moves.size() << "\n";
+        cout << "n: next move, p: previous move, q: quit replay\n";
+        cin >> command;
+
+        if (command == 'n') {
+            if (currentMoveIndex < (int)moves.size()) {
+                Move move = moves[currentMoveIndex];
+                replay.pushMove(move.row, move.col, move.player);
+                currentMoveIndex++;
+            } else {
+                cout << "End of game.\n";
+            }
+        } else if (command == 'p') {
+            if (currentMoveIndex > 0) {
+                currentMoveIndex--;
+                replay.undoMove();
+            } else {
+                cout << "Start of game.\n";
+            }
+        } else if (command == 'q') {
+            break;
+        }
+    }
+}
+
+// Show game history for a player, prompt for authentication, and allow replay
+bool showGameHistoryForPlayer(sqlite3* db) {
+    string username;
+    if (!authenticateUser(db, username)) return false;
+
+    int playerId = getUserId(db, username);
+    if (playerId == -1) {
+        cout << "Player not found.\n";
+        return false;
+    }
+
     string query =
-        "SELECT gh.date_played, "
+        "SELECT gh.ID, gh.date_played, "
         "       u1.NAME AS Player1, "
         "       u2.NAME AS Player2, "
-        "       gh.winner, "
-        "       gh.board_moves "
+        "       gh.winner "
         "FROM Game_history gh "
         "JOIN PLAYERS u1 ON gh.user1_id = u1.ID "
         "JOIN PLAYERS u2 ON gh.user2_id = u2.ID "
@@ -412,42 +432,43 @@ bool showGameHistoryForPlayer(sqlite3* db, string username) {
     int rc = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, NULL);
 
     if (rc != SQLITE_OK) {
-        cerr << " Failed to prepare statement: " << sqlite3_errmsg(db) << endl;
+        cerr << "Failed to prepare statement: " << sqlite3_errmsg(db) << endl;
         return false;
     }
 
-    sqlite3_bind_int(stmt, 1, playerId); // Bind both parameters
+    sqlite3_bind_int(stmt, 1, playerId);
     sqlite3_bind_int(stmt, 2, playerId);
 
-    cout << "\nGame History with Final Boards:\n";
-    cout << "-----------------------------------------------------------\n";
+    cout << "\nGame History:\n";
+    cout << "ID\tDate\t\t\tPlayer1\t\tPlayer2\t\tWinner\n";
+    cout << "-------------------------------------------------------------\n";
 
     while ((rc = sqlite3_step(stmt)) == SQLITE_ROW) {
-        string date        = (const char*)sqlite3_column_text(stmt, 0);
-        string player1Name = (const char*)sqlite3_column_text(stmt, 1);
-        string player2Name = (const char*)sqlite3_column_text(stmt, 2);
-        string winner      = (const char*)sqlite3_column_text(stmt, 3);
-        string boardMoves  = (const char*)sqlite3_column_text(stmt, 4);
+        int gameId = sqlite3_column_int(stmt, 0);
+        string date = (const char*)sqlite3_column_text(stmt, 1);
+        string player1Name = (const char*)sqlite3_column_text(stmt, 2);
+        string player2Name = (const char*)sqlite3_column_text(stmt, 3);
+        string winner = (const char*)sqlite3_column_text(stmt, 4);
 
-        cout << "Date     : " << date << "\n";
-        cout << "Player 1 : " << player1Name << "\n";
-        cout << "Player 2 : " << player2Name << "\n";
-        cout << "Winner   : " << winner << "\n";
-        cout << "Final Board:\n";
-
-        // Display board in 3x3 format
-        for (int i = 0; i < 9; ++i) {
-            cout << (boardMoves[i] == ' ' ? '-' : boardMoves[i]) << " ";
-            if (i % 3 == 2) cout << "\n";
-        }
-        cout << "-----------------------------------------------------------\n";
+        cout << gameId << "\t" << date << "\t" << player1Name << "\t\t" << player2Name << "\t\t" << winner << endl;
     }
 
     if (rc != SQLITE_DONE) {
-        cerr << " Error retrieving game history: " << sqlite3_errmsg(db) << endl;
+        cerr << "Error retrieving game history: " << sqlite3_errmsg(db) << endl;
     }
 
     sqlite3_finalize(stmt);
+
+    cout << "\nWould you like to replay a game? (y/n): ";
+    char choice;
+    cin >> choice;
+
+    if (tolower(choice) == 'y') {
+        cout << "Enter game ID to replay: ";
+        int game_id;
+        cin >> game_id;
+        replayStoredGame(db, game_id);
+    }
     return true;
 }
 
@@ -459,7 +480,6 @@ int main() {
         return 1;
     }
 
-    // Enable foreign keys
     char* message_error;
     rc = sqlite3_exec(db, "PRAGMA foreign_keys = ON;", NULL, 0, &message_error);
     if (rc != SQLITE_OK) {
@@ -469,7 +489,7 @@ int main() {
         return 1;
     }
 
-    // Create tables if needed
+    // Create tables if not exist
     string sql_players = "CREATE TABLE IF NOT EXISTS PLAYERS("
                          "ID INTEGER PRIMARY KEY AUTOINCREMENT,"
                          "NAME TEXT UNIQUE NOT NULL,"
@@ -484,7 +504,8 @@ int main() {
     }
 
     string sql_game_history = "CREATE TABLE IF NOT EXISTS Game_history ("
-                              "ID INTEGER PRIMARY KEY AUTOINCREMENT,""user1_id INTEGER,"
+                              "ID INTEGER PRIMARY KEY AUTOINCREMENT,"
+                              "user1_id INTEGER,"
                               "user2_id INTEGER,"
                               "winner TEXT,"
                               "date_played TIMESTAMP DEFAULT CURRENT_TIMESTAMP,"
@@ -498,76 +519,50 @@ int main() {
         sqlite3_close(db);
         return 1;
     }
-    // Check if 'board_moves' column exists
-    bool columnExists = false;
-    sqlite3_stmt* stmt;
-    string checkColSql = "PRAGMA table_info(Game_history);";
-    if (sqlite3_prepare_v2(db, checkColSql.c_str(), -1, &stmt, NULL) == SQLITE_OK) {
-        while (sqlite3_step(stmt) == SQLITE_ROW) {
-            string colName = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1));
-            if (colName == "board_moves") {
-                columnExists = true;
-                break;
-            }
-        }
-    }
-    sqlite3_finalize(stmt);
 
-    // Add board_moves column only if it does not exist
-    if (!columnExists) {
-        string alterSql = "ALTER TABLE Game_history ADD COLUMN board_moves TEXT;";
-        int rc1 = sqlite3_exec(db, alterSql.c_str(), NULL, 0, &message_error);
-        if (rc1 != SQLITE_OK) {
-            cerr << "Error adding board_moves column: " << message_error << endl;
-            sqlite3_free(message_error);
-        }
+    string sql_game_moves = "CREATE TABLE IF NOT EXISTS Game_moves ("
+                            "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                            "game_id INTEGER NOT NULL,"
+                            "move_number INTEGER NOT NULL,"
+                            "row INTEGER NOT NULL,"
+                            "col INTEGER NOT NULL,"
+                            "player CHAR(1) NOT NULL,"
+                            "FOREIGN KEY (game_id) REFERENCES Game_history(ID) ON DELETE CASCADE"
+                            ");";
+    rc = sqlite3_exec(db, sql_game_moves.c_str(), NULL, 0, &message_error);
+    if (rc != SQLITE_OK) {
+        cerr << "Error creating Game_moves table: " << message_error << endl;
+        sqlite3_free(message_error);
+        sqlite3_close(db);
+        return 1;
     }
-
-    int choice;
-    string loggedInUser;
 
     while (true) {
-        cout << "\n1. Register\n2. Login\n3. Exit\nEnter your choice: ";
+        cout << "\nMenu:\n1. Login and Play\n2. Register\n3. Game History & Replay\n4. Exit\n";
+        int choice;
         cin >> choice;
 
         if (choice == 1) {
-            registerUser(db);
-        } else if (choice == 2) {
-            if (authenticateUser(db, loggedInUser)) {
-                int subChoice;
-                while (true) {
-                    cout << "\nWelcome, " << loggedInUser << "!\n";
-                    cout << "1. Start New Game\n2. Show My Game History\n3. Sign Out\nEnter your choice: ";
-                    cin >> subChoice;
-
-                    if (subChoice == 1) {
-                        string opponent;
-                        cout << "Enter opponent's username: ";
-                        if (authenticateUser(db, opponent)) {
-                            playGame(db, loggedInUser, opponent);
-                        } else {
-                            cout << "Opponent authentication failed.\n";
-                        }
-                    } else if (subChoice == 2) {
-                        showGameHistoryForPlayer(db, loggedInUser);
-                    } else if (subChoice == 3) {
-                        cout << "Signing out...\n";
-                        break;
-                    } else {
-                        cout << "Invalid option.\n";
-                    }
+            string username1, username2;
+            if (authenticateUser(db, username1)) {
+                cout << "Player 2 login:\n";
+                if (authenticateUser(db, username2)) {
+                    playGame(db, username1, username2);
                 }
-            } else {
-                cout << "Login failed.\n";
             }
+        } else if (choice == 2) {
+            registerUser(db);
         } else if (choice == 3) {
+            showGameHistoryForPlayer(db);
+        } else if (choice == 4) {
             cout << "Goodbye!\n";
             break;
         } else {
-            cout << "Invalid choice. Try again.\n";
+            cout << "Invalid choice.\n";
         }
     }
 
     sqlite3_close(db);
     return 0;
 }
+
