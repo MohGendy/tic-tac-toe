@@ -30,6 +30,8 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow {
+	background-image: url(:/img./20250617_0902_image.png);
+	background-image: url(:/img./20250617_0908_image.png);
 
    background-repeat: no-repeat;
    background-position: center;
@@ -37,9 +39,9 @@
   }
 
 QLineEdit {
-    background-color: rgba(0, 0, 0, 100); 
-    color: white;                      
-    border: 1.5px solid rgba(255, 255, 255, 100); 
+    background-color: rgba(0, 0, 0, 100);
+    color: white;
+    border: 1.5px solid rgba(255, 255, 255, 100);
     font-size: 16px;
     padding: 4px;
 }
@@ -63,9 +65,9 @@ QLineEdit::disabled {
 }
 
 
-QMessageBox { background-image: url(:/pictures/pictures/mesbg.png); background-repeat: no-repeat; background-position: center; font-family:  sans-serif;font-size:12px;font-Weight:bold;color:white;} 
- QMessageBox QPushButton { background-color: rgb(92, 142, 146); color: white; padding: 5px 10px; border-radius: 3px; font-size: 14px; font-weight: bold; min-width: 30px; min-height: 10px; border: none; } 
-QMessageBox QPushButton:hover { background-color: rgb(204, 177, 161); } 
+QMessageBox { background-image: url(:/pictures/pictures/mesbg.png); background-repeat: no-repeat; background-position: center; font-family:  sans-serif;font-size:12px;font-Weight:bold;color:white;}
+ QMessageBox QPushButton { background-color: rgb(92, 142, 146); color: white; padding: 5px 10px; border-radius: 3px; font-size: 14px; font-weight: bold; min-width: 30px; min-height: 10px; border: none; }
+QMessageBox QPushButton:hover { background-color: rgb(204, 177, 161); }
 QMessageBox QPushButton:disabled { background-color: #cccccc; color: #666666;}
 QPushButton {
     background-color: rgba(0, 0, 0, 100);       /* الخلفية شفافة */
@@ -1846,13 +1848,12 @@ font: 900 36pt &quot;Segoe UI Black&quot;;</string>
               </property>
               <property name="minimumSize">
                <size>
-                <width>428</width>
-                <height>66</height>
+                <width>128</width>
+                <height>46</height>
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">min-width:400px;
-min-height:50px;</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>Easy</string>
@@ -2444,9 +2445,9 @@ font-weight: bold;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color:rgb(113, 113, 113);
-      font-weight:bold;
-      font-size:18px;
-      background-color:rgba(85, 170, 255, 0);</string>
+                                          font-weight:bold;
+                                          font-size:18px;
+                                          background-color:rgba(85, 170, 255, 0);</string>
               </property>
               <property name="text">
                <string>Guest2</string>
@@ -2503,32 +2504,16 @@ font-weight: bold;</string>
            <layout class="QGridLayout" name="megaGridLayout">
             <item row="0" column="0">
              <layout class="QGridLayout" name="subGrid_0_0">
-              <item row="1" column="2">
-               <widget class="QPushButton" name="b1_2">
+              <item row="0" column="0">
+               <widget class="QPushButton" name="b0_0">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="2">
-               <widget class="QPushButton" name="b2_2">
-                <property name="minimumSize">
-                 <size>
-                  <width>68</width>
-                  <height>56</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -2539,44 +2524,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b0_1">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="1">
-               <widget class="QPushButton" name="b2_1">
-                <property name="minimumSize">
-                 <size>
-                  <width>68</width>
-                  <height>56</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QPushButton" name="b1_1">
-                <property name="minimumSize">
-                 <size>
-                  <width>68</width>
-                  <height>56</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -2587,44 +2540,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b0_2">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QPushButton" name="b2_0">
-                <property name="minimumSize">
-                 <size>
-                  <width>68</width>
-                  <height>56</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QPushButton" name="b0_0">
-                <property name="minimumSize">
-                 <size>
-                  <width>68</width>
-                  <height>56</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -2635,12 +2556,92 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b1_0">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QPushButton" name="b1_1">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>58</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QPushButton" name="b1_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>58</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QPushButton" name="b2_0">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>58</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QPushButton" name="b2_1">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>58</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QPushButton" name="b2_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>58</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -2651,128 +2652,16 @@ font-weight: bold;</string>
             </item>
             <item row="0" column="1">
              <layout class="QGridLayout" name="subGrid_0_1">
-              <item row="1" column="0">
-               <widget class="QPushButton" name="b1_3">
-                <property name="minimumSize">
-                 <size>
-                  <width>68</width>
-                  <height>56</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QPushButton" name="b1_4">
-                <property name="minimumSize">
-                 <size>
-                  <width>68</width>
-                  <height>56</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="2">
-               <widget class="QPushButton" name="b1_5">
-                <property name="minimumSize">
-                 <size>
-                  <width>68</width>
-                  <height>56</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QPushButton" name="b2_3">
-                <property name="minimumSize">
-                 <size>
-                  <width>68</width>
-                  <height>56</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
               <item row="0" column="0">
                <widget class="QPushButton" name="b0_3">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="2">
-               <widget class="QPushButton" name="b2_5">
-                <property name="minimumSize">
-                 <size>
-                  <width>68</width>
-                  <height>56</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="2">
-               <widget class="QPushButton" name="b0_5">
-                <property name="minimumSize">
-                 <size>
-                  <width>68</width>
-                  <height>56</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="1">
-               <widget class="QPushButton" name="b2_4">
-                <property name="minimumSize">
-                 <size>
-                  <width>68</width>
-                  <height>56</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -2783,12 +2672,124 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b0_4">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QPushButton" name="b0_5">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>58</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QPushButton" name="b1_3">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>58</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QPushButton" name="b1_4">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>58</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QPushButton" name="b1_5">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>58</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QPushButton" name="b2_3">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>58</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QPushButton" name="b2_4">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>58</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QPushButton" name="b2_5">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>58</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -2803,12 +2804,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b0_6">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -2819,12 +2820,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b0_7">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -2835,12 +2836,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b0_8">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -2851,12 +2852,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b1_6">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -2867,12 +2868,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b1_7">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -2883,12 +2884,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b1_8">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -2899,12 +2900,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b2_6">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -2915,12 +2916,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b2_7">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -2931,12 +2932,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b2_8">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -2951,12 +2952,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b3_0">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -2967,12 +2968,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b3_1">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -2983,12 +2984,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b3_2">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -2999,12 +3000,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b4_0">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3015,12 +3016,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b4_1">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3031,12 +3032,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b4_2">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3047,12 +3048,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b5_0">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3063,12 +3064,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b5_1">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3079,12 +3080,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b5_2">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3095,96 +3096,16 @@ font-weight: bold;</string>
             </item>
             <item row="1" column="1">
              <layout class="QGridLayout" name="subGrid_1_1">
-              <item row="0" column="2">
-               <widget class="QPushButton" name="b3_5">
+              <item row="0" column="0">
+               <widget class="QPushButton" name="b3_3">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QPushButton" name="b4_3">
-                <property name="minimumSize">
-                 <size>
-                  <width>68</width>
-                  <height>56</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="1">
-               <widget class="QPushButton" name="b5_4">
-                <property name="minimumSize">
-                 <size>
-                  <width>68</width>
-                  <height>56</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QPushButton" name="b5_3">
-                <property name="minimumSize">
-                 <size>
-                  <width>68</width>
-                  <height>56</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QPushButton" name="b4_4">
-                <property name="minimumSize">
-                 <size>
-                  <width>68</width>
-                  <height>56</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="2">
-               <widget class="QPushButton" name="b5_5">
-                <property name="minimumSize">
-                 <size>
-                  <width>68</width>
-                  <height>56</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3195,12 +3116,60 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b3_4">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QPushButton" name="b3_5">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>58</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QPushButton" name="b4_3">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>58</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QPushButton" name="b4_4">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>58</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3211,28 +3180,60 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b4_5">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
                 </property>
                </widget>
               </item>
-              <item row="0" column="0">
-               <widget class="QPushButton" name="b3_3">
+              <item row="2" column="0">
+               <widget class="QPushButton" name="b5_3">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QPushButton" name="b5_4">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>58</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QPushButton" name="b5_5">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>58</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3247,12 +3248,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b3_6">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3263,12 +3264,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b3_7">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3279,12 +3280,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b3_8">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3295,12 +3296,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b4_6">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3311,12 +3312,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b4_7">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3327,12 +3328,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b4_8">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3343,12 +3344,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b5_6">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3359,12 +3360,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b5_7">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3375,12 +3376,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b5_8">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3395,12 +3396,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b6_0">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3411,12 +3412,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b6_1">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3427,12 +3428,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b6_2">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3443,12 +3444,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b7_0">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3459,12 +3460,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b7_1">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3475,12 +3476,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b7_2">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3491,12 +3492,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b8_0">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3507,12 +3508,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b8_1">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3523,12 +3524,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b8_2">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3543,12 +3544,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b6_3">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3559,12 +3560,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b6_4">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3575,12 +3576,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b6_5">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3591,12 +3592,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b7_3">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3607,12 +3608,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b7_4">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3623,12 +3624,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b7_5">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3639,12 +3640,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b8_3">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3655,12 +3656,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b8_4">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3671,12 +3672,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b8_5">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3691,12 +3692,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b6_6">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3707,12 +3708,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b6_7">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3723,12 +3724,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b6_8">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3739,12 +3740,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b7_6">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3755,12 +3756,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b7_7">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3771,12 +3772,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b7_8">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3787,12 +3788,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b8_6">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3803,12 +3804,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b8_7">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3819,12 +3820,12 @@ font-weight: bold;</string>
                <widget class="QPushButton" name="b8_8">
                 <property name="minimumSize">
                  <size>
-                  <width>68</width>
-                  <height>56</height>
+                  <width>70</width>
+                  <height>58</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">min-width:40px;min-height:40px;font-size:20px;font-weight:bold;</string>
+                 <string notr="true">min-width:40px; min-height:40px; font-size:20px; font-weight:bold; border: 3px solid black;</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -3954,9 +3955,9 @@ font-weight: bold;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color:white;
-      font-weight:bold;
-      font-size:24px;
-      background-color:rgba(85, 170, 255, 100);</string>
+                                          font-weight:bold;
+                                          font-size:24px;
+                                          background-color:rgba(85, 170, 255, 100);</string>
               </property>
               <property name="text">
                <string>Guest</string>
@@ -4036,8 +4037,7 @@ font-weight: bold;</string>
                </sizepolicy>
               </property>
               <property name="styleSheet">
-               <string notr="true">min-width:160;
-      </string>
+               <string notr="true">min-width:160;</string>
               </property>
               <property name="text">
                <string>New</string>
