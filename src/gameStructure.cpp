@@ -1,8 +1,8 @@
-#include <iostream>
-using namespace std;
 #include "gameStructure.h"
-    //########################################struct Board Functions########################################
-    Board::Board() { //normal tic tac toe
+#include "ai.h"
+//game functions 
+    Board::Board() {
+
         // Initialize the grid with empty spaces
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -83,7 +83,7 @@ using namespace std;
         for (int i = 0; i < 3; i++) {
             if ((megaGrid[i][0][subGrid] == playerSymbol && megaGrid[i][1][subGrid] == playerSymbol && megaGrid[i][2][subGrid] == playerSymbol) ||
                 (megaGrid[0][i][subGrid] == playerSymbol && megaGrid[1][i][subGrid] == playerSymbol && megaGrid[2][i][subGrid] == playerSymbol)) {
-                    if(winningGrids[subGrid/3][subGrid%3] != ' '){
+                    if(winningGrids[subGrid/3][subGrid%3] == ' '){
                         winningGrids[subGrid/3][subGrid%3]=playerSymbol;
                     }
                     return true;
@@ -92,7 +92,7 @@ using namespace std;
         // Check diagonals for a win
         if ((megaGrid[0][0][subGrid] == playerSymbol && megaGrid[1][1][subGrid] == playerSymbol && megaGrid[2][2][subGrid] == playerSymbol) ||
             (megaGrid[0][2][subGrid] == playerSymbol && megaGrid[1][1][subGrid] == playerSymbol && megaGrid[2][0][subGrid] == playerSymbol)) {
-               if(winningGrids[subGrid/3][subGrid%3] != ' '){
+               if(winningGrids[subGrid/3][subGrid%3] == ' '){
                 winningGrids[subGrid/3][subGrid%3]=playerSymbol;
                }
                 return true;
@@ -191,6 +191,20 @@ using namespace std;
         if (row < 0 || row >= 3 || col < 0 || col >= 3 || subgrid < 0 || subgrid >= 9) return 'N'; // Prevent invalid indices
         return megaGrid[row][col][subgrid];
     }
+
+    char megaBoard::getWinningGrid(int subgid) const { //help in testing
+        if (subgid < 0 || subgid >= 9) return 'N'; // Prevent invalid indices
+        return winningGrids[subgid/3][subgid%3];
+    }
+
+    void megaBoard::displayWinningGrids(){
+            for(int k = 0; k < 9; k++){
+            cout<< getWinningGrid(k)<<" |"; // Check the winning grid for each subgrid
+            if ((k + 1) % 3 == 0) cout << endl;
+        }
+        cout<<"\n\n";
+    }
+
     //########################################struct Game Functions########################################
     Game::Game():player1('X'), player2('O') { // Temporary values for initialization
 
@@ -299,3 +313,62 @@ using namespace std;
         }
 
     }    
+
+    
+
+    void Game::playAi() {
+        
+        int row, col;
+        bool start;
+        char sel;
+        int level;
+        cout << "select level (0 1 2)\n";
+        cin >> level;
+        cout << "will player start first? (y,n)\n";
+        cin >> sel;
+        start = (sel == 'y');
+        char currentPlayerSymbol = (start?player1.symbol:player2.symbol);
+        Ai ai = Ai(!start,level);
+        while (true) {
+            board.displayBoard(); // Display the board
+            if(currentPlayerSymbol == player2.symbol){
+                int move;
+                int x[9] = {0};
+                
+                if(ai.moveAi(&move)){
+                   row = move/3;
+                   col = move%3;
+                }else{
+                    cout << "some error happend";
+                    break;
+                }
+                cout << "Ai played at: " << row << " " << col << endl;
+            }else{
+                cout << "Player " << currentPlayerSymbol << ", enter your move (row and column): ";
+                cin >> row >> col; // Get the move from the player
+            }
+            if (board.makeMove(row, col, currentPlayerSymbol)) { // If the move is valid
+                if (board.checkWin(currentPlayerSymbol)) { // Check for a win
+                    board.displayBoard(); // Display the final board
+                    cout << "Player " << currentPlayerSymbol << " wins!" << endl;
+                    break;
+                }
+                if (board.isFull()) { // Check for a tie
+                    board.displayBoard(); // Display the final board
+                    cout << "It's a tie!" << endl;
+                    break;
+                }
+                // Switch players
+                if(currentPlayerSymbol == player1.symbol){
+                    if(!ai.movePlayer(row*3+col)){
+                        cout << "some error happend";
+                        break;
+                    }
+                }
+                currentPlayerSymbol = (currentPlayerSymbol == player1.symbol) ? player2.symbol : player1.symbol;
+            } else {
+                cout << "Invalid move. Try again." << endl; // Invalid move message
+                cin.ignore();
+            }
+        }
+    }
