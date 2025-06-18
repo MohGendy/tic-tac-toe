@@ -1,3 +1,0 @@
-"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\sqlite.dir/objects.a
-C:\msys64\ucrt64\bin\ar.exe qc CMakeFiles\sqlite.dir/objects.a @CMakeFiles\sqlite.dir\objects1.rsp
-C:\msys64\ucrt64\bin\cc.exe -Wl,--whole-archive CMakeFiles\sqlite.dir/objects.a -Wl,--no-whole-archive -o sqlite.exe -Wl,--out-implib,libsqlite.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\sqlite.dir\linkLibs.rsp

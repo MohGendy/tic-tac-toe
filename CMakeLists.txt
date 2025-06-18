@@ -4,6 +4,7 @@ project(MyProject CXX)
 # pull in googletest and sqlite subdirs
 add_subdirectory(googletest)
 add_subdirectory(sqlite)
+add_subdirectory(bcrypt)
 
 # your own include dirs (if you need them)
 include_directories(
@@ -31,12 +32,14 @@ find_package(Threads REQUIRED)
 target_link_libraries(my_program
   PRIVATE
     sqlite3
+    bcrypt
     Threads::Threads
 )
 
 target_link_libraries(runTests
   PRIVATE
     sqlite3
+    bcrypt
     gtest
     gtest_main
     Threads::Threads

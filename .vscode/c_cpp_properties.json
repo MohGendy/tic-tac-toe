@@ -5,7 +5,9 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/include",
-                "${workspaceFolder}/googletest/googletest/include"
+                "${workspaceFolder}/googletest/googletest/include",
+                "${workspaceFolder}/sqlite/include",
+                "${workspaceFolder}/bcrypt/include"
             ],
             "defines": [
                 "_DEBUG",
