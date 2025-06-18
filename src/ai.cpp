@@ -192,6 +192,8 @@ bool Ai::moveAi(int * move){
         break;
         
     }
+    *move = -1; // if no move is possible
+    return false;
     
 }
 bool Ai::movePlayer(int move){
