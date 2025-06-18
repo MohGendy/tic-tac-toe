@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = @CMakeFiles/my_program.dir/includes_CXX.rsp
 
-CXX_FLAGS = 
+CXX_FLAGS = -DWIN32_LEAN_AND_MEAN
 

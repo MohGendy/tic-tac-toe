@@ -1,5 +1,5 @@
-#include "gameStructure.h"
 #include "ai.h"
+#include "gameStructure.h"
 //game functions 
     Board::Board() {
 

@@ -84,6 +84,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"gmock\" \"gtest\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	"C:\Program Files\CMake\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	"C:\Program Files\CMake\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\uni\sec\term2\Embedded\project\DrOmar\code\build\CMakeFiles E:\uni\sec\term2\Embedded\project\DrOmar\code\build\\CMakeFiles\progress.marks
@@ -128,12 +173,190 @@ my_program/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/build
 .PHONY : my_program/fast
 
+#=============================================================================
+# Target rules for targets named runTests
+
+# Build rule for target.
+runTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 runTests
+.PHONY : runTests
+
+# fast build rule for target.
+runTests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\runTests.dir\build.make CMakeFiles/runTests.dir/build
+.PHONY : runTests/fast
+
+#=============================================================================
+# Target rules for targets named gmock
+
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 gmock
+.PHONY : gmock
+
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) $(MAKESILENT) -f googletest\googlemock\CMakeFiles\gmock.dir\build.make googletest/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
+
+#=============================================================================
+# Target rules for targets named gmock_main
+
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 gmock_main
+.PHONY : gmock_main
+
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) $(MAKESILENT) -f googletest\googlemock\CMakeFiles\gmock_main.dir\build.make googletest/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) $(MAKESILENT) -f googletest\googletest\CMakeFiles\gtest.dir\build.make googletest/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) $(MAKESILENT) -f googletest\googletest\CMakeFiles\gtest_main.dir\build.make googletest/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
+#=============================================================================
+# Target rules for targets named sqlite3
+
+# Build rule for target.
+sqlite3: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 sqlite3
+.PHONY : sqlite3
+
+# fast build rule for target.
+sqlite3/fast:
+	$(MAKE) $(MAKESILENT) -f sqlite\CMakeFiles\sqlite3.dir\build.make sqlite/CMakeFiles/sqlite3.dir/build
+.PHONY : sqlite3/fast
+
+src/ai.obj: src/ai.cpp.obj
+.PHONY : src/ai.obj
+
+# target to build an object file
+src/ai.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/ai.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\runTests.dir\build.make CMakeFiles/runTests.dir/src/ai.cpp.obj
+.PHONY : src/ai.cpp.obj
+
+src/ai.i: src/ai.cpp.i
+.PHONY : src/ai.i
+
+# target to preprocess a source file
+src/ai.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/ai.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\runTests.dir\build.make CMakeFiles/runTests.dir/src/ai.cpp.i
+.PHONY : src/ai.cpp.i
+
+src/ai.s: src/ai.cpp.s
+.PHONY : src/ai.s
+
+# target to generate assembly for a file
+src/ai.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/ai.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\runTests.dir\build.make CMakeFiles/runTests.dir/src/ai.cpp.s
+.PHONY : src/ai.cpp.s
+
+src/bcrypt.obj: src/bcrypt.cpp.obj
+.PHONY : src/bcrypt.obj
+
+# target to build an object file
+src/bcrypt.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/bcrypt.cpp.obj
+.PHONY : src/bcrypt.cpp.obj
+
+src/bcrypt.i: src/bcrypt.cpp.i
+.PHONY : src/bcrypt.i
+
+# target to preprocess a source file
+src/bcrypt.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/bcrypt.cpp.i
+.PHONY : src/bcrypt.cpp.i
+
+src/bcrypt.s: src/bcrypt.cpp.s
+.PHONY : src/bcrypt.s
+
+# target to generate assembly for a file
+src/bcrypt.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/bcrypt.cpp.s
+.PHONY : src/bcrypt.cpp.s
+
+src/blowfish.obj: src/blowfish.cpp.obj
+.PHONY : src/blowfish.obj
+
+# target to build an object file
+src/blowfish.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/blowfish.cpp.obj
+.PHONY : src/blowfish.cpp.obj
+
+src/blowfish.i: src/blowfish.cpp.i
+.PHONY : src/blowfish.i
+
+# target to preprocess a source file
+src/blowfish.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/blowfish.cpp.i
+.PHONY : src/blowfish.cpp.i
+
+src/blowfish.s: src/blowfish.cpp.s
+.PHONY : src/blowfish.s
+
+# target to generate assembly for a file
+src/blowfish.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/blowfish.cpp.s
+.PHONY : src/blowfish.cpp.s
+
+src/database.obj: src/database.cpp.obj
+.PHONY : src/database.obj
+
+# target to build an object file
+src/database.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/database.cpp.obj
+.PHONY : src/database.cpp.obj
+
+src/database.i: src/database.cpp.i
+.PHONY : src/database.i
+
+# target to preprocess a source file
+src/database.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/database.cpp.i
+.PHONY : src/database.cpp.i
+
+src/database.s: src/database.cpp.s
+.PHONY : src/database.s
+
+# target to generate assembly for a file
+src/database.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/database.cpp.s
+.PHONY : src/database.cpp.s
+
 src/gameStructure.obj: src/gameStructure.cpp.obj
 .PHONY : src/gameStructure.obj
 
 # target to build an object file
 src/gameStructure.cpp.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/gameStructure.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\runTests.dir\build.make CMakeFiles/runTests.dir/src/gameStructure.cpp.obj
 .PHONY : src/gameStructure.cpp.obj
 
 src/gameStructure.i: src/gameStructure.cpp.i
@@ -142,6 +365,7 @@ src/gameStructure.i: src/gameStructure.cpp.i
 # target to preprocess a source file
 src/gameStructure.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/gameStructure.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\runTests.dir\build.make CMakeFiles/runTests.dir/src/gameStructure.cpp.i
 .PHONY : src/gameStructure.cpp.i
 
 src/gameStructure.s: src/gameStructure.cpp.s
@@ -150,7 +374,32 @@ src/gameStructure.s: src/gameStructure.cpp.s
 # target to generate assembly for a file
 src/gameStructure.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/gameStructure.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\runTests.dir\build.make CMakeFiles/runTests.dir/src/gameStructure.cpp.s
 .PHONY : src/gameStructure.cpp.s
+
+src/main-1.obj: src/main-1.cpp.obj
+.PHONY : src/main-1.obj
+
+# target to build an object file
+src/main-1.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/main-1.cpp.obj
+.PHONY : src/main-1.cpp.obj
+
+src/main-1.i: src/main-1.cpp.i
+.PHONY : src/main-1.i
+
+# target to preprocess a source file
+src/main-1.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/main-1.cpp.i
+.PHONY : src/main-1.cpp.i
+
+src/main-1.s: src/main-1.cpp.s
+.PHONY : src/main-1.s
+
+# target to generate assembly for a file
+src/main-1.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/main-1.cpp.s
+.PHONY : src/main-1.cpp.s
 
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
@@ -176,6 +425,54 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\my_program.dir\build.make CMakeFiles/my_program.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+tests/megatests.obj: tests/megatests.cpp.obj
+.PHONY : tests/megatests.obj
+
+# target to build an object file
+tests/megatests.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\runTests.dir\build.make CMakeFiles/runTests.dir/tests/megatests.cpp.obj
+.PHONY : tests/megatests.cpp.obj
+
+tests/megatests.i: tests/megatests.cpp.i
+.PHONY : tests/megatests.i
+
+# target to preprocess a source file
+tests/megatests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\runTests.dir\build.make CMakeFiles/runTests.dir/tests/megatests.cpp.i
+.PHONY : tests/megatests.cpp.i
+
+tests/megatests.s: tests/megatests.cpp.s
+.PHONY : tests/megatests.s
+
+# target to generate assembly for a file
+tests/megatests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\runTests.dir\build.make CMakeFiles/runTests.dir/tests/megatests.cpp.s
+.PHONY : tests/megatests.cpp.s
+
+tests/pvptests.obj: tests/pvptests.cpp.obj
+.PHONY : tests/pvptests.obj
+
+# target to build an object file
+tests/pvptests.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\runTests.dir\build.make CMakeFiles/runTests.dir/tests/pvptests.cpp.obj
+.PHONY : tests/pvptests.cpp.obj
+
+tests/pvptests.i: tests/pvptests.cpp.i
+.PHONY : tests/pvptests.i
+
+# target to preprocess a source file
+tests/pvptests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\runTests.dir\build.make CMakeFiles/runTests.dir/tests/pvptests.cpp.i
+.PHONY : tests/pvptests.cpp.i
+
+tests/pvptests.s: tests/pvptests.cpp.s
+.PHONY : tests/pvptests.s
+
+# target to generate assembly for a file
+tests/pvptests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\runTests.dir\build.make CMakeFiles/runTests.dir/tests/pvptests.cpp.s
+.PHONY : tests/pvptests.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -183,14 +480,45 @@ help:
 	@echo ... clean
 	@echo ... depend
 	@echo ... edit_cache
+	@echo ... install
+	@echo ... install/local
+	@echo ... install/strip
+	@echo ... list_install_components
 	@echo ... rebuild_cache
+	@echo ... gmock
+	@echo ... gmock_main
+	@echo ... gtest
+	@echo ... gtest_main
 	@echo ... my_program
+	@echo ... runTests
+	@echo ... sqlite3
+	@echo ... src/ai.obj
+	@echo ... src/ai.i
+	@echo ... src/ai.s
+	@echo ... src/bcrypt.obj
+	@echo ... src/bcrypt.i
+	@echo ... src/bcrypt.s
+	@echo ... src/blowfish.obj
+	@echo ... src/blowfish.i
+	@echo ... src/blowfish.s
+	@echo ... src/database.obj
+	@echo ... src/database.i
+	@echo ... src/database.s
 	@echo ... src/gameStructure.obj
 	@echo ... src/gameStructure.i
 	@echo ... src/gameStructure.s
+	@echo ... src/main-1.obj
+	@echo ... src/main-1.i
+	@echo ... src/main-1.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
+	@echo ... tests/megatests.obj
+	@echo ... tests/megatests.i
+	@echo ... tests/megatests.s
+	@echo ... tests/pvptests.obj
+	@echo ... tests/pvptests.i
+	@echo ... tests/pvptests.s
 .PHONY : help
 
 

@@ -1,7 +1,11 @@
 {
 	"InstallScripts" : 
 	[
-		"E:/uni/sec/term2/Embedded/project/DrOmar/code/build/cmake_install.cmake"
+		"E:/uni/sec/term2/Embedded/project/DrOmar/code/build/cmake_install.cmake",
+		"E:/uni/sec/term2/Embedded/project/DrOmar/code/build/googletest/cmake_install.cmake",
+		"E:/uni/sec/term2/Embedded/project/DrOmar/code/build/googletest/googlemock/cmake_install.cmake",
+		"E:/uni/sec/term2/Embedded/project/DrOmar/code/build/googletest/googletest/cmake_install.cmake",
+		"E:/uni/sec/term2/Embedded/project/DrOmar/code/build/sqlite/cmake_install.cmake"
 	],
 	"Parallel" : false
 }
