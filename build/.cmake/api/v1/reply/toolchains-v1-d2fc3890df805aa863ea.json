@@ -6,7 +6,7 @@
 			"compiler" : 
 			{
 				"implicit" : {},
-				"path" : "C:/msys64/ucrt64/bin/cc.exe"
+				"path" : "f:/programs/QT/Tools/mingw1310_64/bin/gcc.exe"
 			},
 			"language" : "C"
 		},
@@ -18,19 +18,19 @@
 				{
 					"includeDirectories" : 
 					[
-						"C:/msys64/ucrt64/include/c++/13.2.0",
-						"C:/msys64/ucrt64/include/c++/13.2.0/x86_64-w64-mingw32",
-						"C:/msys64/ucrt64/include/c++/13.2.0/backward",
-						"C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0/include",
-						"C:/msys64/ucrt64/include",
-						"C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed"
+						"F:/programs/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++",
+						"F:/programs/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32",
+						"F:/programs/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward",
+						"F:/programs/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include",
+						"F:/programs/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed",
+						"F:/programs/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include"
 					],
 					"linkDirectories" : 
 					[
-						"C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0",
-						"C:/msys64/ucrt64/lib/gcc",
-						"C:/msys64/ucrt64/x86_64-w64-mingw32/lib",
-						"C:/msys64/ucrt64/lib"
+						"F:/programs/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0",
+						"F:/programs/QT/Tools/mingw1310_64/lib/gcc",
+						"F:/programs/QT/Tools/mingw1310_64/x86_64-w64-mingw32/lib",
+						"F:/programs/QT/Tools/mingw1310_64/lib"
 					],
 					"linkFrameworkDirectories" : [],
 					"linkLibraries" : 
@@ -47,6 +47,7 @@
 						"shell32",
 						"user32",
 						"kernel32",
+						"iconv",
 						"mingw32",
 						"gcc_s",
 						"gcc",
@@ -55,8 +56,8 @@
 						"kernel32"
 					]
 				},
-				"path" : "C:/msys64/ucrt64/bin/c++.exe",
-				"version" : "13.2.0"
+				"path" : "f:/programs/QT/Tools/mingw1310_64/bin/g++.exe",
+				"version" : "13.1.0"
 			},
 			"language" : "CXX",
 			"sourceFileExtensions" : 
@@ -82,7 +83,7 @@
 			"compiler" : 
 			{
 				"implicit" : {},
-				"path" : "C:/msys64/ucrt64/bin/windres.exe"
+				"path" : "F:/programs/QT/Tools/mingw1310_64/bin/windres.exe"
 			},
 			"language" : "RC",
 			"sourceFileExtensions" : 

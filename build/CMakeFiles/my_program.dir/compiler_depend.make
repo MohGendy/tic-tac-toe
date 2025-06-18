@@ -426,7 +426,6 @@ CMakeFiles/my_program.dir/src/database.cpp.obj: E:/uni/sec/term2/Embedded/projec
   C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
   C:/msys64/ucrt64/include/sec_api/wchar_s.h \
   C:/msys64/ucrt64/include/signal.h \
-  C:/msys64/ucrt64/include/sqlite3.h \
   C:/msys64/ucrt64/include/stdarg.h \
   C:/msys64/ucrt64/include/stddef.h \
   C:/msys64/ucrt64/include/stdio.h \
@@ -443,7 +442,8 @@ CMakeFiles/my_program.dir/src/database.cpp.obj: E:/uni/sec/term2/Embedded/projec
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stdarg.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stddef.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/syslimits.h \
-  E:/uni/sec/term2/Embedded/project/DrOmar/code/include/bcrypt.h
+  E:/uni/sec/term2/Embedded/project/DrOmar/code/include/bcrypt.h \
+  E:/uni/sec/term2/Embedded/project/DrOmar/code/sqlite/include/sqlite3.h
 
 CMakeFiles/my_program.dir/src/gameStructure.cpp.obj: E:/uni/sec/term2/Embedded/project/DrOmar/code/src/gameStructure.cpp \
   C:/msys64/ucrt64/include/_mingw.h \
@@ -914,6 +914,8 @@ C:/msys64/ucrt64/include/c++/13.2.0/bits/stl_raw_storage_iter.h:
 
 C:/msys64/ucrt64/include/c++/13.2.0/bits/stl_tempbuf.h:
 
+E:/uni/sec/term2/Embedded/project/DrOmar/code/sqlite/include/sqlite3.h:
+
 C:/msys64/ucrt64/include/c++/13.2.0/bits/stl_uninitialized.h:
 
 C:/msys64/ucrt64/include/c++/13.2.0/bits/streambuf.tcc:
@@ -1113,8 +1115,6 @@ C:/msys64/ucrt64/include/_mingw_stdarg.h:
 C:/msys64/ucrt64/include/c++/13.2.0/bits/stl_bvector.h:
 
 C:/msys64/ucrt64/include/c++/13.2.0/bits/stl_vector.h:
-
-C:/msys64/ucrt64/include/sqlite3.h:
 
 C:/msys64/ucrt64/include/stdarg.h:
 

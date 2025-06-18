@@ -12,7 +12,7 @@
 						4
 					],
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-d0094a50bb2071803777.json",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.10"
@@ -32,7 +32,7 @@
 						2
 					],
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-googletest-294c64d4885f2a55f3f7.json",
+					"jsonFile" : "directory-googletest-Debug-294c64d4885f2a55f3f7.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -48,7 +48,7 @@
 						3
 					],
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-googletest.googlemock-be7d9295c1709ebacb93.json",
+					"jsonFile" : "directory-googletest.googlemock-Debug-be7d9295c1709ebacb93.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.13"
@@ -65,7 +65,7 @@
 				{
 					"build" : "googletest/googletest",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-googletest.googletest-06c244b0ff8554ffcb71.json",
+					"jsonFile" : "directory-googletest.googletest-Debug-06c244b0ff8554ffcb71.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.13"
@@ -81,7 +81,7 @@
 				},
 				{
 					"build" : "sqlite",
-					"jsonFile" : "directory-sqlite-2096cb14e5936defdcd0.json",
+					"jsonFile" : "directory-sqlite-Debug-2096cb14e5936defdcd0.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.10"
@@ -95,7 +95,7 @@
 					]
 				}
 			],
-			"name" : "",
+			"name" : "Debug",
 			"projects" : 
 			[
 				{
@@ -175,49 +175,49 @@
 				{
 					"directoryIndex" : 2,
 					"id" : "gmock::@d68da25237a7ca2351af",
-					"jsonFile" : "target-gmock-b34c10ee3754e5b159fb.json",
+					"jsonFile" : "target-gmock-Debug-597d01ae6b69cf0cfb47.json",
 					"name" : "gmock",
 					"projectIndex" : 2
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "gmock_main::@d68da25237a7ca2351af",
-					"jsonFile" : "target-gmock_main-1f08f923b8e07f9f65f8.json",
+					"jsonFile" : "target-gmock_main-Debug-c6caafb0a469d7fc8a94.json",
 					"name" : "gmock_main",
 					"projectIndex" : 2
 				},
 				{
 					"directoryIndex" : 3,
 					"id" : "gtest::@f95b5c00bd49b3b4698d",
-					"jsonFile" : "target-gtest-7d0eda0304b79b275a47.json",
+					"jsonFile" : "target-gtest-Debug-47ca750d5d47f82514e1.json",
 					"name" : "gtest",
 					"projectIndex" : 3
 				},
 				{
 					"directoryIndex" : 3,
 					"id" : "gtest_main::@f95b5c00bd49b3b4698d",
-					"jsonFile" : "target-gtest_main-5f81b4e8e1b8b3f8d81f.json",
+					"jsonFile" : "target-gtest_main-Debug-1a61e71d9ba9167e5aba.json",
 					"name" : "gtest_main",
 					"projectIndex" : 3
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "my_program::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-my_program-96a704926e915b6d8d71.json",
+					"jsonFile" : "target-my_program-Debug-0de1d0fde17882d485cd.json",
 					"name" : "my_program",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "runTests::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-runTests-a475e1947e3c3f0beefb.json",
+					"jsonFile" : "target-runTests-Debug-f45182ed6d15a2e7928c.json",
 					"name" : "runTests",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 4,
 					"id" : "sqlite3::@963a88636d4c9cc3f011",
-					"jsonFile" : "target-sqlite3-2298c01c9082aa251ef0.json",
+					"jsonFile" : "target-sqlite3-Debug-ee7d249f0c7365dfe151.json",
 					"name" : "sqlite3",
 					"projectIndex" : 4
 				}

@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "lib/libgtest_main.a"
+			"path" : "lib/libgtest.a"
 		}
 	],
 	"backtrace" : 3,
@@ -16,7 +16,6 @@
 			"cxx_library",
 			"install",
 			"install_project",
-			"target_link_libraries",
 			"include_directories"
 		],
 		"files" : 
@@ -32,7 +31,7 @@
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 138,
+				"line" : 123,
 				"parent" : 0
 			},
 			{
@@ -62,12 +61,6 @@
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 150,
-				"parent" : 0
-			},
-			{
-				"command" : 6,
-				"file" : 1,
 				"line" : 113,
 				"parent" : 0
 			}
@@ -79,7 +72,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-DWIN32_LEAN_AND_MEAN"
+					"fragment" : "-DQT_QML_DEBUG -DQT_DECLARATIVE_DEBUG -g"
 				},
 				{
 					"fragment" : "-Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers"
@@ -88,13 +81,11 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 7,
-					"isSystem" : true,
+					"backtrace" : 6,
 					"path" : "E:/uni/sec/term2/Embedded/project/DrOmar/code/googletest/googletest/include"
 				},
 				{
-					"backtrace" : 7,
-					"isSystem" : true,
+					"backtrace" : 6,
 					"path" : "E:/uni/sec/term2/Embedded/project/DrOmar/code/googletest/googletest"
 				}
 			],
@@ -105,14 +96,7 @@
 			]
 		}
 	],
-	"dependencies" : 
-	[
-		{
-			"backtrace" : 6,
-			"id" : "gtest::@f95b5c00bd49b3b4698d"
-		}
-	],
-	"id" : "gtest_main::@f95b5c00bd49b3b4698d",
+	"id" : "gtest::@f95b5c00bd49b3b4698d",
 	"install" : 
 	{
 		"destinations" : 
@@ -127,8 +111,8 @@
 			"path" : "C:/Program Files (x86)/MyProject"
 		}
 	},
-	"name" : "gtest_main",
-	"nameOnDisk" : "libgtest_main.a",
+	"name" : "gtest",
+	"nameOnDisk" : "libgtest.a",
 	"paths" : 
 	{
 		"build" : "googletest/googletest",
@@ -149,7 +133,7 @@
 		{
 			"backtrace" : 3,
 			"compileGroupIndex" : 0,
-			"path" : "googletest/googletest/src/gtest_main.cc",
+			"path" : "googletest/googletest/src/gtest-all.cc",
 			"sourceGroupIndex" : 0
 		}
 	],

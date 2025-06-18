@@ -52,7 +52,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-DWIN32_LEAN_AND_MEAN"
+					"fragment" : "-DQT_QML_DEBUG -DQT_DECLARATIVE_DEBUG -g"
 				}
 			],
 			"includes" : 
@@ -82,7 +82,8 @@
 				0,
 				1,
 				2,
-				3
+				3,
+				4
 			]
 		}
 	],
@@ -90,11 +91,11 @@
 	[
 		{
 			"backtrace" : 2,
-			"id" : "gtest::@f95b5c00bd49b3b4698d"
+			"id" : "gtest_main::@f95b5c00bd49b3b4698d"
 		},
 		{
 			"backtrace" : 2,
-			"id" : "gtest_main::@f95b5c00bd49b3b4698d"
+			"id" : "gtest::@f95b5c00bd49b3b4698d"
 		},
 		{
 			"backtrace" : 2,
@@ -107,7 +108,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-DWIN32_LEAN_AND_MEAN",
+				"fragment" : "-DQT_QML_DEBUG -DQT_DECLARATIVE_DEBUG -g",
 				"role" : "flags"
 			},
 			{
@@ -153,7 +154,8 @@
 				0,
 				1,
 				2,
-				3
+				3,
+				4
 			]
 		}
 	],
@@ -169,6 +171,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/gameStructure.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "tests/AItests.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

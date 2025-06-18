@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "lib/libgmock_main.a"
+			"path" : "lib/libgtest_main.a"
 		}
 	],
 	"backtrace" : 3,
@@ -22,7 +22,7 @@
 		"files" : 
 		[
 			"googletest/googletest/cmake/internal_utils.cmake",
-			"googletest/googlemock/CMakeLists.txt"
+			"googletest/googletest/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -32,7 +32,7 @@
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 100,
+				"line" : 138,
 				"parent" : 0
 			},
 			{
@@ -50,7 +50,7 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 116,
+				"line" : 155,
 				"parent" : 0
 			},
 			{
@@ -62,13 +62,13 @@
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 101,
+				"line" : 150,
 				"parent" : 0
 			},
 			{
 				"command" : 6,
 				"file" : 1,
-				"line" : 75,
+				"line" : 113,
 				"parent" : 0
 			}
 		]
@@ -79,7 +79,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-DWIN32_LEAN_AND_MEAN"
+					"fragment" : "-DQT_QML_DEBUG -DQT_DECLARATIVE_DEBUG -g"
 				},
 				{
 					"fragment" : "-Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers"
@@ -87,16 +87,6 @@
 			],
 			"includes" : 
 			[
-				{
-					"backtrace" : 7,
-					"isSystem" : true,
-					"path" : "E:/uni/sec/term2/Embedded/project/DrOmar/code/googletest/googlemock/include"
-				},
-				{
-					"backtrace" : 7,
-					"isSystem" : true,
-					"path" : "E:/uni/sec/term2/Embedded/project/DrOmar/code/googletest/googlemock"
-				},
 				{
 					"backtrace" : 7,
 					"isSystem" : true,
@@ -119,14 +109,10 @@
 	[
 		{
 			"backtrace" : 6,
-			"id" : "gmock::@d68da25237a7ca2351af"
-		},
-		{
-			"backtrace" : 6,
 			"id" : "gtest::@f95b5c00bd49b3b4698d"
 		}
 	],
-	"id" : "gmock_main::@d68da25237a7ca2351af",
+	"id" : "gtest_main::@f95b5c00bd49b3b4698d",
 	"install" : 
 	{
 		"destinations" : 
@@ -141,12 +127,12 @@
 			"path" : "C:/Program Files (x86)/MyProject"
 		}
 	},
-	"name" : "gmock_main",
-	"nameOnDisk" : "libgmock_main.a",
+	"name" : "gtest_main",
+	"nameOnDisk" : "libgtest_main.a",
 	"paths" : 
 	{
-		"build" : "googletest/googlemock",
-		"source" : "googletest/googlemock"
+		"build" : "googletest/googletest",
+		"source" : "googletest/googletest"
 	},
 	"sourceGroups" : 
 	[
@@ -163,7 +149,7 @@
 		{
 			"backtrace" : 3,
 			"compileGroupIndex" : 0,
-			"path" : "googletest/googlemock/src/gmock_main.cc",
+			"path" : "googletest/googletest/src/gtest_main.cc",
 			"sourceGroupIndex" : 0
 		}
 	],
