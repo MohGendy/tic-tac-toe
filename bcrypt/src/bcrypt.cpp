@@ -45,7 +45,8 @@
 #ifdef _WIN32
 #define snprintf _snprintf
 #endif
-
+#include <string>
+using namespace std;
 //#if !defined(__APPLE__) && !defined(__MACH__)
 //#include "bsd/stdlib.h"
 //#endif
@@ -318,7 +319,7 @@ encode_base64(u_int8_t *buffer, u_int8_t *data, u_int16_t len)
 	*bp = '\0';
 }
 
-std::string bcrypt::generateHash(const std::string &password, unsigned int rounds) {
+string bcrypt::generateHash(const std::string &password, unsigned int rounds) {
     char salt[_SALT_LEN];
 
     unsigned char seed[17]{};

@@ -9,18 +9,23 @@
 #include "sqlite3.h"
 
 using namespace std;
-
+//database init
+bool database_init(sqlite3*& db);
+bool enableForeignKeys(sqlite3* db);
+bool createTables(sqlite3* db);
+void mainMenu(sqlite3* db);
+//user login
 bool authenticateUser(sqlite3* db, string &username);
 bool registerUser(sqlite3* db);
-void replayStoredGame(sqlite3* db, int game_id);
-// Database functions
 int getUserId(sqlite3* db, const string& username);
-bool showGameHistoryForPlayer(sqlite3* db, string username);
+// insert data to Database functions
 int insertGameHistory(sqlite3* db, int user1_id, int user2_id, const string& winner, const string& finalBoard);
-bool authenticateUser(sqlite3* db, string& username);
-void playGame(sqlite3* db, const string& player1, const string& player2) ;
+// show data from Database functions
+bool showGameHistoryForPlayer(sqlite3* db, string username);
 void showMovesForGame(sqlite3* db, int game_id);
-
+void replayStoredGame(sqlite3* db, int game_id);
+//playgame
+void playGame(sqlite3* db, const string& player1, const string& player2) ;
 
 // Structures
 struct Move {
