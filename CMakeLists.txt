@@ -38,8 +38,8 @@ target_link_libraries(my_program
 
 target_link_libraries(runTests
   PRIVATE
-    sqlite3
-    bcrypt
+    # sqlite3
+    # bcrypt
     gtest
     gtest_main
     Threads::Threads
