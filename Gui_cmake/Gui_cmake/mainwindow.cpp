@@ -15,6 +15,4 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_Replay_customContextMenuRequested(const QPoint &pos)
 {
-
-}
-
+} 
