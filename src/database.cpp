@@ -224,7 +224,189 @@ void playGame(sqlite3* db, const string& player1, const string& player2) {
         currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
     }
 }
+bool database_init(sqlite3*& db) {
+    int rc = sqlite3_open("tictac.db", &db);
+    if (rc != SQLITE_OK) {
+        cout << "Can't open database: " << sqlite3_errmsg(db) << std::endl;
+        return false;
+    }
 
+    if (!enableForeignKeys(db)) return false;    // Enable foreign keys
+
+    if (!createTables(db)) return false;
+    return true;
+}
+bool enableForeignKeys(sqlite3* db) {
+    char* errMsg = nullptr;
+    int rc = sqlite3_exec(db, "PRAGMA foreign_keys = ON;", nullptr, nullptr, &errMsg);
+    if (rc != SQLITE_OK) {
+        cout << "Error enabling foreign keys: " << errMsg << endl;
+        sqlite3_free(errMsg);
+        return false;
+    }
+    return true;
+}
+bool createTables(sqlite3* db) {
+    char* errMsg = nullptr;
+
+    string sql_players = R"(
+        CREATE TABLE IF NOT EXISTS PLAYERS(
+            ID INTEGER PRIMARY KEY AUTOINCREMENT,
+            NAME TEXT UNIQUE NOT NULL,
+            PASSWORD TEXT NOT NULL
+        );
+    )";
+
+    if (sqlite3_exec(db, sql_players.c_str(), nullptr, 0, &errMsg) != SQLITE_OK) {
+        cout << "Error creating PLAYERS table: " << errMsg << endl;
+        sqlite3_free(errMsg);
+        return false;
+    }
+
+    string sql_game_history = R"(
+        CREATE TABLE IF NOT EXISTS Game_history (
+            ID INTEGER PRIMARY KEY AUTOINCREMENT,
+            user1_id INTEGER,
+            user2_id INTEGER,
+            winner TEXT,
+            board_moves TEXT,
+            date_played TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (user1_id) REFERENCES PLAYERS(ID),
+            FOREIGN KEY (user2_id) REFERENCES PLAYERS(ID)
+        );
+    )";
+
+    if (sqlite3_exec(db, sql_game_history.c_str(), nullptr, 0, &errMsg) != SQLITE_OK) {
+        cout << "Error creating Game_history table: " << errMsg << endl;
+        sqlite3_free(errMsg);
+        return false;
+    }
+
+    string sql_game_moves = R"(
+        CREATE TABLE IF NOT EXISTS Game_moves (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            game_id INTEGER NOT NULL,
+            move_number INTEGER NOT NULL,
+            row INTEGER NOT NULL,
+            col INTEGER NOT NULL,
+            player CHAR(1) NOT NULL,
+            FOREIGN KEY (game_id) REFERENCES Game_history(ID)
+        );
+    )";
+
+    if (sqlite3_exec(db, sql_game_moves.c_str(), nullptr, 0, &errMsg) != SQLITE_OK) {
+        cout << "Error creating Game_moves table: " << errMsg << endl;
+        sqlite3_free(errMsg);
+        return false;
+    }
+
+    return true;
+}
+
+
+void mainMenu(sqlite3* db) {
+
+    int choice;
+    string loggedInUser;
+
+    while (true) {
+        cout << "\n1. Register\n2. Login\n3. Exit\nEnter your choice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            registerUser(db);
+        } else if (choice == 2) {
+            if (authenticateUser(db, loggedInUser)) {
+                int subChoice;
+                while (true) {
+                    cout << "\nWelcome, " << loggedInUser << "!\n";
+                cout << "1. Start New Game\n2. Show My Game History\n3. Show Moves\n4. Sign Out\nEnter your choice: ";
+                    cin >> subChoice;
+
+                    if (subChoice == 1) {
+                        string opponent;
+                        cout << "Enter opponent's username: ";
+                        if (authenticateUser(db, opponent)) {
+                            playGame(db, loggedInUser, opponent);
+                        } else {
+                            cout << "Opponent authentication failed.\n";
+                        }
+                    } else if (subChoice == 2) {
+                        showGameHistoryForPlayer(db, loggedInUser);
+                    } else if (subChoice == 3) {
+                          // Get player ID first
+                        int playerID = -1;
+                        sqlite3_stmt* getUserStmt;
+                        string getUserIdSQL = "SELECT ID FROM PLAYERS WHERE NAME = ?;";
+                        if (sqlite3_prepare_v2(db, getUserIdSQL.c_str(), -1, &getUserStmt, NULL) == SQLITE_OK) {
+                            sqlite3_bind_text(getUserStmt, 1, loggedInUser.c_str(), -1, SQLITE_STATIC);
+                            if (sqlite3_step(getUserStmt) == SQLITE_ROW) {
+                                playerID = sqlite3_column_int(getUserStmt, 0);
+                            }
+                            sqlite3_finalize(getUserStmt);
+                        }
+                        if (playerID == -1) {
+                            cout << "Error retrieving player ID.\n";
+                            break;
+                        }
+                        // Fetch games and simulate row numbering
+                        string query = "SELECT ID, user1_id, user2_id, winner, date_played FROM Game_history "
+                                       "WHERE user1_id = ? OR user2_id = ? ORDER BY date_played;";
+                        sqlite3_stmt* stmt;
+                        if (sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, NULL) == SQLITE_OK) {
+                            sqlite3_bind_int(stmt, 1, playerID);
+                            sqlite3_bind_int(stmt, 2, playerID);
+
+                            vector<int> gameIDs;
+                            int rowNum = 1;
+                            cout << "\nYour Games:\n";
+                            while (sqlite3_step(stmt) == SQLITE_ROW) {
+                                int id = sqlite3_column_int(stmt, 0);
+                                const char* winner = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 3));
+                                const char* date = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 4));
+
+                                cout << rowNum << ". Game ID: " << id << ", Winner: " << (winner ? winner : "None") << ", Date: " << (date ? date : "Unknown") << "\n";
+                                gameIDs.push_back(id);
+                                rowNum++;
+                            }
+                            sqlite3_finalize(stmt);
+
+                            if (gameIDs.empty()) {
+                                cout << "No games found.\n";
+                            } else {
+                                int choiceRow;
+                                cout << "Enter the row number of the game to view moves: ";
+                                cin >> choiceRow;
+
+                                if (choiceRow > 0 && choiceRow <= gameIDs.size()) {
+                                    int selectedGameID = gameIDs[choiceRow - 1];
+                                    showMovesForGame(db, selectedGameID);
+                                } else {
+                                    cout << "Invalid row number.\n";
+                                }
+                            }
+                } else {
+                    cerr << "Error querying games: " << sqlite3_errmsg(db) << endl;
+                }
+                                } else if (subChoice == 4) {
+                                    cout << "Signing out...\n";
+                                    break;
+                                } else {
+                                    cout << "Invalid option.\n";
+                                }
+                            }
+            } else {
+                cout << "Login failed.\n";
+            }
+        } else if (choice == 3) {
+            cout << "Goodbye!\n";
+            break;
+        } else {
+            cout << "Invalid choice. Try again.\n";
+        }
+    }
+
+}
 
 bool insertGameMoves(sqlite3* db, int game_id, const vector<Move>& moves) {
     string insertSql = "INSERT INTO Game_moves (game_id, move_number, row, col, player) VALUES (?, ?, ?, ?, ?);";
