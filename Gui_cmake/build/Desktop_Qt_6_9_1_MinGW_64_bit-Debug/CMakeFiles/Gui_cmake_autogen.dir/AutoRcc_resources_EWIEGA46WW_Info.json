@@ -1,0 +1,26 @@
+{
+	"BUILD_DIR" : "E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Gui_cmake_autogen",
+	"CMAKE_BINARY_DIR" : "E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake",
+	"CMAKE_SOURCE_DIR" : "E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Gui_cmake_autogen/include",
+	"INPUTS" : 
+	[
+		"E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/assets/images/O.png",
+		"E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/assets/images/X.png"
+	],
+	"LOCK_FILE" : "E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/Gui_cmake_autogen.dir/AutoRcc_resources_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "resources" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_resources.cpp",
+	"RCC_EXECUTABLE" : "F:/programs/QT/6.9.1/mingw_64/bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/Gui_cmake_autogen.dir/AutoRcc_resources_EWIEGA46WW_Used.txt",
+	"SOURCE" : "E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/resources.qrc",
+	"USE_BETTER_GRAPH" : true,
+	"VERBOSITY" : 0
+}
