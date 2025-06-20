@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "database.h"
+
 
 enum windows{
     Wai=7,//
@@ -17,6 +19,8 @@ enum windows{
     Wprofile=1,//
     Wsignup=5//
 };
+
+inline sqlite3* db;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
