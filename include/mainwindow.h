@@ -109,6 +109,13 @@ private slots:
 
     void loadProfile();
 
+    void on_back_Wai_clicked();
+
+    void on_pushButton_easy_clicked();
+
+    void on_pushButton_medium_clicked();
+
+    void on_pushButton_hard_clicked();
 
 private:
     Ui::MainWindow *ui;
