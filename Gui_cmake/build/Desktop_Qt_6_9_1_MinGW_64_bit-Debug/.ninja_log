@@ -1,0 +1,15 @@
+# ninja log v6
+35	2313	7720891099300653	build.ninja	6a9a0a8e1d91339b
+58	2641	7720889705464935	E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Gui_cmake_autogen/mocs_compilation.cpp	290f95ba5b440443
+2644	2969	7720889712436497	Gui_cmake_autogen/EWIEGA46WW/qrc_resources.cpp	33dce1ad9e70c486
+58	2641	7720889705464935	Gui_cmake_autogen/timestamp	290f95ba5b440443
+58	2641	7720889705464935	Gui_cmake_autogen/mocs_compilation.cpp	290f95ba5b440443
+3027	3808	7720889713402834	CMakeFiles/Gui_cmake.dir/Gui_cmake_autogen/EWIEGA46WW/qrc_resources.cpp.obj	745283426e347690
+58	2641	7720889705464935	E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Gui_cmake_autogen/timestamp	290f95ba5b440443
+2644	2969	7720889712436497	E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Gui_cmake_autogen/EWIEGA46WW/qrc_resources.cpp	33dce1ad9e70c486
+2970	13098	7720889712840253	CMakeFiles/Gui_cmake.dir/Gui_cmake_autogen/mocs_compilation.cpp.obj	b8a1e631061b0780
+122	169	7720889658434098	clean	1ce76cad6498ecf4
+2991	13383	7720889713034866	CMakeFiles/Gui_cmake.dir/main.cpp.obj	edd5819841746d5b
+3008	18552	7720889713221416	CMakeFiles/Gui_cmake.dir/mainwindow.cpp.obj	81d81af5837fd86f
+18552	20308	7720889868654823	Gui_cmake.exe	6cb3acf463afaf2e
+11	121	7720889657313980	CMakeFiles/clean.additional	8e962b6abbe31cf6

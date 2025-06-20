@@ -1,7 +1,7 @@
 
 
-#ifndef AI_H
-#define AI_H
+#ifndef DB_H
+#define DB_H
 
 #include <iostream>
 #include <vector>
@@ -82,5 +82,10 @@ public:
     vector<Move> getMoves() const ;
 };
 
+int registerUserGUI(sqlite3* db , const string& username , const string& password);
+
+int authenticateUserGUI(sqlite3* db, const string& username , const string& password );
+
+int fetchPlayerStats(sqlite3* db, int userId, string name, int& wins , int& losses , int& ties);
 
 #endif

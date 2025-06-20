@@ -6,7 +6,7 @@
 cd ./build  
 make clean  
 cmake .. -G "MinGW Makefiles"  
-make
+cmake --build .
 ```
 ## after building run the excutable
 
