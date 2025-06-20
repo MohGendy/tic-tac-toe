@@ -4,7 +4,10 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/include"
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/googletest/googletest/include",
+                "${workspaceFolder}/sqlite/include",
+                "${workspaceFolder}/bcrypt/include"
             ],
             "defines": [
                 "_DEBUG",
