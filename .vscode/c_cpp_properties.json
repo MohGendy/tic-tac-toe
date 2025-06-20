@@ -7,7 +7,12 @@
                 "${workspaceFolder}/include",
                 "${workspaceFolder}/googletest/googletest/include",
                 "${workspaceFolder}/sqlite/include",
-                "${workspaceFolder}/bcrypt/include"
+                "${workspaceFolder}/bcrypt/include",
+                "F:/programs/Qt/6.9.1/mingw_64/include",
+                "F:/programs/Qt/6.9.1/mingw_64/include/QtWidgets",
+                "F:/programs/Qt/6.9.1/mingw_64/include/QtCore",
+                "F:/programs/Qt/6.9.1/mingw_64/include/QtGui"
+
             ],
             "defines": [
                 "_DEBUG",

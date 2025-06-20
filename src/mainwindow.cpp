@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include "database.h"
+
+sqlite3* db;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -7,6 +10,13 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(Wmain);
+    if (!database_init(db)) {
+        qInfo() << "failed to init db\n";
+        this->close();
+    }else{
+        qInfo() << "init db\n";
+
+    }
 }
 
 MainWindow::~MainWindow()
