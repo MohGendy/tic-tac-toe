@@ -942,6 +942,7 @@ bool updateUsername(sqlite3* db, string& currentUsername) {
     cout << "Username updated successfully.\n";
     return true;
 }
+
 bool updatePassword(sqlite3* db, const string& username) {
     string newPassword, confirmPassword;
     cout << "Enter new password: ";
@@ -975,6 +976,121 @@ bool updatePassword(sqlite3* db, const string& username) {
     sqlite3_finalize(stmt);
     cout << "Password updated successfully.\n";
     return true;
+}
+
+int updateUsernameGUI(sqlite3* db, const int & id,const string& currentUsername,const string& newUsername) {
+    //0=> db err
+    //1=> used
+    //2=> valid
+    char *errMsg = nullptr;
+    int rc,out;
+
+    // 1) Begin transaction
+    rc = sqlite3_exec(db, "BEGIN;", nullptr, nullptr, &errMsg);
+    if (rc != SQLITE_OK) {
+        cerr << "BEGIN failed: " << errMsg << "\n";
+        sqlite3_free(errMsg);
+        return 0;
+    }
+
+    // 2) Update the PLAYERS table
+    {
+        sqlite3_stmt *st = nullptr;
+        rc = sqlite3_prepare_v2(db,
+            "UPDATE PLAYERS SET NAME = ?1 WHERE ID = ?2;",
+            -1, &st, nullptr);
+        if (rc != SQLITE_OK) {
+            cerr << "Prepare PLAYERS failed: "
+                      << sqlite3_errmsg(db) << "\n";
+                      out = 0;
+            goto rollback;
+        }
+        sqlite3_bind_text(st, 1, newUsername.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_int (st, 2, id);
+        rc = sqlite3_step(st);
+        sqlite3_finalize(st);
+        if (rc != SQLITE_DONE) {
+            int err = sqlite3_errcode(db);
+            if (err == 19) {
+                cerr << "Username is already exists.\n";
+                out = 1;
+            }else{
+                cerr << "STEP PLAYERS failed: "
+                          << sqlite3_errmsg(db) << "\n";
+                          out = 0;
+            }
+            goto rollback;
+        }
+    }
+
+    // 3) Update all Game_history.winner fields matching oldName
+    {
+        sqlite3_stmt *st = nullptr;
+        rc = sqlite3_prepare_v2(db,
+            "UPDATE Game_history "
+            "   SET winner = ?1 "
+            " WHERE winner = ?2;",
+            -1, &st, nullptr);
+        if (rc != SQLITE_OK) {
+            std::cerr << "Prepare Game_history failed: "
+                      << sqlite3_errmsg(db) << "\n";
+            goto rollback;
+        }
+        sqlite3_bind_text(st, 1, newUsername.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(st, 2, currentUsername.c_str(), -1, SQLITE_TRANSIENT);
+        rc = sqlite3_step(st);
+        sqlite3_finalize(st);
+        if (rc != SQLITE_DONE) {
+            std::cerr << "STEP Game_history failed: "
+                      << sqlite3_errmsg(db) << "\n";
+            out = 0;
+            goto rollback;
+        }
+    }
+
+    // 4) Commit on success
+    rc = sqlite3_exec(db, "COMMIT;", nullptr, nullptr, &errMsg);
+    if (rc != SQLITE_OK) {
+        std::cerr << "COMMIT failed: " << errMsg << "\n";
+        sqlite3_free(errMsg);
+        return 0;
+    }
+    return 2;
+
+rollback:
+    sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+    return out;
+}
+
+int updatePasswordGUI(sqlite3* db, const int & id , const string& password) {
+    //0= db err
+    //1= very short
+    //2= success
+    if(password.length()<=4){
+        return 1;
+    }
+
+    string hashed = bcrypt::generateHash(password);
+    string updateSql = "UPDATE PLAYERS SET PASSWORD = ? WHERE ID = ?;";
+    sqlite3_stmt* stmt;
+
+    if (sqlite3_prepare_v2(db, updateSql.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
+        cerr << "Error preparing password update: " << sqlite3_errmsg(db) << endl;
+        return 0;
+    }
+
+    sqlite3_bind_text(stmt, 1, hashed.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_int(stmt, 2, id);
+
+    if (sqlite3_step(stmt) != SQLITE_DONE) {
+        cerr << "Failed to update password: " << sqlite3_errmsg(db) << endl;
+        sqlite3_finalize(stmt);
+        return 0;
+    }
+
+    sqlite3_finalize(stmt);
+    cout << "Password updated successfully.\n";
+    return 2;
 }
 
 
