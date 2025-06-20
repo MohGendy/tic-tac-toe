@@ -53,6 +53,8 @@ bool MainWindow::buttonmakemove(int row, int col ,QPushButton* button) {
         //? add move to data base
         if(ret){
             // Update the UI to reflect the move
+            replayManager.pushMove(row, col, currentPlayersymbol);
+
             button->setText(QString(currentPlayersymbol));
             button->setEnabled(false); // Disable the button after the move
             if (board.checkWin(currentPlayersymbol)) {
@@ -62,6 +64,11 @@ bool MainWindow::buttonmakemove(int row, int col ,QPushButton* button) {
                 gamedata.gameended = true ;
                 ui->newpushbutton->setEnabled(true);//enable new game button when the game ends
                 //todo make tile green
+                std::string winner = (currentPlayersymbol == users[0].symbol) ? users[0].name : users[1].name;
+                std::string finalBoard = replayManager.getSerializedBoard();
+                int gameId = insertGameHistory(db, users[0].id, users[1].id, winner, finalBoard);
+                if (gameId != -1) insertGameMoves(db, gameId, replayManager.getMoves());
+
             }
 
             else if (board.isFull()) {
@@ -71,6 +78,12 @@ bool MainWindow::buttonmakemove(int row, int col ,QPushButton* button) {
                 gamedata.gameended= true ;
                 ui->newpushbutton->setEnabled(true);//enable new game button when the game ends
                 //todo make tile yellow
+               std::string finalBoard = replayManager.getSerializedBoard();
+                std::string winner = "TIE";
+                int gameId = insertGameHistory(db, users[0].id, users[1].id, winner, finalBoard);
+                if (gameId != -1) insertGameMoves(db, gameId, replayManager.getMoves());
+
+
             }
 
             // Switch players && swtich guest

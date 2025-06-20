@@ -145,5 +145,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     char currentPlayersymbol;
+   
 };
 #endif // MAINWINDOW_H

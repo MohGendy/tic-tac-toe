@@ -82,6 +82,7 @@ public:
     
     vector<Move> getMoves() const ;
 };
+extern ReplayManager replayManager;
 
 int registerUserGUI(sqlite3* db , const string& username , const string& password);
 
