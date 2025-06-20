@@ -60,6 +60,7 @@ bool MainWindow::buttonmakemove(int row, int col ,QPushButton* button) {
                 //? update wins in data base
                 //? update win label for winner
                 gamedata.gameended = true ;
+                ui->newpushbutton->setEnabled(true);//enable new game button when the game ends
                 //todo make tile green
             }
 
@@ -68,6 +69,7 @@ bool MainWindow::buttonmakemove(int row, int col ,QPushButton* button) {
                 //?update ties in data base
                 //?update ties label
                 gamedata.gameended= true ;
+                ui->newpushbutton->setEnabled(true);//enable new game button when the game ends
                 //todo make tile yellow
             }
 
@@ -111,6 +113,7 @@ void MainWindow::on_newpushbutton_clicked()
 
 void MainWindow::loadgameScreen(){
     qDebug()<<"load game screen started ";
+    ui->newpushbutton->setEnabled(false);//disable new game button till the game ends
     // //! just for testing
     // gamedata.isAi = false; // Set to true for AI game
     // gamedata.ismainuserfirst = true; // Set to true if the main user is first
