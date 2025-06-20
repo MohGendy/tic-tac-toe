@@ -164,6 +164,7 @@ char ReplayManager::getCell(int row, int col) const {
 }
 
 vector<Move> ReplayManager::getMoves() const { return moveStack; }
+ReplayManager replayManager;
 
 
 void playGame(sqlite3* db, const string& player1, const string& player2) {
