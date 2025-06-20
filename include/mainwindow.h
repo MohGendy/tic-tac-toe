@@ -3,6 +3,21 @@
 
 #include <QMainWindow>
 
+enum windows{
+    Wai=7,//
+    Wchangepass=3,//
+    Wchangename=2,//
+    Wicon=6,//
+    Wgame=11,//
+    Wmodes=10,//
+    Whistory=8,//
+    Wlogin=4,//
+    Wmain=0,//
+    Wmega=9,//
+    Wprofile=1,//
+    Wsignup=5//
+};
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -23,6 +38,14 @@ private slots:
     void on_pushButton_back_profile_clicked();
 
     void on_pushButton_exit_clicked();
+
+    void on_pushButton_login_clicked();
+
+    void on_pushButton_play_ai_clicked();
+
+    void on_pushButton_play_friend_clicked();
+
+    void on_pushButton_load_game_clicked();
 
 private:
     Ui::MainWindow *ui;

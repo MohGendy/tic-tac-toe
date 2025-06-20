@@ -30,3 +30,30 @@ void MainWindow::on_pushButton_exit_clicked()
     this->close();
 }
 
+
+void MainWindow::on_pushButton_login_clicked()
+{
+    this->ui->stackedWidget->setCurrentIndex(Wlogin);
+}
+
+
+void MainWindow::on_pushButton_play_ai_clicked()
+{
+    this->ui->stackedWidget->setCurrentIndex(Wai);
+}
+
+
+void MainWindow::on_pushButton_play_friend_clicked()
+{
+    this->ui->stackedWidget->setCurrentIndex(Wmodes);
+}
+
+
+
+
+void MainWindow::on_pushButton_load_game_clicked()
+{
+    this->ui->stackedWidget->setCurrentIndex(Whistory);
+
+}
+
