@@ -48,7 +48,21 @@ void MainWindow::on_pushButton_exit_clicked()
 
 void MainWindow::on_pushButton_login_clicked()
 {
-    this->ui->stackedWidget->setCurrentIndex(Wlogin);
+    if(users[0].id == -1){
+        logincase = 0;
+        this->ui->stackedWidget->setCurrentIndex(Wlogin);
+    }else{
+            QString text = "Login";
+            ui->pushButton_login->setText(text);
+            ui->pushButton_4->setEnabled(false);
+            ui->pushButton_play_friend->setEnabled(false);
+            ui->pushButton_play_ai->setEnabled(false);
+            ui->pushButton_load_game->setEnabled(false);
+            QMessageBox::information(this,
+                tr("Logout Success"),
+                tr("See you soon "));
+
+    }
 }
 
 
