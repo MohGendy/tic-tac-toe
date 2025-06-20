@@ -6,18 +6,20 @@
 
 
 enum windows{
-    Wai=7,//
+    Wai=8,//
     Wchangepass=3,//
     Wchangename=2,//
-    Wicon=6,//
-    Wgame=11,//
-    Wmodes=10,//
-    Whistory=8,//
-    Wlogin=4,//
+    Wicon=7,//
+    Wgame=13,//
+    Wmodes=12,//
+    Whistory=10,//
+    Wlogin=5,//
     Wmain=0,//
-    Wmega=9,//
+    Wmega=11,//
     Wprofile=1,//
-    Wsignup=5//
+    Wsignup=6,//
+    WmegaReplay=4,
+    WnormalReplay=9,
 };
 
 inline sqlite3* db;
