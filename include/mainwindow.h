@@ -25,6 +25,7 @@ enum windows{
 struct userStruct{
     int id;         //user id
     char symbol;   //in game symbole
+    string name;
 };
 
 struct gameStruct{
@@ -33,7 +34,7 @@ struct gameStruct{
     bool isClassic;         //is classic game or mega
     short difficulty;      //ai difficulty level
     bool ismainuserfirst; //is main user first or second
-}
+};
 
 //controlers
 inline sqlite3* db;
@@ -90,6 +91,16 @@ private slots:
     void on_pushButton_3_clicked();
 
     void on_pushButton_login_function_clicked();
+
+    void on_pushButton_change_username_clicked();
+
+    void on_pushButton_change_password_clicked();
+
+    void on_pushButton_4_clicked();
+
+    void on_stackedWidget_currentChanged(int arg1);
+
+    void loadProfile();
 
 private:
     Ui::MainWindow *ui;

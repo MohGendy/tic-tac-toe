@@ -82,4 +82,6 @@ int registerUserGUI(sqlite3* db , const string& username , const string& passwor
 
 int authenticateUserGUI(sqlite3* db, const string& username , const string& password );
 
+int fetchPlayerStats(sqlite3* db, int userId, string name, int& wins , int& losses , int& ties);
+
 #endif
