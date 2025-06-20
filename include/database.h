@@ -84,4 +84,10 @@ int authenticateUserGUI(sqlite3* db, const string& username , const string& pass
 
 int fetchPlayerStats(sqlite3* db, int userId, string name, int& wins , int& losses , int& ties);
 
+//update username and pass
+bool updateUsername(sqlite3* db, string& currentUsername);
+bool updatePassword(sqlite3* db, const string& username) ;
+
+int updateUsernameGUI(sqlite3* db,const int & id , const string& currentUsername,const string& newUsername);
+int updatePasswordGUI(sqlite3* db, const int & id , const string& password) ;
 #endif

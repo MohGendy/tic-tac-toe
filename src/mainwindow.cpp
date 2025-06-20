@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     , currentPlayersymbol('X')
 {
     ui->setupUi(this);
-    ui->stackedWidget->setCurrentIndex(Wgame);
+    ui->stackedWidget->setCurrentIndex(Wmain);
     ui->pushButton_4->setEnabled(false);
     ui->pushButton_play_friend->setEnabled(false);
     ui->pushButton_play_ai->setEnabled(false);
@@ -77,6 +77,7 @@ void MainWindow::on_pushButton_login_clicked()
             ui->pushButton_play_ai->setEnabled(false);
             ui->pushButton_load_game->setEnabled(false);
             ui->profileWidget->setVisible(false);
+            users[0].id = -1;
             QMessageBox::information(this,
                 tr("Logout Success"),
                 tr("See you soon "));
@@ -146,5 +147,6 @@ void MainWindow::loadProfile(){
         break;
     }
 }
+
 
 

@@ -110,6 +110,20 @@ private slots:
     void loadProfile();
 
 
+    void on_pushButton_cancel_username_clicked();
+
+    void on_pushButton_save_username_clicked();
+
+    void on_pushButton_not_change_pass_clicked();
+
+    void on_checkBox_oldpass_stateChanged(int arg1);
+
+    void on_checkBox_newpass_stateChanged(int arg1);
+
+    void on_checkBox_confirm_newpass_stateChanged(int arg1);
+
+    void on_pushButton_change_pass_clicked();
+
 private:
     Ui::MainWindow *ui;
     char currentPlayersymbol;
