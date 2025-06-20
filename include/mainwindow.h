@@ -142,6 +142,8 @@ private slots:
 
     void on_pushButton_change_pass_clicked();
 
+    void on_pushButton_back_games_clicked();
+
 private:
     Ui::MainWindow *ui;
     char currentPlayersymbol;

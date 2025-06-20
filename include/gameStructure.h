@@ -1,7 +1,6 @@
 #ifndef GAME_STRUCTURE_H
 #define GAME_STRUCTURE_H
 #include <iostream>
-#include"database.h"
 using namespace std;
 
 class Board {
