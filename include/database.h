@@ -18,6 +18,10 @@ void mainMenu(sqlite3* db);
 bool authenticateUser(sqlite3* db, string &username);
 bool registerUser(sqlite3* db);
 int getUserId(sqlite3* db, const string& username);
+//update username and pass
+bool updateUsername(sqlite3* db, string& currentUsername);
+bool updatePassword(sqlite3* db, const string& username) ;
+
 // insert data to Database functions
 int insertGameHistory(sqlite3* db, int user1_id, int user2_id, const string& winner, const string& finalBoard);
 // show data from Database functions
