@@ -22,7 +22,15 @@ enum windows{
     WnormalReplay=9,
 };
 
+struct userStruct{
+    int id;         //user id
+    char symbol;   //in game symbole
+};
+//controlers
 inline sqlite3* db;
+
+inline bool logincase = 0;
+inline struct userStruct users[2] = {{-1,' '},{-1,' '}};
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -68,6 +76,10 @@ private slots:
     void on_pushButton_play_mega_clicked();
 
     void on_pushButton_back_mode_selection_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_login_function_clicked();
 
 private:
     Ui::MainWindow *ui;

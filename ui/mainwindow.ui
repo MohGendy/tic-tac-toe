@@ -145,7 +145,7 @@ QLabel#label_profile_photo {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>6</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="main">
        <property name="sizePolicy">
@@ -205,6 +205,9 @@ font: 900 48pt &quot;Segoe UI Black&quot;;</string>
           </item>
           <item>
            <widget class="QPushButton" name="pushButton_play_friend">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="minimumSize">
              <size>
               <width>128</width>
@@ -3303,7 +3306,7 @@ font: 900 36pt &quot;Segoe UI Black&quot;;</string>
              </spacer>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton_login">
+             <widget class="QPushButton" name="pushButton_login_function">
               <property name="minimumSize">
                <size>
                 <width>148</width>

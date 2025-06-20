@@ -61,7 +61,7 @@ void MainWindow::on_pushButton_signup_clicked()
             break;
         case 4:
             QMessageBox::information(this,
-                                 tr("Signedup success"),
+                                 tr("Signup Success"),
                                  tr("Now login to start play."));
             this->ui->lineEdit_signup_username->clear();
             this->ui->lineEdit_signup_password->clear();

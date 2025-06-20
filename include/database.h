@@ -80,5 +80,6 @@ public:
 
 int registerUserGUI(sqlite3* db , const string& username , const string& password);
 
+int authenticateUserGUI(sqlite3* db, const string& username , const string& password );
 
 #endif

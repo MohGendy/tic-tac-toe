@@ -453,6 +453,7 @@ vector<Move> loadMovesForGame(sqlite3* db, int game_id) {
     sqlite3_finalize(stmt);
     return moves;
 }
+
 bool authenticateUser(sqlite3* db, string& username) {
     string enteredUsername;
     cout << "Enter username: ";
@@ -495,6 +496,7 @@ bool authenticateUser(sqlite3* db, string& username) {
         return false;
     }
 }
+
 bool registerUser(sqlite3* db) {
     string newuser;
     cout << "Enter new_username: ";
@@ -575,6 +577,7 @@ int getUserId(sqlite3* db, const string& username) {
     sqlite3_finalize(stmt);
     return id;
 }
+
 int insertGameHistory(sqlite3* db, int user1_id, int user2_id, const string& winner, const string& finalBoard) {
     string insertGameSql = "INSERT INTO Game_history (user1_id, user2_id, winner, board_moves) VALUES (?, ?, ?, ?);";
     sqlite3_stmt* stmt;
@@ -602,6 +605,7 @@ int insertGameHistory(sqlite3* db, int user1_id, int user2_id, const string& win
     sqlite3_finalize(stmt);
     return game_id;
 }
+
 bool showGameHistoryForPlayer(sqlite3* db, string username) {
      int playerId=getUserId(db,username);
      if (playerId == -1) {
@@ -662,6 +666,7 @@ bool showGameHistoryForPlayer(sqlite3* db, string username) {
     sqlite3_finalize(stmt);
     return true;
 }
+
 void replayStoredGame(sqlite3* db, int game_id) {
     vector<Move> moves = loadMovesForGame(db, game_id);
     if (moves.empty()) {
@@ -697,6 +702,7 @@ void replayStoredGame(sqlite3* db, int game_id) {
         }
     }
 }
+
 void showMovesForGame(sqlite3* db, int game_id) {
     vector<Move> moves = loadMovesForGame(db, game_id);
     if (moves.empty()) {
@@ -766,6 +772,43 @@ int registerUserGUI(sqlite3* db , const string& username , const string& passwor
 
     sqlite3_finalize(stmt);
     return 4;
+}
+
+int authenticateUserGUI(sqlite3* db, const string& username , const string& password ) {
+
+    //0 => db err
+    //1 => not found
+    //2 => wrong pass
+    //3 => success
+
+    string checkUserSql = "SELECT PASSWORD FROM PLAYERS WHERE NAME = ?;";
+    sqlite3_stmt* stmt;
+    int rc = sqlite3_prepare_v2(db, checkUserSql.c_str(), -1, &stmt, NULL);
+    if (rc != SQLITE_OK) {
+        cerr << "Error preparing username check: " << sqlite3_errmsg(db) << endl;
+        return 0;
+    }
+
+    sqlite3_bind_text(stmt, 1, username.c_str(), -1, SQLITE_STATIC);
+    rc = sqlite3_step(stmt);
+
+    if (rc == SQLITE_ROW) {
+        string storedPassword = (const char*)sqlite3_column_text(stmt, 0);
+        sqlite3_finalize(stmt);
+
+        if (bcrypt::validatePassword(password, storedPassword)) {
+            return 3;
+        } else {
+            return 2;
+        }
+    } else if (rc == SQLITE_DONE) {
+        sqlite3_finalize(stmt);
+        return 1;
+    } else {
+        cerr << "Error executing query: " << sqlite3_errmsg(db) << endl;
+        sqlite3_finalize(stmt);
+        return 0;
+    }
 }
 
 

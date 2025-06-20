@@ -11,6 +11,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(Wmain);
+    ui->pushButton_4->setEnabled(false);
+    ui->pushButton_play_friend->setEnabled(false);
+    ui->pushButton_play_ai->setEnabled(false);
+    ui->pushButton_load_game->setEnabled(false);
     if (!database_init(db)) {
         qInfo() << "failed to init db\n";
         this->close();
@@ -67,7 +71,6 @@ void MainWindow::on_pushButton_load_game_clicked()
     this->ui->stackedWidget->setCurrentIndex(Whistory);
 
 }
-
 
 
 
