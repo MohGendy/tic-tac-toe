@@ -145,7 +145,7 @@ QLabel#label_profile_photo {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>13</number>
       </property>
       <widget class="QWidget" name="main">
        <property name="sizePolicy">
@@ -3309,7 +3309,7 @@ font: 900 36pt &quot;Segoe UI Black&quot;;</string>
              <widget class="QPushButton" name="pushButton_login_function">
               <property name="minimumSize">
                <size>
-                <width>148</width>
+                <width>128</width>
                 <height>46</height>
                </size>
               </property>
