@@ -4,14 +4,18 @@
 #include <QMessageBox>
 
 void MainWindow::on_pushButton_play_classic_clicked()
-{
-    this->ui->stackedWidget->setCurrentIndex(Wgame);
+{   
+    gamedata.isClassic = true; //set game mode to classic
+    logincase = 1; //to log in the second user
+    this->ui->stackedWidget->setCurrentIndex(Wlogin);
 }
 
 
 void MainWindow::on_pushButton_play_mega_clicked()
 {
-    this->ui->stackedWidget->setCurrentIndex(Wmega);
+    gamedata.isClassic = false; //set game mode to mega
+    logincase = 1; //to log in the second user
+    this->ui->stackedWidget->setCurrentIndex(Wlogin);
 }
 
 

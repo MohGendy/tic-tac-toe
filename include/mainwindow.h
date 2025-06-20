@@ -26,11 +26,21 @@ struct userStruct{
     int id;         //user id
     char symbol;   //in game symbole
 };
+
+struct gameStruct{
+    int id;                   //game id from data base
+    bool isAi;               //is ai game or player vs player
+    bool isClassic;         //is classic game or mega
+    short difficulty;      //ai difficulty level
+    bool ismainuserfirst; //is main user first or second
+}
+
 //controlers
 inline sqlite3* db;
 
 inline bool logincase = 0;
 inline struct userStruct users[2] = {{-1,' '},{-1,' '}};
+inline struct gameStruct gamedata; //game structure
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
