@@ -63,6 +63,12 @@ private slots:
 
     void on_pushButton_signup_clicked();
 
+    void on_pushButton_play_classic_clicked();
+
+    void on_pushButton_play_mega_clicked();
+
+    void on_pushButton_back_mode_selection_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
