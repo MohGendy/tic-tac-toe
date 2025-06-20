@@ -713,6 +713,8 @@ void showMovesForGame(sqlite3* db, int game_id) {
     replayStoredGame(db, game_id);
 }
 
+
+
 int registerUserGUI(sqlite3* db , const string& username , const string& password) {
 
     // 0 => db err

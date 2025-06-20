@@ -36,9 +36,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow {
-
-	
-	background-image: url(:/img/images/WhatsApp Image 2025-06-10 at 06.11.47_364cc8ec.jpg);
+	background-color: rgb(19, 91, 128);
 	
    background-repeat: no-repeat;
    background-position: center;
@@ -3755,7 +3753,7 @@ font: 900 36pt &quot;Segoe UI Black&quot;;</string>
            </spacer>
           </item>
           <item row="5" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
-           <widget class="QPushButton" name="pushButton_14">
+           <widget class="QPushButton" name="back_Wai">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -3811,7 +3809,7 @@ font: 900 36pt &quot;Segoe UI Black&quot;;</string>
              <number>26</number>
             </property>
             <item>
-             <widget class="QPushButton" name="pushButton_12">
+             <widget class="QPushButton" name="pushButton_easy">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>
@@ -3842,7 +3840,7 @@ font: 900 36pt &quot;Segoe UI Black&quot;;</string>
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton_15">
+             <widget class="QPushButton" name="pushButton_medium">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>
@@ -3864,7 +3862,7 @@ font: 900 36pt &quot;Segoe UI Black&quot;;</string>
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton_13">
+             <widget class="QPushButton" name="pushButton_hard">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>
@@ -7013,7 +7011,7 @@ font-weight: bold;</string>
           <item row="7" column="0">
            <layout class="QVBoxLayout" name="verticalLayout_7">
             <item>
-             <widget class="QLabel" name="label_40">
+             <widget class="QLabel" name="user1_label">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>
@@ -7157,7 +7155,7 @@ font-weight: bold;</string>
           <item row="7" column="2">
            <layout class="QVBoxLayout" name="verticalLayout_8">
             <item>
-             <widget class="QLabel" name="label">
+             <widget class="QLabel" name="user2_label">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>

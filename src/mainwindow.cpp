@@ -3,6 +3,7 @@
 #include "database.h"
 #include <qdebug.h>
 #include <QMessageBox>
+#include <QTimer>
 
 
 
@@ -25,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
         qInfo() << "init db\n";
     }
 
+
     // Normal 3x3 grid for tic tac toe
     const int gridRows = 3;
     const int gridCols = 3;
@@ -41,11 +43,21 @@ MainWindow::MainWindow(QWidget *parent)
             // Using a lambda to capture row, col, and button pointer.
             connect(buttons[index], &QPushButton::clicked, this, [this, row, col, button = buttons[index]](){
                 // Call your method that handles the move for the board.
-                buttonmakemove(row, col, button);
-            });
+            if (buttonmakemove(row, col, button)) {
+                // After a successful human move,
+                // switch players and check if it's AI’s turn.
+                // For instance, if the main user is first, then AI is 'O'
+                if (gamedata.isAi && currentPlayersymbol == (gamedata.ismainuserfirst ? 'O' : 'X') && !gamedata.gameended) {
+                    // Use a timer for a short delay (500ms) before letting the AI move.
+                    QTimer::singleShot(500, this, SLOT(performAimove()));
+                    //performAimove();
+                }
+            }});
     }
 
 }
+
+
 
 MainWindow::~MainWindow()
 {
@@ -119,6 +131,9 @@ void MainWindow::on_stackedWidget_currentChanged(int arg1)
 {
     if(ui->stackedWidget->currentWidget() == ui->profile){
         loadProfile();
+    }
+    if(ui->stackedWidget->currentWidget() == ui->gameScreen){
+        loadgameScreen();
     }
 }
 

@@ -1,7 +1,9 @@
 #ifndef GAME_STRUCTURE_H
 #define GAME_STRUCTURE_H
 #include <iostream>
+#include"database.h"
 using namespace std;
+ReplayManager replayManager;
 
 class Board {
 private:
@@ -17,6 +19,7 @@ public:
 
 class Player {
 public:
+    std::string name;
     char symbol;
     Player(char s) : symbol(s) {}; // Constructor to initialize player symbol;
 };
