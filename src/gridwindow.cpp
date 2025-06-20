@@ -56,7 +56,7 @@ bool MainWindow::buttonmakemove(int row, int col ,QPushButton* button) {
             button->setText(QString(currentPlayersymbol));
             button->setEnabled(false); // Disable the button after the move
             if (board.checkWin(currentPlayersymbol)) {
-                QMessageBox::information(this, "Game Over", QString("Player %1 wins!").arg(currentPlayersymbol));
+                QMessageBox::information(this, "congrats 🥳", QString("Player %1 wins!").arg(currentPlayersymbol));
                 //? update wins in data base
                 //? update win label for winner
                 gamedata.gameended = true ;
@@ -94,18 +94,10 @@ void MainWindow::performAimove(){
         int col = move % 3; // Calculate column from move
         QPushButton* button = findChild<QPushButton*>(QString("b%1").arg(move)); // Find the button by name
 
-        //!this is condition is dublicated in move button
-        if(button && buttonmakemove(row, col, button)) {
-            //?add move to database
-            // If the AI successfully made a move, check for win or tie
-            if (board.checkWin(currentPlayersymbol)) {
-                QMessageBox::information(this, "Game Over", QString("AI '%1' wins!").arg(currentPlayersymbol));
-                //? update wins in data base
-            } else if (board.isFull()) {
-                QMessageBox::information(this, "Game Over", "It's a tie!");
-                //?update ties in data base
-            }
-        }
+
+    if(button){
+        buttonmakemove(row, col, button);
+    }
     } else {
         QMessageBox::warning(this, "AI Error", "AI could not make a valid move.");
     }
