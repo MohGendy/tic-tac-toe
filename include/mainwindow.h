@@ -4,7 +4,8 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include "database.h"
-
+#include "gameStructure.h"
+#include "ai.h"
 
 enum windows{
     Wai=8,//
@@ -35,6 +36,7 @@ struct gameStruct{
     bool isClassic;         //is classic game or mega
     short difficulty;      //ai difficulty level
     bool ismainuserfirst; //is main user first or second
+    bool gameended;
 };
 
 //controlers
@@ -43,6 +45,9 @@ inline sqlite3* db;
 inline bool logincase = 0;
 inline struct userStruct users[2] = {{-1,' '},{-1,' '}};
 inline struct gameStruct gamedata; //game structure
+inline Ai* ai = NULL; //ai pointer
+inline struct Board board;
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -116,6 +121,12 @@ private slots:
     void on_pushButton_medium_clicked();
 
     void on_pushButton_hard_clicked();
+
+    void performAimove();
+
+    void loadgameScreen();
+
+    void on_pushButton_back_from_board_to_main_clicked();
 
 private:
     Ui::MainWindow *ui;

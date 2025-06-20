@@ -143,7 +143,7 @@ QLabel#label_profile_photo {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>8</number>
+       <number>13</number>
       </property>
       <widget class="QWidget" name="main">
        <property name="sizePolicy">
@@ -7011,7 +7011,7 @@ font-weight: bold;</string>
           <item row="7" column="0">
            <layout class="QVBoxLayout" name="verticalLayout_7">
             <item>
-             <widget class="QLabel" name="label_40">
+             <widget class="QLabel" name="user1_label">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>
@@ -7155,7 +7155,7 @@ font-weight: bold;</string>
           <item row="7" column="2">
            <layout class="QVBoxLayout" name="verticalLayout_8">
             <item>
-             <widget class="QLabel" name="label">
+             <widget class="QLabel" name="user2_label">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>
