@@ -713,116 +713,7 @@ void showMovesForGame(sqlite3* db, int game_id) {
     replayStoredGame(db, game_id);
 }
 
-bool updateUsername(sqlite3* db, string& currentUsername) {
-    // Step 1: Ask for current password
-    string enteredPassword;
-    cout << "Enter your current password to confirm identity: ";
-    cin >> enteredPassword;
 
-    // Step 2: Fetch stored hashed password
-    string query = "SELECT PASSWORD FROM PLAYERS WHERE NAME = ?;";
-    sqlite3_stmt* stmt;
-    if (sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
-        cerr << "Error preparing password fetch: " << sqlite3_errmsg(db) << endl;
-        return false;
-    }
-
-    sqlite3_bind_text(stmt, 1, currentUsername.c_str(), -1, SQLITE_STATIC);
-
-    int rc = sqlite3_step(stmt);
-    if (rc != SQLITE_ROW) {
-        cout << "Username not found.\n";
-        sqlite3_finalize(stmt);
-        return false;
-    }
-
-    string storedHashedPassword = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0));
-    sqlite3_finalize(stmt);
-
-    // Step 3: Validate password
-    if (!bcrypt::validatePassword(enteredPassword, storedHashedPassword)) {
-        cout << "Incorrect password. Cannot proceed with username update.\n";
-        return false;
-    }
-
-    // Step 4: Ask for new username
-    string newUsername;
-    cout << "Enter new username: ";
-    cin >> newUsername;
-
-    // Step 5: Check if new username already exists
-    string checkSql = "SELECT COUNT(*) FROM PLAYERS WHERE NAME = ?;";
-    sqlite3_stmt* checkStmt;
-    if (sqlite3_prepare_v2(db, checkSql.c_str(), -1, &checkStmt, NULL) != SQLITE_OK) {
-        cerr << "Error preparing username check: " << sqlite3_errmsg(db) << endl;
-        return false;
-    }
-
-    sqlite3_bind_text(checkStmt, 1, newUsername.c_str(), -1, SQLITE_STATIC);
-    if (sqlite3_step(checkStmt) == SQLITE_ROW && sqlite3_column_int(checkStmt, 0) > 0) {
-        cout << "Username already taken.\n";
-        sqlite3_finalize(checkStmt);
-        return false;
-    }
-    sqlite3_finalize(checkStmt);
-
-    // Step 6: Update username
-    string updateSql = "UPDATE PLAYERS SET NAME = ? WHERE NAME = ?;";
-    sqlite3_stmt* updateStmt;
-    if (sqlite3_prepare_v2(db, updateSql.c_str(), -1, &updateStmt, NULL) != SQLITE_OK) {
-        cerr << "Error preparing username update: " << sqlite3_errmsg(db) << endl;
-        return false;
-    }
-
-    sqlite3_bind_text(updateStmt, 1, newUsername.c_str(), -1, SQLITE_STATIC);
-    sqlite3_bind_text(updateStmt, 2, currentUsername.c_str(), -1, SQLITE_STATIC);
-
-    rc = sqlite3_step(updateStmt);
-    if (rc != SQLITE_DONE) {
-        cerr << "Error updating username: " << sqlite3_errmsg(db) << endl;
-        sqlite3_finalize(updateStmt);
-        return false;
-    }
-
-    sqlite3_finalize(updateStmt);
-    currentUsername = newUsername; // Update reference
-    cout << "Username updated successfully.\n";
-    return true;
-}
-bool updatePassword(sqlite3* db, const string& username) {
-    string newPassword, confirmPassword;
-    cout << "Enter new password: ";
-    cin >> newPassword;
-    cout << "Confirm new password: ";
-    cin >> confirmPassword;
-
-    if (newPassword != confirmPassword) {
-        cout << "Passwords do not match.\n";
-        return false;
-    }
-
-    string hashed = bcrypt::generateHash(newPassword);
-    string updateSql = "UPDATE PLAYERS SET PASSWORD = ? WHERE NAME = ?;";
-    sqlite3_stmt* stmt;
-
-    if (sqlite3_prepare_v2(db, updateSql.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
-        cerr << "Error preparing password update: " << sqlite3_errmsg(db) << endl;
-        return false;
-    }
-
-    sqlite3_bind_text(stmt, 1, hashed.c_str(), -1, SQLITE_STATIC);
-    sqlite3_bind_text(stmt, 2, username.c_str(), -1, SQLITE_STATIC);
-
-    if (sqlite3_step(stmt) != SQLITE_DONE) {
-        cerr << "Failed to update password: " << sqlite3_errmsg(db) << endl;
-        sqlite3_finalize(stmt);
-        return false;
-    }
-
-    sqlite3_finalize(stmt);
-    cout << "Password updated successfully.\n";
-    return true;
-}
 
 int registerUserGUI(sqlite3* db , const string& username , const string& password) {
 
@@ -975,7 +866,116 @@ int fetchPlayerStats(sqlite3* db, int userId, string name, int& wins , int& loss
 
 }
 
+bool updateUsername(sqlite3* db, string& currentUsername) {
+    // Step 1: Ask for current password
+    string enteredPassword;
+    cout << "Enter your current password to confirm identity: ";
+    cin >> enteredPassword;
 
+    // Step 2: Fetch stored hashed password
+    string query = "SELECT PASSWORD FROM PLAYERS WHERE NAME = ?;";
+    sqlite3_stmt* stmt;
+    if (sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
+        cerr << "Error preparing password fetch: " << sqlite3_errmsg(db) << endl;
+        return false;
+    }
+
+    sqlite3_bind_text(stmt, 1, currentUsername.c_str(), -1, SQLITE_STATIC);
+
+    int rc = sqlite3_step(stmt);
+    if (rc != SQLITE_ROW) {
+        cout << "Username not found.\n";
+        sqlite3_finalize(stmt);
+        return false;
+    }
+
+    string storedHashedPassword = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0));
+    sqlite3_finalize(stmt);
+
+    // Step 3: Validate password
+    if (!bcrypt::validatePassword(enteredPassword, storedHashedPassword)) {
+        cout << "Incorrect password. Cannot proceed with username update.\n";
+        return false;
+    }
+
+    // Step 4: Ask for new username
+    string newUsername;
+    cout << "Enter new username: ";
+    cin >> newUsername;
+
+    // Step 5: Check if new username already exists
+    string checkSql = "SELECT COUNT(*) FROM PLAYERS WHERE NAME = ?;";
+    sqlite3_stmt* checkStmt;
+    if (sqlite3_prepare_v2(db, checkSql.c_str(), -1, &checkStmt, NULL) != SQLITE_OK) {
+        cerr << "Error preparing username check: " << sqlite3_errmsg(db) << endl;
+        return false;
+    }
+
+    sqlite3_bind_text(checkStmt, 1, newUsername.c_str(), -1, SQLITE_STATIC);
+    if (sqlite3_step(checkStmt) == SQLITE_ROW && sqlite3_column_int(checkStmt, 0) > 0) {
+        cout << "Username already taken.\n";
+        sqlite3_finalize(checkStmt);
+        return false;
+    }
+    sqlite3_finalize(checkStmt);
+
+    // Step 6: Update username
+    string updateSql = "UPDATE PLAYERS SET NAME = ? WHERE NAME = ?;";
+    sqlite3_stmt* updateStmt;
+    if (sqlite3_prepare_v2(db, updateSql.c_str(), -1, &updateStmt, NULL) != SQLITE_OK) {
+        cerr << "Error preparing username update: " << sqlite3_errmsg(db) << endl;
+        return false;
+    }
+
+    sqlite3_bind_text(updateStmt, 1, newUsername.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(updateStmt, 2, currentUsername.c_str(), -1, SQLITE_STATIC);
+
+    rc = sqlite3_step(updateStmt);
+    if (rc != SQLITE_DONE) {
+        cerr << "Error updating username: " << sqlite3_errmsg(db) << endl;
+        sqlite3_finalize(updateStmt);
+        return false;
+    }
+
+    sqlite3_finalize(updateStmt);
+    currentUsername = newUsername; // Update reference
+    cout << "Username updated successfully.\n";
+    return true;
+}
+bool updatePassword(sqlite3* db, const string& username) {
+    string newPassword, confirmPassword;
+    cout << "Enter new password: ";
+    cin >> newPassword;
+    cout << "Confirm new password: ";
+    cin >> confirmPassword;
+
+    if (newPassword != confirmPassword) {
+        cout << "Passwords do not match.\n";
+        return false;
+    }
+
+    string hashed = bcrypt::generateHash(newPassword);
+    string updateSql = "UPDATE PLAYERS SET PASSWORD = ? WHERE NAME = ?;";
+    sqlite3_stmt* stmt;
+
+    if (sqlite3_prepare_v2(db, updateSql.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
+        cerr << "Error preparing password update: " << sqlite3_errmsg(db) << endl;
+        return false;
+    }
+
+    sqlite3_bind_text(stmt, 1, hashed.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, username.c_str(), -1, SQLITE_STATIC);
+
+    if (sqlite3_step(stmt) != SQLITE_DONE) {
+        cerr << "Failed to update password: " << sqlite3_errmsg(db) << endl;
+        sqlite3_finalize(stmt);
+        return false;
+    }
+
+    sqlite3_finalize(stmt);
+    cout << "Password updated successfully.\n";
+    return true;
+}
 
 
 
