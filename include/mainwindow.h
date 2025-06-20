@@ -47,6 +47,16 @@ private slots:
 
     void on_pushButton_load_game_clicked();
 
+    void on_pushButton_goto_signup_clicked();
+
+    void on_pushButton_goto_login_clicked();
+
+    void on_checkBox_signup_show_password_stateChanged(int arg1);
+
+    void on_checkBox_show_password_stateChanged(int arg1);
+
+    void on_pushButton_signup_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

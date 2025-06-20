@@ -78,5 +78,7 @@ public:
     vector<Move> getMoves() const ;
 };
 
+int registerUserGUI(sqlite3* db , const string& username , const string& password);
+
 
 #endif

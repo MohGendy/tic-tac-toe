@@ -557,6 +557,7 @@ bool registerUser(sqlite3* db) {
     sqlite3_finalize(stmt);
     return true;
 }
+
 // Database helper functions
 int getUserId(sqlite3* db, const string& username) {
     string query = "SELECT ID FROM PLAYERS WHERE NAME = ?;";
@@ -704,6 +705,67 @@ void showMovesForGame(sqlite3* db, int game_id) {
     }
     cout << "Moves for Game ID " << game_id << ":\n";
     replayStoredGame(db, game_id);
+}
+
+int registerUserGUI(sqlite3* db , const string& username , const string& password) {
+
+    // 0 => db err
+    // 1 => username used
+    // 2 => password too short
+    // 3 => username too short
+    // 4 => valid
+    if(username.length() <= 4){
+        return 3;
+    }
+    if (password.length() <= 6)
+    {
+        return 2;
+    }
+    
+
+
+    // Step 1: Check if username already exists
+    string checkSql = "SELECT COUNT(*) FROM PLAYERS WHERE NAME = ?;";
+    sqlite3_stmt* checkStmt;
+    int rc = sqlite3_prepare_v2(db, checkSql.c_str(), -1, &checkStmt, NULL);
+    if (rc != SQLITE_OK) {
+        cerr << "Error preparing check statement: " << sqlite3_errmsg(db) << endl;
+        return 0;
+    }
+
+    sqlite3_bind_text(checkStmt, 1, username.c_str(), -1, SQLITE_STATIC);
+    rc = sqlite3_step(checkStmt);
+    if (rc == SQLITE_ROW) {
+        int count = sqlite3_column_int(checkStmt, 0);
+        if (count > 0) {
+            sqlite3_finalize(checkStmt);
+            return 1;
+        }
+    }
+    sqlite3_finalize(checkStmt);
+
+    // Step 2: Register the user
+    string insertSql = "INSERT INTO PLAYERS (NAME, PASSWORD) VALUES (?, ?);";
+    sqlite3_stmt* stmt;
+    rc = sqlite3_prepare_v2(db, insertSql.c_str(), -1, &stmt, NULL);
+    if (rc != SQLITE_OK) {
+        cerr << "Error preparing insert statement: " << sqlite3_errmsg(db) << endl;
+        return 0;
+    }
+
+    sqlite3_bind_text(stmt, 1, username.c_str(), -1, SQLITE_STATIC);
+    string hashed = bcrypt::generateHash(password);
+    sqlite3_bind_text(stmt, 2, hashed.c_str(), -1, SQLITE_STATIC);
+
+    rc = sqlite3_step(stmt);
+    if (rc != SQLITE_DONE) {
+        cerr << "Error executing insert: " << sqlite3_errmsg(db) << endl;
+        sqlite3_finalize(stmt);
+        return 0;
+    }
+
+    sqlite3_finalize(stmt);
+    return 4;
 }
 
 
