@@ -3004,7 +3004,23 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
           <item row="18" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_31">
             <item>
-             <widget class="QPushButton" name="pushButton_back_from_board_to_main">
+             <widget class="QPushButton" name="pushButton_prev_mega">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">min-width:160;</string>
+              </property>
+              <property name="text">
+               <string>Prev</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_next_mega">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -3016,22 +3032,6 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
               </property>
               <property name="text">
                <string>Next</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="pushButton_16">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">min-width:160;</string>
-              </property>
-              <property name="text">
-               <string>Previous</string>
               </property>
              </widget>
             </item>
@@ -3051,7 +3051,7 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
           <item row="18" column="0">
            <layout class="QHBoxLayout" name="horizontalLayout_23">
             <item>
-             <widget class="QPushButton" name="pushButton_2">
+             <widget class="QPushButton" name="pushButton_back_from_mega_replay">
               <property name="text">
                <string>Back</string>
               </property>
@@ -4226,7 +4226,7 @@ font: 900 24pt &quot;Segoe UI Black&quot;;</string>
           <item row="12" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_31">
             <item>
-             <widget class="QPushButton" name="pushButton_back_from_board_to_main">
+             <widget class="QPushButton" name="pushButton_prev">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -4237,12 +4237,12 @@ font: 900 24pt &quot;Segoe UI Black&quot;;</string>
                <string notr="true">min-width:160;</string>
               </property>
               <property name="text">
-               <string>Next</string>
+               <string>Prev</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton_16">
+             <widget class="QPushButton" name="pushButton_next">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -4254,7 +4254,7 @@ font: 900 24pt &quot;Segoe UI Black&quot;;</string>
      </string>
               </property>
               <property name="text">
-               <string>Previous</string>
+               <string>Next</string>
               </property>
              </widget>
             </item>
@@ -4263,7 +4263,13 @@ font: 900 24pt &quot;Segoe UI Black&quot;;</string>
           <item row="12" column="0">
            <layout class="QHBoxLayout" name="horizontalLayout_23">
             <item>
-             <widget class="QPushButton" name="pushButton">
+             <widget class="QPushButton" name="pushButton_back_from_replay">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="text">
                <string>Back</string>
               </property>

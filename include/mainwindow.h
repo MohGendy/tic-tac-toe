@@ -26,6 +26,7 @@ enum windows{
 struct userStruct{
     int id;         //user id
     char symbol;   //in game symbole
+    string name;
 };
 
 struct gameStruct{
@@ -97,6 +98,17 @@ private slots:
     bool buttonmakemove(int row, int col ,QPushButton* button);
 
     void on_newpushbutton_clicked();
+
+    void on_pushButton_change_username_clicked();
+
+    void on_pushButton_change_password_clicked();
+
+    void on_pushButton_4_clicked();
+
+    void on_stackedWidget_currentChanged(int arg1);
+
+    void loadProfile();
+
 
 private:
     Ui::MainWindow *ui;

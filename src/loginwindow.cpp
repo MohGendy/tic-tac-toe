@@ -44,15 +44,19 @@ void MainWindow::on_pushButton_login_function_clicked()
                         (tr("Welcom , \n")+(username)));
         if(!logincase){
             users[0].id=id;
+            users[0].name=name;
             QString text = "Logout";
             ui->pushButton_login->setText(text);
             ui->pushButton_4->setEnabled(true);
             ui->pushButton_play_friend->setEnabled(true);
             ui->pushButton_play_ai->setEnabled(true);
             ui->pushButton_load_game->setEnabled(true);
+            ui->label_guest->setText(username);
+            ui->profileWidget->setVisible(true);
             this->ui->stackedWidget->setCurrentIndex(Wmain);
         }else{
             users[1].id=id;
+            users[1].name=name;
             this->ui->stackedWidget->setCurrentIndex(Wicon);
         }
     }

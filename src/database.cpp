@@ -812,7 +812,57 @@ int authenticateUserGUI(sqlite3* db, const string& username , const string& pass
 }
 
 
+int fetchPlayerStats(sqlite3* db, int userId, string name, int& wins , int& losses , int& ties) {
+    static constexpr char const* sql = R"sql(
+    SELECT
+      p.NAME,
+      -- count rows where winner = this player's name
+      SUM(CASE WHEN gh.winner = p.NAME         THEN 1 ELSE 0 END) AS wins,
+      -- count rows where winner != this player's name AND not a draw
+      SUM(CASE WHEN gh.winner <> p.NAME
+                 AND gh.winner <> 'Draw'      THEN 1 ELSE 0 END) AS losses,
+      -- count rows where winner is the literal "Draw"
+      SUM(CASE WHEN gh.winner = 'Draw'         THEN 1 ELSE 0 END) AS ties
+    FROM PLAYERS AS p
+    LEFT JOIN Game_history AS gh
+      ON gh.user1_id = p.ID OR gh.user2_id = p.ID
+    WHERE p.ID = ?1
+    GROUP BY p.ID;
+    )sql";
 
+    sqlite3_stmt *stmt = nullptr;
+    int rc = sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr);
+    if (rc != SQLITE_OK) {
+        cerr << "SQLite prepare error: "
+                  << sqlite3_errmsg(db) << "\n";
+        return 0;
+    }
+
+    sqlite3_bind_int(stmt, 1, userId);
+    rc = sqlite3_step(stmt);
+
+    if (rc == SQLITE_ROW) {
+
+        wins   = sqlite3_column_int(stmt, 1);
+        losses = sqlite3_column_int(stmt, 2);
+        ties   = sqlite3_column_int(stmt, 3);
+        sqlite3_finalize(stmt);
+        return 2;
+    }
+    else if (rc == SQLITE_DONE) {
+        std::cerr << "No user with ID=" << userId << "\n";
+        sqlite3_finalize(stmt);
+        return 1;
+    }
+    else {
+        std::cerr << "SQLite step error: "
+                  << sqlite3_errmsg(db) << "\n";
+        sqlite3_finalize(stmt);
+        return 0;
+
+    }
+
+}
 
 
 
