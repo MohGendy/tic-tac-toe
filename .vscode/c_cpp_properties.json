@@ -8,11 +8,10 @@
                 "${workspaceFolder}/googletest/googletest/include",
                 "${workspaceFolder}/sqlite/include",
                 "${workspaceFolder}/bcrypt/include",
-                "F:/programs/Qt/6.9.1/mingw_64/include",
-                "F:/programs/Qt/6.9.1/mingw_64/include/QtWidgets",
-                "F:/programs/Qt/6.9.1/mingw_64/include/QtCore",
-                "F:/programs/Qt/6.9.1/mingw_64/include/QtGui"
-
+                "C:/Qt/6.9.1/mingw_64/include",
+                "C:/Qt/6.9.1/mingw_64/include/QtWidgets",
+                "C:/Qt/6.9.1/mingw_64/include/QtCore",
+                "C:/Qt/6.9.1/mingw_64/include/QtGui"
             ],
             "defines": [
                 "_DEBUG",
@@ -20,7 +19,7 @@
                 "_UNICODE"
             ],
             "windowsSdkVersion": "10.0.22621.0",
-            "compilerPath": "cl.exe",
+            "compilerPath": "C:/msys64/ucrt64/bin/g++.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "windows-msvc-x64"

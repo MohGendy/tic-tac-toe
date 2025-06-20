@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPushButton>
 #include "database.h"
 
 
@@ -33,7 +34,7 @@ struct gameStruct{
     bool isClassic;         //is classic game or mega
     short difficulty;      //ai difficulty level
     bool ismainuserfirst; //is main user first or second
-}
+};
 
 //controlers
 inline sqlite3* db;
@@ -91,7 +92,14 @@ private slots:
 
     void on_pushButton_login_function_clicked();
 
+    void clearBoardGui();
+
+    bool buttonmakemove(int row, int col ,QPushButton* button);
+
+    void on_newpushbutton_clicked();
+
 private:
     Ui::MainWindow *ui;
+    char currentPlayersymbol;
 };
 #endif // MAINWINDOW_H

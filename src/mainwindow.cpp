@@ -8,9 +8,10 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , currentPlayersymbol('X')
 {
     ui->setupUi(this);
-    ui->stackedWidget->setCurrentIndex(Wmain);
+    ui->stackedWidget->setCurrentIndex(Wgame);
     ui->pushButton_4->setEnabled(false);
     ui->pushButton_play_friend->setEnabled(false);
     ui->pushButton_play_ai->setEnabled(false);
@@ -21,6 +22,27 @@ MainWindow::MainWindow(QWidget *parent)
     }else{
         qInfo() << "init db\n";
     }
+
+    // Normal 3x3 grid for tic tac toe
+    const int gridRows = 3;
+    const int gridCols = 3;
+    // Create an array of pointers to your buttons
+    QPushButton* buttons[gridRows * gridCols] = { ui->b0, ui->b1, ui->b2,
+                                                 ui->b3, ui->b4, ui->b5,
+                                                 ui->b6, ui->b7, ui->b8 };
+
+    // Connect each button's clicked signal in a loop
+    for (int index = 0; index < gridRows * gridCols; ++index) {
+            int row = index / gridCols; // calculate row (integer division)
+            int col = index % gridCols; // calculate column
+
+            // Using a lambda to capture row, col, and button pointer.
+            connect(buttons[index], &QPushButton::clicked, this, [this, row, col, button = buttons[index]](){
+                // Call your method that handles the move for the board.
+                buttonmakemove(row, col, button);
+            });
+    }
+
 }
 
 MainWindow::~MainWindow()
@@ -85,6 +107,8 @@ void MainWindow::on_pushButton_load_game_clicked()
     this->ui->stackedWidget->setCurrentIndex(Whistory);
 
 }
+
+
 
 
 
