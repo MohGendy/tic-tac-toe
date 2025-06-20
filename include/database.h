@@ -10,6 +10,7 @@
 
 using namespace std;
 //database init
+
 bool database_init(sqlite3*& db);
 bool enableForeignKeys(sqlite3* db);
 bool createTables(sqlite3* db);

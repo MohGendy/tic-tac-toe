@@ -248,27 +248,15 @@
             getMove(row, col);
             cout<<"\n\n";
             if (board.makeMove(row, col, currentPlayerSymbol)) { // If the move is valid
-                replayManager.pushMove(row, col, currentPlayerSymbol);
                 if (board.checkWin(currentPlayerSymbol)) {      // Check for a win
                     board.displayBoard(); // Display the final board
                     cout << "Player " << currentPlayerSymbol << " wins!" << endl;
-                    user1_id= getUserId(db,player1.name);
-                    user2_id=getUserId(db,player2.name);
-                    string finalBoard = replayManager.getSerializedBoard();
-                    string winner = (currentPlayerSymbol == player1.symbol) ? player1.name : player2.name;
-                    int gameId = insertGameHistory(db, user1_id, user2_id, winner, finalBoard);
+                    
                     break;
                 }
                 if (board.isFull()) {       // Check for a tie
                     board.displayBoard();  // Display the final board
                     cout << "It's a tie!" << endl;
-                    string winner = "tie";
-                    user1_id= getUserId(db,player1.name);
-                    user2_id=getUserId(db,player2.name);
-                    string finalBoard = replayManager.getSerializedBoard();
-
-                    int gameId = insertGameHistory(db, user1_id, user2_id, winner, finalBoard);
-
                     break;
                 }
                 // Switch players

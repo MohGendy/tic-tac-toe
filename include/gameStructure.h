@@ -3,7 +3,6 @@
 #include <iostream>
 #include"database.h"
 using namespace std;
-ReplayManager replayManager;
 
 class Board {
 private:
