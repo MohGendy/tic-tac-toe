@@ -24,3 +24,9 @@ void MainWindow::on_pushButton_back_profile_clicked()
 
 }
 
+
+void MainWindow::on_pushButton_exit_clicked()
+{
+    this->close();
+}
+
