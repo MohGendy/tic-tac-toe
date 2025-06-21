@@ -39,7 +39,11 @@ void MainWindow::clearBoardGui(){
     currentPlayersymbol = 'X';
     ui->user1_label->setStyleSheet(activeStyle);
     ui->user2_label->setStyleSheet(inactiveStyle);
+    replayManager.resetBoard();
     board = Board(); // Reset the board state
+    if(gamedata.isAi && !gamedata.ismainuserfirst){
+        performAimove();
+    }
 }
 
 bool MainWindow::buttonmakemove(int row, int col ,QPushButton* button) {
@@ -64,9 +68,14 @@ bool MainWindow::buttonmakemove(int row, int col ,QPushButton* button) {
                 gamedata.gameended = true ;
                 ui->newpushbutton->setEnabled(true);//enable new game button when the game ends
                 //todo make tile green
-                std::string winner = (currentPlayersymbol == users[0].symbol) ? users[0].name : users[1].name;
+                if(currentPlayersymbol=='X'){
+                    ui->label_55_c->setText(QString::number(ui->label_55_c->text().toInt()+1));
+                }else{
+                    ui->label_54_c->setText(QString::number(ui->label_54_c->text().toInt()+1));
+                }
+                std::string winner = (currentPlayersymbol == users[0].symbol) ? users[0].name : (!gamedata.isAi?users[1].name:"AI");
                 std::string finalBoard = replayManager.getSerializedBoard();
-                int gameId = insertGameHistory(db, users[0].id, users[1].id, winner, finalBoard);
+                int gameId = insertGameHistory(db, users[0].id, ( !gamedata.isAi?users[1].id:-1), winner, finalBoard);
                 if (gameId != -1) insertGameMoves(db, gameId, replayManager.getMoves());
 
             }
@@ -75,6 +84,7 @@ bool MainWindow::buttonmakemove(int row, int col ,QPushButton* button) {
                 QMessageBox::information(this, "Game Over", "It's a tie!");
                 //?update ties in data base
                 //?update ties label
+                ui->label_53_c->setText(QString::number(ui->label_53_c->text().toInt()+1));
                 gamedata.gameended= true ;
                 ui->newpushbutton->setEnabled(true);//enable new game button when the game ends
                 //todo make tile yellow
@@ -126,7 +136,13 @@ void MainWindow::on_newpushbutton_clicked()
 
 void MainWindow::loadgameScreen(){
     qDebug()<<"load game screen started ";
+    
     ui->newpushbutton->setEnabled(false);//disable new game button till the game ends
+    ui->user1_label->setText(QString::fromStdString(gamedata.ismainuserfirst ?users[0].name:(!gamedata.isAi?users[1].name:"Ai")));
+    ui->user2_label->setText(QString::fromStdString(gamedata.ismainuserfirst ?(!gamedata.isAi?users[1].name:"Ai"):users[0].name));
+    ui->label_53_c->setText("0");
+    ui->label_55_c->setText("0");
+    ui->label_54_c->setText("0");
     // //! just for testing
     // gamedata.isAi = false; // Set to true for AI game
     // gamedata.ismainuserfirst = true; // Set to true if the main user is first
@@ -142,3 +158,11 @@ void MainWindow::on_pushButton_back_from_board_to_main_clicked()
 {
     this->ui->stackedWidget->setCurrentIndex(Wmain);
 }
+
+
+void MainWindow::on_pushButton_back_from_board_to_main_p_clicked()
+{
+    this->ui->stackedWidget->setCurrentIndex(Wmain);
+}
+
+

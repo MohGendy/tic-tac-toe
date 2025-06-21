@@ -143,7 +143,7 @@ QLabel#label_profile_photo {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>11</number>
       </property>
       <widget class="QWidget" name="main">
        <property name="sizePolicy">
@@ -3009,7 +3009,7 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
           <item row="18" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_31">
             <item>
-             <widget class="QPushButton" name="pushButton_back_from_board_to_main">
+             <widget class="QPushButton" name="pushButton_back_from_board_to_main_mega_r">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -4218,7 +4218,7 @@ font: 900 24pt &quot;Segoe UI Black&quot;;</string>
           <item row="12" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_31">
             <item>
-             <widget class="QPushButton" name="pushButton_back_from_board_to_main">
+             <widget class="QPushButton" name="_r">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -4847,7 +4847,7 @@ font-weight: bold;</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_53">
+             <widget class="QLabel" name="label_53_m">
               <property name="font">
                <font>
                 <pointsize>20</pointsize>
@@ -4925,7 +4925,7 @@ font-weight: bold;</string>
           <item row="19" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_31">
             <item>
-             <widget class="QPushButton" name="pushButton_back_from_board_to_main">
+             <widget class="QPushButton" name="_mega">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -4997,7 +4997,7 @@ font-weight: bold;</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_54">
+             <widget class="QLabel" name="label_54_m">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>
@@ -6588,7 +6588,7 @@ font-weight: bold;</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_55">
+             <widget class="QLabel" name="label_55_m">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>
@@ -7045,7 +7045,7 @@ font-weight: bold;</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_55">
+             <widget class="QLabel" name="label_55_c">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>
@@ -7191,7 +7191,7 @@ font-weight: bold;</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_54">
+             <widget class="QLabel" name="label_54_c">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>
@@ -7288,7 +7288,7 @@ font-weight: bold;</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_53">
+             <widget class="QLabel" name="label_53_c">
               <property name="font">
                <font>
                 <pointsize>20</pointsize>
@@ -7327,7 +7327,7 @@ font-weight: bold;</string>
           <item row="12" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_31">
             <item>
-             <widget class="QPushButton" name="pushButton_back_from_board_to_main">
+             <widget class="QPushButton" name="pushButton_back_from_board_to_main_p">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                 <horstretch>0</horstretch>

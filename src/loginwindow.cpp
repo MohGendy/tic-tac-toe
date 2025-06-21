@@ -41,7 +41,7 @@ void MainWindow::on_pushButton_login_function_clicked()
         int id = getUserId(db, name);
         QMessageBox::information(this,
                         tr("Login Success"),
-                        (tr("Welcom , \n")+(username)));
+                        (tr("Welcome , \n")+(username)));
         this->ui->lineEdit_username->clear();
         this->ui->lineEdit_password->clear();
         if(!logincase){
