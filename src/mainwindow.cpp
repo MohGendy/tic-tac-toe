@@ -43,7 +43,7 @@ MainWindow::MainWindow(QWidget *parent)
             // Using a lambda to capture row, col, and button pointer.
             connect(buttons[index], &QPushButton::clicked, this, [this, row, col, button = buttons[index]](){
                 // Call your method that handles the move for the board.
-            if (buttonmakemove(row, col, button)) {
+            if (currentPlayersymbol == (gamedata.ismainuserfirst ? 'O' : 'X')&&buttonmakemove(row, col, button)) {
                 // After a successful human move,
                 // switch players and check if it's AI’s turn.
                 // For instance, if the main user is first, then AI is 'O'
