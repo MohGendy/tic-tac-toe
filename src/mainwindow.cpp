@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     , currentPlayersymbol('X')
 {
     ui->setupUi(this);
-    ui->stackedWidget->setCurrentIndex(Wgame);
+    ui->stackedWidget->setCurrentIndex(Wmain);
     ui->pushButton_4->setEnabled(false);
     ui->pushButton_play_friend->setEnabled(false);
     ui->pushButton_play_ai->setEnabled(false);

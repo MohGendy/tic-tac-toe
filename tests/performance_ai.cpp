@@ -6,13 +6,16 @@
 #include <functional>
 #include <numeric>
 #include <iomanip>
-//#include <sys/resource.h>
-#include<windows.h>
 #include <sstream>
 #include <streambuf>
-#include "ai.h"
-#include "windows_stub.h"
 
+#ifdef _WIN32
+#  include "windows_stub.h"
+#else
+#  include <sys/resource.h>
+#endif
+
+#include "ai.h"
 class AIPerformanceTest : public ::testing::Test {
 protected:
     void SetUp() override {
@@ -40,24 +43,44 @@ protected:
         double real_ms, user_ms, sys_ms, memory_kb;
     };
     
-    ProfileData profile(std::function<void()> op) {
-        struct rusage start, end;
-        getrusage(RUSAGE_SELF, &start);
-        auto t1 = std::chrono::high_resolution_clock::now();
-        op();
-        auto t2 = std::chrono::high_resolution_clock::now();
-        getrusage(RUSAGE_SELF, &end);
-        
-        return {
-            std::chrono::duration<double, std::milli>(t2 - t1).count(),
-            (end.ru_utime.tv_sec - start.ru_utime.tv_sec) * 1000.0 +
-            (end.ru_utime.tv_usec - start.ru_utime.tv_usec) / 1000.0,
-            (end.ru_stime.tv_sec - start.ru_stime.tv_sec) * 1000.0 +
-            (end.ru_stime.tv_usec - start.ru_stime.tv_usec) / 1000.0,
-            (double)end.ru_maxrss
-        };
-    }
-    
+ProfileData profile(std::function<void()> op) {
+    rusage start{}, end{};
+    getrusage(RUSAGE_SELF, &start);
+
+    auto t1 = std::chrono::high_resolution_clock::now();
+    op();
+    auto t2 = std::chrono::high_resolution_clock::now();
+
+    getrusage(RUSAGE_SELF, &end);
+
+    // real elapsed (ms)
+    double real_ms = std::chrono::duration<double, std::milli>(t2 - t1).count();
+
+#ifdef _WIN32
+    // helper to go from FILETIME (100-ns units) to milliseconds
+    auto ftToMs = [](const FILETIME &ft) {
+        ULARGE_INTEGER li;
+        li.LowPart  = ft.dwLowDateTime;
+        li.HighPart = ft.dwHighDateTime;
+        // 1 count = 100 ns => /10 000 = ms
+        return double(li.QuadPart) / 10000.0;
+    };
+
+    double user_ms   = ftToMs(end.ru_utime) - ftToMs(start.ru_utime);
+    double sys_ms    = ftToMs(end.ru_stime) - ftToMs(start.ru_stime);
+    double memory_kb = double(end.ru_maxrss) / 1024.0;
+
+#else
+    double user_ms   = (end.ru_utime.tv_sec  - start.ru_utime.tv_sec ) * 1000.0
+                     + (end.ru_utime.tv_usec - start.ru_utime.tv_usec) / 1000.0;
+    double sys_ms    = (end.ru_stime.tv_sec  - start.ru_stime.tv_sec ) * 1000.0
+                     + (end.ru_stime.tv_usec - start.ru_stime.tv_usec) / 1000.0;
+    double memory_kb = double(end.ru_maxrss);  // already in KB on POSIX
+
+#endif
+
+    return ProfileData{ real_ms, user_ms, sys_ms, memory_kb };
+}    
     void printProfile(const ProfileData& p, const std::string& name) {
         std::cout << "[" << name << "] Real: " << std::fixed << std::setprecision(3)
                   << p.real_ms << "ms | CPU: " << (p.user_ms + p.sys_ms)

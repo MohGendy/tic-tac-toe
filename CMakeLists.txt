@@ -21,6 +21,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 add_subdirectory(googletest)
 add_subdirectory(sqlite)
 add_subdirectory(bcrypt)
+add_subdirectory(windows_stub)
 
 # your own include dirs (if you need them)
 include_directories(
@@ -33,9 +34,13 @@ file(GLOB TEST_SOURCES
     #"tests/perfomance_gamestructure.cpp"
     "src/gameStructure.cpp"
     "src/ai.cpp"
-    "tests/database_tests.cpp"
+    "tests/database_googletest.cpp"
+    "tests/AItests.cpp"
+    "tests/pvptests.cpp"
+    "tests/megatests.cpp"
+    "tests/performance_ai.cpp"
+    "tests/perfomance_gamestructure.cpp"
     "src/database.cpp"
-    #"tests/windows_stub.cpp"
   )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -80,8 +85,9 @@ target_link_libraries(my_program
 
 target_link_libraries(runTests
   PRIVATE
-    # sqlite3
-    # bcrypt
+    sqlite3
+    bcrypt
+    windows_stub
     gtest
     gtest_main
     Threads::Threads
