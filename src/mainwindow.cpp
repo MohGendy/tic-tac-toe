@@ -3,7 +3,6 @@
 #include "database.h"
 #include <qdebug.h>
 #include <QMessageBox>
-#include <QTimer>
 
 
 
@@ -43,16 +42,44 @@ MainWindow::MainWindow(QWidget *parent)
             // Using a lambda to capture row, col, and button pointer.
             connect(buttons[index], &QPushButton::clicked, this, [this, row, col, button = buttons[index]](){
                 // Call your method that handles the move for the board.
-            if (buttonmakemove(row, col, button)) {
+            if(!gamedata.isAi) {buttonmakemove(row, col, button);}
+            else if (currentPlayersymbol == (gamedata.ismainuserfirst ? 'X' : 'O') && buttonmakemove(row, col, button)) {
                 // After a successful human move,
                 // switch players and check if it's AI’s turn.
                 // For instance, if the main user is first, then AI is 'O'
                 if (gamedata.isAi && currentPlayersymbol == (gamedata.ismainuserfirst ? 'O' : 'X') && !gamedata.gameended) {
                     // Use a timer for a short delay (500ms) before letting the AI move.
                     QTimer::singleShot(500, this, SLOT(performAimove()));
-                    //performAimove();
                 }
             }});
+    }
+
+    //mega grid callback connections
+    for (int megaRow = 0; megaRow < 3; ++megaRow) {
+        for (int subRow = 0; subRow < 3; ++subRow) {
+            for (int megaCol = 0; megaCol < 3; ++megaCol) {
+                for (int subCol = 0; subCol < 3; ++subCol) {
+                    QString objectName = QString("b%1_%2_%3")
+                                            .arg(subRow)
+                                            .arg(subCol)
+                                            .arg(megaRow * 3 + megaCol); // subgrid ID
+
+                    QPushButton *button = this->findChild<QPushButton*>(objectName, Qt::FindChildrenRecursively);
+                    //QPushButton *button = findChild<QPushButton*>(objectName);
+                    if (!button) {
+                        qDebug() << "Button not found:" << objectName;
+                        continue;
+                    }
+
+                    if (button) {
+                        int subgrid = megaRow * 3 + megaCol; // Calculate the subgrid ID
+                        connect(button, &QPushButton::clicked, this, [this, subRow, subCol,subgrid, button]() {
+                            handleMegaMove(subRow, subCol, subgrid, button);
+                        });
+                    }
+                }
+            }
+        }
     }
 
 }
@@ -101,12 +128,14 @@ void MainWindow::on_pushButton_login_clicked()
 void MainWindow::on_pushButton_play_ai_clicked()
 {
     this->ui->stackedWidget->setCurrentIndex(Wai);
+    gamedata.isAi = true;
 }
 
 
 void MainWindow::on_pushButton_play_friend_clicked()
 {
     this->ui->stackedWidget->setCurrentIndex(Wmodes);
+    gamedata.isAi = false;
 }
 
 
@@ -135,6 +164,14 @@ void MainWindow::on_stackedWidget_currentChanged(int arg1)
     if(ui->stackedWidget->currentWidget() == ui->gameScreen){
         loadgameScreen();
     }
+    if(ui->stackedWidget->currentWidget() == ui->mega_tic_tac_toe){
+        loadmegaWindow();
+    }
+
+    if(ui->stackedWidget->currentWidget() == ui->games){
+        loadHistoryScreen();
+    }
+
 }
 
 void MainWindow::loadProfile(){

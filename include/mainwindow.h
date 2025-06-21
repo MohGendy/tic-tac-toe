@@ -6,6 +6,7 @@
 #include "database.h"
 #include "gameStructure.h"
 #include "ai.h"
+#include <QTimer>
 
 enum windows{
     Wai=8,//
@@ -47,6 +48,15 @@ inline struct userStruct users[2] = {{-1,' '},{-1,' '}};
 inline struct gameStruct gamedata; //game structure
 inline Ai* ai = NULL; //ai pointer
 inline struct Board board;
+
+inline struct megaBoard megaboard;
+inline int allowedSubgrid = -1; 
+struct Replayer {
+    string player2;
+    vector<Move> moves;
+    string result;
+};
+inline struct Replayer replayer;
 
 
 QT_BEGIN_NAMESPACE
@@ -125,6 +135,12 @@ private slots:
     void performAimove();
 
     void loadgameScreen();
+    
+    void loadHistoryScreen();
+
+    void normalReplayControl(bool action,bool init);
+
+    void megaReplayControl(bool action,bool init);
 
     void on_pushButton_back_from_board_to_main_clicked();
 
@@ -141,6 +157,39 @@ private slots:
     void on_checkBox_confirm_newpass_stateChanged(int arg1);
 
     void on_pushButton_change_pass_clicked();
+
+    void on_pushButton_back_games_clicked();
+
+    void on_pushButton_back_player2_clicked();
+
+    void on_pushButton_start_game_clicked();
+
+    void on_pushButton_back_from_board_to_main_p_clicked();
+
+
+    bool handleMegaMove(int globalRow,int globalCol,int subgrid , QPushButton* button);
+
+    void on_newmegapushbutton_clicked();
+
+    void on_exit_mega_clicked();
+
+    void clearmegawindow();
+
+    void loadmegaWindow();
+
+    void on_tableWidget_games_cellClicked(int row, int column);
+
+    void on_pushButton_clicked();
+
+    void on__r_clicked();
+
+    void on_previouspushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_back_from_board_to_main_mega_r_clicked();
+
+    void on_previouspushbuttonmega_clicked();
 
 private:
     Ui::MainWindow *ui;
