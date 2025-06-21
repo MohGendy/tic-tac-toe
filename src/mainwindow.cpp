@@ -137,6 +137,10 @@ void MainWindow::on_stackedWidget_currentChanged(int arg1)
     if(ui->stackedWidget->currentWidget() == ui->gameScreen){
         loadgameScreen();
     }
+    if(ui->stackedWidget->currentWidget() == ui->games){
+        loadHistoryScreen();
+    }
+
 }
 
 void MainWindow::loadProfile(){

@@ -37,6 +37,7 @@ struct Move {
     int row, col;
     char player;
 };
+
 vector<Move> loadMovesForGame(sqlite3* db, int game_id);
 bool insertGameMoves(sqlite3* db, int game_id, const vector<Move>& moves);
 
@@ -44,6 +45,14 @@ struct GameRecord {
     vector<Move> moves;
     string result;
 };
+
+struct GameInfo {
+    int gameId;
+    string opponent;
+    string result;      // "win" / "loss" / "draw"
+    string datePlayed;  // ISO timestamp
+};
+
 
 class ReplayManager {
 private:
@@ -96,4 +105,6 @@ bool updatePassword(sqlite3* db, const string& username) ;
 
 int updateUsernameGUI(sqlite3* db,const int & id , const string& currentUsername,const string& newUsername);
 int updatePasswordGUI(sqlite3* db, const int & id , const string& password) ;
+
+bool fetchGamesForPlayer(sqlite3* db, int userId, std::vector<GameInfo>& out);
 #endif

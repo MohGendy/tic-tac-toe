@@ -125,6 +125,8 @@ private slots:
     void performAimove();
 
     void loadgameScreen();
+    
+    void loadHistoryScreen();
 
     void on_pushButton_back_from_board_to_main_clicked();
 
