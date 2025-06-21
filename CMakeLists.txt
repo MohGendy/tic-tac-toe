@@ -33,7 +33,7 @@ file(GLOB TEST_SOURCES
     "tests/performance_ai.cpp"
     "src/gameStructure.cpp"
     "src/ai.cpp"
-    "src/database.cpp"
+    # "src/database.cpp"
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -78,8 +78,8 @@ target_link_libraries(my_program
 
 target_link_libraries(runTests
   PRIVATE
-    sqlite3
-    bcrypt
+    # sqlite3
+    # bcrypt
     gtest
     gtest_main
     Threads::Threads
@@ -106,6 +106,29 @@ install(TARGETS my_program
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(my_program)
 endif()
+
+# Installation rules.
+include(GNUInstallDirs)
+install(TARGETS my_program
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
+
+if(QT_VERSION_MAJOR EQUAL 6)
+    qt_finalize_executable(my_program)
+    qt_generate_deploy_app_script(
+        TARGET my_program
+        OUTPUT_SCRIPT deploy_my_program
+    )
+    install(SCRIPT ${deploy_my_program})
+endif()
+
+# CPack configuration – choose your generator.
+set(CPACK_GENERATOR "NSIS")  # or "ZIP" or any preferred generator.
+set(CPACK_PACKAGE_NAME "my_program")
+set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
+include(CPack)
+
 # cmake_minimum_required(VERSION 3.10)
 # project(MyProject)
 
