@@ -222,21 +222,21 @@ TEST_F(AIPerformanceTest, StressTest) {
     std::cout << "[TEST TIME] StressTest: " << duration.count() << "ms\n";
 }
 
-int main(int argc, char **argv) {
-    auto suite_start = std::chrono::high_resolution_clock::now();
+// int main(int argc, char **argv) {
+//     auto suite_start = std::chrono::high_resolution_clock::now();
     
-    ::testing::InitGoogleTest(&argc, argv);
+//     ::testing::InitGoogleTest(&argc, argv);
     
-    std::cout << "=== AI Performance Test Suite ===\n";
-    std::cout << "CPU/Memory profiling | All difficulty levels | Stress testing\n\n";
+//     std::cout << "=== AI Performance Test Suite ===\n";
+//     std::cout << "CPU/Memory profiling | All difficulty levels | Stress testing\n\n";
     
-    int result = RUN_ALL_TESTS();
+//     int result = RUN_ALL_TESTS();
     
-    auto suite_duration = std::chrono::duration_cast<std::chrono::milliseconds>(
-        std::chrono::high_resolution_clock::now() - suite_start);
+//     auto suite_duration = std::chrono::duration_cast<std::chrono::milliseconds>(
+//         std::chrono::high_resolution_clock::now() - suite_start);
     
-    std::cout << "\n[SUITE TOTAL TIME] " << suite_duration.count() << " ms ("
-              << std::fixed << std::setprecision(2) << (suite_duration.count() / 1000.0) << " s)\n";
+//     std::cout << "\n[SUITE TOTAL TIME] " << suite_duration.count() << " ms ("
+//               << std::fixed << std::setprecision(2) << (suite_duration.count() / 1000.0) << " s)\n";
     
-    return result;
-}
+//     return result;
+// }
