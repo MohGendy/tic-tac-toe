@@ -25,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
         qInfo() << "init db\n";
     }
 
+
     // Normal 3x3 grid for tic tac toe
     const int gridRows = 3;
     const int gridCols = 3;
@@ -41,11 +42,21 @@ MainWindow::MainWindow(QWidget *parent)
             // Using a lambda to capture row, col, and button pointer.
             connect(buttons[index], &QPushButton::clicked, this, [this, row, col, button = buttons[index]](){
                 // Call your method that handles the move for the board.
-                buttonmakemove(row, col, button);
-            });
+            if(!gamedata.isAi) {buttonmakemove(row, col, button);}
+            else if (currentPlayersymbol == (gamedata.ismainuserfirst ? 'X' : 'O') && buttonmakemove(row, col, button)) {
+                // After a successful human move,
+                // switch players and check if it's AI’s turn.
+                // For instance, if the main user is first, then AI is 'O'
+                if (gamedata.isAi && currentPlayersymbol == (gamedata.ismainuserfirst ? 'O' : 'X') && !gamedata.gameended) {
+                    // Use a timer for a short delay (500ms) before letting the AI move.
+                    QTimer::singleShot(500, this, SLOT(performAimove()));
+                }
+            }});
     }
 
 }
+
+
 
 MainWindow::~MainWindow()
 {
@@ -77,6 +88,7 @@ void MainWindow::on_pushButton_login_clicked()
             ui->pushButton_play_ai->setEnabled(false);
             ui->pushButton_load_game->setEnabled(false);
             ui->profileWidget->setVisible(false);
+            users[0].id = -1;
             QMessageBox::information(this,
                 tr("Logout Success"),
                 tr("See you soon "));
@@ -88,12 +100,14 @@ void MainWindow::on_pushButton_login_clicked()
 void MainWindow::on_pushButton_play_ai_clicked()
 {
     this->ui->stackedWidget->setCurrentIndex(Wai);
+    gamedata.isAi = true;
 }
 
 
 void MainWindow::on_pushButton_play_friend_clicked()
 {
     this->ui->stackedWidget->setCurrentIndex(Wmodes);
+    gamedata.isAi = false;
 }
 
 
@@ -119,6 +133,13 @@ void MainWindow::on_stackedWidget_currentChanged(int arg1)
     if(ui->stackedWidget->currentWidget() == ui->profile){
         loadProfile();
     }
+    if(ui->stackedWidget->currentWidget() == ui->gameScreen){
+        loadgameScreen();
+    }
+    if(ui->stackedWidget->currentWidget() == ui->games){
+        loadHistoryScreen();
+    }
+
 }
 
 void MainWindow::loadProfile(){
@@ -146,5 +167,6 @@ void MainWindow::loadProfile(){
         break;
     }
 }
+
 
 

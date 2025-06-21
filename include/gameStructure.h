@@ -17,6 +17,7 @@ public:
 
 class Player {
 public:
+    std::string name;
     char symbol;
     Player(char s) : symbol(s) {}; // Constructor to initialize player symbol;
 };

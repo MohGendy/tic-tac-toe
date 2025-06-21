@@ -4,7 +4,9 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include "database.h"
-
+#include "gameStructure.h"
+#include "ai.h"
+#include <QTimer>
 
 enum windows{
     Wai=8,//
@@ -35,6 +37,7 @@ struct gameStruct{
     bool isClassic;         //is classic game or mega
     short difficulty;      //ai difficulty level
     bool ismainuserfirst; //is main user first or second
+    bool gameended;
 };
 
 //controlers
@@ -43,6 +46,15 @@ inline sqlite3* db;
 inline bool logincase = 0;
 inline struct userStruct users[2] = {{-1,' '},{-1,' '}};
 inline struct gameStruct gamedata; //game structure
+inline Ai* ai = NULL; //ai pointer
+inline struct Board board;
+struct Replayer {
+    string player2;
+    vector<Move> moves;
+    string result;
+};
+inline struct Replayer replayer;
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -117,8 +129,57 @@ private slots:
 
     void on_pushButton_hard_clicked();
 
+    void performAimove();
+
+    void loadgameScreen();
+    
+    void loadHistoryScreen();
+
+    void normalReplayControl(bool action,bool init);
+
+    void megaReplayControl(bool action,bool init);
+
+    void on_pushButton_back_from_board_to_main_clicked();
+
+    void on_pushButton_cancel_username_clicked();
+
+    void on_pushButton_save_username_clicked();
+
+    void on_pushButton_not_change_pass_clicked();
+
+    void on_checkBox_oldpass_stateChanged(int arg1);
+
+    void on_checkBox_newpass_stateChanged(int arg1);
+
+    void on_checkBox_confirm_newpass_stateChanged(int arg1);
+
+    void on_pushButton_change_pass_clicked();
+
+    void on_pushButton_back_games_clicked();
+
+    void on_pushButton_back_player2_clicked();
+
+    void on_pushButton_start_game_clicked();
+
+    void on_pushButton_back_from_board_to_main_p_clicked();
+
+    void on_tableWidget_games_cellClicked(int row, int column);
+
+    void on_pushButton_clicked();
+
+    void on__r_clicked();
+
+    void on_previouspushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_back_from_board_to_main_mega_r_clicked();
+
+    void on_previouspushbuttonmega_clicked();
+
 private:
     Ui::MainWindow *ui;
     char currentPlayersymbol;
+   
 };
 #endif // MAINWINDOW_H

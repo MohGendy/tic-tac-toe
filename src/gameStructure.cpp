@@ -250,6 +250,7 @@
                 if (board.checkWin(currentPlayerSymbol)) {      // Check for a win
                     board.displayBoard(); // Display the final board
                     cout << "Player " << currentPlayerSymbol << " wins!" << endl;
+                    
                     break;
                 }
                 if (board.isFull()) {       // Check for a tie

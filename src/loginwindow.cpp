@@ -11,6 +11,8 @@ void MainWindow::on_pushButton_goto_signup_clicked()
 
 void MainWindow::on_pushButton_3_clicked()
 {
+    this->ui->lineEdit_username->clear();
+    this->ui->lineEdit_password->clear();
     if(!logincase){
         this->ui->stackedWidget->setCurrentIndex(Wmain);
     }else{
@@ -41,7 +43,9 @@ void MainWindow::on_pushButton_login_function_clicked()
         int id = getUserId(db, name);
         QMessageBox::information(this,
                         tr("Login Success"),
-                        (tr("Welcom , \n")+(username)));
+                        (tr("Welcome , \n")+(username)));
+        this->ui->lineEdit_username->clear();
+        this->ui->lineEdit_password->clear();
         if(!logincase){
             users[0].id=id;
             users[0].name=name;

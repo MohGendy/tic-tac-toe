@@ -164,6 +164,7 @@ char ReplayManager::getCell(int row, int col) const {
 }
 
 vector<Move> ReplayManager::getMoves() const { return moveStack; }
+ReplayManager replayManager;
 
 
 void playGame(sqlite3* db, const string& player1, const string& player2) {
@@ -588,9 +589,16 @@ int insertGameHistory(sqlite3* db, int user1_id, int user2_id, const string& win
         cerr << " Error preparing game history insert: " << sqlite3_errmsg(db) << endl;
         return false;
     }
-
-    sqlite3_bind_int(stmt, 1, user1_id);
-    sqlite3_bind_int(stmt, 2, user2_id);
+    if(user1_id==-1){
+        sqlite3_bind_null(stmt, 1);
+    }else{
+        sqlite3_bind_int(stmt, 1, user1_id);
+    }
+    if(user2_id==-1){
+        sqlite3_bind_null(stmt, 2);
+    }else{
+        sqlite3_bind_int(stmt, 2, user2_id);
+    }
     sqlite3_bind_text(stmt, 3, winner.c_str(), -1, SQLITE_TRANSIENT);
     sqlite3_bind_text(stmt, 4, finalBoard.c_str(), -1, SQLITE_TRANSIENT);
 
@@ -713,6 +721,8 @@ void showMovesForGame(sqlite3* db, int game_id) {
     replayStoredGame(db, game_id);
 }
 
+
+
 int registerUserGUI(sqlite3* db , const string& username , const string& password) {
 
     // 0 => db err
@@ -726,6 +736,9 @@ int registerUserGUI(sqlite3* db , const string& username , const string& passwor
     if (password.length() <= 6)
     {
         return 2;
+    }
+    if(username == "TIE" || username == "AI"){
+        return 1;
     }
     
 
@@ -820,9 +833,9 @@ int fetchPlayerStats(sqlite3* db, int userId, string name, int& wins , int& loss
       SUM(CASE WHEN gh.winner = p.NAME         THEN 1 ELSE 0 END) AS wins,
       -- count rows where winner != this player's name AND not a draw
       SUM(CASE WHEN gh.winner <> p.NAME
-                 AND gh.winner <> 'Draw'      THEN 1 ELSE 0 END) AS losses,
-      -- count rows where winner is the literal "Draw"
-      SUM(CASE WHEN gh.winner = 'Draw'         THEN 1 ELSE 0 END) AS ties
+                 AND gh.winner <> 'TIE'      THEN 1 ELSE 0 END) AS losses,
+      -- count rows where winner is the literal "TIE"
+      SUM(CASE WHEN gh.winner = 'TIE'         THEN 1 ELSE 0 END) AS ties
     FROM PLAYERS AS p
     LEFT JOIN Game_history AS gh
       ON gh.user1_id = p.ID OR gh.user2_id = p.ID
@@ -864,10 +877,327 @@ int fetchPlayerStats(sqlite3* db, int userId, string name, int& wins , int& loss
 
 }
 
+bool updateUsername(sqlite3* db, string& currentUsername) {
+    // Step 1: Ask for current password
+    string enteredPassword;
+    cout << "Enter your current password to confirm identity: ";
+    cin >> enteredPassword;
+
+    // Step 2: Fetch stored hashed password
+    string query = "SELECT PASSWORD FROM PLAYERS WHERE NAME = ?;";
+    sqlite3_stmt* stmt;
+    if (sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
+        cerr << "Error preparing password fetch: " << sqlite3_errmsg(db) << endl;
+        return false;
+    }
+
+    sqlite3_bind_text(stmt, 1, currentUsername.c_str(), -1, SQLITE_STATIC);
+
+    int rc = sqlite3_step(stmt);
+    if (rc != SQLITE_ROW) {
+        cout << "Username not found.\n";
+        sqlite3_finalize(stmt);
+        return false;
+    }
+
+    string storedHashedPassword = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0));
+    sqlite3_finalize(stmt);
+
+    // Step 3: Validate password
+    if (!bcrypt::validatePassword(enteredPassword, storedHashedPassword)) {
+        cout << "Incorrect password. Cannot proceed with username update.\n";
+        return false;
+    }
+
+    // Step 4: Ask for new username
+    string newUsername;
+    cout << "Enter new username: ";
+    cin >> newUsername;
+
+    // Step 5: Check if new username already exists
+    string checkSql = "SELECT COUNT(*) FROM PLAYERS WHERE NAME = ?;";
+    sqlite3_stmt* checkStmt;
+    if (sqlite3_prepare_v2(db, checkSql.c_str(), -1, &checkStmt, NULL) != SQLITE_OK) {
+        cerr << "Error preparing username check: " << sqlite3_errmsg(db) << endl;
+        return false;
+    }
+
+    sqlite3_bind_text(checkStmt, 1, newUsername.c_str(), -1, SQLITE_STATIC);
+    if (sqlite3_step(checkStmt) == SQLITE_ROW && sqlite3_column_int(checkStmt, 0) > 0) {
+        cout << "Username already taken.\n";
+        sqlite3_finalize(checkStmt);
+        return false;
+    }
+    sqlite3_finalize(checkStmt);
+
+    // Step 6: Update username
+    string updateSql = "UPDATE PLAYERS SET NAME = ? WHERE NAME = ?;";
+    sqlite3_stmt* updateStmt;
+    if (sqlite3_prepare_v2(db, updateSql.c_str(), -1, &updateStmt, NULL) != SQLITE_OK) {
+        cerr << "Error preparing username update: " << sqlite3_errmsg(db) << endl;
+        return false;
+    }
+
+    sqlite3_bind_text(updateStmt, 1, newUsername.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(updateStmt, 2, currentUsername.c_str(), -1, SQLITE_STATIC);
+
+    rc = sqlite3_step(updateStmt);
+    if (rc != SQLITE_DONE) {
+        cerr << "Error updating username: " << sqlite3_errmsg(db) << endl;
+        sqlite3_finalize(updateStmt);
+        return false;
+    }
+
+    sqlite3_finalize(updateStmt);
+    currentUsername = newUsername; // Update reference
+    cout << "Username updated successfully.\n";
+    return true;
+}
+
+bool updatePassword(sqlite3* db, const string& username) {
+    string newPassword, confirmPassword;
+    cout << "Enter new password: ";
+    cin >> newPassword;
+    cout << "Confirm new password: ";
+    cin >> confirmPassword;
+
+    if (newPassword != confirmPassword) {
+        cout << "Passwords do not match.\n";
+        return false;
+    }
+
+    string hashed = bcrypt::generateHash(newPassword);
+    string updateSql = "UPDATE PLAYERS SET PASSWORD = ? WHERE NAME = ?;";
+    sqlite3_stmt* stmt;
+
+    if (sqlite3_prepare_v2(db, updateSql.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
+        cerr << "Error preparing password update: " << sqlite3_errmsg(db) << endl;
+        return false;
+    }
+
+    sqlite3_bind_text(stmt, 1, hashed.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, username.c_str(), -1, SQLITE_STATIC);
+
+    if (sqlite3_step(stmt) != SQLITE_DONE) {
+        cerr << "Failed to update password: " << sqlite3_errmsg(db) << endl;
+        sqlite3_finalize(stmt);
+        return false;
+    }
+
+    sqlite3_finalize(stmt);
+    cout << "Password updated successfully.\n";
+    return true;
+}
+
+int updateUsernameGUI(sqlite3* db, const int & id,const string& currentUsername,const string& newUsername) {
+    //0=> db err
+    //1=> used
+    //2=> valid
+    char *errMsg = nullptr;
+    int rc,out;
+
+    // 1) Begin transaction
+    rc = sqlite3_exec(db, "BEGIN;", nullptr, nullptr, &errMsg);
+    if (rc != SQLITE_OK) {
+        cerr << "BEGIN failed: " << errMsg << "\n";
+        sqlite3_free(errMsg);
+        return 0;
+    }
+
+    // 2) Update the PLAYERS table
+    {
+        sqlite3_stmt *st = nullptr;
+        rc = sqlite3_prepare_v2(db,
+            "UPDATE PLAYERS SET NAME = ?1 WHERE ID = ?2;",
+            -1, &st, nullptr);
+        if (rc != SQLITE_OK) {
+            cerr << "Prepare PLAYERS failed: "
+                      << sqlite3_errmsg(db) << "\n";
+                      out = 0;
+            goto rollback;
+        }
+        sqlite3_bind_text(st, 1, newUsername.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_int (st, 2, id);
+        rc = sqlite3_step(st);
+        sqlite3_finalize(st);
+        if (rc != SQLITE_DONE) {
+            int err = sqlite3_errcode(db);
+            if (err == 19) {
+                cerr << "Username is already exists.\n";
+                out = 1;
+            }else{
+                cerr << "STEP PLAYERS failed: "
+                          << sqlite3_errmsg(db) << "\n";
+                          out = 0;
+            }
+            goto rollback;
+        }
+    }
+
+    // 3) Update all Game_history.winner fields matching oldName
+    {
+        sqlite3_stmt *st = nullptr;
+        rc = sqlite3_prepare_v2(db,
+            "UPDATE Game_history "
+            "   SET winner = ?1 "
+            " WHERE winner = ?2;",
+            -1, &st, nullptr);
+        if (rc != SQLITE_OK) {
+            std::cerr << "Prepare Game_history failed: "
+                      << sqlite3_errmsg(db) << "\n";
+            goto rollback;
+        }
+        sqlite3_bind_text(st, 1, newUsername.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(st, 2, currentUsername.c_str(), -1, SQLITE_TRANSIENT);
+        rc = sqlite3_step(st);
+        sqlite3_finalize(st);
+        if (rc != SQLITE_DONE) {
+            std::cerr << "STEP Game_history failed: "
+                      << sqlite3_errmsg(db) << "\n";
+            out = 0;
+            goto rollback;
+        }
+    }
+
+    // 4) Commit on success
+    rc = sqlite3_exec(db, "COMMIT;", nullptr, nullptr, &errMsg);
+    if (rc != SQLITE_OK) {
+        std::cerr << "COMMIT failed: " << errMsg << "\n";
+        sqlite3_free(errMsg);
+        return 0;
+    }
+    return 2;
+
+rollback:
+    sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+    return out;
+}
+
+int updatePasswordGUI(sqlite3* db, const int & id , const string& password) {
+    //0= db err
+    //1= very short
+    //2= success
+    if(password.length()<=4){
+        return 1;
+    }
+
+    string hashed = bcrypt::generateHash(password);
+    string updateSql = "UPDATE PLAYERS SET PASSWORD = ? WHERE ID = ?;";
+    sqlite3_stmt* stmt;
+
+    if (sqlite3_prepare_v2(db, updateSql.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
+        cerr << "Error preparing password update: " << sqlite3_errmsg(db) << endl;
+        return 0;
+    }
+
+    sqlite3_bind_text(stmt, 1, hashed.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_int(stmt, 2, id);
+
+    if (sqlite3_step(stmt) != SQLITE_DONE) {
+        cerr << "Failed to update password: " << sqlite3_errmsg(db) << endl;
+        sqlite3_finalize(stmt);
+        return 0;
+    }
+
+    sqlite3_finalize(stmt);
+    cout << "Password updated successfully.\n";
+    return 2;
+}
 
 
+bool fetchGamesForPlayer(sqlite3* db, int userId, vector<GameInfo>& out)
+{
+    //0=>db err
+    static constexpr char const* sql = R"sql(
+    SELECT
+      gh.ID,
+
+      -- if this user is player1, show player2's name or “AI” if NULL,
+      -- else show player1's name or “AI” if NULL
+      CASE
+        WHEN gh.user1_id = ?1
+          THEN COALESCE(p2.NAME, 'AI')
+        ELSE COALESCE(p1.NAME, 'AI')
+      END AS opponent,
+
+      -- result from this user's POV
+      CASE
+        WHEN gh.winner = 'TIE'      THEN 'Tie'
+        WHEN gh.winner = pSelf.NAME THEN 'Win'
+        ELSE 'Loss'
+      END AS result,
+
+      gh.board_moves,
+      gh.date_played
+
+    FROM Game_history AS gh
+
+    -- allow either slot to be empty → use LEFT JOIN
+    LEFT JOIN PLAYERS AS p1    ON gh.user1_id = p1.ID
+    LEFT JOIN PLAYERS AS p2    ON gh.user2_id = p2.ID
+
+    -- join self so we can compare winner to this user'’'s name
+    JOIN PLAYERS AS pSelf      ON pSelf.ID = ?1
+
+    WHERE ?1 IN (gh.user1_id, gh.user2_id)
+    ORDER BY gh.date_played DESC;
+    )sql";
 
 
+    sqlite3_stmt *stmt = nullptr;
+    int rc = sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr);
+    if (rc != SQLITE_OK) {
+        cerr << "prepare failed: " << sqlite3_errmsg(db) << "\n";
+        return false;
+    }
+
+    // bind the player’s ID for ?1 twice
+    sqlite3_bind_int(stmt, 1, userId);
+    sqlite3_bind_int(stmt, 2, userId); // for pSelf
+
+    while ((rc = sqlite3_step(stmt)) == SQLITE_ROW) {
+        GameInfo gi;
+        gi.gameId     = sqlite3_column_int(stmt, 0);
+        gi.opponent   = reinterpret_cast<const char*>(
+                          sqlite3_column_text(stmt, 1));
+        gi.result     = reinterpret_cast<const char*>(
+                          sqlite3_column_text(stmt, 2));
+        gi.datePlayed = reinterpret_cast<const char*>(
+                          sqlite3_column_text(stmt, 4));
+        out.push_back(std::move(gi));
+    }
+
+    if (rc != SQLITE_DONE) {
+        std::cerr << "step error: " << sqlite3_errmsg(db) << "\n";
+        sqlite3_finalize(stmt);
+        return false;
+    }
+
+    sqlite3_finalize(stmt);
+    return true;
+}
+
+bool loadMovesForGameGUI(sqlite3* db, int game_id , vector<Move>& out) {
+    // 0=> db err
+
+    string query = "SELECT row, col, player FROM Game_moves WHERE game_id = ? ORDER BY move_number ASC;";
+    sqlite3_stmt* stmt;
+    int rc = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, NULL);
+    if (rc != SQLITE_OK) {
+        cerr << "Failed to prepare load moves statement: " << sqlite3_errmsg(db) << endl;
+        return 0;
+    }
+    sqlite3_bind_int(stmt, 1, game_id);
+    while ((rc = sqlite3_step(stmt)) == SQLITE_ROW) {
+        int row = sqlite3_column_int(stmt, 0);
+        int col = sqlite3_column_int(stmt, 1);
+        const unsigned char* playerText = sqlite3_column_text(stmt, 2);
+        char player = playerText ? playerText[0] : ' ';
+        out.push_back({row, col, player});
+    }
+    sqlite3_finalize(stmt);
+    return true;
+}
 
 
 
