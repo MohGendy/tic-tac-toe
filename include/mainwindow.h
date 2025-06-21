@@ -48,6 +48,9 @@ inline struct userStruct users[2] = {{-1,' '},{-1,' '}};
 inline struct gameStruct gamedata; //game structure
 inline Ai* ai = NULL; //ai pointer
 inline struct Board board;
+
+inline struct megaBoard megaboard;
+inline int allowedSubgrid = -1; 
 struct Replayer {
     string player2;
     vector<Move> moves;
@@ -162,6 +165,17 @@ private slots:
     void on_pushButton_start_game_clicked();
 
     void on_pushButton_back_from_board_to_main_p_clicked();
+
+
+    bool handleMegaMove(int globalRow,int globalCol,int subgrid , QPushButton* button);
+
+    void on_newmegapushbutton_clicked();
+
+    void on_exit_mega_clicked();
+
+    void clearmegawindow();
+
+    void loadmegaWindow();
 
     void on_tableWidget_games_cellClicked(int row, int column);
 
