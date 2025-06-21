@@ -51,7 +51,7 @@ void MainWindow::megaReplayControl(bool action,bool init){
     };
     if(init){
         i = 0;
-        for(int j = 0; j < 9 ; j++){
+        for(int j = 0; j < 9*9 ; j++){
             btns[j]->setText(QString(" "));
         }
         // !!!!!!!!!!!!!!!!!!11
