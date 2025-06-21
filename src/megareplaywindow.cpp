@@ -13,9 +13,41 @@ void MainWindow::on_pushButton_2_clicked()
 void MainWindow::megaReplayControl(bool action,bool init){
     static int i = 0;
     static QPushButton* btns[9*9] = { //!!!!!!!!!!!!!!!11
-        ui->b0_r, ui->b1_r,ui->b2_r,
-        ui->b3_r,ui->b4_r,ui->b5_r,
-        ui->b6_r,ui->b7_r,ui->b8_r
+        ui->b0_0_r, ui->b0_1_r, ui->b0_2_r,
+        ui->b1_0_r, ui->b1_1_r, ui->b1_2_r,
+        ui->b2_0_r, ui->b2_1_r, ui->b2_2_r,
+
+        ui->b0_3_r, ui->b0_4_r, ui->b0_5_r,
+        ui->b1_3_r, ui->b1_4_r, ui->b1_5_r,
+        ui->b2_3_r, ui->b2_4_r, ui->b2_5_r,
+
+        ui->b0_6_r, ui->b0_7_r, ui->b0_8_r,
+        ui->b1_6_r, ui->b1_7_r, ui->b1_8_r,
+        ui->b2_6_r, ui->b2_7_r, ui->b2_8_r,
+
+        ui->b3_0_r, ui->b3_1_r, ui->b3_2_r,
+        ui->b4_0_r, ui->b4_1_r, ui->b4_2_r,
+        ui->b5_0_r, ui->b5_1_r, ui->b5_2_r,
+
+        ui->b3_3_r, ui->b3_4_r, ui->b3_5_r,
+        ui->b4_3_r, ui->b4_4_r, ui->b4_5_r,
+        ui->b5_3_r, ui->b5_4_r, ui->b5_5_r,
+
+        ui->b3_6_r, ui->b3_7_r, ui->b3_8_r,
+        ui->b4_6_r, ui->b4_7_r, ui->b4_8_r,
+        ui->b5_6_r, ui->b5_7_r, ui->b5_8_r,
+
+        ui->b6_0_r, ui->b6_1_r, ui->b6_2_r,
+        ui->b7_0_r, ui->b7_1_r, ui->b7_2_r,
+        ui->b8_0_r, ui->b8_1_r, ui->b8_2_r,
+
+        ui->b6_3_r, ui->b6_4_r, ui->b6_5_r,
+        ui->b7_3_r, ui->b7_4_r, ui->b7_5_r,
+        ui->b8_3_r, ui->b8_4_r, ui->b8_5_r,
+
+        ui->b6_6_r, ui->b6_7_r, ui->b6_8_r,
+        ui->b7_6_r, ui->b7_7_r, ui->b7_8_r,
+        ui->b8_6_r, ui->b8_7_r, ui->b8_8_r
     };
     if(init){
         i = 0;

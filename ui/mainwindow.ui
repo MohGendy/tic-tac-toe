@@ -2586,7 +2586,7 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
              </layout>
             </item>
             <item row="0" column="0">
-             <layout class="QGridLayout" name="subGrid_0_0">
+             <layout class="QGridLayout" name="subGrid_0_3">
               <item row="0" column="0">
                <widget class="QPushButton" name="b0_0_r">
                 <property name="minimumSize">
@@ -2700,7 +2700,7 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
                </widget>
               </item>
               <item row="2" column="1">
-               <widget class="QPushButton" name="b2_1">
+               <widget class="QPushButton" name="b2_1_r">
                 <property name="minimumSize">
                  <size>
                   <width>70</width>
@@ -2716,7 +2716,7 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
                </widget>
               </item>
               <item row="2" column="2">
-               <widget class="QPushButton" name="b2_2">
+               <widget class="QPushButton" name="b2_2_r">
                 <property name="minimumSize">
                  <size>
                   <width>70</width>
