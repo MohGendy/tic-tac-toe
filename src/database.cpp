@@ -1105,7 +1105,99 @@ int updatePasswordGUI(sqlite3* db, const int & id , const string& password) {
 }
 
 
+bool fetchGamesForPlayer(sqlite3* db, int userId, vector<GameInfo>& out)
+{
+    //0=>db err
+    static constexpr char const* sql = R"sql(
+    SELECT
+      gh.ID,
 
+      -- if this user is player1, show player2's name or “AI” if NULL,
+      -- else show player1's name or “AI” if NULL
+      CASE
+        WHEN gh.user1_id = ?1
+          THEN COALESCE(p2.NAME, 'AI')
+        ELSE COALESCE(p1.NAME, 'AI')
+      END AS opponent,
+
+      -- result from this user's POV
+      CASE
+        WHEN gh.winner = 'TIE'      THEN 'Tie'
+        WHEN gh.winner = pSelf.NAME THEN 'Win'
+        ELSE 'Loss'
+      END AS result,
+
+      gh.board_moves,
+      gh.date_played
+
+    FROM Game_history AS gh
+
+    -- allow either slot to be empty → use LEFT JOIN
+    LEFT JOIN PLAYERS AS p1    ON gh.user1_id = p1.ID
+    LEFT JOIN PLAYERS AS p2    ON gh.user2_id = p2.ID
+
+    -- join self so we can compare winner to this user'’'s name
+    JOIN PLAYERS AS pSelf      ON pSelf.ID = ?1
+
+    WHERE ?1 IN (gh.user1_id, gh.user2_id)
+    ORDER BY gh.date_played DESC;
+    )sql";
+
+
+    sqlite3_stmt *stmt = nullptr;
+    int rc = sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr);
+    if (rc != SQLITE_OK) {
+        cerr << "prepare failed: " << sqlite3_errmsg(db) << "\n";
+        return false;
+    }
+
+    // bind the player’s ID for ?1 twice
+    sqlite3_bind_int(stmt, 1, userId);
+    sqlite3_bind_int(stmt, 2, userId); // for pSelf
+
+    while ((rc = sqlite3_step(stmt)) == SQLITE_ROW) {
+        GameInfo gi;
+        gi.gameId     = sqlite3_column_int(stmt, 0);
+        gi.opponent   = reinterpret_cast<const char*>(
+                          sqlite3_column_text(stmt, 1));
+        gi.result     = reinterpret_cast<const char*>(
+                          sqlite3_column_text(stmt, 2));
+        gi.datePlayed = reinterpret_cast<const char*>(
+                          sqlite3_column_text(stmt, 4));
+        out.push_back(std::move(gi));
+    }
+
+    if (rc != SQLITE_DONE) {
+        std::cerr << "step error: " << sqlite3_errmsg(db) << "\n";
+        sqlite3_finalize(stmt);
+        return false;
+    }
+
+    sqlite3_finalize(stmt);
+    return true;
+}
+
+bool loadMovesForGameGUI(sqlite3* db, int game_id , vector<Move>& out) {
+    // 0=> db err
+
+    string query = "SELECT row, col, player FROM Game_moves WHERE game_id = ? ORDER BY move_number ASC;";
+    sqlite3_stmt* stmt;
+    int rc = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, NULL);
+    if (rc != SQLITE_OK) {
+        cerr << "Failed to prepare load moves statement: " << sqlite3_errmsg(db) << endl;
+        return 0;
+    }
+    sqlite3_bind_int(stmt, 1, game_id);
+    while ((rc = sqlite3_step(stmt)) == SQLITE_ROW) {
+        int row = sqlite3_column_int(stmt, 0);
+        int col = sqlite3_column_int(stmt, 1);
+        const unsigned char* playerText = sqlite3_column_text(stmt, 2);
+        char player = playerText ? playerText[0] : ' ';
+        out.push_back({row, col, player});
+    }
+    sqlite3_finalize(stmt);
+    return true;
+}
 
 
 

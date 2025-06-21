@@ -11,6 +11,8 @@ void MainWindow::on_pushButton_goto_signup_clicked()
 
 void MainWindow::on_pushButton_3_clicked()
 {
+    this->ui->lineEdit_username->clear();
+    this->ui->lineEdit_password->clear();
     if(!logincase){
         this->ui->stackedWidget->setCurrentIndex(Wmain);
     }else{

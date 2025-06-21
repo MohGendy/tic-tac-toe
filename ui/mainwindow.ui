@@ -143,7 +143,7 @@ QLabel#label_profile_photo {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>11</number>
+       <number>13</number>
       </property>
       <widget class="QWidget" name="main">
        <property name="sizePolicy">
@@ -1331,7 +1331,7 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
                <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
               </property>
               <property name="text">
-               <string>TextLabel</string>
+               <string/>
               </property>
              </widget>
             </item>
@@ -1353,7 +1353,7 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
                <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
               </property>
               <property name="text">
-               <string>TextLabel</string>
+               <string/>
               </property>
              </widget>
             </item>
@@ -2586,7 +2586,7 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
              </layout>
             </item>
             <item row="0" column="0">
-             <layout class="QGridLayout" name="subGrid_0_0">
+             <layout class="QGridLayout" name="subGrid_0_3">
               <item row="0" column="0">
                <widget class="QPushButton" name="b0_0_r">
                 <property name="minimumSize">
@@ -2700,7 +2700,7 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
                </widget>
               </item>
               <item row="2" column="1">
-               <widget class="QPushButton" name="b2_1">
+               <widget class="QPushButton" name="b2_1_r">
                 <property name="minimumSize">
                  <size>
                   <width>70</width>
@@ -2716,7 +2716,7 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
                </widget>
               </item>
               <item row="2" column="2">
-               <widget class="QPushButton" name="b2_2">
+               <widget class="QPushButton" name="b2_2_r">
                 <property name="minimumSize">
                  <size>
                   <width>70</width>
@@ -2751,7 +2751,7 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
                <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
               </property>
               <property name="text">
-               <string>TextLabel</string>
+               <string/>
               </property>
              </widget>
             </item>
@@ -2773,7 +2773,7 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
                <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
               </property>
               <property name="text">
-               <string>TextLabel</string>
+               <string/>
               </property>
              </widget>
             </item>
@@ -2795,7 +2795,7 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
                <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
               </property>
               <property name="text">
-               <string>TextLabel</string>
+               <string/>
               </property>
              </widget>
             </item>
@@ -2886,7 +2886,7 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
           <item row="7" column="0">
            <layout class="QVBoxLayout" name="verticalLayout_7">
             <item>
-             <widget class="QLabel" name="label_40">
+             <widget class="QLabel" name="label_40_m">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>
@@ -2940,7 +2940,7 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
           <item row="7" column="2">
            <layout class="QVBoxLayout" name="verticalLayout_8">
             <item>
-             <widget class="QLabel" name="label">
+             <widget class="QLabel" name="label_1125">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>
@@ -2962,10 +2962,10 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color:rgb(113, 113, 113);
+               <string notr="true">color:white;
                                          font-weight:bold;
-                                         font-size:18px;
-                                         background-color:rgba(85, 170, 255, 0);</string>
+                                         font-size:24px;
+                                         background-color:rgba(85, 170, 255, 100);</string>
               </property>
               <property name="text">
                <string>Guest2</string>
@@ -3009,22 +3009,6 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
           <item row="18" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_31">
             <item>
-             <widget class="QPushButton" name="pushButton_back_from_board_to_main_mega_r">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">min-width:160;</string>
-              </property>
-              <property name="text">
-               <string>Next</string>
-              </property>
-             </widget>
-            </item>
-            <item>
              <widget class="QPushButton" name="previouspushbuttonmega">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
@@ -3040,14 +3024,39 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
               </property>
              </widget>
             </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_back_from_board_to_main_mega_r">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">min-width:160;</string>
+              </property>
+              <property name="text">
+               <string>Next</string>
+              </property>
+             </widget>
+            </item>
            </layout>
           </item>
           <item row="1" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_11">
             <item>
              <widget class="QLabel" name="label_10">
+              <property name="styleSheet">
+               <string notr="true">color:white;
+                                         font-weight:bold;
+                                         font-size:24px;
+</string>
+              </property>
               <property name="text">
                <string>TextLabel</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -3983,7 +3992,7 @@ font: 900 24pt &quot;Segoe UI Black&quot;;</string>
           <item row="7" column="0">
            <layout class="QVBoxLayout" name="verticalLayout_7">
             <item>
-             <widget class="QLabel" name="label_40">
+             <widget class="QLabel" name="label_40_c">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>
@@ -4102,7 +4111,7 @@ font: 900 24pt &quot;Segoe UI Black&quot;;</string>
           <item row="7" column="2">
            <layout class="QVBoxLayout" name="verticalLayout_8">
             <item>
-             <widget class="QLabel" name="label">
+             <widget class="QLabel" name="label_2511">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>
@@ -4124,10 +4133,10 @@ font: 900 24pt &quot;Segoe UI Black&quot;;</string>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color:rgb(113, 113, 113);
+               <string notr="true">color:white;
      font-weight:bold;
-     font-size:18px;
-     background-color:rgba(85, 170, 255, 0);</string>
+     font-size:24px;
+     background-color:rgba(85, 170, 255, 100);</string>
               </property>
               <property name="text">
                <string>Guest2</string>
@@ -4192,8 +4201,16 @@ font: 900 24pt &quot;Segoe UI Black&quot;;</string>
            <layout class="QHBoxLayout" name="horizontalLayout_11">
             <item>
              <widget class="QLabel" name="label_11">
+              <property name="styleSheet">
+               <string notr="true">color:white;
+     font-weight:bold;
+     font-size:24px;</string>
+              </property>
               <property name="text">
                <string>TextLabel</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -4218,22 +4235,6 @@ font: 900 24pt &quot;Segoe UI Black&quot;;</string>
           <item row="12" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_31">
             <item>
-             <widget class="QPushButton" name="_r">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">min-width:160;</string>
-              </property>
-              <property name="text">
-               <string>Next</string>
-              </property>
-             </widget>
-            </item>
-            <item>
              <widget class="QPushButton" name="previouspushButton">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
@@ -4250,12 +4251,34 @@ font: 900 24pt &quot;Segoe UI Black&quot;;</string>
               </property>
              </widget>
             </item>
+            <item>
+             <widget class="QPushButton" name="_r">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">min-width:160;</string>
+              </property>
+              <property name="text">
+               <string>Next</string>
+              </property>
+             </widget>
+            </item>
            </layout>
           </item>
           <item row="12" column="0">
            <layout class="QHBoxLayout" name="horizontalLayout_23">
             <item>
              <widget class="QPushButton" name="pushButton">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="text">
                <string>Back</string>
               </property>
@@ -4589,6 +4612,7 @@ border-radius: 10px;</string>
     border-radius: 10px;
     font-size: 14px;
     gridline-color: rgb(92, 142, 146);
+	color: rgb(0, 0, 0);
 }
 
 QHeaderView::section {
@@ -4603,6 +4627,8 @@ QHeaderView::section {
 QTableWidget::item {
     padding: 5px;
     border-bottom: 1px solid rgb(92, 142, 146);
+	
+	color: rgb(0, 0, 0);
 }
 
 QTableWidget::item:selected {
@@ -4625,6 +4651,11 @@ QTableWidget::item:selected {
             <property name="gridStyle">
              <enum>Qt::PenStyle::SolidLine</enum>
             </property>
+            <column>
+             <property name="text">
+              <string>ID</string>
+             </property>
+            </column>
             <column>
              <property name="text">
               <string>Date</string>
@@ -4660,26 +4691,6 @@ QTableWidget::item:selected {
           </item>
           <item row="5" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_games_buttons">
-            <item>
-             <widget class="QPushButton" name="pushButton_refresh_games">
-              <property name="minimumSize">
-               <size>
-                <width>128</width>
-                <height>46</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color: rgba(92, 142, 146, 0.9);
-color: white;
-border-radius: 10px;
-font-size: 18px;
-font-weight: bold;</string>
-              </property>
-              <property name="text">
-               <string>Refresh</string>
-              </property>
-             </widget>
-            </item>
             <item>
              <widget class="QPushButton" name="pushButton_back_games">
               <property name="minimumSize">
@@ -5081,7 +5092,7 @@ font-weight: bold;</string>
                <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
               </property>
               <property name="text">
-               <string>TextLabel</string>
+               <string/>
               </property>
              </widget>
             </item>
@@ -5103,7 +5114,7 @@ font-weight: bold;</string>
                <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
               </property>
               <property name="text">
-               <string>TextLabel</string>
+               <string/>
               </property>
              </widget>
             </item>
@@ -6501,12 +6512,12 @@ font-weight: bold;</string>
                <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
               </property>
               <property name="text">
-               <string>TextLabel</string>
+               <string/>
               </property>
              </widget>
             </item>
             <item row="4" column="1">
-             <widget class="QLabel" name="label_6">
+             <widget class="QLabel" name="label_15">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Minimum">
                 <horstretch>0</horstretch>
@@ -6523,12 +6534,12 @@ font-weight: bold;</string>
                <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
               </property>
               <property name="text">
-               <string>TextLabel</string>
+               <string/>
               </property>
              </widget>
             </item>
             <item row="0" column="1">
-             <widget class="QLabel" name="label_4">
+             <widget class="QLabel" name="label_12">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Minimum">
                 <horstretch>0</horstretch>
@@ -6545,7 +6556,7 @@ font-weight: bold;</string>
                <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
               </property>
               <property name="text">
-               <string>TextLabel</string>
+               <string/>
               </property>
              </widget>
             </item>
