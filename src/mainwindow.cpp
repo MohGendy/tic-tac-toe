@@ -187,7 +187,7 @@ void MainWindow::loadProfile(){
         break;
     case 2:
         int total = wins + losses + ties;
-
+        this->ui->label_username->setText(QString::fromStdString(users[0].name));
         QString txt =
             QStringLiteral("Games Played: ") + QString::number(total) +
             "\nWins: "   + QString::number(wins)   +

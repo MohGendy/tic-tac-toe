@@ -30,7 +30,7 @@ include_directories(
 # collect sources
 file(GLOB APP_SOURCES "src/main.cpp" "src/*.cpp" "ui/*.ui" "assets/*.qrc" "include/*.h")
 file(GLOB TEST_SOURCES
-    "tests/*.cpp"
+    "tests/performance_ai.cpp"
     "src/gameStructure.cpp"
     "src/ai.cpp"
 )

@@ -31,6 +31,7 @@ void MainWindow::on_pushButton_save_username_clicked()
                             tr("This username is used , please try again."));
                 break;
             case 2:
+                this->ui->stackedWidget->setCurrentIndex(Wprofile);
                 users[0].name=newUsername;
                 QMessageBox::information(this,
                     tr("Profile success"),
