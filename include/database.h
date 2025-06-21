@@ -107,4 +107,7 @@ int updateUsernameGUI(sqlite3* db,const int & id , const string& currentUsername
 int updatePasswordGUI(sqlite3* db, const int & id , const string& password) ;
 
 bool fetchGamesForPlayer(sqlite3* db, int userId, std::vector<GameInfo>& out);
+
+bool loadMovesForGameGUI(sqlite3* db, int game_id , vector<Move>& out);
+
 #endif

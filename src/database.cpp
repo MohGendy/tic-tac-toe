@@ -1177,6 +1177,27 @@ bool fetchGamesForPlayer(sqlite3* db, int userId, vector<GameInfo>& out)
     return true;
 }
 
+bool loadMovesForGameGUI(sqlite3* db, int game_id , vector<Move>& out) {
+    // 0=> db err
+
+    string query = "SELECT row, col, player FROM Game_moves WHERE game_id = ? ORDER BY move_number ASC;";
+    sqlite3_stmt* stmt;
+    int rc = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, NULL);
+    if (rc != SQLITE_OK) {
+        cerr << "Failed to prepare load moves statement: " << sqlite3_errmsg(db) << endl;
+        return 0;
+    }
+    sqlite3_bind_int(stmt, 1, game_id);
+    while ((rc = sqlite3_step(stmt)) == SQLITE_ROW) {
+        int row = sqlite3_column_int(stmt, 0);
+        int col = sqlite3_column_int(stmt, 1);
+        const unsigned char* playerText = sqlite3_column_text(stmt, 2);
+        char player = playerText ? playerText[0] : ' ';
+        out.push_back({row, col, player});
+    }
+    sqlite3_finalize(stmt);
+    return true;
+}
 
 
 

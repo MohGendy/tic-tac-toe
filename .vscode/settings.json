@@ -68,7 +68,8 @@
         "thread": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "qmessagebox": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

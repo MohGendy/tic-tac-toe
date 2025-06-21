@@ -143,7 +143,7 @@ QLabel#label_profile_photo {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>10</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="main">
        <property name="sizePolicy">
@@ -2886,7 +2886,7 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
           <item row="7" column="0">
            <layout class="QVBoxLayout" name="verticalLayout_7">
             <item>
-             <widget class="QLabel" name="label_40">
+             <widget class="QLabel" name="label_40_m">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>
@@ -2940,7 +2940,7 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
           <item row="7" column="2">
            <layout class="QVBoxLayout" name="verticalLayout_8">
             <item>
-             <widget class="QLabel" name="label">
+             <widget class="QLabel" name="label_1125">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>
@@ -2962,10 +2962,10 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color:rgb(113, 113, 113);
+               <string notr="true">color:white;
                                          font-weight:bold;
-                                         font-size:18px;
-                                         background-color:rgba(85, 170, 255, 0);</string>
+                                         font-size:24px;
+                                         background-color:rgba(85, 170, 255, 100);</string>
               </property>
               <property name="text">
                <string>Guest2</string>
@@ -3046,8 +3046,17 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
            <layout class="QHBoxLayout" name="horizontalLayout_11">
             <item>
              <widget class="QLabel" name="label_10">
+              <property name="styleSheet">
+               <string notr="true">color:white;
+                                         font-weight:bold;
+                                         font-size:24px;
+</string>
+              </property>
               <property name="text">
                <string>TextLabel</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -3983,7 +3992,7 @@ font: 900 24pt &quot;Segoe UI Black&quot;;</string>
           <item row="7" column="0">
            <layout class="QVBoxLayout" name="verticalLayout_7">
             <item>
-             <widget class="QLabel" name="label_40">
+             <widget class="QLabel" name="label_40_c">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>
@@ -4102,7 +4111,7 @@ font: 900 24pt &quot;Segoe UI Black&quot;;</string>
           <item row="7" column="2">
            <layout class="QVBoxLayout" name="verticalLayout_8">
             <item>
-             <widget class="QLabel" name="label">
+             <widget class="QLabel" name="label_2511">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>
@@ -4124,10 +4133,10 @@ font: 900 24pt &quot;Segoe UI Black&quot;;</string>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color:rgb(113, 113, 113);
+               <string notr="true">color:white;
      font-weight:bold;
-     font-size:18px;
-     background-color:rgba(85, 170, 255, 0);</string>
+     font-size:24px;
+     background-color:rgba(85, 170, 255, 100);</string>
               </property>
               <property name="text">
                <string>Guest2</string>
@@ -4192,8 +4201,16 @@ font: 900 24pt &quot;Segoe UI Black&quot;;</string>
            <layout class="QHBoxLayout" name="horizontalLayout_11">
             <item>
              <widget class="QLabel" name="label_11">
+              <property name="styleSheet">
+               <string notr="true">color:white;
+     font-weight:bold;
+     font-size:24px;</string>
+              </property>
               <property name="text">
                <string>TextLabel</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -4628,6 +4645,11 @@ QTableWidget::item:selected {
             <property name="gridStyle">
              <enum>Qt::PenStyle::SolidLine</enum>
             </property>
+            <column>
+             <property name="text">
+              <string>ID</string>
+             </property>
+            </column>
             <column>
              <property name="text">
               <string>Date</string>
