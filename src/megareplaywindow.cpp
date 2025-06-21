@@ -78,14 +78,13 @@ void MainWindow::megaReplayControl(bool action,bool init){
 
 void MainWindow::on_previouspushbuttonmega_clicked()
 {
-        megaReplayControl(0,0);
-
+    megaReplayControl(0,0);
 }
 
 
 void MainWindow::on_pushButton_back_from_board_to_main_mega_r_clicked()
 {
-        megaReplayControl(1,0);
+    megaReplayControl(1,0);
 
 }
 
