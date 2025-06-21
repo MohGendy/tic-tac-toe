@@ -42,8 +42,10 @@ void MainWindow::clearBoardGui(){
     replayManager.resetBoard();
     board = Board(); // Reset the board state
     if(gamedata.isAi && !gamedata.ismainuserfirst){
-        performAimove();
+        QTimer::singleShot(500, this, SLOT(performAimove()));
+        //performAimove();
     }
+    ui->newpushbutton->setEnabled(false);//disable new game button till the game ends
 }
 
 bool MainWindow::buttonmakemove(int row, int col ,QPushButton* button) {
@@ -62,7 +64,7 @@ bool MainWindow::buttonmakemove(int row, int col ,QPushButton* button) {
             button->setText(QString(currentPlayersymbol));
             button->setEnabled(false); // Disable the button after the move
             if (board.checkWin(currentPlayersymbol)) {
-                QMessageBox::information(this, "congrats 🥳", QString("Player %1 wins!").arg(currentPlayersymbol));
+                QMessageBox::information(this, "congrats ", QString("Player %1 wins!").arg(currentPlayersymbol));
                 //? update wins in data base
                 //? update win label for winner
                 gamedata.gameended = true ;
@@ -135,22 +137,13 @@ void MainWindow::on_newpushbutton_clicked()
 }
 
 void MainWindow::loadgameScreen(){
-    qDebug()<<"load game screen started ";
     
-    ui->newpushbutton->setEnabled(false);//disable new game button till the game ends
     ui->user1_label->setText(QString::fromStdString(gamedata.ismainuserfirst ?users[0].name:(!gamedata.isAi?users[1].name:"Ai")));
     ui->user2_label->setText(QString::fromStdString(gamedata.ismainuserfirst ?(!gamedata.isAi?users[1].name:"Ai"):users[0].name));
     ui->label_53_c->setText("0");
     ui->label_55_c->setText("0");
     ui->label_54_c->setText("0");
-    // //! just for testing
-    // gamedata.isAi = false; // Set to true for AI game
-    // gamedata.ismainuserfirst = true; // Set to true if the main user is first
-    // gamedata.difficulty = normal; // Set difficulty level (0: easy, 1: medium, 2: hard)
-    // //!end of testing parameters
     clearBoardGui();
-
-    //? add guest names /users
 }
 
 

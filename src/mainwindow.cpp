@@ -3,7 +3,6 @@
 #include "database.h"
 #include <qdebug.h>
 #include <QMessageBox>
-#include <QTimer>
 
 
 
@@ -43,14 +42,14 @@ MainWindow::MainWindow(QWidget *parent)
             // Using a lambda to capture row, col, and button pointer.
             connect(buttons[index], &QPushButton::clicked, this, [this, row, col, button = buttons[index]](){
                 // Call your method that handles the move for the board.
-            if (buttonmakemove(row, col, button)) {
+            if(!gamedata.isAi) {buttonmakemove(row, col, button);}
+            else if (currentPlayersymbol == (gamedata.ismainuserfirst ? 'X' : 'O') && buttonmakemove(row, col, button)) {
                 // After a successful human move,
                 // switch players and check if it's AI’s turn.
                 // For instance, if the main user is first, then AI is 'O'
                 if (gamedata.isAi && currentPlayersymbol == (gamedata.ismainuserfirst ? 'O' : 'X') && !gamedata.gameended) {
                     // Use a timer for a short delay (500ms) before letting the AI move.
                     QTimer::singleShot(500, this, SLOT(performAimove()));
-                    //performAimove();
                 }
             }});
     }
@@ -101,14 +100,12 @@ void MainWindow::on_pushButton_login_clicked()
 void MainWindow::on_pushButton_play_ai_clicked()
 {
     this->ui->stackedWidget->setCurrentIndex(Wai);
-    gamedata.isAi = true;
 }
 
 
 void MainWindow::on_pushButton_play_friend_clicked()
 {
     this->ui->stackedWidget->setCurrentIndex(Wmodes);
-    gamedata.isAi = false;
 }
 
 

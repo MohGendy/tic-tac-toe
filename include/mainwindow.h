@@ -6,6 +6,7 @@
 #include "database.h"
 #include "gameStructure.h"
 #include "ai.h"
+#include <QTimer>
 
 enum windows{
     Wai=8,//
