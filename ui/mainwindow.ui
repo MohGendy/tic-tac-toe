@@ -146,7 +146,7 @@ QLabel#label_profile_photo {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>9</number>
+       <number>8</number>
       </property>
       <widget class="QWidget" name="main">
        <property name="sizePolicy">
@@ -1554,7 +1554,7 @@ QPushButton:pressed {
         </sizepolicy>
        </property>
        <property name="styleSheet">
-        <string>background-image: url(:/img/WhatsApp Image 2025-06-10 at 06.11.47_95b3a09c.jpg); background-position: center; background-repeat: no-repeat; background-attachment: fixed;</string>
+        <string notr="true"> background-position: center; background-repeat: no-repeat; background-attachment: fixed;</string>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
@@ -6390,7 +6390,7 @@ font: 900 24pt &quot;Segoe UI Black&quot;;</string>
         </sizepolicy>
        </property>
        <property name="styleSheet">
-        <string>background-image: url(:/img/WhatsApp Image 2025-06-10 at 06.11.47_95b3a09c.jpg); background-position: center; background-repeat: no-repeat; background-attachment: fixed;</string>
+        <string notr="true">background-position: center; background-repeat: no-repeat; background-attachment: fixed;</string>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
@@ -7189,8 +7189,7 @@ QPushButton:pressed {
       </widget>
       <widget class="QWidget" name="games">
        <property name="styleSheet">
-        <string notr="true">background-image: url(:/img/WhatsApp Image 2025-06-10 at 06.11.42_7ba1ea58.jpg);
-background-position: center;
+        <string notr="true">background-position: center;
 background-repeat: no-repeat;
 background-attachment: fixed;</string>
        </property>
@@ -7416,7 +7415,7 @@ QPushButton:pressed {
         </sizepolicy>
        </property>
        <property name="styleSheet">
-        <string>background-image: url(:/img/WhatsApp Image 2025-06-10 at 06.11.47_95b3a09c.jpg); background-position: center; background-repeat: no-repeat; background-attachment: fixed;</string>
+        <string notr="true"> background-position: center; background-repeat: no-repeat; background-attachment: fixed;</string>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
@@ -11229,8 +11228,7 @@ QPushButton:pressed {
       </widget>
       <widget class="QWidget" name="game_mode_selection">
        <property name="styleSheet">
-        <string notr="true">background-image: url(:/img/WhatsApp Image 2025-06-10 at 06.11.47_95b3a09c.jpg);
-background-position: center;
+        <string notr="true">background-position: center;
 background-repeat: no-repeat;
 background-attachment: fixed;</string>
        </property>
@@ -11553,7 +11551,7 @@ QPushButton:pressed {
         </sizepolicy>
        </property>
        <property name="styleSheet">
-        <string>background-image: url(:/img/WhatsApp Image 2025-06-10 at 06.11.47_95b3a09c.jpg); background-position: center; background-repeat: no-repeat; background-attachment: fixed;</string>
+        <string notr="true">background-position: center; background-repeat: no-repeat; background-attachment: fixed;</string>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
