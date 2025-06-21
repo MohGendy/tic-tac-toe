@@ -36,11 +36,12 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow {
+	background-image: url(:/img/images/screencapture-png-pngtree-background-20211215-original-pngtree-playstation-neon-sign-pattern-background-picture-image-1470915-jpg-2025-06-21-11_32_56.png);
 	background-color: rgb(19, 91, 128);
-	
    background-repeat: no-repeat;
    background-position: center;
    background-attachment: fixed;
+   background-size: cover;
   }
 
 QLineEdit {
@@ -143,7 +144,7 @@ QLabel#label_profile_photo {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>13</number>
+       <number>10</number>
       </property>
       <widget class="QWidget" name="main">
        <property name="sizePolicy">
@@ -4693,6 +4694,12 @@ QTableWidget::item:selected {
            <layout class="QHBoxLayout" name="horizontalLayout_games_buttons">
             <item>
              <widget class="QPushButton" name="pushButton_back_games">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="minimumSize">
                <size>
                 <width>128</width>
