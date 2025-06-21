@@ -1,6 +1,5 @@
 #include "ai.h"
 #include "gameStructure.h"
-#include "database.h"
 //game functions 
     Board::Board() {
 

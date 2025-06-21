@@ -101,12 +101,14 @@ void MainWindow::on_pushButton_login_clicked()
 void MainWindow::on_pushButton_play_ai_clicked()
 {
     this->ui->stackedWidget->setCurrentIndex(Wai);
+    gamedata.isAi = true;
 }
 
 
 void MainWindow::on_pushButton_play_friend_clicked()
 {
     this->ui->stackedWidget->setCurrentIndex(Wmodes);
+    gamedata.isAi = false;
 }
 
 

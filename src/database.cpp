@@ -589,9 +589,16 @@ int insertGameHistory(sqlite3* db, int user1_id, int user2_id, const string& win
         cerr << " Error preparing game history insert: " << sqlite3_errmsg(db) << endl;
         return false;
     }
-
-    sqlite3_bind_int(stmt, 1, user1_id);
-    sqlite3_bind_int(stmt, 2, user2_id);
+    if(user1_id==-1){
+        sqlite3_bind_null(stmt, 1);
+    }else{
+        sqlite3_bind_int(stmt, 1, user1_id);
+    }
+    if(user2_id==-1){
+        sqlite3_bind_null(stmt, 2);
+    }else{
+        sqlite3_bind_int(stmt, 2, user2_id);
+    }
     sqlite3_bind_text(stmt, 3, winner.c_str(), -1, SQLITE_TRANSIENT);
     sqlite3_bind_text(stmt, 4, finalBoard.c_str(), -1, SQLITE_TRANSIENT);
 
@@ -730,6 +737,9 @@ int registerUserGUI(sqlite3* db , const string& username , const string& passwor
     {
         return 2;
     }
+    if(username == "TIE" || username == "AI"){
+        return 1;
+    }
     
 
 
@@ -823,9 +833,9 @@ int fetchPlayerStats(sqlite3* db, int userId, string name, int& wins , int& loss
       SUM(CASE WHEN gh.winner = p.NAME         THEN 1 ELSE 0 END) AS wins,
       -- count rows where winner != this player's name AND not a draw
       SUM(CASE WHEN gh.winner <> p.NAME
-                 AND gh.winner <> 'Draw'      THEN 1 ELSE 0 END) AS losses,
-      -- count rows where winner is the literal "Draw"
-      SUM(CASE WHEN gh.winner = 'Draw'         THEN 1 ELSE 0 END) AS ties
+                 AND gh.winner <> 'TIE'      THEN 1 ELSE 0 END) AS losses,
+      -- count rows where winner is the literal "TIE"
+      SUM(CASE WHEN gh.winner = 'TIE'         THEN 1 ELSE 0 END) AS ties
     FROM PLAYERS AS p
     LEFT JOIN Game_history AS gh
       ON gh.user1_id = p.ID OR gh.user2_id = p.ID
