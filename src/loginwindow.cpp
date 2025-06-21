@@ -7,6 +7,8 @@
 void MainWindow::on_pushButton_goto_signup_clicked()
 {
     this->ui->stackedWidget->setCurrentIndex(Wsignup);
+    this->ui->lineEdit_username->clear();
+    this->ui->lineEdit_password->clear();
 }
 
 void MainWindow::on_pushButton_3_clicked()
@@ -25,6 +27,7 @@ void MainWindow::on_pushButton_login_function_clicked()
     QString password , username;
     username = this->ui->lineEdit_username->text();
     password = this->ui->lineEdit_password->text();
+    
     std::string pass = password.toStdString() , name = username.toStdString();
     int status = authenticateUserGUI( db, name , pass );
     
@@ -40,28 +43,37 @@ void MainWindow::on_pushButton_login_function_clicked()
                                 tr("Wrong username or password , please try again."));
         break;
     case 3:
-        int id = getUserId(db, name);
-        QMessageBox::information(this,
-                        tr("Login Success"),
-                        (tr("Welcome , \n")+(username)));
-        this->ui->lineEdit_username->clear();
-        this->ui->lineEdit_password->clear();
-        if(!logincase){
-            users[0].id=id;
-            users[0].name=name;
-            QString text = "Logout";
-            ui->pushButton_login->setText(text);
-            ui->pushButton_4->setEnabled(true);
-            ui->pushButton_play_friend->setEnabled(true);
-            ui->pushButton_play_ai->setEnabled(true);
-            ui->pushButton_load_game->setEnabled(true);
-            ui->label_guest->setText(username);
-            ui->profileWidget->setVisible(true);
-            this->ui->stackedWidget->setCurrentIndex(Wmain);
+        if(name == users[0].name){
+                QMessageBox::warning(this,
+                tr("Login Error"),
+                tr("You are already logged in , please logout first."));
         }else{
-            users[1].id=id;
-            users[1].name=name;
-            this->ui->stackedWidget->setCurrentIndex(Wicon);
+
+            int id = getUserId(db, name);
+            QMessageBox::information(this,
+                            tr("Login Success"),
+                            (tr("Welcome , \n")+(username)));
+            this->ui->lineEdit_username->clear();
+            this->ui->lineEdit_password->clear();
+            if(!logincase){
+                users[0].id=id;
+                users[0].name=name;
+                QString text = "Logout";
+                ui->pushButton_login->setText(text);
+                ui->pushButton_4->setEnabled(true);
+                ui->pushButton_play_friend->setEnabled(true);
+                ui->pushButton_play_ai->setEnabled(true);
+                ui->pushButton_load_game->setEnabled(true);
+                ui->label_guest->setText(username);
+                ui->profileWidget->setVisible(true);
+                this->ui->stackedWidget->setCurrentIndex(Wmain);
+            }else{
+                
+                users[1].id=id;
+                users[1].name=name;
+                this->ui->stackedWidget->setCurrentIndex(Wicon);
+                
+            }
         }
     }
 

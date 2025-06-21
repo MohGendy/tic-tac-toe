@@ -61,7 +61,7 @@ void MainWindow::megaReplayControl(bool action,bool init){
     }else{
         if(action){
             if(i<replayer.moves.size()){
-                btns[replayer.moves[i].row*9+replayer.moves[i].col]->setText(QString(replayer.moves[i].player));
+                btns[replayer.moves[i].row+replayer.moves[i].col*9]->setText(QString(replayer.moves[i].player));
                 i++;
             }
         }else{

@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     , currentPlayersymbol('X')
 {
     ui->setupUi(this);
-    ui->stackedWidget->setCurrentIndex(Wmain);
+    ui->stackedWidget->setCurrentIndex(Wgame);
     ui->pushButton_4->setEnabled(false);
     ui->pushButton_play_friend->setEnabled(false);
     ui->pushButton_play_ai->setEnabled(false);
@@ -187,7 +187,7 @@ void MainWindow::loadProfile(){
         break;
     case 2:
         int total = wins + losses + ties;
-
+        this->ui->label_username->setText(QString::fromStdString(users[0].name));
         QString txt =
             QStringLiteral("Games Played: ") + QString::number(total) +
             "\nWins: "   + QString::number(wins)   +

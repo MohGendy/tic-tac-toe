@@ -146,7 +146,7 @@ QLabel#label_profile_photo {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>9</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="main">
        <property name="sizePolicy">
@@ -434,29 +434,6 @@ QPushButton:pressed {
                 </spacer>
                </item>
                <item>
-                <widget class="QLabel" name="label_profile_photo">
-                 <property name="minimumSize">
-                  <size>
-                   <width>100</width>
-                   <height>100</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>100</width>
-                   <height>100</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">border: 2px solid rgb(92, 142, 146);
-background-color: rgb(92, 142, 146);</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <spacer name="horizontalSpacer_profile_right">
                  <property name="orientation">
                   <enum>Qt::Orientation::Horizontal</enum>
@@ -478,6 +455,8 @@ background-color: rgb(92, 142, 146);</string>
               <widget class="QLabel" name="label_guest">
                <property name="styleSheet">
                 <string notr="true">color: rgb(255, 255, 255);
+border-top-color: rgb(255, 105, 180);
+border-bottom-color: rgb(255, 105, 180);
 font: 700 14pt &quot;Segoe UI&quot;;</string>
                </property>
                <property name="text">
@@ -742,7 +721,7 @@ QPushButton:pressed {
             <property name="sizeHint" stdset="0">
              <size>
               <width>20</width>
-              <height>40</height>
+              <height>100</height>
              </size>
             </property>
            </spacer>
@@ -772,30 +751,6 @@ QPushButton:pressed {
              </size>
             </property>
            </spacer>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_profile_photo">
-            <property name="minimumSize">
-             <size>
-              <width>150</width>
-              <height>150</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>150</width>
-              <height>150</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border: 2px solid rgb(92, 142, 146);
-background-color: rgb(92, 142, 146);
-border-radius: 75px;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
           </item>
           <item row="1" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
            <widget class="QLabel" name="label_profile_title">
@@ -1554,7 +1509,7 @@ QPushButton:pressed {
         </sizepolicy>
        </property>
        <property name="styleSheet">
-        <string>background-image: url(:/img/WhatsApp Image 2025-06-10 at 06.11.47_95b3a09c.jpg); background-position: center; background-repeat: no-repeat; background-attachment: fixed;</string>
+        <string notr="true"> background-position: center; background-repeat: no-repeat; background-attachment: fixed;</string>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
@@ -6390,7 +6345,7 @@ font: 900 24pt &quot;Segoe UI Black&quot;;</string>
         </sizepolicy>
        </property>
        <property name="styleSheet">
-        <string>background-image: url(:/img/WhatsApp Image 2025-06-10 at 06.11.47_95b3a09c.jpg); background-position: center; background-repeat: no-repeat; background-attachment: fixed;</string>
+        <string notr="true">background-position: center; background-repeat: no-repeat; background-attachment: fixed;</string>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
@@ -7189,8 +7144,7 @@ QPushButton:pressed {
       </widget>
       <widget class="QWidget" name="games">
        <property name="styleSheet">
-        <string notr="true">background-image: url(:/img/WhatsApp Image 2025-06-10 at 06.11.42_7ba1ea58.jpg);
-background-position: center;
+        <string notr="true">background-position: center;
 background-repeat: no-repeat;
 background-attachment: fixed;</string>
        </property>
@@ -7416,7 +7370,7 @@ QPushButton:pressed {
         </sizepolicy>
        </property>
        <property name="styleSheet">
-        <string>background-image: url(:/img/WhatsApp Image 2025-06-10 at 06.11.47_95b3a09c.jpg); background-position: center; background-repeat: no-repeat; background-attachment: fixed;</string>
+        <string notr="true"> background-position: center; background-repeat: no-repeat; background-attachment: fixed;</string>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
@@ -11229,8 +11183,7 @@ QPushButton:pressed {
       </widget>
       <widget class="QWidget" name="game_mode_selection">
        <property name="styleSheet">
-        <string notr="true">background-image: url(:/img/WhatsApp Image 2025-06-10 at 06.11.47_95b3a09c.jpg);
-background-position: center;
+        <string notr="true">background-position: center;
 background-repeat: no-repeat;
 background-attachment: fixed;</string>
        </property>
@@ -11553,7 +11506,7 @@ QPushButton:pressed {
         </sizepolicy>
        </property>
        <property name="styleSheet">
-        <string>background-image: url(:/img/WhatsApp Image 2025-06-10 at 06.11.47_95b3a09c.jpg); background-position: center; background-repeat: no-repeat; background-attachment: fixed;</string>
+        <string notr="true">background-position: center; background-repeat: no-repeat; background-attachment: fixed;</string>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
