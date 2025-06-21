@@ -4925,7 +4925,7 @@ font-weight: bold;</string>
           <item row="19" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_31">
             <item>
-             <widget class="QPushButton" name="_mega">
+             <widget class="QPushButton" name="exit_mega">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -4961,7 +4961,7 @@ font-weight: bold;</string>
           <item row="8" column="2">
            <layout class="QVBoxLayout" name="verticalLayout_8">
             <item>
-             <widget class="QLabel" name="label">
+             <widget class="QLabel" name="user2_label_mega">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>
@@ -6554,7 +6554,7 @@ font-weight: bold;</string>
           <item row="8" column="0">
            <layout class="QVBoxLayout" name="verticalLayout_7">
             <item>
-             <widget class="QLabel" name="label_40">
+             <widget class="QLabel" name="user1_label_mega">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                 <horstretch>0</horstretch>
