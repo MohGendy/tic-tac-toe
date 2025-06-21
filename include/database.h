@@ -3,7 +3,6 @@
 #ifndef DB_H
 #define DB_H
 
-#include <iostream>
 #include <vector>
 #include <string>
 #include "sqlite3.h"

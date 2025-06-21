@@ -33,10 +33,15 @@ file(GLOB TEST_SOURCES
     #"tests/perfomance_gamestructure.cpp"
     "src/gameStructure.cpp"
     "src/ai.cpp"
+<<<<<<< HEAD
     "tests/database_tests.cpp"
     "src/database.cpp"
     #"tests/windows_stub.cpp"
   )
+=======
+    "src/database.cpp"
+)
+>>>>>>> a1e110252fd62220f2f256553865537c959b5278
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(my_program
