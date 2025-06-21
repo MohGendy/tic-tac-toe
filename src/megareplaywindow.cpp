@@ -51,7 +51,7 @@ void MainWindow::megaReplayControl(bool action,bool init){
     };
     if(init){
         i = 0;
-        for(int j = 0; j < 9 ; j++){
+        for(int j = 0; j < 9*9 ; j++){
             btns[j]->setText(QString(" "));
         }
         // !!!!!!!!!!!!!!!!!!11
@@ -61,13 +61,13 @@ void MainWindow::megaReplayControl(bool action,bool init){
     }else{
         if(action){
             if(i<replayer.moves.size()){
-                btns[replayer.moves[i].row*3+replayer.moves[i].col]->setText(QString(replayer.moves[i].player));
+                btns[replayer.moves[i].row*9+replayer.moves[i].col]->setText(QString(replayer.moves[i].player));
                 i++;
             }
         }else{
             if(i>0){
                 i--;
-                btns[replayer.moves[i].row*3+replayer.moves[i].col]->setText(QString(" "));
+                btns[replayer.moves[i].row*9+replayer.moves[i].col]->setText(QString(" "));
             }
         }
     }
@@ -78,13 +78,13 @@ void MainWindow::megaReplayControl(bool action,bool init){
 
 void MainWindow::on_previouspushbuttonmega_clicked()
 {
-    megaReplayControl(1,0);
+    megaReplayControl(0,0);
 }
 
 
 void MainWindow::on_pushButton_back_from_board_to_main_mega_r_clicked()
 {
-    megaReplayControl(0,0);
+    megaReplayControl(1,0);
 
 }
 

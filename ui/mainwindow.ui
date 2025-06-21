@@ -36,14 +36,10 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow {
-<<<<<<< HEAD
-	background-image: url(:/img/images/screencapture-png-pngtree-background-20211215-original-pngtree-playstation-neon-sign-pattern-background-picture-image-1470915-jpg-2025-06-21-11_32_56.png);
-	background-color: rgb(19, 91, 128);
-=======
+
 	background-image: url(:/img/images/psychedelic-neon-x-and-o-seamless-pattern-for-gaming-vector.jpg);
 
-	
->>>>>>> 9fdb397 (I have edited the whole entire screens)
+
    background-repeat: no-repeat;
    background-position: center;
    background-attachment: fixed;
@@ -150,7 +146,7 @@ QLabel#label_profile_photo {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>9</number>
       </property>
       <widget class="QWidget" name="main">
        <property name="sizePolicy">
@@ -4861,8 +4857,6 @@ QPushButton:pressed {
               </property>
               <property name="text">
                <string/>
-<<<<<<< HEAD
-=======
               </property>
              </widget>
             </item>
@@ -4885,7 +4879,6 @@ QPushButton:pressed {
               </property>
               <property name="text">
                <string/>
->>>>>>> 9fdb397 (I have edited the whole entire screens)
               </property>
              </widget>
             </item>
@@ -5099,8 +5092,6 @@ QPushButton:pressed {
           <item row="18" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_31">
             <item>
-<<<<<<< HEAD
-=======
              <widget class="QPushButton" name="pushButton_back_from_board_to_main_mega_r">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
@@ -5139,7 +5130,6 @@ QPushButton:pressed {
              </widget>
             </item>
             <item>
->>>>>>> 9fdb397 (I have edited the whole entire screens)
              <widget class="QPushButton" name="previouspushbuttonmega">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
@@ -5174,22 +5164,6 @@ QPushButton:pressed {
               </property>
               <property name="text">
                <string>Previous</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="pushButton_back_from_board_to_main_mega_r">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">min-width:160;</string>
-              </property>
-              <property name="text">
-               <string>Next</string>
               </property>
              </widget>
             </item>
@@ -6682,8 +6656,6 @@ font: 900 24pt &quot;Segoe UI Black&quot;;</string>
           <item row="12" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_31">
             <item>
-<<<<<<< HEAD
-=======
              <widget class="QPushButton" name="_r">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
@@ -6722,7 +6694,6 @@ QPushButton:pressed {
              </widget>
             </item>
             <item>
->>>>>>> 9fdb397 (I have edited the whole entire screens)
              <widget class="QPushButton" name="previouspushButton">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
@@ -6760,35 +6731,12 @@ QPushButton:pressed {
               </property>
              </widget>
             </item>
-            <item>
-             <widget class="QPushButton" name="_r">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">min-width:160;</string>
-              </property>
-              <property name="text">
-               <string>Next</string>
-              </property>
-             </widget>
-            </item>
            </layout>
           </item>
           <item row="12" column="0">
            <layout class="QHBoxLayout" name="horizontalLayout_23">
             <item>
              <widget class="QPushButton" name="pushButton">
-<<<<<<< HEAD
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-=======
               <property name="styleSheet">
                <string notr="true">QPushButton {
     min-width: 180px;        /* Placeholder default width, to be adjusted if specified */
@@ -6813,7 +6761,6 @@ QPushButton:pressed {
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;          /* Dark blue text when pressed */
 }</string>
->>>>>>> 9fdb397 (I have edited the whole entire screens)
               </property>
               <property name="text">
                <string>Back</string>
