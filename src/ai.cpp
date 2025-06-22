@@ -132,6 +132,14 @@ void Tree::treeBoard(int arr[]){
     }
 }
 
+void Tree::reset(){
+    current = head;
+    for (int i = 0; i < 9; i++)
+    {
+        board[i] = 0;
+    }
+}
+
 
 Ai::Ai(int start,int level):tree(Tree(start)){
     this->level = level;
@@ -198,4 +206,12 @@ bool Ai::moveAi(int * move){
 }
 bool Ai::movePlayer(int move){
     return tree.move(move,1);
+}
+
+void Ai::print(){
+    tree.print();
+}
+
+void Ai::reset(){
+    tree.reset();
 }

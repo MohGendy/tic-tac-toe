@@ -32,6 +32,7 @@ class Tree {
     bool bestMove(int * move); // delete later
     void print();
     void treeBoard(int arr[]);
+    void reset();
 };
 
 class Ai {
@@ -41,6 +42,8 @@ class Ai {
     Ai(int start,int level);
     bool moveAi(int * move);
     bool movePlayer(int move);
+    void reset();
+    void print(); //for testing
 
 };
 #endif

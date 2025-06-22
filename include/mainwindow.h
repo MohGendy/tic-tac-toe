@@ -142,8 +142,6 @@ private slots:
 
     void megaReplayControl(bool action,bool init);
 
-    void on_pushButton_back_from_board_to_main_clicked();
-
     void on_pushButton_cancel_username_clicked();
 
     void on_pushButton_save_username_clicked();
