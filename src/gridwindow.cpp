@@ -30,10 +30,11 @@ void MainWindow::clearBoardGui(){
 
     gamedata.gameended = false ;
     if((gamedata.isAi)){
-        if(ai != NULL){
-            delete ai; // Clean up previous AI instance if it exists
+        if(ai == NULL){
+            ai = new Ai(!gamedata.ismainuserfirst, gamedata.difficulty); // Create a new AI instance with the specified difficulty
+        }else{
+            ai->reset();
         }
-        ai = new Ai(!gamedata.ismainuserfirst, gamedata.difficulty); // Create a new AI instance with the specified difficulty
     }
     // Reset the current player symbol; for example, to 'X'
     currentPlayersymbol = 'X';
@@ -146,10 +147,17 @@ void MainWindow::loadgameScreen(){
     clearBoardGui();
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 453c1b589a0dca77c96ac8bfb61f78afed2c9c42
 void MainWindow::on_pushButton_back_from_board_to_main_p_clicked()
 {
     this->ui->stackedWidget->setCurrentIndex(Wmain);
+    if(ai != NULL){
+        delete ai;
+        ai = NULL;
+    }
 }
 
 
