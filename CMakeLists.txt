@@ -44,11 +44,18 @@ file(GLOB TEST_SOURCES
     # "src/database.cpp"
   )
 
+
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(my_program
         MANUAL_FINALIZATION
         ${APP_SOURCES}
     )
+
+if(WIN32)
+    set(APP_ICON_RESOURCE_WINDOWS "${CMAKE_CURRENT_SOURCE_DIR}/assets/app_icon.rc")
+    target_sources(my_program PRIVATE ${APP_ICON_RESOURCE_WINDOWS})
+endif()
+   
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET my_program APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)

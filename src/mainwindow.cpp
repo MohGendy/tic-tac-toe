@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     , currentPlayersymbol('X')
 {
     ui->setupUi(this);
+    this->setFixedSize(900, 700);
     ui->stackedWidget->setCurrentIndex(Wmain);
     ui->pushButton_4->setEnabled(false);
     ui->pushButton_play_friend->setEnabled(false);
