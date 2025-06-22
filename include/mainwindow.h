@@ -74,8 +74,6 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_Replay_customContextMenuRequested(const QPoint &pos);
-
     void on_pushButton_back_profile_clicked();
 
     void on_pushButton_exit_clicked();
