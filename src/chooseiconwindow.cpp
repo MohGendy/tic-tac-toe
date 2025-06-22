@@ -11,7 +11,7 @@ void MainWindow::on_pushButton_back_player2_clicked()
 
 
 void MainWindow::on_pushButton_start_game_clicked()
-{
+{   
     QString icon = this->ui->comboBox_iconChoice->currentText();
     if(icon.toStdString()[0]=='O'){
         qInfo() << "first\n";
@@ -28,6 +28,13 @@ void MainWindow::on_pushButton_start_game_clicked()
     }else{
         this->ui->stackedWidget->setCurrentIndex(Wmega);
     }
+}
+
+void MainWindow::loadchooseicon(){
+    QString username = QString::fromStdString(users[0].name);
+    this->ui->label_player2_title->setWordWrap(true);
+    this->ui->label_player2_title->setText(QString("Ready, %1?\nPick your icon").arg(username));
+    qDebug() << "Username: " << QString::fromStdString(users[0].name);
 }
 
 

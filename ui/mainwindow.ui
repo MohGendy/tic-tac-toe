@@ -145,7 +145,7 @@ QLabel#label_profile_photo {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>7</number>
       </property>
       <widget class="QWidget" name="main">
        <property name="sizePolicy">
@@ -863,140 +863,6 @@ QPushButton:pressed {
           <property name="bottomMargin">
            <number>20</number>
           </property>
-          <item row="1" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
-           <widget class="QLabel" name="label_change_username">
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);
-font: 900 36pt &quot;Segoe UI Black&quot;;</string>
-            </property>
-            <property name="text">
-             <string>Change Username</string>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="1">
-           <spacer name="verticalSpacer">
-            <property name="orientation">
-             <enum>Qt::Orientation::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="3" column="2">
-           <spacer name="horizontalSpacer_7">
-            <property name="orientation">
-             <enum>Qt::Orientation::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="0" column="1">
-           <spacer name="verticalSpacer_username_top">
-            <property name="orientation">
-             <enum>Qt::Orientation::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="3" column="1">
-           <layout class="QVBoxLayout" name="verticalLayout_username">
-            <property name="spacing">
-             <number>20</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="label_current_username">
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);
-font: 700 18pt &quot;Segoe UI&quot;;</string>
-              </property>
-              <property name="text">
-               <string>Current Username:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="enter_new_username">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>550</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="readOnly">
-               <bool>false</bool>
-              </property>
-              <property name="placeholderText">
-               <string>Enter New Username</string>
-              </property>
-              <property name="clearButtonEnabled">
-               <bool>false</bool>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="pushButton_save_username">
-              <property name="minimumSize">
-               <size>
-                <width>114</width>
-                <height>54</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QPushButton {
-    min-width: 100px;        /* Placeholder default width, to be adjusted if specified */
-    min-height: 40px;        /* Placeholder default height, to be adjusted if specified */
-    font-size: 14px;         /* Default font size, unchanged */
-    font-weight: bold;       /* Default bold weight, unchanged */
-    background-color: #1E1E4B; /* Dark blue to match background grid */
-    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
-    border-radius: 5px;      /* Slight rounding for modern look */
-    color: #FF00FF;          /* Neon pink text for theme alignment */
-    padding: 5px;            /* Internal padding, unchanged */
-}
-
-QPushButton:hover {
-    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
-    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
-    color: #FFFFFF;          /* White text on hover for contrast */
-}
-
-QPushButton:pressed {
-    background-color: #FF69B4; /* Neon pink when pressed */
-    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
-    color: #1E1E4B;          /* Dark blue text when pressed */
-}</string>
-              </property>
-              <property name="text">
-               <string>Save Changes</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
           <item row="6" column="1">
            <spacer name="verticalSpacer_username_bottom">
             <property name="orientation">
@@ -1010,15 +876,15 @@ QPushButton:pressed {
             </property>
            </spacer>
           </item>
-          <item row="3" column="0">
-           <spacer name="horizontalSpacer_8">
+          <item row="5" column="1">
+           <spacer name="verticalSpacer">
             <property name="orientation">
-             <enum>Qt::Orientation::Horizontal</enum>
+             <enum>Qt::Orientation::Vertical</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>40</width>
-              <height>20</height>
+              <width>20</width>
+              <height>40</height>
              </size>
             </property>
            </spacer>
@@ -1061,13 +927,23 @@ QPushButton:pressed {
             </property>
            </widget>
           </item>
-          <item row="2" column="1">
-           <spacer name="verticalSpacer_username_1">
+          <item row="3" column="0">
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="1">
+           <spacer name="verticalSpacer_username_top">
             <property name="orientation">
              <enum>Qt::Orientation::Vertical</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Policy::Maximum</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -1076,6 +952,155 @@ QPushButton:pressed {
              </size>
             </property>
            </spacer>
+          </item>
+          <item row="3" column="2">
+           <spacer name="horizontalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="4" column="1">
+           <widget class="QPushButton" name="pushButton_save_username">
+            <property name="minimumSize">
+             <size>
+              <width>114</width>
+              <height>54</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    min-width: 100px;        /* Placeholder default width, to be adjusted if specified */
+    min-height: 40px;        /* Placeholder default height, to be adjusted if specified */
+    font-size: 14px;         /* Default font size, unchanged */
+    font-weight: bold;       /* Default bold weight, unchanged */
+    background-color: #1E1E4B; /* Dark blue to match background grid */
+    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
+    border-radius: 5px;      /* Slight rounding for modern look */
+    color: #FF00FF;          /* Neon pink text for theme alignment */
+    padding: 5px;            /* Internal padding, unchanged */
+}
+
+QPushButton:hover {
+    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
+    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
+    color: #FFFFFF;          /* White text on hover for contrast */
+}
+
+QPushButton:pressed {
+    background-color: #FF69B4; /* Neon pink when pressed */
+    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
+    color: #1E1E4B;          /* Dark blue text when pressed */
+}</string>
+            </property>
+            <property name="text">
+             <string>Save Changes</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QWidget" name="" native="true">
+            <property name="styleSheet">
+             <string notr="true">QWidget{
+	background-color:rgba(17, 17, 43, 190);
+	border-radius:20px;
+}</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_username">
+             <property name="spacing">
+              <number>20</number>
+             </property>
+             <property name="leftMargin">
+              <number>30</number>
+             </property>
+             <property name="topMargin">
+              <number>30</number>
+             </property>
+             <property name="rightMargin">
+              <number>30</number>
+             </property>
+             <property name="bottomMargin">
+              <number>30</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_change_username">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);
+font: 900 36pt &quot;Segoe UI Black&quot;;
+background:none;</string>
+               </property>
+               <property name="text">
+                <string>Change Username</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_username_1">
+               <property name="orientation">
+                <enum>Qt::Orientation::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Policy::Maximum</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_current_username">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);
+font: 700 18pt &quot;Segoe UI&quot;;
+background:none;</string>
+               </property>
+               <property name="text">
+                <string>Current Username:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="enter_new_username">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>550</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="readOnly">
+                <bool>false</bool>
+               </property>
+               <property name="placeholderText">
+                <string>Enter New Username</string>
+               </property>
+               <property name="clearButtonEnabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
           </item>
          </layout>
         </item>
@@ -5816,7 +5841,46 @@ QPushButton:pressed {
           <property name="bottomMargin">
            <number>100</number>
           </property>
-          <item row="6" column="1">
+          <item row="10" column="1">
+           <spacer name="verticalSpacer_player2_bottom">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="6" column="0">
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="6" column="2">
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="9" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_player2_buttons">
             <item>
              <widget class="QPushButton" name="pushButton_start_game">
@@ -5908,22 +5972,6 @@ QPushButton:pressed {
             </item>
            </layout>
           </item>
-          <item row="2" column="1">
-           <spacer name="verticalSpacer_player2_1">
-            <property name="orientation">
-             <enum>Qt::Orientation::Vertical</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Policy::Maximum</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
           <item row="0" column="1">
            <spacer name="verticalSpacer_player2_top">
             <property name="orientation">
@@ -5937,7 +5985,111 @@ QPushButton:pressed {
             </property>
            </spacer>
           </item>
-          <item row="4" column="1">
+          <item row="1" column="1" rowspan="2">
+           <widget class="QWidget" name="verticalWidget" native="true">
+            <property name="styleSheet">
+             <string notr="true">QWidget{
+	background-color:rgba(17, 17, 43, 190);
+	border-radius:20px;
+}</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_6">
+             <property name="leftMargin">
+              <number>30</number>
+             </property>
+             <property name="topMargin">
+              <number>30</number>
+             </property>
+             <property name="rightMargin">
+              <number>30</number>
+             </property>
+             <property name="bottomMargin">
+              <number>30</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_player2_title">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);
+font: 900 36pt &quot;Segoe UI Black&quot;;
+background:none;</string>
+               </property>
+               <property name="text">
+                <string>Choose Your Icon</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_player2_1">
+               <property name="orientation">
+                <enum>Qt::Orientation::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Policy::Maximum</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QComboBox" name="comboBox_iconChoice">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>150</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="baseSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QComboBox {
+    min-width: 150px;
+    max-width: 150px;
+	min-height: 40px;
+	border-radius: 0px;
+}</string>
+               </property>
+               <property name="editable">
+                <bool>true</bool>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>16</width>
+                 <height>16</height>
+                </size>
+               </property>
+               <property name="frame">
+                <bool>true</bool>
+               </property>
+               <item>
+                <property name="text">
+                 <string>X</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>O</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="6" column="1">
            <spacer name="verticalSpacer_player2_2">
             <property name="orientation">
              <enum>Qt::Orientation::Vertical</enum>
@@ -5952,70 +6104,6 @@ QPushButton:pressed {
              </size>
             </property>
            </spacer>
-          </item>
-          <item row="7" column="1">
-           <spacer name="verticalSpacer_player2_bottom">
-            <property name="orientation">
-             <enum>Qt::Orientation::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="3" column="2">
-           <spacer name="horizontalSpacer_3">
-            <property name="orientation">
-             <enum>Qt::Orientation::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="3" column="0">
-           <spacer name="horizontalSpacer_4">
-            <property name="orientation">
-             <enum>Qt::Orientation::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="1" column="1">
-           <widget class="QLabel" name="label_player2_title">
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);
-font: 900 36pt &quot;Segoe UI Black&quot;;</string>
-            </property>
-            <property name="text">
-             <string>Choose Your Icon</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QComboBox" name="comboBox_iconChoice">
-            <item>
-             <property name="text">
-              <string>X</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>O</string>
-             </property>
-            </item>
-           </widget>
           </item>
          </layout>
         </item>
@@ -6170,7 +6258,7 @@ QPushButton:pressed {
            </spacer>
           </item>
           <item row="5" column="3">
-           <widget class="QWidget" name="" native="true">
+           <widget class="QWidget" name="widget" native="true">
             <property name="styleSheet">
              <string notr="true">QWidget{
 	background-color:rgba(17, 17, 43, 190);
@@ -11966,7 +12054,7 @@ QPushButton:pressed {
            </widget>
           </item>
           <item row="7" column="1">
-           <widget class="QWidget" name="" native="true">
+           <widget class="QWidget" name="widget" native="true">
             <property name="styleSheet">
              <string notr="true">QWidget{
 	background-color:rgba(17, 17, 43, 190);
@@ -12377,7 +12465,7 @@ QPushButton:pressed {
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QWidget" name="" native="true">
+           <widget class="QWidget" name="widget" native="true">
             <property name="styleSheet">
              <string notr="true">QWidget{
 	background-color:rgba(17, 17, 43, 190);

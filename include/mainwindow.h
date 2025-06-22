@@ -187,6 +187,7 @@ private slots:
 
     void on_previouspushbuttonmega_clicked();
 
+    void loadchooseicon();
 private:
     Ui::MainWindow *ui;
     char currentPlayersymbol;
