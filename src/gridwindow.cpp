@@ -7,7 +7,7 @@
 #include <QDebug>
 #include <iostream>
 
-const QString activeStyle = "color:white; font-weight:bold; font-size:24px; background-color:rgba(234, 63, 247, 255);";
+const QString activeStyle = "color:rgb(17, 17, 44); font-weight:bold; font-size:24px; background-color: rgba(255, 0, 255, 170);";
 const QString inactiveStyle = "color:rgb(113, 113, 113); font-weight:bold; font-size:18px; background-color:rgba(85, 170, 255, 0);";
 
 void MainWindow::clearBoardGui(){
@@ -144,12 +144,6 @@ void MainWindow::loadgameScreen(){
     ui->label_55_c->setText("0");
     ui->label_54_c->setText("0");
     clearBoardGui();
-}
-
-
-void MainWindow::on_pushButton_back_from_board_to_main_clicked()
-{
-    this->ui->stackedWidget->setCurrentIndex(Wmain);
 }
 
 

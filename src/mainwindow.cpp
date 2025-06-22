@@ -92,11 +92,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_Replay_customContextMenuRequested(const QPoint &pos)
-{
-
-}
-
 
 void MainWindow::on_pushButton_exit_clicked()
 {
