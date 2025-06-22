@@ -147,10 +147,6 @@ void MainWindow::loadgameScreen(){
     clearBoardGui();
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 453c1b589a0dca77c96ac8bfb61f78afed2c9c42
 void MainWindow::on_pushButton_back_from_board_to_main_p_clicked()
 {
     this->ui->stackedWidget->setCurrentIndex(Wmain);

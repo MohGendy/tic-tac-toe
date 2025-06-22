@@ -145,11 +145,7 @@ QLabel#label_profile_photo {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-<<<<<<< HEAD
        <number>3</number>
-=======
-       <number>0</number>
->>>>>>> 453c1b589a0dca77c96ac8bfb61f78afed2c9c42
       </property>
       <widget class="QWidget" name="main">
        <property name="sizePolicy">
@@ -403,7 +399,6 @@ QPushButton:pressed {
             </property>
            </spacer>
           </item>
-<<<<<<< HEAD
           <item alignment="Qt::AlignmentFlag::AlignHCenter">
            <widget class="QLabel" name="label_title">
             <property name="styleSheet">
@@ -444,70 +439,6 @@ font: 900 48pt &quot;Segoe UI Black&quot;;</string>
             </property>
             <property name="styleSheet">
              <string notr="true">QPushButton {
-=======
-          <item>
-           <widget class="QWidget" name="verticalWidget" native="true">
-            <property name="styleSheet">
-             <string notr="true">QWidget{
-	background-color:rgba(17, 17, 43, 190);
-	border-radius:20px;
-}</string>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_2">
-             <property name="leftMargin">
-              <number>30</number>
-             </property>
-             <property name="topMargin">
-              <number>30</number>
-             </property>
-             <property name="rightMargin">
-              <number>30</number>
-             </property>
-             <property name="bottomMargin">
-              <number>30</number>
-             </property>
-             <item>
-              <widget class="QLabel" name="label_title">
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-font: 900 48pt &quot;Segoe UI Black&quot;;
-background:none;</string>
-               </property>
-               <property name="text">
-                <string>TIC TAC TOE</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="verticalSpacer_main_2">
-               <property name="orientation">
-                <enum>Qt::Orientation::Vertical</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Policy::Fixed</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QPushButton" name="pushButton_play_friend">
-               <property name="enabled">
-                <bool>true</bool>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>114</width>
-                 <height>44</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton {
->>>>>>> 453c1b589a0dca77c96ac8bfb61f78afed2c9c42
     background-color: #1E1E4B; /* Dark blue to match background */
     border: 2px solid #FF69B4; /* Neon pink border */
     border-radius: 10px; /* Rounded edges */
@@ -526,7 +457,6 @@ QPushButton:pressed {
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B; /* Dark blue text when pressed */
 }</string>
-<<<<<<< HEAD
             </property>
             <property name="text">
              <string>Player Vs Player</string>
@@ -543,24 +473,6 @@ QPushButton:pressed {
             </property>
             <property name="styleSheet">
              <string notr="true">QPushButton {
-=======
-               </property>
-               <property name="text">
-                <string>Player Vs Player</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="pushButton_play_ai">
-               <property name="minimumSize">
-                <size>
-                 <width>114</width>
-                 <height>44</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton {
->>>>>>> 453c1b589a0dca77c96ac8bfb61f78afed2c9c42
     background-color: #1E1E4B; /* Dark blue to match background */
     border: 2px solid #FF69B4; /* Neon pink border */
     border-radius: 10px; /* Rounded edges */
@@ -579,7 +491,6 @@ QPushButton:pressed {
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B; /* Dark blue text when pressed */
 }</string>
-<<<<<<< HEAD
             </property>
             <property name="text">
              <string>Player Vs AI</string>
@@ -596,24 +507,6 @@ QPushButton:pressed {
             </property>
             <property name="styleSheet">
              <string notr="true">QPushButton {
-=======
-               </property>
-               <property name="text">
-                <string>Player Vs AI</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="pushButton_load_game">
-               <property name="minimumSize">
-                <size>
-                 <width>114</width>
-                 <height>44</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton {
->>>>>>> 453c1b589a0dca77c96ac8bfb61f78afed2c9c42
     background-color: #1E1E4B; /* Dark blue to match background */
     border: 2px solid #FF69B4; /* Neon pink border */
     border-radius: 10px; /* Rounded edges */
@@ -632,20 +525,10 @@ QPushButton:pressed {
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B; /* Dark blue text when pressed */
 }</string>
-<<<<<<< HEAD
             </property>
             <property name="text">
              <string>Load Game</string>
             </property>
-=======
-               </property>
-               <property name="text">
-                <string>Load Game</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
->>>>>>> 453c1b589a0dca77c96ac8bfb61f78afed2c9c42
            </widget>
           </item>
           <item>
@@ -1546,7 +1429,8 @@ background:none;</string>
                </property>
                <property name="styleSheet">
                 <string notr="true">color: rgb(255, 255, 255);
-font: 900 24pt &quot;Segoe UI Black&quot;;</string>
+font: 900 24pt &quot;Segoe UI Black&quot;;
+background:none;</string>
                </property>
                <property name="text">
                 <string>Change Password</string>
@@ -12083,20 +11967,16 @@ QPushButton:pressed {
           </item>
           <item row="7" column="1">
            <widget class="QWidget" name="" native="true">
-<<<<<<< HEAD
             <property name="styleSheet">
              <string notr="true">QWidget{
 	background-color:rgba(17, 17, 43, 190);
 	border-radius:15px;
 }</string>
             </property>
-=======
->>>>>>> 453c1b589a0dca77c96ac8bfb61f78afed2c9c42
             <layout class="QGridLayout" name="gridLayout_9">
              <property name="sizeConstraint">
               <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
              </property>
-<<<<<<< HEAD
              <property name="leftMargin">
               <number>10</number>
              </property>
@@ -12109,8 +11989,6 @@ QPushButton:pressed {
              <property name="bottomMargin">
               <number>10</number>
              </property>
-=======
->>>>>>> 453c1b589a0dca77c96ac8bfb61f78afed2c9c42
              <item row="2" column="1">
               <widget class="QPushButton" name="b7">
                <property name="sizePolicy">
@@ -12155,135 +12033,6 @@ QPushButton:pressed {
                </property>
               </widget>
              </item>
-<<<<<<< HEAD
-=======
-             <item row="2" column="2">
-              <widget class="QPushButton" name="b8">
-               <property name="minimumSize">
-                <size>
-                 <width>114</width>
-                 <height>114</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton {
-    min-width: 100px;        /* Retain original minimum width */
-    min-height: 100px;       /* Retain original minimum height */
-    font-size: 35px;         /* Retain original font size */
-    font-weight: bold;       /* Retain original font weight */
-    background-color: #1E1E4B; /* Dark blue to match background grid */
-    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
-    border-radius: 5px;      /* Slight rounding for modern look */
-    color: #FF00FF;          /* Neon pink text for X/O */
-    padding: 5px;            /* Internal padding for better appearance */
-}
-
-QPushButton:hover {
-    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
-    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
-    color: #FFFFFF;          /* White text on hover for contrast */
-}
-
-QPushButton:pressed {
-    background-color: #FF69B4; /* Neon pink when pressed */
-    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
-    color: #1E1E4B;          /* Dark blue text when pressed */
-}</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QPushButton" name="b3">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>114</width>
-                 <height>114</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton {
-    min-width: 100px;        /* Retain original minimum width */
-    min-height: 100px;       /* Retain original minimum height */
-    font-size: 35px;         /* Retain original font size */
-    font-weight: bold;       /* Retain original font weight */
-    background-color: #1E1E4B; /* Dark blue to match background grid */
-    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
-    border-radius: 5px;      /* Slight rounding for modern look */
-    color: #FF00FF;          /* Neon pink text for X/O */
-    padding: 5px;            /* Internal padding for better appearance */
-}
-
-QPushButton:hover {
-    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
-    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
-    color: #FFFFFF;          /* White text on hover for contrast */
-}
-
-QPushButton:pressed {
-    background-color: #FF69B4; /* Neon pink when pressed */
-    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
-    color: #1E1E4B;          /* Dark blue text when pressed */
-}</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QPushButton" name="b0">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>114</width>
-                 <height>114</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton {
-    min-width: 100px;        /* Retain original minimum width */
-    min-height: 100px;       /* Retain original minimum height */
-    font-size: 35px;         /* Retain original font size */
-    font-weight: bold;       /* Retain original font weight */
-    background-color: #1E1E4B; /* Dark blue to match background grid */
-    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
-    border-radius: 5px;      /* Slight rounding for modern look */
-    color: #FF00FF;          /* Neon pink text for X/O */
-    padding: 5px;            /* Internal padding for better appearance */
-}
-
-QPushButton:hover {
-    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
-    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
-    color: #FFFFFF;          /* White text on hover for contrast */
-}
-
-QPushButton:pressed {
-    background-color: #FF69B4; /* Neon pink when pressed */
-    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
-    color: #1E1E4B;          /* Dark blue text when pressed */
-}</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
->>>>>>> 453c1b589a0dca77c96ac8bfb61f78afed2c9c42
              <item row="0" column="1">
               <widget class="QPushButton" name="b1">
                <property name="sizePolicy">
@@ -12372,7 +12121,6 @@ QPushButton:pressed {
                </property>
               </widget>
              </item>
-<<<<<<< HEAD
              <item row="2" column="2">
               <widget class="QPushButton" name="b8">
                <property name="minimumSize">
@@ -12537,8 +12285,6 @@ QPushButton:pressed {
                </property>
               </widget>
              </item>
-=======
->>>>>>> 453c1b589a0dca77c96ac8bfb61f78afed2c9c42
              <item row="1" column="1">
               <widget class="QPushButton" name="b4">
                <property name="sizePolicy">
@@ -12627,7 +12373,6 @@ QPushButton:pressed {
                </property>
               </widget>
              </item>
-<<<<<<< HEAD
             </layout>
            </widget>
           </item>
@@ -12677,43 +12422,6 @@ background:none;</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignmentFlag::AlignCenter</set>
-=======
-             <item row="1" column="2">
-              <widget class="QPushButton" name="b5">
-               <property name="minimumSize">
-                <size>
-                 <width>114</width>
-                 <height>114</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton {
-    min-width: 100px;        /* Retain original minimum width */
-    min-height: 100px;       /* Retain original minimum height */
-    font-size: 35px;         /* Retain original font size */
-    font-weight: bold;       /* Retain original font weight */
-    background-color: #1E1E4B; /* Dark blue to match background grid */
-    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
-    border-radius: 5px;      /* Slight rounding for modern look */
-    color: #FF00FF;          /* Neon pink text for X/O */
-    padding: 5px;            /* Internal padding for better appearance */
-}
-
-QPushButton:hover {
-    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
-    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
-    color: #FFFFFF;          /* White text on hover for contrast */
-}
-
-QPushButton:pressed {
-    background-color: #FF69B4; /* Neon pink when pressed */
-    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
-    color: #1E1E4B;          /* Dark blue text when pressed */
-}</string>
-               </property>
-               <property name="text">
-                <string/>
->>>>>>> 453c1b589a0dca77c96ac8bfb61f78afed2c9c42
                </property>
               </widget>
              </item>
