@@ -172,7 +172,7 @@ bool Ai::moveAi(int * move){
             }else{
                 int rates[9];
                 tree.treeBoard(board);
-                tree.rates(rates);
+                // tree.rates(rates);
                 int max = -101 , index = -1;
                 for(int i = 0; i < 9 ; i++){
                     if(board[i]==0&&rates[i]>max){
