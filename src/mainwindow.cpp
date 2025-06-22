@@ -168,6 +168,10 @@ void MainWindow::on_stackedWidget_currentChanged(int arg1)
         loadHistoryScreen();
     }
 
+    if(ui->stackedWidget->currentWidget() == ui->choose_your_icon){
+        loadchooseicon();
+    }
+
 }
 
 void MainWindow::loadProfile(){
