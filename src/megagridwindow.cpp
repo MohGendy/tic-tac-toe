@@ -3,7 +3,7 @@
 #include "database.h"
 #include <QMessageBox>
 
-const QString activeStyle = "color:white; font-weight:bold; font-size:24px; background-color:rgba(85, 170, 255, 100);";
+const QString activeStyle = "color:rgb(17, 17, 44); font-weight:bold; font-size:24px; background-color: rgba(255, 0, 255, 170);";
 const QString inactiveStyle = "color:rgb(113, 113, 113); font-weight:bold; font-size:18px; background-color:rgba(85, 170, 255, 0);";
 
 
