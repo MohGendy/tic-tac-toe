@@ -74,8 +74,6 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_Replay_customContextMenuRequested(const QPoint &pos);
-
     void on_pushButton_back_profile_clicked();
 
     void on_pushButton_exit_clicked();
@@ -141,8 +139,6 @@ private slots:
     void normalReplayControl(bool action,bool init);
 
     void megaReplayControl(bool action,bool init);
-
-    void on_pushButton_back_from_board_to_main_clicked();
 
     void on_pushButton_cancel_username_clicked();
 
