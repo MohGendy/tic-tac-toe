@@ -17,7 +17,7 @@ size_t GetMemoryUsageKB() {
     return 0;
 }
 
-TEST(PerformanceTest, initAI) {
+TEST(PerformanceTestAi, initAI) {
     using namespace std::chrono;
 
     std::unique_ptr<Ai> ai_;
@@ -38,7 +38,7 @@ TEST(PerformanceTest, initAI) {
     size_t memAfter = GetMemoryUsageKB();
 
     std::cout << "Execution Time: " << duration/1000 << " ms" << std::endl;
-    std::cout << "Memory before: " << (memBefore) << " KB , Memory after: " << memAfter << std::endl;
+    std::cout << "Memory before: " << (memBefore) << " KB , Memory after: " << memAfter << " KB" << std::endl;
     std::cout << "Memory Used: " << (memAfter - memBefore) << " KB" << std::endl;
 
     // Optional: Assertions
@@ -46,7 +46,7 @@ TEST(PerformanceTest, initAI) {
     EXPECT_LT(memAfter - memBefore, 52000); // Must use less than 50MB
 }
 
-TEST(PerformanceTest, deleteAi) {
+TEST(PerformanceTestAi, deleteAi) {
     using namespace std::chrono;
 
     Ai* ai_ = new Ai(true, hard);;
@@ -67,7 +67,7 @@ TEST(PerformanceTest, deleteAi) {
     size_t memAfter = GetMemoryUsageKB();
 
     std::cout << "Execution Time: " << duration/1000 << " ms" << std::endl;
-    std::cout << "Memory before: " << (memBefore) << " KB , Memory after: " << memAfter << std::endl;
+    std::cout << "Memory before: " << (memBefore) << " KB , Memory after: " << memAfter << " KB" << std::endl;
     std::cout << "Memory Used: " << (memAfter - memBefore) << " KB" << std::endl;
 
     // Optional: Assertions
@@ -75,7 +75,7 @@ TEST(PerformanceTest, deleteAi) {
     EXPECT_LT(memAfter,memBefore);        // Must be less
 }
 
-TEST(PerformanceTest, playMoveAiHard) {
+TEST(PerformanceTestAi, playMoveAiHard) {
     using namespace std::chrono;
 
     std::unique_ptr<Ai> ai_;
@@ -97,7 +97,7 @@ TEST(PerformanceTest, playMoveAiHard) {
     size_t memAfter = GetMemoryUsageKB();
 
     std::cout << "Execution Time: " << duration << " usec" << std::endl;
-    std::cout << "Memory before: " << (memBefore) << " KB , Memory after: " << memAfter << std::endl;
+    std::cout << "Memory before: " << (memBefore) << " KB , Memory after: " << memAfter << " KB" << std::endl;
     std::cout << "Memory Used: " << (memAfter - memBefore) << " KB" << std::endl;
 
     // Optional: Assertions
@@ -105,7 +105,7 @@ TEST(PerformanceTest, playMoveAiHard) {
     EXPECT_LT(memAfter - memBefore, 10); 
 }
 
-TEST(PerformanceTest, playMoveAiNormal) {
+TEST(PerformanceTestAi, playMoveAiNormal) {
     using namespace std::chrono;
 
     std::unique_ptr<Ai> ai_;
@@ -127,7 +127,7 @@ TEST(PerformanceTest, playMoveAiNormal) {
     size_t memAfter = GetMemoryUsageKB();
 
     std::cout << "Execution Time: " << duration << " usec" << std::endl;
-    std::cout << "Memory before: " << (memBefore) << " KB , Memory after: " << memAfter << std::endl;
+    std::cout << "Memory before: " << (memBefore) << " KB , Memory after: " << memAfter << " KB" << std::endl;
     std::cout << "Memory Used: " << (memAfter - memBefore) << " KB" << std::endl;
 
     // Optional: Assertions
@@ -135,7 +135,7 @@ TEST(PerformanceTest, playMoveAiNormal) {
     EXPECT_LT(memAfter - memBefore, 10); 
 }
 
-TEST(PerformanceTest, playMoveAiEasy) {
+TEST(PerformanceTestAi, playMoveAiEasy) {
     using namespace std::chrono;
 
     std::unique_ptr<Ai> ai_;
@@ -157,7 +157,7 @@ TEST(PerformanceTest, playMoveAiEasy) {
     size_t memAfter = GetMemoryUsageKB();
 
     std::cout << "Execution Time: " << duration << " usec" << std::endl;
-    std::cout << "Memory before: " << (memBefore) << " KB , Memory after: " << memAfter << std::endl;
+    std::cout << "Memory before: " << (memBefore) << " KB , Memory after: " << memAfter << " KB" << std::endl;
     std::cout << "Memory Used: " << (memAfter - memBefore) << " KB" << std::endl;
 
     // Optional: Assertions
@@ -165,7 +165,7 @@ TEST(PerformanceTest, playMoveAiEasy) {
     EXPECT_LT(memAfter - memBefore, 10); 
 }
 
-TEST(PerformanceTest, AIcompleteGame) {
+TEST(PerformanceTestAi, AIcompleteGame) {
     using namespace std::chrono;
 
     std::unique_ptr<Ai> ai1_;
@@ -196,7 +196,7 @@ TEST(PerformanceTest, AIcompleteGame) {
     size_t memAfter = GetMemoryUsageKB();
 
     std::cout << "Execution Time: " << duration << " usec" << std::endl;
-    std::cout << "Memory before: " << (memBefore) << " KB , Memory after: " << memAfter << std::endl;
+    std::cout << "Memory before: " << (memBefore) << " KB , Memory after: " << memAfter << " KB" << std::endl;
     std::cout << "Memory Used: " << (memAfter - memBefore) << " KB" << std::endl;
 
     // Optional: Assertions
@@ -204,7 +204,7 @@ TEST(PerformanceTest, AIcompleteGame) {
     EXPECT_LT(memAfter - memBefore, 10); 
 }
 
-TEST(PerformanceTest, StressTestHardMode) {
+TEST(PerformanceTestAi, StressTestHardMode) {
     using namespace std::chrono;
 
     std::unique_ptr<Ai> ai1_;
@@ -252,7 +252,7 @@ TEST(PerformanceTest, StressTestHardMode) {
     EXPECT_LT(memAfter - memBefore, 50); 
 }
 
-TEST(PerformanceTest, StressTestNormslMode) {
+TEST(PerformanceTestAi, StressTestNormslMode) {
     using namespace std::chrono;
 
     std::unique_ptr<Ai> ai1_;
@@ -300,7 +300,7 @@ TEST(PerformanceTest, StressTestNormslMode) {
     EXPECT_LT(memAfter - memBefore, 50); 
 }
 
-TEST(PerformanceTest, StressTestEasylMode) {
+TEST(PerformanceTestAi, StressTestEasylMode) {
     using namespace std::chrono;
 
     std::unique_ptr<Ai> ai1_;
