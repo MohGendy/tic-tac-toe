@@ -56,7 +56,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          cd build
+          cd build/Debug
           dir
           .\runTests.exe
 
