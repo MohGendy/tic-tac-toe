@@ -41,19 +41,20 @@ jobs:
 
       - name: Set up CMake
         uses: jwlawson/actions-setup-cmake@v1
+      
+      - name: Install Ninja
+        uses: seanmiddleditch/gha-setup-ninja@v3
 
       - name: Configure Project
-        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+        run: cmake -S . -B build -G "Ninja" -DCMAKE_BUILD_TYPE=Release
 
       - name: Build Project
-        run: cmake --build build --config Release
+        run: cmake --build build
 
       - name: Run Tests
         run: |
-         cd build
-         .\runTests.exe
-
-
+          cd build
+          .\runTests.exe
 
       - name: Package with NSIS via CPack
         run: |
