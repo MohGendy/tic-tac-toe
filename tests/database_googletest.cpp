@@ -36,7 +36,7 @@ TEST_F(DatabaseTest, RegisterAndLoginUser) {
 }
 TEST_F(DatabaseTest, InsertGameHistoryAndRetrieve) {
     std::string player1 = "Alice", player2 = "Bob";
-    std::string pass = "pass";
+    std::string pass = "pass12345";
 
     // Register users
     EXPECT_TRUE(registerUserGUI(db,player1,pass));
@@ -52,8 +52,8 @@ TEST_F(DatabaseTest, InsertGameHistoryAndRetrieve) {
     // You can call `showGameHistoryForPlayer()` and capture stdout if needed
 }
 TEST_F(DatabaseTest, InsertAndLoadGameMoves) {
-    registerUserGUI(db, "Alice", "pass");
-    registerUserGUI(db, "Bob", "pass");
+    registerUserGUI(db, "Alice", "pass12345");
+    registerUserGUI(db, "marky", "pass12345");
     int user1 = getUserId(db, "Alice");
     int user2 = getUserId(db, "Bob");
     std::string board = "XOXOXOXOX";
@@ -75,6 +75,7 @@ TEST_F(DatabaseTest, InsertAndLoadGameMoves) {
         EXPECT_EQ(loaded[i].row, moves[i].row) << i << " row mismatch \n";
         EXPECT_EQ(loaded[i].col, moves[i].col) << i << " row mismatch\n";
         EXPECT_EQ(loaded[i].player, moves[i].player) << i << " row mismatch\n";
+        std::cout << loaded[i].player << std::endl;
     }
 }
 
