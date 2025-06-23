@@ -138,3 +138,4 @@ set(CPACK_GENERATOR "NSIS")  # or "ZIP" or any preferred generator.
 set(CPACK_PACKAGE_NAME "my_program")
 set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
 include(CPack)
+enable_testing()
