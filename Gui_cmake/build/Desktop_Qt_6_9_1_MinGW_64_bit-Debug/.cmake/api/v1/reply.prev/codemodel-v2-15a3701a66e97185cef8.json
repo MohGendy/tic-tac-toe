@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-2675e2515d2ea1bb8e20.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Gui_cmake",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Gui_cmake::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Gui_cmake-Debug-1326fee9196186f294e3.json",
+					"name" : "Gui_cmake",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Gui_cmake_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Gui_cmake_autogen-Debug-e1aff7a6263e9d492364.json",
+					"name" : "Gui_cmake_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Gui_cmake_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Gui_cmake_autogen_timestamp_deps-Debug-c0ae9dcf97e30b10053b.json",
+					"name" : "Gui_cmake_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug",
+		"source" : "E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

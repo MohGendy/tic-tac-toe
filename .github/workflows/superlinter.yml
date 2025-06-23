@@ -1,0 +1,93 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    name: Lint Code Base
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Super-Linter
+        uses: github/super-linter@v5
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_ALL_CODEBASE: true
+          FILTER_REGEX_EXCLUDE: "build/.*"
+          JSCPD_THRESHOLD: 5
+          VALIDATE_MARKDOWN: true
+          VALIDATE_TYPESCRIPT: false
+
+  build-test-package:
+    name: Build, Test & Package with NSIS
+    runs-on: windows-latest
+    needs: lint
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Init submodules
+        run: git submodule update --init --recursive
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: '6.6.3'
+          arch: 'win64_msvc2019_64'
+
+      - name: Set up CMake
+        uses: jwlawson/actions-setup-cmake@v1
+      
+      #- name: Install Ninja
+      #  uses: seanmiddleditch/gha-setup-ninja@v3
+
+      #- name: Configure Project
+       # run: cmake -S . -B build -G "Ninja" -DCMAKE_BUILD_TYPE=Release
+      - name: Configure Project
+        run: cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build Project
+        run: cmake --build build --target my_program runTests
+
+      - name: Run Tests
+        run: |
+          cd build/Debug
+          dir
+          .\runTests.exe
+
+      - name: Package with NSIS via CPack
+        run: |
+          cd build
+          cpack
+
+      - name: Upload NSIS Installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: nsis-installer
+          path: build/*.exe
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ github.run_number }}
+          release_name: NSIS Release v${{ github.run_number }}
+          draft: false
+          prerelease: false
+
+      - name: Upload NSIS Installer to Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: build/my_program_installer.exe  # 🔁 Replace with actual filename
+          asset_name: my_program_installer.exe
+          asset_content_type: application/vnd.microsoft.portable-executable

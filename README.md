@@ -1,7 +1,21 @@
-### to build use next commands (cmake need to be installed , MinGW need to be installed) :
+# Build Instructions
+
+## To Build Use Next Commands
+
+```sh
+cd ./build  
+make clean  
+cmake .. -G "MinGW Makefiles"  
+cmake --build .
 ```
-cd ./build
-make clean
-cmake .. -G "MinGW Makefiles"
-make
+## after building run the excutable
+
+```sh
+my_program.exe
 ```
+## To Run Tests
+
+```sh
+runTests.exe
+```
+

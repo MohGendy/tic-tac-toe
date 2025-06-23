@@ -132,6 +132,14 @@ void Tree::treeBoard(int arr[]){
     }
 }
 
+void Tree::reset(){
+    current = head;
+    for (int i = 0; i < 9; i++)
+    {
+        board[i] = 0;
+    }
+}
+
 
 Ai::Ai(int start,int level):tree(Tree(start)){
     this->level = level;
@@ -164,7 +172,7 @@ bool Ai::moveAi(int * move){
             }else{
                 int rates[9];
                 tree.treeBoard(board);
-                tree.rates(rates);
+                // tree.rates(rates);
                 int max = -101 , index = -1;
                 for(int i = 0; i < 9 ; i++){
                     if(board[i]==0&&rates[i]>max){
@@ -192,8 +200,18 @@ bool Ai::moveAi(int * move){
         break;
         
     }
+    *move = -1; // if no move is possible
+    return false;
     
 }
 bool Ai::movePlayer(int move){
     return tree.move(move,1);
+}
+
+void Ai::print(){
+    tree.print();
+}
+
+void Ai::reset(){
+    tree.reset();
 }
