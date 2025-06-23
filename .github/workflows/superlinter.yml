@@ -24,14 +24,20 @@ jobs:
           VALIDATE_MARKDOWN: true
           VALIDATE_TYPESCRIPT: false
 
-  build-nsis:
-    name: Build and Package with NSIS
+  build-test-package:
+    name: Build, Test & Package with NSIS
     runs-on: windows-latest
     needs: lint
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: '6.6.3'
+          arch: 'win64_msvc2019_64'
 
       - name: Set up CMake
         uses: jwlawson/actions-setup-cmake@v1
@@ -42,6 +48,11 @@ jobs:
       - name: Build Project
         run: cmake --build build --config Release
 
+      - name: Run Tests
+        run: |
+          cd build
+          ctest --output-on-failure
+
       - name: Package with NSIS via CPack
         run: |
           cd build
@@ -51,7 +62,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: nsis-installer
-          path: build/*.exe  # Adjust if needed
+          path: build/*.exe
 
       - name: Create Release
         id: create_release
@@ -70,6 +81,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/my_program_installer.exe  # Replace with actual filename
+          asset_path: build/my_program_installer.exe  # 🔁 Replace with actual filename
           asset_name: my_program_installer.exe
           asset_content_type: application/vnd.microsoft.portable-executable
