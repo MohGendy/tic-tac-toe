@@ -1,0 +1,63 @@
+name: Release with NSIS
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    name: Manual Package & Release
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Init submodules
+        run: git submodule update --init --recursive
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: '6.6.3'
+          arch: 'win64_msvc2019_64'
+
+      - name: Set up CMake
+        uses: jwlawson/actions-setup-cmake@v1
+
+      - name: Configure Project
+        run: cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build Project
+        run: cmake --build build --config Release --target my_program
+
+      - name: Package with NSIS via CPack
+        run: |
+          cd build
+          cpack
+
+      - name: Upload NSIS Installer Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nsis-installer
+          path: build/*.exe
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ github.run_number }}
+          release_name: NSIS Release v${{ github.run_number }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Installer to GitHub Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: build/my_program_installer.exe  # 🔁 Replace with your actual filename
+          asset_name: my_program_installer.exe
+          asset_content_type: application/vnd.microsoft.portable-executable
