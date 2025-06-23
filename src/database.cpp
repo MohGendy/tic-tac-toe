@@ -1192,7 +1192,8 @@ bool loadMovesForGameGUI(sqlite3* db, int game_id , vector<Move>& out) {
         int row = sqlite3_column_int(stmt, 0);
         int col = sqlite3_column_int(stmt, 1);
         const unsigned char* playerText = sqlite3_column_text(stmt, 2);
-        char player = playerText[0] ? playerText[0] : ' ';
+        cout << playerText << endl;
+        char player = playerText ? playerText[0] : ' ';
         out.push_back({row, col, player});
     }
     sqlite3_finalize(stmt);
