@@ -36,7 +36,7 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-          version: '6.6.3'
+          version: '6.9.1'
           arch: 'win64_msvc2019_64'
 
       - name: Set up CMake
@@ -50,8 +50,10 @@ jobs:
 
       - name: Run Tests
         run: |
-          cd build
-          ctest --output-on-failure
+         cd build
+         .\runTests.exe
+
+
 
       - name: Package with NSIS via CPack
         run: |
