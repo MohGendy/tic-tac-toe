@@ -418,12 +418,13 @@ bool insertGameMoves(sqlite3* db, int game_id, const vector<Move>& moves) {
         return false;
     }
     for (size_t i = 0; i < moves.size(); ++i) {
+        char str[2] = { moves[i].player,'\0'};
         sqlite3_reset(stmt);
         sqlite3_bind_int(stmt, 1, game_id);
         sqlite3_bind_int(stmt, 2, (int)i + 1);
         sqlite3_bind_int(stmt, 3, moves[i].row);
         sqlite3_bind_int(stmt, 4, moves[i].col);
-        sqlite3_bind_text(stmt, 5, string(1, moves[i].player).c_str(), 1, SQLITE_STATIC);
+        sqlite3_bind_text(stmt, 5, str , 1, SQLITE_STATIC);
         rc = sqlite3_step(stmt);
         if (rc != SQLITE_DONE) {
             cerr << "Error inserting move: " << sqlite3_errmsg(db) << endl;
