@@ -18,4 +18,11 @@ my_program.exe
 ```sh
 runTests.exe
 ```
+##steps to pack
+
+```sh
+cmake --build .
+cmake --install . --prefix "C:\path\to\install\directory"
+cpack
+```
 
