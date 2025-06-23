@@ -13,11 +13,6 @@ cmake --build .
 ```sh
 my_program.exe
 ```
-## Google Test Setup
-
-```sh
-git clone https://github.com/google/googletest.git
-```
 ## To Run Tests
 
 ```sh
