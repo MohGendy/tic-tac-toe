@@ -69,9 +69,9 @@ TEST_F(DatabaseTest, InsertAndLoadGameMoves) {
     std::vector<Move> loaded = loadMovesForGame(db, gameId);
     ASSERT_EQ(loaded.size(), moves.size());
     for (size_t i = 0; i < moves.size(); ++i) {
-        EXPECT_EQ(loaded[i].row, moves[i].row);
-        EXPECT_EQ(loaded[i].col, moves[i].col);
-        EXPECT_EQ(loaded[i].player, moves[i].player);
+        EXPECT_EQ(loaded[i].row, moves[i].row) << i << " row mismatch";
+        EXPECT_EQ(loaded[i].col, moves[i].col) << i << " row mismatch";
+        EXPECT_EQ(loaded[i].player, moves[i].player) << i << " row mismatch";
     }
 }
 

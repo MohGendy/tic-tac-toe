@@ -21,33 +21,53 @@ size_t GetMemoryUsageKB() {
     return 0;
 }
 
-TEST(PerformanceTestAi, initAI) {
+TEST(PerformanceTestAi, initAI_Average) {
     using namespace std::chrono;
+    
+    const int iterations = 10;  // Number of iterations for accurate measurements
+    long long totalDuration = 0;    // To accumulate execution times in microseconds
+    size_t totalMemoryDelta = 0;      // To accumulate memory usage differences
+    
+    // Warm-up run (optional): Ensure any one-time overhead doesn't skew results.
+    {
+        Ai* warmup = new Ai(true, hard);
+        delete warmup;
+    }
 
-    std::unique_ptr<Ai> ai_;
-
-    // Measure memory before
-    size_t memBefore = GetMemoryUsageKB();
-
-    // Measure time
-    auto start = high_resolution_clock::now();
-
-    ai_ = std::make_unique<Ai>(true, hard);
-
-
-    auto end = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(end - start).count();
-
-    // Measure memory after
-    size_t memAfter = GetMemoryUsageKB();
-
-    std::cout << "Execution Time: " << duration/1000 << " ms" << std::endl;
-    std::cout << "Memory before: " << (memBefore) << " KB , Memory after: " << memAfter << " KB" << std::endl;
-    std::cout << "Memory Used: " << (memAfter - memBefore) << " KB" << std::endl;
-
-    // Optional: Assertions
-    EXPECT_LT(duration, 500000);          // Must finish in under 0.5 sec
-    EXPECT_LT(memAfter - memBefore, 60000); // Must use less than 60MB
+    for (int i = 0; i < iterations; ++i) {
+        // Measure memory before initialization
+        size_t memBefore = GetMemoryUsageKB();
+        
+        // Measure time: record start
+        auto start = high_resolution_clock::now();
+        
+        // Functionality under test: initialize AI
+        Ai* ai_ = new Ai(true, hard);
+        
+        // Record end time and calculate duration
+        auto end = high_resolution_clock::now();
+        auto duration = duration_cast<microseconds>(end - start).count();
+        
+        // Measure memory after initialization
+        size_t memAfter = GetMemoryUsageKB();
+        
+        // Update accumulators
+        totalDuration += duration;
+        totalMemoryDelta += (memAfter - memBefore);
+        
+        delete ai_;
+    }
+    
+    // Calculate averages
+    double avgDuration = totalDuration / static_cast<double>(iterations);
+    double avgMemoryUsage = totalMemoryDelta / static_cast<double>(iterations);
+    
+    std::cout << "Average Execution Time: " << avgDuration / 1000.0 << " ms" << std::endl;
+    std::cout << "Average Memory Used: " << avgMemoryUsage << " KB" << std::endl;
+    
+    // Optional Assertions: The thresholds reflect the averages over iterations.
+    EXPECT_LT(avgDuration, 500000);          // Average must finish in under 0.5 sec (500,000 usec)
+    EXPECT_LT(avgMemoryUsage, 60000);          // Average must use less than 60 MB
 }
 
 TEST(PerformanceTestAi, deleteAi) {
@@ -70,7 +90,7 @@ TEST(PerformanceTestAi, deleteAi) {
     // Measure memory after
     size_t memAfter = GetMemoryUsageKB();
 
-    std::cout << "Execution Time: " << duration/1000 << " ms" << std::endl;
+    std::cout << "Execution Time: " << duration/1000.0 << " ms" << std::endl;
     std::cout << "Memory before: " << (memBefore) << " KB , Memory after: " << memAfter << " KB" << std::endl;
     std::cout << "Memory Used: " << (memAfter - memBefore) << " KB" << std::endl;
 
