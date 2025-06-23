@@ -31,17 +31,11 @@ include_directories(
 # collect sources
 file(GLOB APP_SOURCES "src/main.cpp" "src/*.cpp" "ui/*.ui" "assets/*.qrc" "include/*.h")
 file(GLOB TEST_SOURCES
-    "tests/perfomance_gamestructure.cpp"
+    # "tests/perfomance_gamestructure.cpp"
     "src/gameStructure.cpp"
     "src/ai.cpp"
-    # "tests/database_googletest.cpp"
-    # "tests/AItests.cpp"
-    # "tests/pvptests.cpp"
-    # "tests/megatests.cpp"
-    "tests/PtestForAi.cpp"
-    # "tests/performance_ai.cpp"
-    # "tests/perfomance_gamestructure.cpp"
-    # "src/database.cpp"
+    "tests/*.cpp"
+    "src/database.cpp"
   )
 
 
@@ -94,8 +88,8 @@ target_link_libraries(my_program
 
 target_link_libraries(runTests
   PRIVATE
-    # sqlite3
-    # bcrypt
+    sqlite3
+    bcrypt
     windows_stub
     gtest
     gtest_main

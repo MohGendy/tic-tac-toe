@@ -43,7 +43,7 @@ void MainWindow::on_pushButton_login_function_clicked()
                                 tr("Wrong username or password , please try again."));
         break;
     case 3:
-        if(name == users[0].name){
+        if(logincase == 1 && name == users[0].name){
                 QMessageBox::warning(this,
                 tr("Login Error"),
                 tr("You are already logged in , please logout first."));

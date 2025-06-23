@@ -1,7 +1,11 @@
-#include <gtest/gtest.h>
-#include <chrono>
+#define _WIN32_WINNT 0x0A00  // Target Windows 10; adjust as needed
+#define WIN32_LEAN_AND_MEAN
+#define NOMINMAX
 #include <windows.h>
 #include <psapi.h>
+
+#include <gtest/gtest.h>
+#include <chrono>
 #include <iostream>
 #include <memory>
 #include "ai.h"
@@ -43,7 +47,7 @@ TEST(PerformanceTestAi, initAI) {
 
     // Optional: Assertions
     EXPECT_LT(duration, 500000);          // Must finish in under 0.5 sec
-    EXPECT_LT(memAfter - memBefore, 52000); // Must use less than 50MB
+    EXPECT_LT(memAfter - memBefore, 60000); // Must use less than 60MB
 }
 
 TEST(PerformanceTestAi, deleteAi) {

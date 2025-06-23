@@ -487,40 +487,6 @@ QPushButton:pressed {
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_load_game">
-               <property name="minimumSize">
-                <size>
-                 <width>114</width>
-                 <height>44</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton {
-    background-color: #1E1E4B; /* Dark blue to match background */
-    border: 2px solid #FF69B4; /* Neon pink border */
-    border-radius: 10px; /* Rounded edges */
-    color: #FF00FF; /* Neon pink text */
-    padding: 5px;
-    font-size: 14px;
-    font-weight: bold;
-}
-QPushButton:hover {
-    background-color: #2A2A5E; /* Slightly lighter blue on hover */
-    border: 2px solid #FF00FF; /* Brighter pink on hover */
-    color: #FFFFFF; /* White text on hover for contrast */
-}
-QPushButton:pressed {
-    background-color: #FF69B4; /* Neon pink when pressed */
-    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
-    color: #1E1E4B; /* Dark blue text when pressed */
-}</string>
-               </property>
-               <property name="text">
-                <string>Load Game</string>
-               </property>
-              </widget>
-             </item>
-             <item>
               <widget class="QPushButton" name="pushButton_play_ai">
                <property name="minimumSize">
                 <size>
@@ -551,6 +517,40 @@ QPushButton:pressed {
                </property>
                <property name="text">
                 <string>Player Vs AI</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_load_game">
+               <property name="minimumSize">
+                <size>
+                 <width>114</width>
+                 <height>44</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+    background-color: #1E1E4B; /* Dark blue to match background */
+    border: 2px solid #FF69B4; /* Neon pink border */
+    border-radius: 10px; /* Rounded edges */
+    color: #FF00FF; /* Neon pink text */
+    padding: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+QPushButton:hover {
+    background-color: #2A2A5E; /* Slightly lighter blue on hover */
+    border: 2px solid #FF00FF; /* Brighter pink on hover */
+    color: #FFFFFF; /* White text on hover for contrast */
+}
+QPushButton:pressed {
+    background-color: #FF69B4; /* Neon pink when pressed */
+    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
+    color: #1E1E4B; /* Dark blue text when pressed */
+}</string>
+               </property>
+               <property name="text">
+                <string>Load Game</string>
                </property>
               </widget>
              </item>
@@ -711,7 +711,7 @@ QPushButton:pressed {
            </layout>
           </item>
           <item row="5" column="1" rowspan="3">
-           <widget class="QWidget" name="" native="true">
+           <widget class="QWidget" name="widget" native="true">
             <property name="styleSheet">
              <string notr="true">QWidget{
 	background-color:rgba(17, 17, 43, 190);
@@ -1054,7 +1054,7 @@ QPushButton:pressed {
            </widget>
           </item>
           <item row="3" column="1">
-           <widget class="QWidget" name="" native="true">
+           <widget class="QWidget" name="widget" native="true">
             <property name="styleSheet">
              <string notr="true">QWidget{
 	background-color:rgba(17, 17, 43, 190);
@@ -2086,7 +2086,7 @@ QPushButton:pressed {
            </spacer>
           </item>
           <item row="7" column="1">
-           <widget class="QWidget" name="" native="true">
+           <widget class="QWidget" name="widget" native="true">
             <property name="styleSheet">
              <string notr="true">QWidget{
 	background-color:rgba(17, 17, 43, 190);
@@ -5837,7 +5837,7 @@ QPushButton:pressed {
            </spacer>
           </item>
           <item row="3" column="1">
-           <widget class="QWidget" name="" native="true">
+           <widget class="QWidget" name="widget" native="true">
             <property name="styleSheet">
              <string notr="true">QWidget{
 	background-color:rgba(17, 17, 43, 190);
@@ -7019,7 +7019,7 @@ QPushButton:pressed {
            </widget>
           </item>
           <item row="7" column="1">
-           <widget class="QWidget" name="" native="true">
+           <widget class="QWidget" name="widget" native="true">
             <property name="styleSheet">
              <string notr="true">QWidget{
 	background-color:rgba(17, 17, 43, 190);
@@ -8148,7 +8148,7 @@ background-color:rgba(17, 17, 43, 190);</string>
            </spacer>
           </item>
           <item row="8" column="1">
-           <widget class="QWidget" name="" native="true">
+           <widget class="QWidget" name="widget" native="true">
             <property name="styleSheet">
              <string notr="true">QWidget{
 	background-color:rgba(17, 17, 43, 190);
@@ -11462,7 +11462,7 @@ QPushButton:pressed {
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QWidget" name="" native="true">
+           <widget class="QWidget" name="widget" native="true">
             <property name="styleSheet">
              <string notr="true">background-color:rgba(17, 17, 43, 190);</string>
             </property>
