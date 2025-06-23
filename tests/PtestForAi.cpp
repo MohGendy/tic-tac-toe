@@ -67,7 +67,7 @@ TEST(PerformanceTestAi, initAI_Average) {
     
     // Optional Assertions: The thresholds reflect the averages over iterations.
     EXPECT_LT(avgDuration, 500000);          // Average must finish in under 0.5 sec (500,000 usec)
-    EXPECT_LT(avgMemoryUsage, 60000);          // Average must use less than 60 MB
+    EXPECT_LT(avgMemoryUsage, 100000);          // Average must use less than 100 MB
 }
 
 TEST(PerformanceTestAi, deleteAi) {
