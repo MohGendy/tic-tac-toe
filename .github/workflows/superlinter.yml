@@ -56,7 +56,7 @@ jobs: #!comment lint till packagingruns
 
       - name: Run Tests
         run: |
-          cd build/Debug
+          cd build/Release
           dir
           .\runTests.exe
         
