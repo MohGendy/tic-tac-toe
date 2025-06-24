@@ -1,11 +1,9 @@
 name: CI/CD Pipeline
 
-# on:
-#   push:
-#     branches: [main]
-#   pull_request:
 on:
-  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
 
 jobs:
   lint:
@@ -70,7 +68,7 @@ jobs:
           cpack
 
       - name: Upload Installer
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: NSIS-installer
           path: build/*.exe
