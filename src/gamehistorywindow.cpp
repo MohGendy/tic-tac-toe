@@ -26,6 +26,12 @@ void MainWindow::loadHistoryScreen(){
             ui->tableWidget_games->setItem(row, 3, new QTableWidgetItem(QString::fromStdString(history[i].result)));
 
         }
+
+        ui->tableWidget_games->setVisible(false);
+        ui->tableWidget_games->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+        ui->tableWidget_games->resizeColumnsToContents();
+        ui->tableWidget_games->resizeRowsToContents();
+        ui->tableWidget_games->setVisible(true);
     }
 }
 

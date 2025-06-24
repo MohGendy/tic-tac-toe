@@ -63,11 +63,19 @@ void MainWindow::megaReplayControl(bool action,bool init){
             if(i<replayer.moves.size()){
                 btns[replayer.moves[i].row+replayer.moves[i].col*9]->setText(QString(replayer.moves[i].player));
                 i++;
+                ui->previouspushbuttonmega->setEnabled(true);
+            }
+            if(i>=replayer.moves.size()){
+                ui->pushButton_back_from_board_to_main_mega_r->setEnabled(false);
             }
         }else{
             if(i>0){
                 i--;
-                btns[replayer.moves[i].row*9+replayer.moves[i].col]->setText(QString(" "));
+                btns[replayer.moves[i].row+replayer.moves[i].col*9]->setText(QString(" "));
+                ui->pushButton_back_from_board_to_main_mega_r->setEnabled(true);
+            }
+            if(i<=0){
+                ui->previouspushbuttonmega->setEnabled(false);
             }
         }
     }
@@ -86,6 +94,11 @@ void MainWindow::on_pushButton_back_from_board_to_main_mega_r_clicked()
 {
     megaReplayControl(1,0);
 
+}
+
+void MainWindow::LoadMegaReplay(){
+    ui->pushButton_back_from_board_to_main_mega_r->setEnabled(true);
+    ui->previouspushbuttonmega->setEnabled(false);
 }
 
 

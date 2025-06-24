@@ -28,11 +28,19 @@ void MainWindow::normalReplayControl(bool action,bool init){
             if(i<replayer.moves.size()){
                 btns[replayer.moves[i].row*3+replayer.moves[i].col]->setText(QString(replayer.moves[i].player));
                 i++;
+                ui->previouspushButton->setEnabled(true);
+            }
+            if(i>=replayer.moves.size()){
+                ui->_r->setEnabled(false);
             }
         }else{
             if(i>0){
                 i--;
                 btns[replayer.moves[i].row*3+replayer.moves[i].col]->setText(QString(" "));
+                ui->_r->setEnabled(true);
+            }
+            if(i<=0){
+                ui->previouspushButton->setEnabled(false);
             }
         }
     }
@@ -50,6 +58,11 @@ void MainWindow::on__r_clicked()
 void MainWindow::on_previouspushButton_clicked()
 {
     normalReplayControl(0,0);
+}
+
+void MainWindow::LoadNormalReplay(){
+    ui->_r->setEnabled(true);
+    ui->previouspushButton->setEnabled(false);
 
 }
 

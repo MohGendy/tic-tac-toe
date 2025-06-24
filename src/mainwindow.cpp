@@ -171,7 +171,14 @@ void MainWindow::on_stackedWidget_currentChanged(int arg1)
     if(ui->stackedWidget->currentWidget() == ui->choose_your_icon){
         loadchooseicon();
     }
-
+    
+    if(ui->stackedWidget->currentWidget() == ui->replay_classic){
+        LoadNormalReplay();
+    }
+    
+    if(ui->stackedWidget->currentWidget() == ui->replay_mega){
+        LoadMegaReplay();
+    }
 }
 
 void MainWindow::loadProfile(){

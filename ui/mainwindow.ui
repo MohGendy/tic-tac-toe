@@ -55,14 +55,14 @@ QLineEdit {
 
 
 QLineEdit:focus {
-    border-color: #4CAF50; /* Border color when QLineEdit is focused */
+    border-color: rgb(255, 105, 180); /* Border color when QLineEdit is focused */
     /* Optional: Add a box shadow or change background color when focused */
     /* box-shadow: 0 0 5px rgba(81, 203, 238, 1); */
     /* background-color: #FFFFFF; */
 }
 
 QLineEdit::hover {
-    border-color: #999999; /* Border color on hover */
+    border-color:  rgb(255, 105, 180); /* Border color on hover */
 }
 
 QLineEdit::disabled {
@@ -94,9 +94,9 @@ QPushButton:hover {
 }
 
 QPushButton:disabled {
-    background-color: #cccccc; /* Gray background when disabled */
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
     border-color: #aaaaaa; /* Gray border when disabled */
-    color: #666666; /* Gray text when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }
 
 
@@ -145,7 +145,7 @@ QLabel#label_profile_photo {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>10</number>
       </property>
       <widget class="QWidget" name="main">
        <property name="sizePolicy">
@@ -406,6 +406,33 @@ QPushButton:pressed {
              <string notr="true">QWidget{
 	background-color:rgba(17, 17, 43, 190);
 	border-radius:20px;
+}
+
+
+QPushButton {
+    background-color: #1E1E4B; /* Dark blue to match background */
+    border: 2px solid #FF69B4; /* Neon pink border */
+    border-radius: 10px; /* Rounded edges */
+    color: #FF00FF; /* Neon pink text */
+    padding: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+QPushButton:hover {
+    background-color: #2A2A5E; /* Slightly lighter blue on hover */
+    border: 2px solid #FF00FF; /* Brighter pink on hover */
+    color: #FFFFFF; /* White text on hover for contrast */
+}
+QPushButton:pressed {
+    background-color: #FF69B4; /* Neon pink when pressed */
+    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
+    color: #1E1E4B; /* Dark blue text when pressed */
+}
+
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -461,25 +488,7 @@ background:none;</string>
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">QPushButton {
-    background-color: #1E1E4B; /* Dark blue to match background */
-    border: 2px solid #FF69B4; /* Neon pink border */
-    border-radius: 10px; /* Rounded edges */
-    color: #FF00FF; /* Neon pink text */
-    padding: 5px;
-    font-size: 14px;
-    font-weight: bold;
-}
-QPushButton:hover {
-    background-color: #2A2A5E; /* Slightly lighter blue on hover */
-    border: 2px solid #FF00FF; /* Brighter pink on hover */
-    color: #FFFFFF; /* White text on hover for contrast */
-}
-QPushButton:pressed {
-    background-color: #FF69B4; /* Neon pink when pressed */
-    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
-    color: #1E1E4B; /* Dark blue text when pressed */
-}</string>
+                <string notr="true"/>
                </property>
                <property name="text">
                 <string>Player Vs Player</string>
@@ -495,25 +504,7 @@ QPushButton:pressed {
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">QPushButton {
-    background-color: #1E1E4B; /* Dark blue to match background */
-    border: 2px solid #FF69B4; /* Neon pink border */
-    border-radius: 10px; /* Rounded edges */
-    color: #FF00FF; /* Neon pink text */
-    padding: 5px;
-    font-size: 14px;
-    font-weight: bold;
-}
-QPushButton:hover {
-    background-color: #2A2A5E; /* Slightly lighter blue on hover */
-    border: 2px solid #FF00FF; /* Brighter pink on hover */
-    color: #FFFFFF; /* White text on hover for contrast */
-}
-QPushButton:pressed {
-    background-color: #FF69B4; /* Neon pink when pressed */
-    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
-    color: #1E1E4B; /* Dark blue text when pressed */
-}</string>
+                <string notr="true"/>
                </property>
                <property name="text">
                 <string>Player Vs AI</string>
@@ -529,25 +520,7 @@ QPushButton:pressed {
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">QPushButton {
-    background-color: #1E1E4B; /* Dark blue to match background */
-    border: 2px solid #FF69B4; /* Neon pink border */
-    border-radius: 10px; /* Rounded edges */
-    color: #FF00FF; /* Neon pink text */
-    padding: 5px;
-    font-size: 14px;
-    font-weight: bold;
-}
-QPushButton:hover {
-    background-color: #2A2A5E; /* Slightly lighter blue on hover */
-    border: 2px solid #FF00FF; /* Brighter pink on hover */
-    color: #FFFFFF; /* White text on hover for contrast */
-}
-QPushButton:pressed {
-    background-color: #FF69B4; /* Neon pink when pressed */
-    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
-    color: #1E1E4B; /* Dark blue text when pressed */
-}</string>
+                <string notr="true"/>
                </property>
                <property name="text">
                 <string>Load Game</string>
@@ -723,13 +696,13 @@ QPushButton:pressed {
               <number>7</number>
              </property>
              <property name="leftMargin">
-              <number>30</number>
+              <number>100</number>
              </property>
              <property name="topMargin">
               <number>30</number>
              </property>
              <property name="rightMargin">
-              <number>30</number>
+              <number>100</number>
              </property>
              <property name="bottomMargin">
               <number>30</number>
@@ -1884,6 +1857,12 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;          /* Dark blue text when pressed */
+}
+
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
               </property>
               <property name="text">
@@ -1893,6 +1872,9 @@ QPushButton:pressed {
             </item>
             <item>
              <widget class="QPushButton" name="previouspushbuttonmega">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -1922,6 +1904,13 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;          /* Dark blue text when pressed */
+}
+
+
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
               </property>
               <property name="text">
@@ -1985,6 +1974,19 @@ QPushButton:pressed {
                <string>Back</string>
               </property>
              </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_17">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
             </item>
            </layout>
           </item>
@@ -6912,6 +6914,12 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;          /* Dark blue text when pressed */
+}
+
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
               </property>
               <property name="text">
@@ -6921,6 +6929,9 @@ QPushButton:pressed {
             </item>
             <item>
              <widget class="QPushButton" name="previouspushButton">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -6950,6 +6961,12 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;          /* Dark blue text when pressed */
+}
+
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
               </property>
               <property name="text">
@@ -6992,6 +7009,19 @@ QPushButton:pressed {
                <string>Back</string>
               </property>
              </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_16">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
             </item>
            </layout>
           </item>
@@ -7452,12 +7482,28 @@ background-attachment: fixed;</string>
            <number>50</number>
           </property>
           <property name="bottomMargin">
-           <number>50</number>
+           <number>20</number>
           </property>
-          <item row="0" column="1">
-           <spacer name="verticalSpacer_games_top">
+          <item row="6" column="1">
+           <spacer name="verticalSpacer_games_bottom">
             <property name="orientation">
              <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="4" column="1">
+           <spacer name="verticalSpacer_games_2">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Maximum</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -7480,22 +7526,6 @@ border-radius: 10px;</string>
              <string>Game History</string>
             </property>
            </widget>
-          </item>
-          <item row="2" column="1">
-           <spacer name="verticalSpacer_games_1">
-            <property name="orientation">
-             <enum>Qt::Orientation::Vertical</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Policy::Maximum</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
           </item>
           <item row="3" column="1">
            <widget class="QTableWidget" name="tableWidget_games">
@@ -7550,6 +7580,15 @@ QTableWidget::item:selected {
             <property name="gridStyle">
              <enum>Qt::PenStyle::SolidLine</enum>
             </property>
+            <property name="sortingEnabled">
+             <bool>true</bool>
+            </property>
+            <attribute name="horizontalHeaderCascadingSectionResizes">
+             <bool>true</bool>
+            </attribute>
+            <attribute name="verticalHeaderCascadingSectionResizes">
+             <bool>true</bool>
+            </attribute>
             <column>
              <property name="text">
               <string>ID</string>
@@ -7572,8 +7611,21 @@ QTableWidget::item:selected {
             </column>
            </widget>
           </item>
-          <item row="4" column="1">
-           <spacer name="verticalSpacer_games_2">
+          <item row="0" column="1">
+           <spacer name="verticalSpacer_games_top">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="1">
+           <spacer name="verticalSpacer_games_1">
             <property name="orientation">
              <enum>Qt::Orientation::Vertical</enum>
             </property>
@@ -7588,7 +7640,7 @@ QTableWidget::item:selected {
             </property>
            </spacer>
           </item>
-          <item row="5" column="1">
+          <item row="7" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_games_buttons">
             <item>
              <widget class="QPushButton" name="pushButton_back_games">
@@ -7635,19 +7687,6 @@ QPushButton:pressed {
              </widget>
             </item>
            </layout>
-          </item>
-          <item row="6" column="1">
-           <spacer name="verticalSpacer_games_bottom">
-            <property name="orientation">
-             <enum>Qt::Orientation::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
           </item>
          </layout>
         </item>
@@ -12215,6 +12254,12 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;          /* Dark blue text when pressed */
+}
+
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
               </property>
               <property name="text">
@@ -12256,6 +12301,37 @@ QPushButton:pressed {
              <string notr="true">QWidget{
 	background-color:rgba(17, 17, 43, 190);
 	border-radius:15px;
+}
+
+QPushButton {
+    min-width: 100px;        /* Retain original minimum width */
+    min-height: 100px;       /* Retain original minimum height */
+    font-size: 35px;         /* Retain original font size */
+    font-weight: bold;       /* Retain original font weight */
+    background-color: #1E1E4B; /* Dark blue to match background grid */
+    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
+    border-radius: 5px;      /* Slight rounding for modern look */
+    color: #FF00FF;          /* Neon pink text for X/O */
+    padding: 5px;            /* Internal padding for better appearance */
+}
+
+QPushButton:hover {
+    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
+    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
+    color: #FFFFFF;          /* White text on hover for contrast */
+}
+
+QPushButton:pressed {
+    background-color: #FF69B4; /* Neon pink when pressed */
+    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
+    color: #1E1E4B;          /* Dark blue text when pressed */
+}
+
+
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
             </property>
             <layout class="QGridLayout" name="gridLayout_9">
@@ -12289,29 +12365,7 @@ QPushButton:pressed {
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">QPushButton {
-    min-width: 100px;        /* Retain original minimum width */
-    min-height: 100px;       /* Retain original minimum height */
-    font-size: 35px;         /* Retain original font size */
-    font-weight: bold;       /* Retain original font weight */
-    background-color: #1E1E4B; /* Dark blue to match background grid */
-    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
-    border-radius: 5px;      /* Slight rounding for modern look */
-    color: #FF00FF;          /* Neon pink text for X/O */
-    padding: 5px;            /* Internal padding for better appearance */
-}
-
-QPushButton:hover {
-    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
-    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
-    color: #FFFFFF;          /* White text on hover for contrast */
-}
-
-QPushButton:pressed {
-    background-color: #FF69B4; /* Neon pink when pressed */
-    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
-    color: #1E1E4B;          /* Dark blue text when pressed */
-}</string>
+                <string notr="true"/>
                </property>
                <property name="text">
                 <string/>
@@ -12333,29 +12387,7 @@ QPushButton:pressed {
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">QPushButton {
-    min-width: 100px;        /* Retain original minimum width */
-    min-height: 100px;       /* Retain original minimum height */
-    font-size: 35px;         /* Retain original font size */
-    font-weight: bold;       /* Retain original font weight */
-    background-color: #1E1E4B; /* Dark blue to match background grid */
-    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
-    border-radius: 5px;      /* Slight rounding for modern look */
-    color: #FF00FF;          /* Neon pink text for X/O */
-    padding: 5px;            /* Internal padding for better appearance */
-}
-
-QPushButton:hover {
-    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
-    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
-    color: #FFFFFF;          /* White text on hover for contrast */
-}
-
-QPushButton:pressed {
-    background-color: #FF69B4; /* Neon pink when pressed */
-    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
-    color: #1E1E4B;          /* Dark blue text when pressed */
-}</string>
+                <string notr="true"/>
                </property>
                <property name="text">
                 <string/>
@@ -12364,6 +12396,9 @@ QPushButton:pressed {
              </item>
              <item row="0" column="2">
               <widget class="QPushButton" name="b2">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
                  <horstretch>0</horstretch>
@@ -12377,29 +12412,7 @@ QPushButton:pressed {
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">QPushButton {
-    min-width: 100px;        /* Retain original minimum width */
-    min-height: 100px;       /* Retain original minimum height */
-    font-size: 35px;         /* Retain original font size */
-    font-weight: bold;       /* Retain original font weight */
-    background-color: #1E1E4B; /* Dark blue to match background grid */
-    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
-    border-radius: 5px;      /* Slight rounding for modern look */
-    color: #FF00FF;          /* Neon pink text for X/O */
-    padding: 5px;            /* Internal padding for better appearance */
-}
-
-QPushButton:hover {
-    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
-    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
-    color: #FFFFFF;          /* White text on hover for contrast */
-}
-
-QPushButton:pressed {
-    background-color: #FF69B4; /* Neon pink when pressed */
-    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
-    color: #1E1E4B;          /* Dark blue text when pressed */
-}</string>
+                <string notr="true"/>
                </property>
                <property name="text">
                 <string/>
@@ -12415,29 +12428,7 @@ QPushButton:pressed {
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">QPushButton {
-    min-width: 100px;        /* Retain original minimum width */
-    min-height: 100px;       /* Retain original minimum height */
-    font-size: 35px;         /* Retain original font size */
-    font-weight: bold;       /* Retain original font weight */
-    background-color: #1E1E4B; /* Dark blue to match background grid */
-    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
-    border-radius: 5px;      /* Slight rounding for modern look */
-    color: #FF00FF;          /* Neon pink text for X/O */
-    padding: 5px;            /* Internal padding for better appearance */
-}
-
-QPushButton:hover {
-    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
-    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
-    color: #FFFFFF;          /* White text on hover for contrast */
-}
-
-QPushButton:pressed {
-    background-color: #FF69B4; /* Neon pink when pressed */
-    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
-    color: #1E1E4B;          /* Dark blue text when pressed */
-}</string>
+                <string notr="true"/>
                </property>
                <property name="text">
                 <string/>
@@ -12446,6 +12437,9 @@ QPushButton:pressed {
              </item>
              <item row="1" column="2">
               <widget class="QPushButton" name="b5">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
                <property name="minimumSize">
                 <size>
                  <width>114</width>
@@ -12453,29 +12447,7 @@ QPushButton:pressed {
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">QPushButton {
-    min-width: 100px;        /* Retain original minimum width */
-    min-height: 100px;       /* Retain original minimum height */
-    font-size: 35px;         /* Retain original font size */
-    font-weight: bold;       /* Retain original font weight */
-    background-color: #1E1E4B; /* Dark blue to match background grid */
-    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
-    border-radius: 5px;      /* Slight rounding for modern look */
-    color: #FF00FF;          /* Neon pink text for X/O */
-    padding: 5px;            /* Internal padding for better appearance */
-}
-
-QPushButton:hover {
-    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
-    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
-    color: #FFFFFF;          /* White text on hover for contrast */
-}
-
-QPushButton:pressed {
-    background-color: #FF69B4; /* Neon pink when pressed */
-    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
-    color: #1E1E4B;          /* Dark blue text when pressed */
-}</string>
+                <string notr="true"/>
                </property>
                <property name="text">
                 <string/>
@@ -12497,29 +12469,7 @@ QPushButton:pressed {
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">QPushButton {
-    min-width: 100px;        /* Retain original minimum width */
-    min-height: 100px;       /* Retain original minimum height */
-    font-size: 35px;         /* Retain original font size */
-    font-weight: bold;       /* Retain original font weight */
-    background-color: #1E1E4B; /* Dark blue to match background grid */
-    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
-    border-radius: 5px;      /* Slight rounding for modern look */
-    color: #FF00FF;          /* Neon pink text for X/O */
-    padding: 5px;            /* Internal padding for better appearance */
-}
-
-QPushButton:hover {
-    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
-    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
-    color: #FFFFFF;          /* White text on hover for contrast */
-}
-
-QPushButton:pressed {
-    background-color: #FF69B4; /* Neon pink when pressed */
-    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
-    color: #1E1E4B;          /* Dark blue text when pressed */
-}</string>
+                <string notr="true"/>
                </property>
                <property name="text">
                 <string/>
@@ -12541,29 +12491,7 @@ QPushButton:pressed {
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">QPushButton {
-    min-width: 100px;        /* Retain original minimum width */
-    min-height: 100px;       /* Retain original minimum height */
-    font-size: 35px;         /* Retain original font size */
-    font-weight: bold;       /* Retain original font weight */
-    background-color: #1E1E4B; /* Dark blue to match background grid */
-    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
-    border-radius: 5px;      /* Slight rounding for modern look */
-    color: #FF00FF;          /* Neon pink text for X/O */
-    padding: 5px;            /* Internal padding for better appearance */
-}
-
-QPushButton:hover {
-    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
-    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
-    color: #FFFFFF;          /* White text on hover for contrast */
-}
-
-QPushButton:pressed {
-    background-color: #FF69B4; /* Neon pink when pressed */
-    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
-    color: #1E1E4B;          /* Dark blue text when pressed */
-}</string>
+                <string notr="true"/>
                </property>
                <property name="text">
                 <string/>
@@ -12585,29 +12513,7 @@ QPushButton:pressed {
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">QPushButton {
-    min-width: 100px;        /* Retain original minimum width */
-    min-height: 100px;       /* Retain original minimum height */
-    font-size: 35px;         /* Retain original font size */
-    font-weight: bold;       /* Retain original font weight */
-    background-color: #1E1E4B; /* Dark blue to match background grid */
-    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
-    border-radius: 5px;      /* Slight rounding for modern look */
-    color: #FF00FF;          /* Neon pink text for X/O */
-    padding: 5px;            /* Internal padding for better appearance */
-}
-
-QPushButton:hover {
-    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
-    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
-    color: #FFFFFF;          /* White text on hover for contrast */
-}
-
-QPushButton:pressed {
-    background-color: #FF69B4; /* Neon pink when pressed */
-    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
-    color: #1E1E4B;          /* Dark blue text when pressed */
-}</string>
+                <string notr="true"/>
                </property>
                <property name="text">
                 <string/>
@@ -12629,29 +12535,7 @@ QPushButton:pressed {
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">QPushButton {
-    min-width: 100px;        /* Retain original minimum width */
-    min-height: 100px;       /* Retain original minimum height */
-    font-size: 35px;         /* Retain original font size */
-    font-weight: bold;       /* Retain original font weight */
-    background-color: #1E1E4B; /* Dark blue to match background grid */
-    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
-    border-radius: 5px;      /* Slight rounding for modern look */
-    color: #FF00FF;          /* Neon pink text for X/O */
-    padding: 5px;            /* Internal padding for better appearance */
-}
-
-QPushButton:hover {
-    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
-    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
-    color: #FFFFFF;          /* White text on hover for contrast */
-}
-
-QPushButton:pressed {
-    background-color: #FF69B4; /* Neon pink when pressed */
-    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
-    color: #1E1E4B;          /* Dark blue text when pressed */
-}</string>
+                <string notr="true"/>
                </property>
                <property name="text">
                 <string/>

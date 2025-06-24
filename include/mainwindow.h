@@ -136,6 +136,10 @@ private slots:
     
     void loadHistoryScreen();
 
+    void LoadNormalReplay();
+
+    void LoadMegaReplay();
+
     void normalReplayControl(bool action,bool init);
 
     void megaReplayControl(bool action,bool init);
