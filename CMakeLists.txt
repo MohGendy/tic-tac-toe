@@ -17,6 +17,16 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Core)
 # Add resource file explicitly
 qt6_add_resources(APP_RESOURCES assets/resources.qrc)
 
+# Disable gmock/gtest install rules to avoid packaging errors
+set(INSTALL_GMOCK OFF CACHE BOOL "" FORCE)
+set(INSTALL_GTEST OFF CACHE BOOL "" FORCE)
+
+# Pull in dependencies
+add_subdirectory(googletest)
+add_subdirectory(sqlite)
+add_subdirectory(bcrypt)
+add_subdirectory(windows_stub)
+
 # Pull in dependencies
 add_subdirectory(googletest)
 add_subdirectory(sqlite)
