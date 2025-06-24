@@ -1,9 +1,11 @@
 name: CI/CD Pipeline
 
+# on:
+#   push:
+#     branches: [main]
+#   pull_request:
 on:
-  push:
-    branches: [main]
-  pull_request:
+  workflow_dispatch:
 
 jobs:
   lint:
@@ -25,7 +27,7 @@ jobs:
           VALIDATE_TYPESCRIPT: false
 
   build-test-package:
-    name: Build, Test & Package with NSIS
+    name: Build, Test & Package
     runs-on: windows-latest
     needs: lint
     if: github.ref == 'refs/heads/main'
@@ -59,3 +61,17 @@ jobs:
           cd build/Debug
           dir
           .\runTests.exe
+      - name: Install to staging directory
+        run: cmake --install build --config Release --prefix "package_dir"
+
+      - name: Package with CPack
+        run: |
+          cd build
+          cpack
+
+      - name: Upload Installer
+        uses: actions/upload-artifact@v3
+        with:
+          name: NSIS-installer
+          path: build/*.exe
+    
