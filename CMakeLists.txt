@@ -27,12 +27,6 @@ add_subdirectory(sqlite)
 add_subdirectory(bcrypt)
 add_subdirectory(windows_stub)
 
-# Pull in dependencies
-add_subdirectory(googletest)
-add_subdirectory(sqlite)
-add_subdirectory(bcrypt)
-add_subdirectory(windows_stub)
-
 # Define include paths
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
