@@ -49,8 +49,7 @@ jobs:
       #- name: Configure Project
        # run: cmake -S . -B build -G "Ninja" -DCMAKE_BUILD_TYPE=Release
       - name: Configure Project
-        run: cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release
-
+        run: cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release -DCMAKE_CONFIGURATION_TYPES="Debug;Release"
       - name: Build Project
         run: cmake --build build --target my_program runTests 
 
@@ -59,7 +58,8 @@ jobs:
           cd build/Debug
           dir
           .\runTests.exe
-      - name: Install to staging directory
+        
+      - name: Install to staging directory (release) 
         run: cmake --install build --config Release --prefix "package_dir"
 
       - name: Package with CPack
