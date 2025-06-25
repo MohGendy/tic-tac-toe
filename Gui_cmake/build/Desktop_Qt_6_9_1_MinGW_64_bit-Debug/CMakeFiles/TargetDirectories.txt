@@ -1,9 +1,0 @@
-E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/Gui_cmake.dir
-E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
-E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
-E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
-E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/install.dir
-E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
-E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
-E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/Gui_cmake_autogen_timestamp_deps.dir
-E:/uni/sec/term2/Embedded/project/DrOmar/code/Gui_cmake/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/Gui_cmake_autogen.dir
