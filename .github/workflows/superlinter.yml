@@ -28,7 +28,7 @@ jobs:
   build-test-package:
     name: Build, Test & Package
     runs-on: windows-latest
-    needs: lint #!uncomment 
+    needs: lint 
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout code
@@ -59,6 +59,11 @@ jobs:
           cd build/Release
           dir
           .\runTests.exe
+      - name: Upload Test Logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-logs
+          path: build/Release/*.log    
         
       - name: Install to staging directory (release) 
         run: cmake --install build --config Release --prefix "$(pwd)/package_dir"
