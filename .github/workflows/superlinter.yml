@@ -7,28 +7,28 @@ on:
 
 
 jobs: 
-  # lint:
-  #   name: Lint Code Base
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v2
+  lint:
+    name: Lint Code Base
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-  #     - name: Run Super-Linter
-  #       uses: github/super-linter@v5
-  #       env:
-  #         DEFAULT_BRANCH: main
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #         VALIDATE_ALL_CODEBASE: true
-  #         FILTER_REGEX_EXCLUDE: "build/.*"
-  #         JSCPD_THRESHOLD: 5
-  #         VALIDATE_MARKDOWN: true
-  #         VALIDATE_TYPESCRIPT: false
+      - name: Run Super-Linter
+        uses: github/super-linter@v5
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_ALL_CODEBASE: true
+          FILTER_REGEX_EXCLUDE: "build/.*"
+          JSCPD_THRESHOLD: 5
+          VALIDATE_MARKDOWN: true
+          VALIDATE_TYPESCRIPT: false
 
   build-test-package:
     name: Build, Test & Package
     runs-on: windows-latest
-    # needs: lint 
+    needs: lint 
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout code
@@ -43,12 +43,7 @@ jobs:
 
       - name: Set up CMake
         uses: jwlawson/actions-setup-cmake@v1
-      
-      #- name: Install Ninja
-      #  uses: seanmiddleditch/gha-setup-ninja@v3
 
-      #- name: Configure Project
-       # run: cmake -S . -B build -G "Ninja" -DCMAKE_BUILD_TYPE=Release
       - name: Configure Project
         run: cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release -DCMAKE_CONFIGURATION_TYPES="Debug;Release"
       - name: Build Project
