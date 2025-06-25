@@ -9,6 +9,7 @@ const QString inactiveStyle = "color:rgb(113, 113, 113); font-weight:bold; font-
 
 bool MainWindow::handleMegaMove(int row, int col, int subgrid , QPushButton* button) {
     qDebug()<<"handle mega move started \n";
+    int closed = -1;
     if(!gamedata.gameended){
         if(! megaboard.isGridwon(subgrid) ){
             if(allowedSubgrid == -1 ||subgrid == allowedSubgrid  ||  
@@ -34,6 +35,7 @@ bool MainWindow::handleMegaMove(int row, int col, int subgrid , QPushButton* but
                             }
                         }
                         }
+                        closed = subgrid;
                     }
 
                     if( megaboard.megaCheckWin(currentPlayersymbol)){
@@ -56,7 +58,10 @@ bool MainWindow::handleMegaMove(int row, int col, int subgrid , QPushButton* but
                         if (gameId != -1) insertGameMoves(db, gameId, replayManager.getMoves());
                     }
 
-                    if(megaboard.isSubgridFull(subgrid)) ui->label_53_m->setText(QString::number(ui->label_53_m->text().toInt()+1));
+                    if(megaboard.isSubgridFull(subgrid)){
+                         ui->label_53_m->setText(QString::number(ui->label_53_m->text().toInt()+1));
+                         closed = subgrid;
+                    }
 
                     currentPlayersymbol = (currentPlayersymbol == 'X') ? 'O' : 'X';
                     if (currentPlayersymbol == 'X') {
@@ -67,6 +72,7 @@ bool MainWindow::handleMegaMove(int row, int col, int subgrid , QPushButton* but
                         ui->user1_label_mega->setStyleSheet(inactiveStyle);
                     }
                     allowedSubgrid = row * 3 + col; //next player allowed subgrid
+                    disableEnableControler( 0 ,closed);
                 }
 
             else {
@@ -111,6 +117,7 @@ void MainWindow::clearmegawindow(){
     allowedSubgrid = -1 ;
     megaboard = megaBoard(); // Reset the mega board
     //reset lables (active/inactive)
+    disableEnableControler( 1 ,-1);
     ui->user1_label_mega->setStyleSheet(activeStyle);
     ui->user2_label_mega->setStyleSheet(inactiveStyle);
 
@@ -131,4 +138,30 @@ void MainWindow::loadmegaWindow(){
     clearmegawindow();
     ui->user1_label_mega->setText(QString::fromStdString(gamedata.ismainuserfirst ?users[0].name:users[1].name));
     ui->user2_label_mega->setText(QString::fromStdString(gamedata.ismainuserfirst ?users[1].name:users[0].name));
+}
+
+void MainWindow::disableEnableControler(bool init ,int closed ){
+    static bool sub[9] = {0};
+    if(closed != -1){
+        sub[closed] = 1;
+    }
+    if(init){
+        for(int isubgrid = 0; isubgrid < 9; isubgrid++){
+            sub[isubgrid] = 0;
+        }
+    }else{
+        for(int isubgrid = 0; isubgrid < 9; isubgrid++){
+            for(int irow = 0; irow < 3 ;irow++){
+                for(int icol = 0 ; icol < 3 ;icol++){
+                    QString objectName = QString("b%1_%2_%3").arg(irow).arg(icol).arg(isubgrid);
+                    QPushButton *ibutton = this->findChild<QPushButton*>(objectName, Qt::FindChildrenRecursively);
+                    if (ibutton && !sub[isubgrid] && ibutton->text().toStdString() != "X" && ibutton->text().toStdString() != "O" && (allowedSubgrid == -1 || isubgrid == allowedSubgrid || sub[allowedSubgrid])) {
+                        ibutton->setEnabled(true);
+                    }else{
+                        ibutton->setEnabled(false);
+                    }
+                }
+            }
+        }
+    }
 }

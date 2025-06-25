@@ -166,6 +166,7 @@ private slots:
 
     void on_pushButton_back_from_board_to_main_p_clicked();
 
+    void disableEnableControler(bool init = 0,int closed = -1);
 
     bool handleMegaMove(int globalRow,int globalCol,int subgrid , QPushButton* button);
 

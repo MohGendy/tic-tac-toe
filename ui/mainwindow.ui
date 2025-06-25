@@ -145,7 +145,7 @@ QLabel#label_profile_photo {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>10</number>
+       <number>11</number>
       </property>
       <widget class="QWidget" name="main">
        <property name="sizePolicy">
@@ -5660,7 +5660,11 @@ background:none;</string>
              <item>
               <widget class="QCheckBox" name="checkBox_show_password">
                <property name="styleSheet">
-                <string notr="true">background:none;</string>
+                <string notr="true">background:none;
+QCheckBox::indicator:checked{
+			background-color: rgb(241, 0, 241);
+	
+}</string>
                </property>
                <property name="text">
                 <string>Show Password</string>
@@ -7842,6 +7846,12 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;          /* Dark blue text when pressed */
+}
+
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
               </property>
               <property name="text">
@@ -8306,6 +8316,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -8344,6 +8359,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -8382,6 +8402,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -8420,6 +8445,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -8458,6 +8488,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -8496,6 +8531,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -8534,6 +8574,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -8572,6 +8617,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -8610,6 +8660,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -8652,6 +8707,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -8690,6 +8750,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -8728,6 +8793,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -8766,6 +8836,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -8804,6 +8879,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -8842,6 +8922,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -8880,6 +8965,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -8918,6 +9008,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -8956,6 +9051,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -8998,6 +9098,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9036,6 +9141,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9074,6 +9184,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9112,6 +9227,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9150,6 +9270,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9188,6 +9313,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9226,6 +9356,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9264,6 +9399,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9302,6 +9442,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9344,6 +9489,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9382,6 +9532,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9420,6 +9575,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9458,6 +9618,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9496,6 +9661,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9534,6 +9704,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9572,6 +9747,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9610,6 +9790,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9648,6 +9833,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9712,6 +9902,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9750,6 +9945,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9788,6 +9988,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9826,6 +10031,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9864,6 +10074,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9902,6 +10117,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9940,6 +10160,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -9978,6 +10203,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10016,6 +10246,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10058,6 +10293,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10096,6 +10336,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10134,6 +10379,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10172,6 +10422,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10210,6 +10465,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10248,6 +10508,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10286,6 +10551,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10324,6 +10594,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10362,6 +10637,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10426,6 +10706,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10464,6 +10749,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10502,6 +10792,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10540,6 +10835,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10578,6 +10878,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10616,6 +10921,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10654,6 +10964,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10692,6 +11007,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10730,6 +11050,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10772,6 +11097,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10810,6 +11140,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10848,6 +11183,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10886,6 +11226,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10924,6 +11269,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -10962,6 +11312,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -11000,6 +11355,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -11038,6 +11398,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -11076,6 +11441,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -11118,6 +11488,12 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -11156,6 +11532,12 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -11194,6 +11576,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -11232,6 +11619,12 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -11270,6 +11663,12 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -11308,6 +11707,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -11346,6 +11750,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -11384,6 +11793,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
@@ -11422,6 +11836,11 @@ QPushButton:pressed {
     background-color: #FF69B4; /* Neon pink when pressed */
     border: 2px solid #1E1E4B; /* Dark blue border when pressed */
     color: #1E1E4B;         /* Dark blue text when pressed */
+}
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
 }</string>
                  </property>
                  <property name="text">
