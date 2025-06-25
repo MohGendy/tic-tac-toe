@@ -1,76 +1,76 @@
 name: CI/CD Pipeline
 
-on:
+on: # Defines when this workflow should be triggered
   push:
     branches: [main]
   pull_request:
 
 
 jobs: 
-  lint:
+  lint: # First job: Code quality checks before building/testing begins
     name: Lint Code Base
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Run this job on the latest Ubuntu environment because it runs smoothly with Super-Linter than windows
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout code # Downloads our source code from the repo
+        uses: actions/checkout@v2 # GitHub Action to clone the repository
 
-      - name: Run Super-Linter
-        uses: github/super-linter@v5
+      - name: Run Super-Linter # Run static analysis on the entire codebase
+        uses: github/super-linter@v5 # Uses GitHub's official linting tool
         env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VALIDATE_ALL_CODEBASE: true
-          FILTER_REGEX_EXCLUDE: "build/.*"
-          JSCPD_THRESHOLD: 5
-          VALIDATE_MARKDOWN: true
-          VALIDATE_TYPESCRIPT: false
+          DEFAULT_BRANCH: main # Used internally by Super-Linter for baseline comparison to detect differences
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Required for the Action to authenticate and run
+          VALIDATE_ALL_CODEBASE: true # Lint everything (not just the differences)
+          FILTER_REGEX_EXCLUDE: "build/.*"  # Exclude the build folder from linting
+          JSCPD_THRESHOLD: 5 # Allow up to 5% code duplication before failing
+          VALIDATE_MARKDOWN: true # Enable linting for markdown files like README.md & overview.md
+          VALIDATE_TYPESCRIPT: false # Disable TypeScript linting (not used in this project)
 
-  build-test-package:
+  build-test-package: # Second job: Compile the app, run automated tests, and generate an installer
     name: Build, Test & Package
-    runs-on: windows-latest
-    needs: lint 
-    if: github.ref == 'refs/heads/main'
+    runs-on: windows-latest # Windows environment needed for building and packaging the app
+    needs: lint # Wait until the 'lint' job succeeds before running this job
+    if: github.ref == 'refs/heads/main' # Extra guard to ensure this only runs on the main branch
     steps:
-      - name: Checkout code
+      - name: Checkout code # Fetch the latest version of the code
         uses: actions/checkout@v2
-      - name: Init submodules
+      - name: Init submodules # Pull in any git submodules (e.g., googletest ,bcrypt ,..)
         run: git submodule update --init --recursive
-      - name: Install Qt
+      - name: Install Qt # Set up Qt SDK for building the application GUI
         uses: jurplel/install-qt-action@v3
         with:
           version: '6.6.3'
-          arch: 'win64_msvc2019_64'
+          arch: 'win64_msvc2019_64' # Architecture and compiler (64-bit, MSVC 2019)
 
-      - name: Set up CMake
+      - name: Set up CMake # Install CMake to configure and manage the build
         uses: jwlawson/actions-setup-cmake@v1
 
-      - name: Configure Project
+      - name: Configure Project # Generate build files
         run: cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release -DCMAKE_CONFIGURATION_TYPES="Debug;Release"
-      - name: Build Project
+      - name: Build Project # Compile both the application and test suite
         run: cmake --build build --config Release --target my_program runTests 
 
-      - name: Run Tests
+      - name: Run Tests # Run the test executable and display test output
         run: |
           cd build/Release
           dir
           .\runTests.exe | Out-File -FilePath test_output.log -Encoding utf8
-      - name: Upload Test Logs
+      - name: Upload Test Logs #upload the .log to artifacts 
         uses: actions/upload-artifact@v4
         with:
           name: test-logs
           path: build/Release/*.log    
         
-      - name: Install to staging directory (release) 
-        run: cmake --install build --config Release --prefix "$(pwd)/package_dir"
+      - name: Install to staging directory (release)  # Stage all runtime files and dependencies into an install folder
+        run: cmake --install build --config Release --prefix "$(pwd)/package_dir" # pws set the path for github
 
-      - name: Package with CPack
+      - name: Package with CPack # Create an NSIS installer (.exe) from the staged files
         run: |
           cd build
           cpack
 
-      - name: Upload Installer
+      - name: Upload Installer # Upload the generated installer as a downloadable artifact in GitHu
         uses: actions/upload-artifact@v4
         with:
-          name: NSIS-installer
-          path: build/*.exe
+          name: NSIS-installer # Label for the uploaded artifact
+          path: build/*.exe # Path to find the installer(s) to upload
     
