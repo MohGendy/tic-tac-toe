@@ -44,9 +44,9 @@ void MainWindow::on_tableWidget_games_cellClicked(int row, int column)
     replayer.result = ui->tableWidget_games->item(row,3)->text().toStdString();
     replayer.moves.clear();
     bool status = loadMovesForGameGUI(db,  x , replayer.moves);
-    for(int i = 0 ; i<replayer.moves.size();i++){
-        qInfo() << replayer.moves[i].row*3+replayer.moves[i].col << " ";
-    }
+    // for(int i = 0 ; i<replayer.moves.size();i++){
+    //     qInfo() << replayer.moves[i].row*3+replayer.moves[i].col << " ";
+    // }
     if(replayer.moves.size()<=9){
          normalReplayControl(1,1);
         this->ui->stackedWidget->setCurrentIndex(WnormalReplay);

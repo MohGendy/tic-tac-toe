@@ -11,7 +11,6 @@ State * State::free(){//post order traversal to free memory
     return NULL;
 }
 
-
 Tree::Tree(bool start){
     this->head=minimax(start,0);
     this->current=this->head;
@@ -22,9 +21,9 @@ Tree::~Tree(){
 }
 
 bool Tree::move(int move,bool isPlayer){
-    if(current->nextState[move]!=NULL){
-        this->board[move]=(isPlayer?2:1);
-        current = current->nextState[move];
+    if(current->nextState[move]!=NULL){ // new place
+        this->board[move]=(isPlayer?2:1); // 1 = Ai , 2 = player
+        current = current->nextState[move]; // traverse
         return true;
     }else{
         return false;
@@ -32,13 +31,12 @@ bool Tree::move(int move,bool isPlayer){
 }
 
 bool Tree::bestMove(int * move){
-    int bestRate = -101;
-    int best = -1;
+    int bestRate = -101; 
+    int best = -1; // index 
     State * bestState = NULL;
-    for(int i =0;i<9;i++){
-        if(current->nextState[i]!= NULL){
-            // std::cout << i << " : " << current->nextState[i]->rate << std::endl;
-            if(bestRate < current->nextState[i]->rate){
+    for(int i =0;i<9;i++){ // loop on each elem
+        if(current->nextState[i]!= NULL){ // valid move
+            if(bestRate < current->nextState[i]->rate){ // better than best 
                 bestState = current->nextState[i];
                 best = i;
                 bestRate = bestState->rate;
@@ -48,7 +46,7 @@ bool Tree::bestMove(int * move){
     if(best == -1){
         return false;
     }else{
-        *move = best;
+        *move = best; // return the best move index
         return true;
     }
 
@@ -75,7 +73,7 @@ State * Tree::minimax(bool isMaximizing, int depth, int lastMove) {
     // Generate child states
     for (int i = 0; i < 9; i++) {
         if (this->board[i] == 0) { // If cell is empty
-            this->board[i] = (isMaximizing ? 1 : 2); // Assign move
+            this->board[i] = (isMaximizing ? 1 : 2); // Assign move , 1 = ai , 2 = player
             temp->nextState[i] = minimax(!isMaximizing, depth + 1, i);
             temp->rate = (isMaximizing ? std::max(temp->nextState[i]->rate, temp->rate)
                                        : std::min(temp->nextState[i]->rate, temp->rate));
@@ -86,7 +84,7 @@ State * Tree::minimax(bool isMaximizing, int depth, int lastMove) {
     return temp;
 }
 
-int Tree::checkBoard(int move){
+int Tree::checkBoard(int move){ // check for win case
     int symbol = board[move];
     int x = move/3 , y = move%3;
     if((this->board[x*3+0]==symbol && this->board[x*3+1]==symbol && this->board[x*3+2]==symbol)||
@@ -99,13 +97,13 @@ int Tree::checkBoard(int move){
     }
 }
 
-bool Tree::isFull(){
-        for(int i = 0;i<9;i++){
-            if(this->board[i]==0){
-                return false;
-            }
+bool Tree::isFull(){ // check if board is full
+    for(int i = 0;i<9;i++){
+        if(this->board[i]==0){
+            return false;
         }
-        return true;
+    }
+    return true;
 }
 
 //only to debug ,not used now
@@ -116,23 +114,23 @@ void Tree::print(){
     }
 }
 
-bool Tree::rates(int arr[]){
+bool Tree::rates(int arr[]){ // return rates for each valid move
     for(int i = 0 ; i < 9 ; i++){
         if(current->nextState[i]!= NULL){
-            std::cout << i << " : " << current->nextState[i]->rate << std::endl;
+            // std::cout << i << " : " << current->nextState[i]->rate << std::endl;
             arr[i] = current->nextState[i]->rate;
         }
     }
     return true;
 }
 
-void Tree::treeBoard(int arr[]){
+void Tree::treeBoard(int arr[]){ // return board from the tree
     for(int i = 0; i<9;i++){
         arr[i] = board[i];
     }
 }
 
-void Tree::reset(){
+void Tree::reset(){ // reset tree to start again
     current = head;
     for (int i = 0; i < 9; i++)
     {
@@ -150,26 +148,28 @@ bool Ai::moveAi(int * move){
     int board[9] = {0};
     int seed;
     switch (level){
+
         case easy:
             seed = rand()%9;
-            tree.treeBoard(board);
+            tree.treeBoard(board); // return board from tree
             while(1){
                 if(board[seed] == 0){
                     *move = seed;
-                    tree.move(seed,false);
+                    tree.move(seed,false); // update ai move in tree
                     return true;
                 }else{
                     seed = (seed+1)%9;
                 }
             };
         break;
+
         case normal:
             seed = rand()%100;
-            if(seed < 50){
+            if(seed < 50){ //50% play best move
                 flag = tree.bestMove(move);//
                 tree.move(*move,false);
                 return flag;
-            }else{
+            }else{ // 50% play random except best move
                 int rates[9];
                 tree.treeBoard(board);
                 // tree.rates(rates);
@@ -193,7 +193,8 @@ bool Ai::moveAi(int * move){
             }
 
         break;
-        case hard: // change later
+
+        case hard:
                 flag = tree.bestMove(move);//
                 tree.move(*move,false);
                 return flag;
@@ -204,6 +205,7 @@ bool Ai::moveAi(int * move){
     return false;
     
 }
+
 bool Ai::movePlayer(int move){
     return tree.move(move,1);
 }

@@ -4,14 +4,14 @@
 #include <QMessageBox>
 
 
-void MainWindow::on_pushButton_goto_signup_clicked()
+void MainWindow::on_pushButton_goto_signup_clicked() // go to signup btn
 {
     this->ui->stackedWidget->setCurrentIndex(Wsignup);
     this->ui->lineEdit_username->clear();
     this->ui->lineEdit_password->clear();
 }
 
-void MainWindow::on_pushButton_3_clicked()
+void MainWindow::on_pushButton_3_clicked() // back btn
 {
     this->ui->lineEdit_username->clear();
     this->ui->lineEdit_password->clear();
@@ -22,7 +22,7 @@ void MainWindow::on_pushButton_3_clicked()
     }
 }
 
-void MainWindow::on_pushButton_login_function_clicked()
+void MainWindow::on_pushButton_login_function_clicked() //login btn
 {
     QString password , username;
     username = this->ui->lineEdit_username->text();

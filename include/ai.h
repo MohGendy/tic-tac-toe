@@ -29,7 +29,7 @@ class Tree {
     ~Tree();
     bool rates(int arr[]);
     bool move(int move,bool isPlayer);
-    bool bestMove(int * move); // delete later
+    bool bestMove(int * move);
     void print();
     void treeBoard(int arr[]);
     void reset();

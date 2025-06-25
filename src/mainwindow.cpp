@@ -101,10 +101,10 @@ void MainWindow::on_pushButton_exit_clicked()
 
 void MainWindow::on_pushButton_login_clicked()
 {
-    if(users[0].id == -1){
+    if(users[0].id == -1){ // login
         logincase = 0;
         this->ui->stackedWidget->setCurrentIndex(Wlogin);
-    }else{
+    }else{ // logout btn
             QString text = "Login";
             ui->pushButton_login->setText(text);
             ui->pushButton_4->setEnabled(false);
@@ -205,6 +205,9 @@ void MainWindow::loadProfile(){
         ui->label_username->setText(txt2);
         break;
     }
+    ui->lineEdit_old_pass->clear();
+    ui->lineEdit_new_pass->clear(); 
+    ui->lineEdit_change_pass->clear();
 }
 
 
