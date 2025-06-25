@@ -5,7 +5,8 @@
 
 const QString activeStyle = "color:rgb(17, 17, 44); font-weight:bold; font-size:24px; background-color: rgba(255, 0, 255, 170);";
 const QString inactiveStyle = "color:rgb(113, 113, 113); font-weight:bold; font-size:18px; background-color:rgba(85, 170, 255, 0);";
-
+const QString btnStyle = "QPushButton {\n    min-width: 40px;        /* Retain original minimum width */\n    min-height: 40px;       /* Retain original minimum height */\n    font-size: 20px;        /* Retain original font size */\n    font-weight: bold;      /* Retain original font weight */\n    background-color: #1E1E4B; /* Dark blue to match background grid */\n    border: 2px solid #FF69B4; /* Neon pink border, reduced from 3px for smaller size */\n    border-radius: 3px;     /* Slight rounding for modern look, adjusted for size */\n    color: #FF00FF;         /* Neon pink text for X/O */\n    padding: 2px;           /* Reduced padding for smaller buttons */\n}\n\nQPushButton:hover {\n    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */\n    border: 2px solid #FF00FF; /* Brighter neon pink on hover */\n    color: #FFFFFF;         /* White text on hover for contrast */\n}\n\nQPushButton:pressed {\n    background-color: #FF69B4; /* Neon pink when pressed */\n    border: 2px solid #1E1E4B; /* Dark blue border when pressed */\n    color: #1E1E4B;         /* Dark blue text when pressed */\n}\nQPushButton:disabled {\n    background-color: rgb(51, 53, 75); /* Gray background when disabled */\n    border-color: #aaaaaa; /* Gray border when disabled */\n    color: rgb(255, 255, 255); /* Gray text when disabled */\n}";
+const QString btnWinStyle = "QPushButton {\n    min-width: 40px;        /* Retain original minimum width */\n    min-height: 40px;       /* Retain original minimum height */\n    font-size: 20px;        /* Retain original font size */\n    font-weight: bold;      /* Retain original font weight */\n    background-color: #1E1E4B; /* Dark blue to match background grid */\n    border: 2px solid #FF69B4; /* Neon pink border, reduced from 3px for smaller size */\n    border-radius: 3px;     /* Slight rounding for modern look, adjusted for size */\n    color: #FF00FF;         /* Neon pink text for X/O */\n    padding: 2px;           /* Reduced padding for smaller buttons */\n}\n\nQPushButton:hover {\n    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */\n    border: 2px solid #FF00FF; /* Brighter neon pink on hover */\n    color: #FFFFFF;         /* White text on hover for contrast */\n}\n\nQPushButton:pressed {\n    background-color: #FF69B4; /* Neon pink when pressed */\n    border: 2px solid #1E1E4B; /* Dark blue border when pressed */\n    color: #1E1E4B;         /* Dark blue text when pressed */\n}\nQPushButton:disabled {\n    background-color: rgb(51, 75, 57); /* Gray background when disabled */\n    border-color: #55ff00; /* Gray border when disabled */\n    color: #55ff00; /* Gray text when disabled */\n}";
 
 bool MainWindow::handleMegaMove(int row, int col, int subgrid , QPushButton* button) {
     qDebug()<<"handle mega move started \n";
@@ -32,13 +33,15 @@ bool MainWindow::handleMegaMove(int row, int col, int subgrid , QPushButton* but
                                 QPushButton *ibutton = this->findChild<QPushButton*>(objectName, Qt::FindChildrenRecursively);
                                 if (ibutton) {
                                     ibutton->setEnabled(false);
+                                    ibutton->setText(QString(QChar(currentPlayersymbol)));
+                                }
                             }
-                        }
                         }
                         closed = subgrid;
                     }
 
                     if( megaboard.megaCheckWin(currentPlayersymbol)){
+                        winRecolorMega( subgrid, megaboard.winCase(subgrid));
                         QMessageBox::information(this, "congrats ", QString("Player %1 wins the game!").arg(currentPlayersymbol));
                         std::string winner = (currentPlayersymbol == users[0].symbol) ? users[0].name : users[1].name;
                         std::string finalBoard = replayManager.getSerializedBoard();
@@ -103,6 +106,7 @@ void MainWindow::clearmegawindow(){
                 if (ibutton) {
                     ibutton->setEnabled(true);
                     ibutton->setText("");
+                    ibutton->setStyleSheet(btnStyle);
                 }
             }
         }
@@ -165,3 +169,63 @@ void MainWindow::disableEnableControler(bool init ,int closed ){
         }
     }
 }
+
+void MainWindow::winRecolorMega(int sub , int winCase){
+    int x = sub/3 , y = sub%3;
+    switch(winCase){
+        case 1:
+
+            for(y=0;y<3;y++){   
+                for(int irow = 0; irow < 3 ;irow++){
+                    for(int icol = 0 ; icol < 3 ;icol++){
+                        QString objectName = QString("b%1_%2_%3").arg(irow).arg(icol).arg(x*3+y);
+                        QPushButton *ibutton = this->findChild<QPushButton*>(objectName, Qt::FindChildrenRecursively);
+                        if (ibutton) {
+                            ibutton->setStyleSheet(btnWinStyle);
+                        }
+                    }
+                }
+            }
+            break;
+        case 2:
+            for(x=0;x<3;x++){   
+                for(int irow = 0; irow < 3 ;irow++){
+                    for(int icol = 0 ; icol < 3 ;icol++){
+                        QString objectName = QString("b%1_%2_%3").arg(irow).arg(icol).arg(x*3+y);
+                        QPushButton *ibutton = this->findChild<QPushButton*>(objectName, Qt::FindChildrenRecursively);
+                        if (ibutton) {
+                            ibutton->setStyleSheet(btnWinStyle);
+                        }
+                    }
+                }
+            }
+            break;
+        case 3:
+            for(y=0,x=0;y<3;y++,x++){   
+                for(int irow = 0; irow < 3 ;irow++){
+                    for(int icol = 0 ; icol < 3 ;icol++){
+                        QString objectName = QString("b%1_%2_%3").arg(irow).arg(icol).arg(x*3+y);
+                        QPushButton *ibutton = this->findChild<QPushButton*>(objectName, Qt::FindChildrenRecursively);
+                        if (ibutton) {
+                            ibutton->setStyleSheet(btnWinStyle);
+                        }
+                    }
+                }
+            }
+            break;
+        case 4:
+            for(y=2,x=0;x<3;y--,x++){   
+                for(int irow = 0; irow < 3 ;irow++){
+                    for(int icol = 0 ; icol < 3 ;icol++){
+                        QString objectName = QString("b%1_%2_%3").arg(irow).arg(icol).arg(x*3+y);
+                        QPushButton *ibutton = this->findChild<QPushButton*>(objectName, Qt::FindChildrenRecursively);
+                        if (ibutton) {
+                            ibutton->setText(QString(QChar(currentPlayersymbol)));
+                        }
+                    }
+                }
+            }
+            break;
+    }
+}
+

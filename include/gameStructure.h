@@ -40,6 +40,7 @@ class megaBoard{
     char megaGetCell(int row, int col, int subgrid) const ;//help in testing
     char getWinningGrid(int subgid) const; //help in testing
     void displayWinningGrids();//help in testing
+    int winCase(int sub);
 };
 
 class Game {

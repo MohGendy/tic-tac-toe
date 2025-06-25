@@ -195,6 +195,8 @@ private slots:
     void on_previouspushbuttonmega_clicked();
 
     void loadchooseicon();
+
+    void winRecolorMega(int sub , int winCase);
 private:
     Ui::MainWindow *ui;
     char currentPlayersymbol;
