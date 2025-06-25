@@ -60,6 +60,21 @@
         if (row < 0 || row >= 3 || col < 0 || col >= 3) return 'N'; // Prevent invalid indices
         return grid[row][col];
     }
+
+    int Board::winCase(int row , int col){
+        if(grid[row][0]==grid[row][1]&&grid[row][0]==grid[row][2]){
+            return 1; // row win
+        }
+        if(grid[0][col]==grid[1][col]&&grid[0][col]==grid[2][col]){
+            return 2; // col win
+        }
+        if(grid[0][0]==grid[1][1]&&grid[0][0]==grid[2][2]){
+            return 3; //1st diagonal
+        }
+        if(grid[0][2]==grid[1][1]&&grid[0][2]==grid[2][0]){
+            return 4; //2nd diagonal
+        }
+    }
     //########################################struct megaBoard Functions########################################
     megaBoard::megaBoard(){
         // Initialize the grid with empty spaces

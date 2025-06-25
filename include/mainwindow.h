@@ -178,6 +178,8 @@ private slots:
 
     void loadmegaWindow();
 
+    void winRecolor(int row , int col , int winCase);
+
     void on_tableWidget_games_cellClicked(int row, int column);
 
     void on_pushButton_clicked();

@@ -9,7 +9,8 @@
 
 const QString activeStyle = "color:rgb(17, 17, 44); font-weight:bold; font-size:24px; background-color: rgba(255, 0, 255, 170);";
 const QString inactiveStyle = "color:rgb(113, 113, 113); font-weight:bold; font-size:18px; background-color:rgba(85, 170, 255, 0);";
-
+const QString btnWinStyle = "QPushButton {\n    min-width: 100px;        /* Retain original minimum width */\n    min-height: 100px;       /* Retain original minimum height */\n    font-size: 35px;         /* Retain original font size */\n    font-weight: bold;       /* Retain original font weight */\n    background-color: #1E1E4B; /* Dark blue to match background grid */\n    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */\n    border-radius: 5px;      /* Slight rounding for modern look */\n    color: #FF00FF;          /* Neon pink text for X/O */\n    padding: 5px;            /* Internal padding for better appearance */\n}\n\nQPushButton:hover {\n    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */\n    border: 2px solid #FF00FF; /* Brighter neon pink on hover */\n    color: #FFFFFF;          /* White text on hover for contrast */\n}\n\nQPushButton:pressed {\n    background-color: #FF69B4; /* Neon pink when pressed */\n    border: 2px solid #1E1E4B; /* Dark blue border when pressed */\n    color: #1E1E4B;          /* Dark blue text when pressed */\n}\n\n\nQPushButton:disabled {\n    background-color: rgb(51, 75, 57); /* Gray background when disabled */\n    border-color: #55ff00; /* Gray border when disabled */\n    color: #55ff00; /* Gray text when disabled */\n}";
+const QString btnStyle = "";
 void MainWindow::clearBoardGui(){
     // Normal 3x3 grid for tic tac toe
     const int gridRows = 3;
@@ -23,6 +24,7 @@ void MainWindow::clearBoardGui(){
     // Loop through each button and clear its text and re-enable it
     for (int index = 0; index < gridRows * gridCols; ++index) {
         if (buttons[index]) {
+            buttons[index]->setStyleSheet(btnStyle);
             buttons[index]->setText("");     // Clear the button's label
             buttons[index]->setEnabled(true);  // Re-enable the button for the next game
         }
@@ -65,6 +67,7 @@ bool MainWindow::buttonmakemove(int row, int col ,QPushButton* button) {
             button->setText(QString(currentPlayersymbol));
             button->setEnabled(false); // Disable the button after the move
             if (board.checkWin(currentPlayersymbol)) {
+                winRecolor(row ,col,board.winCase(row,col));
                 QMessageBox::information(this, "congrats ", QString("Player %1 wins!").arg(currentPlayersymbol));
                 //? update wins in data base
                 //? update win label for winner
@@ -156,4 +159,31 @@ void MainWindow::on_pushButton_back_from_board_to_main_p_clicked()
     }
 }
 
+void MainWindow::winRecolor(int row , int col , int winCase){
+    QPushButton* buttons[3 * 3] = { ui->b0, ui->b1, ui->b2,
+                                    ui->b3, ui->b4, ui->b5,
+                                    ui->b6, ui->b7, ui->b8 };
 
+    switch(winCase){
+        case 1:
+            buttons[row*3]->setStyleSheet(btnWinStyle);
+            buttons[row*3+1]->setStyleSheet(btnWinStyle);
+            buttons[row*3+2]->setStyleSheet(btnWinStyle);
+            break;
+        case 2:
+            buttons[col]->setStyleSheet(btnWinStyle);
+            buttons[col+3]->setStyleSheet(btnWinStyle);
+            buttons[col+6]->setStyleSheet(btnWinStyle);
+            break;
+        case 3:
+            buttons[0]->setStyleSheet(btnWinStyle);
+            buttons[4]->setStyleSheet(btnWinStyle);
+            buttons[8]->setStyleSheet(btnWinStyle);
+            break;
+        case 4:
+            buttons[2]->setStyleSheet(btnWinStyle);
+            buttons[4]->setStyleSheet(btnWinStyle);
+            buttons[6]->setStyleSheet(btnWinStyle);
+            break;
+    }
+}

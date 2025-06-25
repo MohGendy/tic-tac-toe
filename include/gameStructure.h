@@ -12,6 +12,7 @@ public:
     bool makeMove(int row, int col, char playerSymbol);
     bool checkWin(char playerSymbol);
     bool isFull();//detects a tie game
+    int winCase(int row , int col);
     char getCell(int row, int col) const; //help in testing
 };
 
