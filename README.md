@@ -18,7 +18,7 @@ my_program.exe
 ```sh
 runTests.exe
 ```
-##steps to pack
+## steps to pack
 
 ```sh
 cmake --build .

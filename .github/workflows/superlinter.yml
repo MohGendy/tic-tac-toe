@@ -5,7 +5,8 @@ on:
     branches: [main]
   pull_request:
 
-jobs:
+
+jobs: 
   lint:
     name: Lint Code Base
     runs-on: ubuntu-latest
@@ -25,9 +26,9 @@ jobs:
           VALIDATE_TYPESCRIPT: false
 
   build-test-package:
-    name: Build, Test & Package with NSIS
+    name: Build, Test & Package
     runs-on: windows-latest
-    needs: lint
+    needs: lint 
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout code
@@ -42,20 +43,34 @@ jobs:
 
       - name: Set up CMake
         uses: jwlawson/actions-setup-cmake@v1
-      
-      #- name: Install Ninja
-      #  uses: seanmiddleditch/gha-setup-ninja@v3
 
-      #- name: Configure Project
-       # run: cmake -S . -B build -G "Ninja" -DCMAKE_BUILD_TYPE=Release
       - name: Configure Project
-        run: cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release
-
+        run: cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release -DCMAKE_CONFIGURATION_TYPES="Debug;Release"
       - name: Build Project
-        run: cmake --build build --target my_program runTests 
+        run: cmake --build build --config Release --target my_program runTests 
 
       - name: Run Tests
         run: |
-          cd build/Debug
+          cd build/Release
           dir
-          .\runTests.exe
+          .\runTests.exe | Out-File -FilePath test_output.log -Encoding utf8
+      - name: Upload Test Logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-logs
+          path: build/Release/*.log    
+        
+      - name: Install to staging directory (release) 
+        run: cmake --install build --config Release --prefix "$(pwd)/package_dir"
+
+      - name: Package with CPack
+        run: |
+          cd build
+          cpack
+
+      - name: Upload Installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: NSIS-installer
+          path: build/*.exe
+    
