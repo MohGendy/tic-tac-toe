@@ -74,7 +74,7 @@ Please refer to the  [Installation Guide](#-installation-guide-for-developers)  
 
 ### Option 2: Run Executable (User Mode)
 
-Pre-built binaries will be available in the [Releases](https://github.com/MohGendy/tic-tac-toe/actions/runs/15898027166/artifacts/3408836376) section.
+To download the the executable file of the game [download](https://github.com/MohGendy/tic-tac-toe/actions/runs/15898027166/artifacts/3408836376)
 
 
 ---
