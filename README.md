@@ -8,7 +8,7 @@ To ensure software quality, the project incorporates unit testing with Google Te
 
 - **Multiple Game Modes :** Support both standard and Mega Tic Tac Toe boards with Player vs Player and Player vs AI modes.
 
-- **Expanded Game Modes :** Support both the classic 3×3 grid and an extended Mega Tic Tac Toe mode to increase challenge 
+- **Expanded Game Modes :** Support both the classic 3×3 grid and an extended Mega Tic Tac Toe mode to increase challenge.
 
 - **Replay System :** Allow users to review past games through a built-in replay feature.
 
@@ -60,7 +60,7 @@ To ensure software quality, the project incorporates unit testing with Google Te
 ## Documentation
 
 - **SRS Document :** [Software Requirements Specification (SRS)](docs/SRS.pdf)
- 
+
 - **SDS Document :** [Software Design Specification (SDS)](docs/SDS.pdf)
 
 ## Installation & Running
@@ -137,7 +137,7 @@ cpack
 
 
 
-## Game snippets 
+## Game snippets
 ### login window
 
 ![Image](https://github.com/user-attachments/assets/9b5d1514-7687-434d-9a9a-9f5a0e8b0939)
@@ -165,7 +165,7 @@ cpack
 
 ![Image](https://github.com/user-attachments/assets/500bb3cf-8acd-49a9-b725-df8118842b03)
 
-### Show the history and stats of the player window 
+### Show the history and stats of the player window
 
 ![Image](https://github.com/user-attachments/assets/1035fb5c-9820-4d02-bb3c-6f841b6b3041)
 
