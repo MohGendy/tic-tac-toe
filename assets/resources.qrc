@@ -7,4 +7,8 @@
         <file>images/psychedelic-neon-x-and-o-seamless-pattern-for-gaming-vector.jpg</file>
         <file>images/screencapture-png-pngtree-background-20211215-original-pngtree-playstation-neon-sign-pattern-background-picture-image-1470915-jpg-2025-06-21-11_32_56.png</file>
     </qresource>
+    <qresource prefix="/sound">
+        <file>sound/rain.mp3</file>
+        <file>sound/sound.mp3</file>
+    </qresource>
 </RCC>

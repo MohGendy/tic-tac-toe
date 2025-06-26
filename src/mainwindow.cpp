@@ -25,7 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     }else{
         qInfo() << "init db\n";
     }
-
+    gamedata.keep = 0;
 
     // Normal 3x3 grid for tic tac toe
     const int gridRows = 3;
@@ -82,6 +82,7 @@ MainWindow::MainWindow(QWidget *parent)
             }
         }
     }
+    loadbgMusic();
 
 }
 
@@ -113,6 +114,7 @@ void MainWindow::on_pushButton_login_clicked()
             ui->pushButton_load_game->setEnabled(false);
             ui->profileWidget->setVisible(false);
             users[0].id = -1;
+            users[1].id = -1;
             QMessageBox::information(this,
                 tr("Logout Success"),
                 tr("See you soon "));
@@ -210,5 +212,12 @@ void MainWindow::loadProfile(){
     ui->lineEdit_change_pass->clear();
 }
 
+
+
+
+void MainWindow::on_settings_btn_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(Wsettings);
+}
 
 

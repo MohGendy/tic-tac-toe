@@ -145,7 +145,7 @@ QLabel#label_profile_photo {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>11</number>
+       <number>13</number>
       </property>
       <widget class="QWidget" name="main">
        <property name="sizePolicy">
@@ -524,6 +524,22 @@ background:none;</string>
                </property>
                <property name="text">
                 <string>Load Game</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="settings_btn">
+               <property name="minimumSize">
+                <size>
+                 <width>114</width>
+                 <height>44</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>Settings</string>
                </property>
               </widget>
              </item>
@@ -1338,22 +1354,6 @@ QPushButton:pressed {
                </property>
               </widget>
              </item>
-             <item row="4" column="2">
-              <widget class="QCheckBox" name="checkBox_confirm_newpass">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background:none;</string>
-               </property>
-               <property name="text">
-                <string>Show Password</string>
-               </property>
-              </widget>
-             </item>
              <item row="4" column="0">
               <widget class="QLabel" name="label_47">
                <property name="sizePolicy">
@@ -1449,22 +1449,6 @@ background:none;</string>
                 </size>
                </property>
               </spacer>
-             </item>
-             <item row="6" column="2">
-              <widget class="QCheckBox" name="checkBox_newpass">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background:none;</string>
-               </property>
-               <property name="text">
-                <string>Show Password</string>
-               </property>
-              </widget>
              </item>
              <item row="0" column="1">
               <widget class="QLabel" name="label_48">
@@ -1568,6 +1552,38 @@ background:none;</string>
                </property>
               </widget>
              </item>
+             <item row="6" column="2">
+              <widget class="QCheckBox" name="checkBox_confirm_newpass">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background:none;</string>
+               </property>
+               <property name="text">
+                <string>Show Password</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="2">
+              <widget class="QCheckBox" name="checkBox_newpass">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background:none;</string>
+               </property>
+               <property name="text">
+                <string>Show Password</string>
+               </property>
+              </widget>
+             </item>
             </layout>
            </widget>
           </item>
@@ -1604,7 +1620,52 @@ background:none;</string>
            <number>30</number>
           </property>
           <item row="18" column="2">
-           <layout class="QHBoxLayout" name="horizontalLayout_22"/>
+           <layout class="QHBoxLayout" name="horizontalLayout_22">
+            <item>
+             <widget class="QPushButton" name="play_mega">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+    min-width: 180px;        /* Placeholder default width, to be adjusted if specified */
+    min-height: 40px;        /* Placeholder default height, to be adjusted if specified */
+    font-size: 14px;         /* Default font size, unchanged */
+    font-weight: bold;       /* Default bold weight, unchanged */
+    background-color: #1E1E4B; /* Dark blue to match background grid */
+    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
+    border-radius: 5px;      /* Slight rounding for modern look */
+    color: #FF00FF;          /* Neon pink text for theme alignment */
+    padding: 5px;            /* Internal padding, unchanged */
+}
+
+QPushButton:hover {
+    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
+    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
+    color: #FFFFFF;          /* White text on hover for contrast */
+}
+
+QPushButton:pressed {
+    background-color: #FF69B4; /* Neon pink when pressed */
+    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
+    color: #1E1E4B;          /* Dark blue text when pressed */
+}
+
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
+}</string>
+              </property>
+              <property name="text">
+               <string>Play</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item row="14" column="1">
            <spacer name="verticalSpacer_14">
@@ -7030,7 +7091,52 @@ QPushButton:pressed {
            </layout>
           </item>
           <item row="12" column="2">
-           <layout class="QHBoxLayout" name="horizontalLayout_22"/>
+           <layout class="QHBoxLayout" name="horizontalLayout_22">
+            <item>
+             <widget class="QPushButton" name="play_normal">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+    min-width: 180px;        /* Placeholder default width, to be adjusted if specified */
+    min-height: 40px;        /* Placeholder default height, to be adjusted if specified */
+    font-size: 14px;         /* Default font size, unchanged */
+    font-weight: bold;       /* Default bold weight, unchanged */
+    background-color: #1E1E4B; /* Dark blue to match background grid */
+    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
+    border-radius: 5px;      /* Slight rounding for modern look */
+    color: #FF00FF;          /* Neon pink text for theme alignment */
+    padding: 5px;            /* Internal padding, unchanged */
+}
+
+QPushButton:hover {
+    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
+    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
+    color: #FFFFFF;          /* White text on hover for contrast */
+}
+
+QPushButton:pressed {
+    background-color: #FF69B4; /* Neon pink when pressed */
+    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
+    color: #1E1E4B;          /* Dark blue text when pressed */
+}
+
+QPushButton:disabled {
+    background-color: rgb(51, 53, 75); /* Gray background when disabled */
+    border-color: #aaaaaa; /* Gray border when disabled */
+    color: rgb(255, 255, 255); /* Gray text when disabled */
+}</string>
+              </property>
+              <property name="text">
+               <string>Play</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item row="13" column="1">
            <spacer name="verticalSpacer_52">
@@ -13015,6 +13121,339 @@ background:none;</string>
              </item>
             </layout>
            </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="settings">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_9">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_10">
+          <property name="leftMargin">
+           <number>50</number>
+          </property>
+          <property name="topMargin">
+           <number>50</number>
+          </property>
+          <property name="rightMargin">
+           <number>50</number>
+          </property>
+          <property name="bottomMargin">
+           <number>50</number>
+          </property>
+          <item>
+           <spacer name="verticalSpacer_profile_top_2">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QWidget" name="widget_2" native="true">
+            <property name="styleSheet">
+             <string notr="true">QWidget{
+	background-color:rgba(17, 17, 43, 190);
+	border-radius:20px;
+}</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_profile_2">
+             <property name="spacing">
+              <number>7</number>
+             </property>
+             <property name="leftMargin">
+              <number>100</number>
+             </property>
+             <property name="topMargin">
+              <number>30</number>
+             </property>
+             <property name="rightMargin">
+              <number>100</number>
+             </property>
+             <property name="bottomMargin">
+              <number>50</number>
+             </property>
+             <item alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QLabel" name="label_profile_title_2">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);
+font: 900 36pt &quot;Segoe UI Black&quot;;
+background:none;</string>
+               </property>
+               <property name="text">
+                <string>Settings</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_profile_2">
+               <property name="orientation">
+                <enum>Qt::Orientation::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Policy::Maximum</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>50</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_username_2">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);
+font: 700 24pt &quot;Segoe UI&quot;;
+background:none;</string>
+               </property>
+               <property name="text">
+                <string>Music:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignHCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="music_selection">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>164</width>
+                 <height>54</height>
+                </size>
+               </property>
+               <property name="baseSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QComboBox {
+    min-width: 150px;
+	min-height: 40px;
+	border-radius: 5px;
+	font-size: 20px; 
+	font-weight: bold;
+	background-color: #1E1E4B;
+	color: #FF00FF; 
+   	padding:5px; 
+	border: 2px solid #FF69B4; 
+  	
+
+
+}</string>
+               </property>
+               <property name="editable">
+                <bool>true</bool>
+               </property>
+               <property name="currentText">
+                <string>Adventure</string>
+               </property>
+               <property name="currentIndex">
+                <number>0</number>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="frame">
+                <bool>true</bool>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Adventure</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Relax</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_profile_3">
+               <property name="orientation">
+                <enum>Qt::Orientation::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Policy::Maximum</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>50</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_stats_2">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>17</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="acceptDrops">
+                <bool>false</bool>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);
+font: 700 18pt &quot;Segoe UI&quot;;
+background:none;</string>
+               </property>
+               <property name="text">
+                <string>Sound:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignHCenter</set>
+               </property>
+               <property name="margin">
+                <number>10</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSlider" name="sound_level">
+               <property name="styleSheet">
+                <string notr="true">QSlider::groove:horizontal {
+    border: 1px solid rgb(255, 0, 255);
+    height: 10px; /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */
+    background: rgb(30, 30, 75);
+    margin: 2px 0;
+}
+
+QSlider::handle:horizontal {
+    background: rgb(251, 0, 255);
+    border: 1px solid #5c5c5c;
+    width: 20px;
+    margin: -2px 0; /* handle is placed by default on the contents rect of the groove. Expand outside the groove */
+    border-radius: 3px;
+}</string>
+               </property>
+               <property name="value">
+                <number>50</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_profile_bottom_2">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QPushButton" name="back_main_settings">
+              <property name="minimumSize">
+               <size>
+                <width>194</width>
+                <height>54</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+    min-width: 180px;        /* Placeholder default width, to be adjusted if specified */
+    min-height: 40px;        /* Placeholder default height, to be adjusted if specified */
+    font-size: 14px;         /* Default font size, unchanged */
+    font-weight: bold;       /* Default bold weight, unchanged */
+    background-color: #1E1E4B; /* Dark blue to match background grid */
+    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
+    border-radius: 5px;      /* Slight rounding for modern look */
+    color: #FF00FF;          /* Neon pink text for theme alignment */
+    padding: 5px;            /* Internal padding, unchanged */
+}
+
+QPushButton:hover {
+    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
+    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
+    color: #FFFFFF;          /* White text on hover for contrast */
+}
+
+QPushButton:pressed {
+    background-color: #FF69B4; /* Neon pink when pressed */
+    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
+    color: #1E1E4B;          /* Dark blue text when pressed */
+}</string>
+              </property>
+              <property name="text">
+               <string>Back</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_21">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>30</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
           </item>
          </layout>
         </item>

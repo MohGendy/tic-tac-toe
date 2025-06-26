@@ -152,6 +152,7 @@ void MainWindow::loadgameScreen(){
 
 void MainWindow::on_pushButton_back_from_board_to_main_p_clicked()
 {
+    if(!gamedata.keep) users[1].id =-1;
     this->ui->stackedWidget->setCurrentIndex(Wmain);
     if(ai != NULL){
         delete ai;

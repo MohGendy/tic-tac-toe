@@ -23,6 +23,13 @@ void MainWindow::normalReplayControl(bool action,bool init){
         ui->label_40_c->setText(QString::fromStdString(users[0].name));
         ui->label_2511->setText(QString::fromStdString(replayer.player2));
         ui->label_11->setText(QString::fromStdString(replayer.result));
+        ui->play_normal->setText(QString("Play"));
+        
+        replayer.timer.stop();
+        replayer.timer.disconnect();
+        connect(&(replayer.timer),&QTimer::timeout,this,[this](){
+                timerCallbackNormal();
+        });
     }else{
         if(action){
             if(i<replayer.moves.size()){
@@ -32,6 +39,8 @@ void MainWindow::normalReplayControl(bool action,bool init){
             }
             if(i>=replayer.moves.size()){
                 ui->_r->setEnabled(false);
+                replayer.timer.stop();
+                ui->play_normal->setText(QString("Play"));
             }
         }else{
             if(i>0){
@@ -66,5 +75,18 @@ void MainWindow::LoadNormalReplay(){
 
 }
 
+void MainWindow::timerCallbackNormal(){
+    normalReplayControl(1,0);
+}
 
-
+void MainWindow::on_play_normal_clicked()
+{
+    bool isStarted = ui->play_normal->text() == QString("Stop");
+    if(!isStarted){
+        replayer.timer.start(1000);
+        ui->play_normal->setText(QString("Stop"));
+    }else{
+        replayer.timer.stop();
+        ui->play_normal->setText(QString("Play"));
+    }
+}

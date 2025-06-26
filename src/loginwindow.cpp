@@ -50,12 +50,12 @@ void MainWindow::on_pushButton_login_function_clicked() //login btn
         }else{
 
             int id = getUserId(db, name);
-            QMessageBox::information(this,
-                            tr("Login Success"),
-                            (tr("Welcome , \n")+(username)));
             this->ui->lineEdit_username->clear();
             this->ui->lineEdit_password->clear();
             if(!logincase){
+                QMessageBox::information(this,
+                                tr("Login Success"),
+                                (tr("Welcome , \n")+(username)));
                 users[0].id=id;
                 users[0].name=name;
                 QString text = "Logout";
@@ -71,6 +71,11 @@ void MainWindow::on_pushButton_login_function_clicked() //login btn
                 
                 users[1].id=id;
                 users[1].name=name;
+                if(QMessageBox::Ok == QMessageBox::question(
+                    this,tr("Login Success"),tr("Do you want to stay logged in?"),
+                    QMessageBox::Ok|QMessageBox::Cancel) 
+                ) gamedata.keep = 1;
+                else gamedata.keep = 0;
                 this->ui->stackedWidget->setCurrentIndex(Wicon);
                 
             }

@@ -130,6 +130,7 @@ void MainWindow::clearmegawindow(){
 
 void MainWindow::on_exit_mega_clicked()
 {
+    if(!gamedata.keep) users[1].id =-1;
     ui->stackedWidget->setCurrentIndex(Wmain);
 }
 
