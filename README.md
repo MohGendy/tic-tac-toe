@@ -62,6 +62,8 @@ To ensure software quality, the project incorporates unit testing with Google Te
 - **SRS Document :** [Software Requirements Specification (SRS)](docs/SRS.pdf)
 
 - **SDS Document :** [Software Design Specification (SDS)](docs/SDS.pdf)
+  
+- **Testing Document :** [Testing Report](docs/testing%20report.pdf)
 
 ## Installation & Running
 
@@ -72,7 +74,7 @@ Please refer to the  [Installation Guide](#-installation-guide-for-developers)  
 
 ### Option 2: Run Executable (User Mode)
 
-Pre-built binaries will be available in the [Releases](https://github.com/yourusername/tic-tac-toe/releases) section.
+Pre-built binaries will be available in the [Releases](https://github.com/MohGendy/tic-tac-toe/actions/runs/15898027166/artifacts/3408836376) section.
 
 
 ---
@@ -144,7 +146,8 @@ cpack
 
 ### Main window
 
-![Image](https://github.com/user-attachments/assets/2b4ccec5-c214-4fc2-b64b-8cc4b607c779)
+![Image](https://github.com/user-attachments/assets/7f66f4ea-fb82-4f62-bc15-3b60e3f89428)
+
 
 ### Select to play the classic mode(3x3) or mega mode window
 
@@ -159,7 +162,7 @@ cpack
 
 ### The mega game window (player Vs Player)
 
-![Image](https://github.com/user-attachments/assets/e3fa6100-353e-4c34-856e-37a6141f0f32)
+![Image](https://github.com/user-attachments/assets/52bd9e2c-3e20-4605-86f2-bae233917793)
 
 ### Choose the AI difficulty window
 
@@ -167,9 +170,10 @@ cpack
 
 ### Show the history and stats of the player window
 
-![Image](https://github.com/user-attachments/assets/1035fb5c-9820-4d02-bb3c-6f841b6b3041)
+![Image](https://github.com/user-attachments/assets/ac4654ba-fa4b-4b6d-b864-f1eb1f167695)
 
 ![Image](https://github.com/user-attachments/assets/0301ff01-2000-48f4-8623-de890e661a07)
+
 ### Database snippets
 
 ![Image](https://github.com/user-attachments/assets/1c59bd4e-8498-44b0-89bc-b41dd6fb97c3)
