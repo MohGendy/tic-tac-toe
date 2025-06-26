@@ -145,7 +145,7 @@ QLabel#label_profile_photo {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>14</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="main">
        <property name="sizePolicy">
@@ -579,21 +579,8 @@ background:none;</string>
           <property name="bottomMargin">
            <number>50</number>
           </property>
-          <item row="8" column="1">
-           <spacer name="verticalSpacer_profile_bottom">
-            <property name="orientation">
-             <enum>Qt::Orientation::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="5" column="0">
-           <spacer name="horizontalSpacer_13">
+          <item row="10" column="2">
+           <spacer name="horizontalSpacer_18">
             <property name="orientation">
              <enum>Qt::Orientation::Horizontal</enum>
             </property>
@@ -601,19 +588,6 @@ background:none;</string>
              <size>
               <width>40</width>
               <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="0" column="1">
-           <spacer name="verticalSpacer_profile_top">
-            <property name="orientation">
-             <enum>Qt::Orientation::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
              </size>
             </property>
            </spacer>
@@ -631,8 +605,8 @@ background:none;</string>
             </property>
            </spacer>
           </item>
-          <item row="7" column="2">
-           <spacer name="horizontalSpacer_12">
+          <item row="5" column="0">
+           <spacer name="horizontalSpacer_13">
             <property name="orientation">
              <enum>Qt::Orientation::Horizontal</enum>
             </property>
@@ -643,61 +617,6 @@ background:none;</string>
              </size>
             </property>
            </spacer>
-          </item>
-          <item row="10" column="0" rowspan="2">
-           <layout class="QHBoxLayout" name="horizontalLayout">
-            <item>
-             <widget class="QPushButton" name="pushButton_back_profile">
-              <property name="minimumSize">
-               <size>
-                <width>194</width>
-                <height>54</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QPushButton {
-    min-width: 180px;        /* Placeholder default width, to be adjusted if specified */
-    min-height: 40px;        /* Placeholder default height, to be adjusted if specified */
-    font-size: 14px;         /* Default font size, unchanged */
-    font-weight: bold;       /* Default bold weight, unchanged */
-    background-color: #1E1E4B; /* Dark blue to match background grid */
-    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
-    border-radius: 5px;      /* Slight rounding for modern look */
-    color: #FF00FF;          /* Neon pink text for theme alignment */
-    padding: 5px;            /* Internal padding, unchanged */
-}
-
-QPushButton:hover {
-    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
-    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
-    color: #FFFFFF;          /* White text on hover for contrast */
-}
-
-QPushButton:pressed {
-    background-color: #FF69B4; /* Neon pink when pressed */
-    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
-    color: #1E1E4B;          /* Dark blue text when pressed */
-}</string>
-              </property>
-              <property name="text">
-               <string>Back</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer_15">
-              <property name="orientation">
-               <enum>Qt::Orientation::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>30</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
           </item>
           <item row="5" column="1" rowspan="3">
            <widget class="QWidget" name="widget" native="true">
@@ -880,6 +799,113 @@ QPushButton:pressed {
              </item>
             </layout>
            </widget>
+          </item>
+          <item row="7" column="2">
+           <spacer name="horizontalSpacer_12">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="8" column="1">
+           <spacer name="verticalSpacer_profile_bottom">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="1">
+           <spacer name="verticalSpacer_profile_top">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="10" column="1">
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <spacer name="horizontalSpacer_20">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>30</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_back_profile">
+              <property name="minimumSize">
+               <size>
+                <width>194</width>
+                <height>54</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+    min-width: 180px;        /* Placeholder default width, to be adjusted if specified */
+    min-height: 40px;        /* Placeholder default height, to be adjusted if specified */
+    font-size: 14px;         /* Default font size, unchanged */
+    font-weight: bold;       /* Default bold weight, unchanged */
+    background-color: #1E1E4B; /* Dark blue to match background grid */
+    border: 2px solid #FF69B4; /* Neon pink border for glowing effect */
+    border-radius: 5px;      /* Slight rounding for modern look */
+    color: #FF00FF;          /* Neon pink text for theme alignment */
+    padding: 5px;            /* Internal padding, unchanged */
+}
+
+QPushButton:hover {
+    background-color: #2A2A5E; /* Lighter blue on hover for interactivity */
+    border: 2px solid #FF00FF; /* Brighter neon pink on hover */
+    color: #FFFFFF;          /* White text on hover for contrast */
+}
+
+QPushButton:pressed {
+    background-color: #FF69B4; /* Neon pink when pressed */
+    border: 2px solid #1E1E4B; /* Dark blue border when pressed */
+    color: #1E1E4B;          /* Dark blue text when pressed */
+}</string>
+              </property>
+              <property name="text">
+               <string>Back</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_15">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>30</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
           </item>
          </layout>
         </item>
