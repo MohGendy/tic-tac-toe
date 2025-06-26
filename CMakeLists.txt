@@ -63,8 +63,12 @@ target_link_libraries(my_program PRIVATE
     Threads::Threads
     #-mwindows  # For Windows GUI applications
 )
-if(WIN32)
+if(MINGW)
     target_link_options(my_program PRIVATE -mwindows)
+endif()
+
+if(MSVC)
+    set(GUI_FLAG WIN32)  # MSVC needs WIN32
 endif()
 
 # Link tests
