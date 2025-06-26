@@ -174,6 +174,10 @@ cpack
 
 ![Image](https://github.com/user-attachments/assets/0301ff01-2000-48f4-8623-de890e661a07)
 
+### Replay game window
+
+![Image](https://github.com/user-attachments/assets/c4317719-af80-424d-a06d-a271d5dff0b7)
+
 ### Database snippets
 
 ![Image](https://github.com/user-attachments/assets/1c59bd4e-8498-44b0-89bc-b41dd6fb97c3)
