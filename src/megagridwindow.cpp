@@ -221,7 +221,7 @@ void MainWindow::winRecolorMega(int sub , int winCase){
                         QString objectName = QString("b%1_%2_%3").arg(irow).arg(icol).arg(x*3+y);
                         QPushButton *ibutton = this->findChild<QPushButton*>(objectName, Qt::FindChildrenRecursively);
                         if (ibutton) {
-                            ibutton->setText(QString(QChar(currentPlayersymbol)));
+                            ibutton->setStyleSheet(btnWinStyle);
                         }
                     }
                 }
