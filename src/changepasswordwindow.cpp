@@ -20,14 +20,14 @@ void MainWindow::on_checkBox_oldpass_stateChanged(int arg1)
 
 void MainWindow::on_checkBox_newpass_stateChanged(int arg1)
 {
-    this->ui->lineEdit_change_pass->setEchoMode(arg1?(QLineEdit::Normal):(QLineEdit::Password));
+    this->ui->lineEdit_new_pass->setEchoMode(arg1?(QLineEdit::Normal):(QLineEdit::Password));
 
 }
 
 
 void MainWindow::on_checkBox_confirm_newpass_stateChanged(int arg1)
 {
-    this->ui->lineEdit_new_pass->setEchoMode(arg1?(QLineEdit::Normal):(QLineEdit::Password));
+    this->ui->lineEdit_change_pass->setEchoMode(arg1?(QLineEdit::Normal):(QLineEdit::Password));
 
 }
 
