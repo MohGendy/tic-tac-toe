@@ -145,7 +145,7 @@ QLabel#label_profile_photo {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>13</number>
+       <number>14</number>
       </property>
       <widget class="QWidget" name="main">
        <property name="sizePolicy">
@@ -13347,7 +13347,7 @@ background:none;</string>
                </property>
                <property name="styleSheet">
                 <string notr="true">color: rgb(255, 255, 255);
-font: 700 18pt &quot;Segoe UI&quot;;
+font: 700 24pt &quot;Segoe UI&quot;;
 background:none;</string>
                </property>
                <property name="text">
@@ -13363,12 +13363,19 @@ background:none;</string>
              </item>
              <item>
               <widget class="QSlider" name="sound_level">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
                <property name="styleSheet">
                 <string notr="true">QSlider::groove:horizontal {
-    border: 1px solid rgb(255, 0, 255);
+    border: 2px solid rgb(255, 0, 255);
     height: 10px; /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */
     background: rgb(30, 30, 75);
     margin: 2px 0;
+	min-height:22px;
 }
 
 QSlider::handle:horizontal {
