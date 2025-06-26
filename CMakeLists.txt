@@ -43,10 +43,6 @@ qt6_add_executable(my_program
     ${APP_RESOURCES}
 )
 
-if(WIN32)
-    # Set Windows subsystem to GUI
-    set_target_properties(my_program PROPERTIES WIN32_EXECUTABLE  FALSE)
-endif()    
 
 # Add Windows icon
 if(WIN32)
@@ -65,8 +61,11 @@ target_link_libraries(my_program PRIVATE
     sqlite3
     bcrypt
     Threads::Threads
-    -mwindows  # For Windows GUI applications
+    #-mwindows  # For Windows GUI applications
 )
+if(WIN32)
+    target_link_options(my_program PRIVATE -mwindows)
+endif()
 
 # Link tests
 target_link_libraries(runTests PRIVATE
