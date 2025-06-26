@@ -66,6 +66,7 @@ void MainWindow::on_pushButton_signup_clicked()
             this->ui->lineEdit_signup_username->clear();
             this->ui->lineEdit_signup_password->clear();
             this->ui->lineEdit_signup_confirm_password->clear();
+            this->ui->checkBox_signup_show_password->setChecked(false); //!added this
 
             this->ui->stackedWidget->setCurrentIndex(Wlogin);
             break;

@@ -208,6 +208,10 @@ void MainWindow::loadProfile(){
     ui->lineEdit_old_pass->clear();
     ui->lineEdit_new_pass->clear(); 
     ui->lineEdit_change_pass->clear();
+    this->ui->checkBox_confirm_newpass->setChecked(false); //!added this
+    this->ui->checkBox_newpass->setChecked(false); //!added this
+    this->ui->checkBox_oldpass->setChecked(false); //!added this
+
 }
 
 

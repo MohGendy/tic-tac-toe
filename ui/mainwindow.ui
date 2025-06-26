@@ -5941,6 +5941,9 @@ background:none;</string>
              </item>
              <item>
               <widget class="QCheckBox" name="checkBox_signup_show_password">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
                <property name="styleSheet">
                 <string notr="true">background:none;</string>
                </property>
