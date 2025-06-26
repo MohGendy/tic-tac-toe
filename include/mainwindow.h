@@ -7,6 +7,8 @@
 #include "gameStructure.h"
 #include "ai.h"
 #include <QTimer>
+#include <QMediaPlayer>
+#include <QAudioOutput>
 
 enum windows{
     Wai=8,//
@@ -23,6 +25,7 @@ enum windows{
     Wsignup=6,//
     WmegaReplay=4,
     WnormalReplay=9,
+    Wsettings=14,
 };
 
 struct userStruct{
@@ -38,6 +41,7 @@ struct gameStruct{
     short difficulty;      //ai difficulty level
     bool ismainuserfirst; //is main user first or second
     bool gameended;
+    bool keep;
 };
 
 //controlers
@@ -55,6 +59,7 @@ struct Replayer {
     string player2;
     vector<Move> moves;
     string result;
+    QTimer timer;
 };
 inline struct Replayer replayer;
 
@@ -195,9 +200,32 @@ private slots:
     void on_previouspushbuttonmega_clicked();
 
     void loadchooseicon();
+
+    void winRecolorMega(int sub , int winCase);
+
+    void timerCallbackNormal();
+
+    void on_play_normal_clicked();
+
+    void on_play_mega_clicked();
+
+    void timerCallbackMega();
+
+    void on_settings_btn_clicked();
+
+    void on_back_main_settings_clicked();
+
+    void loadbgMusic();
+
+    void on_music_selection_currentIndexChanged(int index);
+
+    void on_sound_level_sliderMoved(int position);
+
 private:
     Ui::MainWindow *ui;
     char currentPlayersymbol;
+    QMediaPlayer player;
+    QAudioOutput audioOutput;
    
 };
 #endif // MAINWINDOW_H

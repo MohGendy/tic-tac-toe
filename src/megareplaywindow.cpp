@@ -58,6 +58,13 @@ void MainWindow::megaReplayControl(bool action,bool init){
         ui->label_40_m->setText(QString::fromStdString(users[0].name));
         ui->label_1125->setText(QString::fromStdString(replayer.player2));
         ui->label_10->setText(QString::fromStdString(replayer.result));
+        ui->play_mega->setText(QString("Play"));
+        replayer.timer.stop();
+        replayer.timer.disconnect();
+        connect(&(replayer.timer),&QTimer::timeout,this,[this](){
+                timerCallbackMega();
+        });
+
     }else{
         if(action){
             if(i<replayer.moves.size()){
@@ -67,6 +74,8 @@ void MainWindow::megaReplayControl(bool action,bool init){
             }
             if(i>=replayer.moves.size()){
                 ui->pushButton_back_from_board_to_main_mega_r->setEnabled(false);
+                replayer.timer.stop();
+                ui->play_mega->setText(QString("Play"));
             }
         }else{
             if(i>0){
@@ -101,6 +110,19 @@ void MainWindow::LoadMegaReplay(){
     ui->previouspushbuttonmega->setEnabled(false);
 }
 
+void MainWindow::timerCallbackMega(){
+    megaReplayControl(1,0);
+}
 
-
+void MainWindow::on_play_mega_clicked()
+{
+    bool isStarted = ui->play_mega->text() == QString("Stop");
+    if(!isStarted){
+        replayer.timer.start(1000);
+        ui->play_mega->setText(QString("Stop"));
+    }else{
+        replayer.timer.stop();
+        ui->play_mega->setText(QString("Play"));
+    }
+}
 

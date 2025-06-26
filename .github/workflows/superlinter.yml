@@ -40,6 +40,7 @@ jobs:
         with:
           version: '6.6.3'
           arch: 'win64_msvc2019_64' # Architecture and compiler (64-bit, MSVC 2019)
+          modules: 'qtmultimedia' # for the background music
 
       - name: Set up CMake # Install CMake to configure and manage the build
         uses: jwlawson/actions-setup-cmake@v1

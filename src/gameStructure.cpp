@@ -195,6 +195,7 @@
                 return false; // At least one empty cell found
         }
     }
+    winningGrids[subgrid/3][subgrid%3] = 'T';
     return true; // All cells filled
 }
 
@@ -219,6 +220,22 @@
             if ((k + 1) % 3 == 0) cout << endl;
         }
         cout<<"\n\n";
+    }
+
+    int megaBoard::winCase(int sub){
+        int row = sub/3 , col = sub % 3;
+        if(winningGrids[row][0]==winningGrids[row][1]&&winningGrids[row][0]==winningGrids[row][2]){
+            return 1; // row win
+        }
+        if(winningGrids[0][col]==winningGrids[1][col]&&winningGrids[0][col]==winningGrids[2][col]){
+            return 2; // col win
+        }
+        if(winningGrids[0][0]==winningGrids[1][1]&&winningGrids[0][0]==winningGrids[2][2]){
+            return 3; //1st diagonal
+        }
+        if(winningGrids[0][2]==winningGrids[1][1]&&winningGrids[0][2]==winningGrids[2][0]){
+            return 4; //2nd diagonal
+        }
     }
 
     //########################################struct Game Functions########################################
