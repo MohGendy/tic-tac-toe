@@ -74,6 +74,7 @@
         if(grid[0][2]==grid[1][1]&&grid[0][2]==grid[2][0]){
             return 4; //2nd diagonal
         }
+        return 0; // no win
     }
     //########################################struct megaBoard Functions########################################
     megaBoard::megaBoard(){

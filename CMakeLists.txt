@@ -34,6 +34,8 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 file(GLOB APP_SOURCES "src/main.cpp" "src/*.cpp" "ui/*.ui" "include/*.h")
 file(GLOB TEST_SOURCES "src/gameStructure.cpp" "src/ai.cpp" "tests/*.cpp" "src/database.cpp")
 
+
+
 # Create main app
 qt6_add_executable(my_program
     MANUAL_FINALIZATION
@@ -41,7 +43,12 @@ qt6_add_executable(my_program
     ${APP_RESOURCES}
 )
 
-# Optional: Add Windows icon
+if(WIN32)
+    # Set Windows subsystem to GUI
+    set_target_properties(my_program PROPERTIES WIN32_EXECUTABLE  FALSE)
+endif()    
+
+# Add Windows icon
 if(WIN32)
     set(APP_ICON_RESOURCE_WINDOWS "${CMAKE_CURRENT_SOURCE_DIR}/assets/app_icon.rc")
     target_sources(my_program PRIVATE ${APP_ICON_RESOURCE_WINDOWS})
@@ -57,6 +64,7 @@ target_link_libraries(my_program PRIVATE
     sqlite3
     bcrypt
     Threads::Threads
+    -mwindows  # For Windows GUI applications
 )
 
 # Link tests
