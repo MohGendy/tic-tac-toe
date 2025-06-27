@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(my_program VERSION 0.1 LANGUAGES CXX)
+project(my_program VERSION 1.0 LANGUAGES CXX)
 
 # Enable Qt goodies
 set(CMAKE_AUTOUIC ON)
